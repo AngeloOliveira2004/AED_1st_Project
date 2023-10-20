@@ -1,0 +1,21 @@
+# ninja log v5
+244	299	1697835895710488037	Projeto	31874b858e4039f0
+0	243	1697835895658487032	CMakeFiles/Projeto.dir/main.cpp.o	789a0c82722ae60c
+0	19	1697835969919940660	build.ninja	7172c9a5df7b431c
+0	21	1697835969919940660	build.ninja	7172c9a5df7b431c
+3	161	1697836026877077467	CMakeFiles/Projeto.dir/UC.cpp.o	c7606cd67c3f6e7f
+3	178	1697836026893077788	CMakeFiles/Projeto.dir/Schedule.cpp.o	62d375ab2eb382ac
+1	173	1697836099526551606	CMakeFiles/Projeto.dir/Class.cpp.o	2a57d11ba2fa33d8
+1	456	1697836099810557418	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
+0	482	1697836099834557907	CMakeFiles/Projeto.dir/Student.cpp.o	247d6da2d55dbad3
+482	527	1697836099878558809	Projeto	8e23b2f2bb12bfd1
+3	180	1697836210176841349	CMakeFiles/Projeto.dir/Schedule.cpp.o	62d375ab2eb382ac
+2	183	1697836210180841432	CMakeFiles/Projeto.dir/Class.cpp.o	2a57d11ba2fa33d8
+3	189	1697836210184841516	CMakeFiles/Projeto.dir/UC.cpp.o	c7606cd67c3f6e7f
+3	463	1697836210460847287	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
+2	483	1697836210480847706	CMakeFiles/Projeto.dir/Student.cpp.o	247d6da2d55dbad3
+483	529	1697836210524848626	Projeto	8e23b2f2bb12bfd1
+2	249	1697836325267270007	CMakeFiles/Projeto.dir/Class.cpp.o	2a57d11ba2fa33d8
+3	467	1697836325487274690	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
+1	490	1697836325507275115	CMakeFiles/Projeto.dir/Student.cpp.o	247d6da2d55dbad3
+490	538	1697836325555276136	Projeto	8e23b2f2bb12bfd1

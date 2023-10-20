@@ -5,7 +5,8 @@
 #ifndef PROJETO_DATE_H
 #define PROJETO_DATE_H
 
-#include "stdafx.h"
+using namespace std;
+#include "string"
 
 struct Date
 {

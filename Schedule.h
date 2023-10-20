@@ -5,13 +5,17 @@
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
-#include "stdafx.h"
+#include "UC.h"
+#include "vector"
 
-class Schecule {
+class Schedule {
+private:
 
     std::vector<UC>* studentsSchedules;
-
     //cria-se um unico objecto de cada vetor quando for necessário
+
+public:
+
 
 };
 

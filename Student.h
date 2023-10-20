@@ -5,7 +5,8 @@
 #ifndef PROJETO__STUDENT_H
 #define PROJETO__STUDENT_H
 
-#include "Schecule.h"
+
+#include "stdafx.h"
 
 class Student {
 private:
@@ -13,30 +14,25 @@ private:
     int Id;
     std::string Name;
     std::vector<pair<std::string , std::string>> ClassesToUcs;
-    char year;
-    Schecule* schedule;
+    char Year;
+    Schedule* StudentSchedule;
 
 public:
 
-    // Constructors
     Student();
-    Student(int Id_, std::string   Name_ , std::list<UC>  Ucs_,std::list<Class> Classes_);
+    Student(int id, const std::string& name, char year);
 
-    // Getters
-    int GetId() const;
-    std::string GetName() const;
-    std::list<UC>  GetUcs() const;
-    std::list<Class> GetClasses() const;
+    int getId() const;
+    const std::string& getName() const;
+    char getYear() const;
+    class Schedule* getStudentSchedule() const;
 
-    // Setters
-    void SetId(int id);
-    void SetName(const std::string& name);
-    void SetUcs(const std::list<UC> & ucs);
-    void Setclasses(std::list<Class>& classes_);
+    // Setter functions
+    void setId(int id);
+    void setName(const std::string& name);
+    void setYear(char year);
+    void setStudentSchedule(class Schedule* schedule);
 
-    // Custom comparison function to sort by name and id
-    static bool CompareByID(const Student& a, const Student& b);
-    static bool CompareByName(const Student& a, const Student& b);
     bool operator >(const Student& other) const;
     bool operator<(const Student& other) const;
     bool operator ==(const Student& other) const;

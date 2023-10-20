@@ -9,9 +9,11 @@
 
 class LoadFIles {
 public:
-    static void Load_Student_Classes(std::list<Student>& students);
-    static void Load_Classes_Per_Uc(std::list<Class>& classes);
-    static void Load_Uc(std::list<UC>& ucs);
+    static void Load_Student_Classes(std::vector<Student>& students);
+    static void Load_Classes_Per_Uc(std::vector<Class>& classes);
+    static void Load_Uc(std::vector<UC>& ucs);
+
+    static void NormaliseString(std::string& str);
 
 };
 

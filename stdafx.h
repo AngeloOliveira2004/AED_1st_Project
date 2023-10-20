@@ -22,6 +22,7 @@
 #include <cstdlib>
 #include <chrono>
 
+#include "Schedule.h"
 #include "Student.h"
 #include "Class.h"
 #include "UC.h"
