@@ -16,7 +16,7 @@ void LoadFIles::Load_Classes_Per_Uc(std::vector<Class> &classes)
     Class class_;
     std::string uc;
     std::vector<std::string> ucs;
-    std::unordered_set<std::string> visited;
+    std::unordered_map<std::string , std::vector<std::string>> visited;
 
     std::vector<Class> Result;
 
@@ -43,15 +43,30 @@ void LoadFIles::Load_Classes_Per_Uc(std::vector<Class> &classes)
         }
 
         ucs.push_back(tokens[0]);
-        string temp = tokens[1];
-        NormaliseString(temp);
-        class_.setClassCode(temp);
-        class_.setUCs(ucs);
+        string className = tokens[1];
+        NormaliseString(className);
+
+        auto it = visited.find(className);
+
+        if(it != visited.end())
+        {
+            visited[className].push_back(tokens[0]);
+        }
+        else
+        {
+            visited[className] = {tokens[0]};
+        }
+    }
+    file.close();
+
+    for(const auto& pair : visited)
+    {
+        class_.setClassCode(pair.first);
+        class_.setUCs(pair.second);
         Result.push_back(class_);
     }
 
-    file.close();
-
+    classes = Result;
 }
 
 void LoadFIles::Load_Uc(std::vector<UC> &ucs)
