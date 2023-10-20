@@ -35,6 +35,11 @@ public:
     void setClassesToUcs(const std::vector<pair<std::string , std::string>> ClassesToUcs_);
     void setStudentSchedule(class Schedule* schedule);
 
+    //Quality of life functions
+    static void sort(std::vector<Student>& students);
+    static bool compareStudentsByID(const Student& student1, const Student& student2);
+
+    //operators overload
     bool operator >(const Student& other) const;
     bool operator<(const Student& other) const;
     bool operator ==(const Student& other) const;

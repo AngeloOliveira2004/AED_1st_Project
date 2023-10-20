@@ -6,19 +6,6 @@ Student::Student() : Id(0), Name(""), Year(0), StudentSchedule(nullptr) {}
 // Parameterized constructor
 Student::Student(int id, const std::string& name, char year) : Id(id), Name(name), Year(year), StudentSchedule(nullptr) {}
 
-// Comparison operators
-bool Student::operator>(const Student& other) const {
-    return Id > other.Id;
-}
-
-bool Student::operator<(const Student& other) const {
-    return Id < other.Id;
-}
-
-bool Student::operator==(const Student& other) const {
-    return Id == other.Id;
-}
-
 // Getter functions
 int Student::getId() const {
     return Id;
@@ -60,4 +47,27 @@ void Student::setClassesToUcs(const std::vector<pair<std::string, std::string>> 
 
 void Student::setStudentSchedule(Schedule* schedule) {
     StudentSchedule = schedule;
+}
+
+// Comparison operators
+bool Student::operator>(const Student& other) const {
+    return Id > other.Id;
+}
+
+bool Student::operator<(const Student& other) const {
+    return Id < other.Id;
+}
+
+bool Student::operator==(const Student& other) const {
+    return Id == other.Id;
+}
+
+void Student::sort(std::vector<Student>& students)
+{
+    std::sort(students.begin(), students.end(), compareStudentsByID);
+}
+
+bool Student::compareStudentsByID(const Student &student1, const Student &student2)
+{
+    return student1.getId() < student2.getId();
 }
