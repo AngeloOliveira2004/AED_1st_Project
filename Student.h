@@ -25,12 +25,14 @@ public:
     int getId() const;
     const std::string& getName() const;
     char getYear() const;
+    std::vector<pair<std::string , std::string>> getClassesToUcs();
     class Schedule* getStudentSchedule() const;
 
     // Setter functions
     void setId(int id);
     void setName(const std::string& name);
     void setYear(char year);
+    void setClassesToUcs(const std::vector<pair<std::string , std::string>> ClassesToUcs_);
     void setStudentSchedule(class Schedule* schedule);
 
     bool operator >(const Student& other) const;

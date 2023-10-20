@@ -7,7 +7,7 @@
 
 #include "stdafx.h"
 
-class LoadFIles {
+class LoadFiles {
 public:
     static void Load_Student_Classes(std::vector<Student>& students);
     static void Load_Classes_Per_Uc(std::vector<Class>& classes);
