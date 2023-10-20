@@ -5,6 +5,7 @@
 
 //common c++ libraries
 #include <fstream>
+#include "algorithm"
 #include <iostream>
 #include <sstream>
 #include <utility>
