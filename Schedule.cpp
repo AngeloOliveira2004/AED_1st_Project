@@ -16,7 +16,7 @@ void Schedule::addUC(const UC& uc) {
 }
 
 // Get a reference to the vector of UC objects
-std::vector<UC>& Schedule::getUCs() {
+vector<UC> & Schedule::getUCs() const {
     return *studentsSchedules;
 }
 
@@ -31,22 +31,29 @@ size_t Schedule::size() {
 }
 
 void Schedule::populateSchedule(const std::vector<std::pair<std::string, std::string>>& classUcPairs, const std::vector<UC>& allUCs) {
+    std::unordered_multimap<std::string, UC> ucMap; // Use multimap for multiple UCs with the same key
 
-    auto compareByName = [](const UC& uc, const std::string& code) {
-        return uc.getUcCode() < code;
-    };
+    // Build the index
+    for (const UC& uc : allUCs) {
+        ucMap.insert({uc.getRespectiveClass(), uc});
+        ucMap.insert({uc.getUcCode(), uc});
+    }
 
+    // Find and append matching UCs
     for (const auto& pair : classUcPairs) {
         const std::string& className = pair.first;
-        const std::string& ucCode = pair.second;
+        const std::string& ucName = pair.second;
 
-        // Find all matching UCs
-        auto range = std::equal_range(allUCs.begin(), allUCs.end(), compareByName);
-
-        for (auto it = range.first; it != range.second; ++it) {
-            // Add each matching UC to the schedule
-            studentsSchedules->push_back(*it);
+        // Find UCs matching class name
+        auto classRange = ucMap.equal_range(className);
+        for (auto it = classRange.first; it != classRange.second; ++it) {
+            // Check if the UC name also matches
+            if (it->second.getUcCode() == ucName) {
+                studentsSchedules->push_back(it->second);
+            }
         }
     }
 }
+
+
 

@@ -22,18 +22,22 @@ public:
     Student();
     Student(int id, const std::string& name, char year);
 
+    ~Student() {
+        delete StudentSchedule; // Clean up the Schedule object
+    }
+
     int getId() const;
     const std::string& getName() const;
     char getYear() const;
     std::vector<pair<std::string , std::string>> getClassesToUcs();
-    class Schedule* getStudentSchedule() const;
+    Schedule* getStudentSchedule() const;
 
     // Setter functions
     void setId(int id);
     void setName(const std::string& name);
     void setYear(char year);
-    void setClassesToUcs(const std::vector<pair<std::string , std::string>> ClassesToUcs_);
-    void setStudentSchedule(class Schedule* schedule);
+    void setClassesToUcs(std::vector<pair<std::string , std::string>> ClassesToUcs_);
+    void setStudentSchedule(Schedule* schedule);
 
     //Quality of life functions
     static void sort(std::vector<Student>& students);

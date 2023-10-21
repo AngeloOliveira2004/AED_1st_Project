@@ -10,19 +10,25 @@ int main() {
     LoadFiles::Load_Uc(ucs);
     LoadFiles::Load_Classes_Per_Uc(classes);
 
-    Student::sort(students);
-    for(auto student : students)
-    {
-        cout << student.getName() << " " << student.getId() << ":" << "\n";
 
-        for(auto p : student.getClassesToUcs())
-        {
 
-            cout << p.first << " " << p.second << "\n" ;
+    Schedule schedule(&ucs);
+    for (auto& student : students) {  // Changed auto to auto& to work on the same student object
+        schedule.populateSchedule(student.getClassesToUcs(), ucs);
+
+        student.setStudentSchedule(&schedule);  // Pass the address of schedule
+
+        cout << student.getName() << " " << student.getId() << "\n";
+
+        for (auto& p : student.getStudentSchedule()->getUCs()) {  // Changed auto to auto&
+            cout << p.getUcCode() << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n";
         }
-
-        cout << "\n";
+        break;
     }
+
+    return 0;
+}
+
 
 /*
     for(auto p : ucs)
@@ -41,4 +47,3 @@ int main() {
         cout << "\n";
     }
 */
-}

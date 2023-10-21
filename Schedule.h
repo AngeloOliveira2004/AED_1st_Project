@@ -6,8 +6,9 @@
 #define PROJETO_SCHECULE_H
 
 #include "UC.h"
-#include <algorithm>
+#include "algorithm"
 #include "vector"
+#include "unordered_map"
 
 class Schedule {
 private:
@@ -26,7 +27,7 @@ public:
     void addUC(const UC& uc);
 
     // Get a reference to the vector of UC objects
-    std::vector<UC>& getUCs();
+    vector<UC> & getUCs() const;
 
     // Retrieve a specific UC by index
     UC& getUC(int index);

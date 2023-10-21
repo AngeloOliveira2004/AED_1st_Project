@@ -23,7 +23,7 @@ std::vector<pair<std::string , std::string>>  Student::getClassesToUcs() {
     return ClassesToUcs;
 }
 
-Schedule* Student::getStudentSchedule() const {
+Schedule *Student::getStudentSchedule() const {
     return StudentSchedule;
 }
 
@@ -45,7 +45,8 @@ void Student::setClassesToUcs(const std::vector<pair<std::string, std::string>> 
     ClassesToUcs = ClassesToUcs_;
 }
 
-void Student::setStudentSchedule(Schedule* schedule) {
+void Student::setStudentSchedule(Schedule* schedule)
+{
     StudentSchedule = schedule;
 }
 
