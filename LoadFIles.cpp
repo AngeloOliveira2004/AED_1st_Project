@@ -39,7 +39,7 @@ void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
             skip_first = false;
             currentStudent.setId(studentId);
             currentStudent.setName(studentName);
-            continue;
+            classes_to_ucs_.push_back(std::make_pair(classCode , ucCode));
         }
 
         if (visited.find(studentId) == visited.end()) {

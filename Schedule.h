@@ -13,21 +13,18 @@
 class Schedule {
 private:
 
-    std::vector<UC>* studentsSchedules;
+    std::vector<UC> studentsSchedules;
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
-    Schedule(std::vector<UC>* ucs);
-
-    // Destructor to clean up the allocated memory
-    ~Schedule();
+    Schedule(std::vector<UC> ucs);
 
     // Add a UC object to the vector
     void addUC(const UC& uc);
 
     // Get a reference to the vector of UC objects
-    vector<UC> & getUCs() const;
+    vector<UC> getUCs() const;
 
     // Retrieve a specific UC by index
     UC& getUC(int index);
@@ -35,7 +32,7 @@ public:
     // Get the number of UCs in the schedule
     size_t size();
 
-    void populateSchedule(const std::vector<std::pair<std::string, std::string>>& classUcPairs, const std::vector<UC>& allUCs);
+    void populateSchedule(const std::vector<std::pair<std::string, std::string>>& classUcPairs, const std::vector<UC> allUCs);
 };
 
 
