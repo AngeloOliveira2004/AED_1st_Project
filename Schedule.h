@@ -5,9 +5,11 @@
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
+class Student;
 class Class;
 #include "UC.h"
 #include "Class.h"
+#include "Student.h"
 #include "vector"
 #include "map"
 #include "unordered_map"
@@ -34,7 +36,7 @@ public:
     // Get the number of UCs in the schedule
     size_t size();
 
-    void populateScheduleStudent(const std::vector<std::pair<std::string, std::string>>& classUcPairs, const std::vector<UC> allUCs);
+    void populateScheduleStudent(Student& student, const std::vector<UC> allUCs);
     void populateSchedule(Class& class_, const std::vector<UC> allUCs);
 };
 

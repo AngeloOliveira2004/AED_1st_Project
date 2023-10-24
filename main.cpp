@@ -25,19 +25,18 @@ int main() {
         }
     }
 */
+    for(Class class_ : classes)
+    {
+        schedule.populateSchedule(class_, ucs);
 
-        for(Class class_ : classes)
-        {
-            schedule.populateSchedule(class_, ucs);
+        class_.setClassSchedule(&schedule);
 
-            class_.setClassSchedule(&schedule);
+        cout << class_.getClassCode() << ": \n";
 
-            cout << class_.getClassCode() << ": \n";
-
-            for (auto& p : class_.getClassSchedule()->getUCs()) {  // Changed auto to auto&
-                cout << p.getUcCode() << " " << p.getType() << " " <<p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-            }
-            cout << "\n";
+        for (auto& p : class_.getClassSchedule()->getUCs()) {  // Changed auto to auto&
+            cout << p.getUcCode() << " " << p.getType() << " " <<p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
         }
+        cout << "\n";
+    }
     return 0;
 }
