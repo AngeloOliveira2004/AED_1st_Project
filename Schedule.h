@@ -36,7 +36,7 @@ public:
     // Get the number of UCs in the schedule
     size_t size();
 
-    void populateScheduleStudent(Student& student, const std::vector<UC> allUCs);
+    void populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
     void populateSchedule(Class& class_, const std::vector<UC> allUCs);
 };
 

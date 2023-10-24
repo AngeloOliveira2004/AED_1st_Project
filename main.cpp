@@ -13,8 +13,7 @@ int main() {
 /*
     for (auto& student : students) {  // Changed auto to auto& to work on the same student object
 
-
-        //schedule.populateSchedule(student.getClassesToUcs(), ucs);
+        schedule.populateScheduleStudent(student, ucs);
 
         student.setStudentSchedule(&schedule);
 

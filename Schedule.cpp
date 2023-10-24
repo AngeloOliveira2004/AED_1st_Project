@@ -26,44 +26,29 @@ size_t Schedule::size() {
 }
 
 
-void Schedule::populateScheduleStudent(Student& student, const std::vector<UC> allUCs) {
-    std::unordered_multimap<std::string, UC> ucMap; // Use multimap for multiple UCs with the same key
-
-/*
-    // Build the index
-    for (const UC& uc : allUCs) {
-        ucMap.insert({uc.getRespectiveClass(), uc});
-    }
-
-    // Find and append matching UCs
-    for (const auto& pair : classUcPairs) {
-        const std::string& className = pair.first;
-        const std::string& ucName = pair.second;
-
-        // Find UCs matching class name
-        auto classRange = ucMap.equal_range(className);
-        for (auto it = classRange.first; it != classRange.second; ++it) {
-
-           std::cout << it->first;
-            // Check if the UC name also matches
-            if (it->second.getUcCode() == ucName) {
-                studentsSchedules->push_back(it->second);
-            }
-        }
-    }
-    */
+void Schedule::populateScheduleStudent(Student& student, const std::vector<UC>& allUCs) {
     studentsSchedules.clear();
-    for(const UC& uc : allUCs )
-    {
-        for(const auto pair1 : classUcPairs)
-        {
-            if(uc.getUcCode() == pair1.first && uc.getRespectiveClass() == pair1.second)
-            {
-                studentsSchedules.push_back(uc);
+
+    std::unordered_map<std::string, std::unordered_set<std::string>> ucMap;
+
+    for (const UC& uc : allUCs) {
+        ucMap[uc.getUcCode()].insert(uc.getRespectiveClass());
+    }
+
+    for (const auto& pair1 : student.getClassesToUcs()) {
+        const std::string& ucCode = pair1.first;
+        const std::string& ucClass = pair1.second;
+
+        if (ucMap.count(ucCode) > 0 && ucMap[ucCode].count(ucClass) > 0) {
+            for (const UC& uc : allUCs) {
+                if (uc.getUcCode() == ucCode && uc.getRespectiveClass() == ucClass) {
+                    studentsSchedules.push_back(uc);
+                }
             }
         }
     }
 }
+
 
 
 //O(N) complexity where n is the size of allUCs vector
