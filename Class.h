@@ -5,7 +5,8 @@
 #ifndef PROJETO_CLASS_H
 #define PROJETO_CLASS_H
 
-#include "Schedule.h"
+class Schedule;
+#include "stdafx.h"
 
 class Class {
 private:
