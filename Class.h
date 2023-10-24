@@ -31,6 +31,8 @@ public:
     void setStudents(const std::vector<std::string>& students);
     void setUCs(const std::vector<std::string>& ucs);
     void setClassSchedule(Schedule* classSchedule);
+
+    static void sort(std::vector<Class>& classes);
 };
 
 #endif //PROJETO_CLASS_H

@@ -40,3 +40,14 @@ void Class::setUCs(const std::vector<std::string>& ucs) {
 void Class::setClassSchedule(Schedule* classSchedule) {
     Class_Schedule = classSchedule;
 }
+
+void Class::sort(std::vector<Class> &classes)
+{
+    // Define a local function
+    auto compareClassesByName = [](const Class& class1, const Class& class2) {
+        return class1.getClassCode() < class2.getClassCode();
+    };
+
+    // Use the local function for sorting
+    std::sort(classes.begin(), classes.end(), compareClassesByName);
+}

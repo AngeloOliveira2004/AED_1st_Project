@@ -26,7 +26,7 @@ public:
 
     // Add a UC object to the vector
     void addUC(const UC& uc);
-
+    void clear();
     // Get a reference to the vector of UC objects
     vector<UC> getUCs() const;
 

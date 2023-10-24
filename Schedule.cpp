@@ -10,6 +10,10 @@ void Schedule::addUC(const UC& uc) {
     studentsSchedules.push_back(uc);
 }
 
+void Schedule::clear()
+{
+    studentsSchedules.clear();
+}
 // Get a reference to the vector of UC objects
 vector<UC> Schedule::getUCs() const {
     return studentsSchedules;
@@ -25,7 +29,7 @@ size_t Schedule::size() {
     return studentsSchedules.size();
 }
 
-
+//O(N) complexity where n is the size of allUCs vector
 void Schedule::populateScheduleStudent(Student& student, const std::vector<UC>& allUCs) {
     studentsSchedules.clear();
 
@@ -48,8 +52,6 @@ void Schedule::populateScheduleStudent(Student& student, const std::vector<UC>& 
         }
     }
 }
-
-
 
 //O(N) complexity where n is the size of allUCs vector
 void Schedule::populateSchedule(Class& class_, const std::vector<UC> allUCs) {

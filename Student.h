@@ -47,6 +47,8 @@ public:
     bool operator >(const Student& other) const;
     bool operator<(const Student& other) const;
     bool operator ==(const Student& other) const;
+
+    void populateSchedule(const vector<Class> classes);
 };
 
 #endif //PROJETO__STUDENT_H
