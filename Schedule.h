@@ -5,39 +5,31 @@
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
-class Student;
-class Class;
-#include "UC.h"
-#include "Class.h"
-#include "Student.h"
-#include "vector"
-#include "map"
-#include "unordered_map"
+#include "stdafx.h"
 
 class Schedule {
 private:
 
-    std::vector<UC> studentsSchedules;
+    std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
+    std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
+
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
-    Schedule(std::vector<UC> ucs);
+    Schedule();
+    Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
+             std::vector<std::pair<Class, std::vector<UC>>> classSchedules_);
 
-    // Add a UC object to the vector
-    void addUC(const UC& uc);
-    void clear();
     // Get a reference to the vector of UC objects
-    vector<UC> getUCs() const;
+    [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
+    [[nodiscard]]  std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
 
-    // Retrieve a specific UC by index
-    UC& getUC(int index);
+    void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
+    void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
 
-    // Get the number of UCs in the schedule
-    size_t size();
-
-    void populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
-    void populateSchedule(Class& class_, const std::vector<UC> allUCs);
+    void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
+    void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
 };
 
 

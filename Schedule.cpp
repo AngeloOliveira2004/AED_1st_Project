@@ -1,67 +1,60 @@
 #include <iostream>
+#include <utility>
 #include "Schedule.h"
 
-// Constructor implementation
-Schedule::Schedule(std::vector<UC> ucs) : studentsSchedules(ucs) {
+// Constructor implementation O(1)
+Schedule::Schedule() : StudentSchedules({}) , ClassSchedules({}){}
+
+Schedule::Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
+                    std::vector<std::pair<Class, std::vector<UC>>> classSchedules_) :
+
+        ClassSchedules(std::move(classSchedules_)) , StudentSchedules(std::move(studentSchedules_)) {}
+
+
+// Get a reference to the vector of UC objects O(1)
+std::vector<std::pair<Student, std::vector<UC>>> Schedule::getStudentSchedules() {
+    return StudentSchedules;
 }
 
-// Add a UC object to the vector
-void Schedule::addUC(const UC& uc) {
-    studentsSchedules.push_back(uc);
+std::vector<std::pair<Class , std::vector<UC>>>  Schedule::getClassSchedules() {
+    return ClassSchedules;
 }
 
-void Schedule::clear()
-{
-    studentsSchedules.clear();
-}
-// Get a reference to the vector of UC objects
-vector<UC> Schedule::getUCs() const {
-    return studentsSchedules;
+void Schedule::setStudentSchedules(std::vector<std::pair<Student, std::vector<UC>>> StudentSchedules_) {
+    StudentSchedules = std::move(StudentSchedules_);
 }
 
-// Retrieve a specific UC by index
-UC& Schedule::getUC(int index) {
-    return studentsSchedules.at(index);
+void Schedule::setClassSchedules(std::vector<std::pair<Class, std::vector<UC>>> ClassSchedules_) {
+    ClassSchedules = std::move(ClassSchedules_);
 }
 
-// Get the number of UCs in the schedule
-size_t Schedule::size() {
-    return studentsSchedules.size();
-}
 
-//O(N) complexity where n is the size of allUCs vector
-void Schedule::populateScheduleStudent(Student& student, const std::vector<UC>& allUCs) {
-    studentsSchedules.clear();
+void Schedule::FindStudentInSchedules(const std::string& nameToFind, std::pair<Student, std::vector<UC>>& StudentPair) {
+    auto it = std::lower_bound(StudentSchedules.begin(), StudentSchedules.end(), nameToFind, [](const std::pair<Student, std::vector<UC>>& pair, const std::string& name) {
+        return pair.first.getName() < name;
+    });
 
-    std::unordered_map<std::string, std::unordered_set<std::string>> ucMap;
-
-    for (const UC& uc : allUCs) {
-        ucMap[uc.getUcCode()].insert(uc.getRespectiveClass());
-    }
-
-    for (const auto& pair1 : student.getClassesToUcs()) {
-        const std::string& ucCode = pair1.first;
-        const std::string& ucClass = pair1.second;
-
-        if (ucMap.count(ucCode) > 0 && ucMap[ucCode].count(ucClass) > 0) {
-            for (const UC& uc : allUCs) {
-                if (uc.getUcCode() == ucCode && uc.getRespectiveClass() == ucClass) {
-                    studentsSchedules.push_back(uc);
-                }
-            }
-        }
+    if (it != StudentSchedules.end() && it->first.getName() == nameToFind) {
+        // Found the student by name
+        StudentPair = *it;
+    } else {
+        // Student not found
+        std::cerr << "Student not found" << std::endl;
     }
 }
 
-//O(N) complexity where n is the size of allUCs vector
-void Schedule::populateSchedule(Class& class_, const std::vector<UC> allUCs) {
-    studentsSchedules.clear();
+void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Class, std::vector<UC>>& ClassPair) {
+    auto compareFunc = [](const std::pair<Class, std::vector<UC>>& pair, const std::string& code) {
+        return pair.first.getClassCode() < code;
+    };
 
-    std::unordered_set<std::string> ucCodesSet(class_.getUCs().begin(), class_.getUCs().end());
+    auto it = std::lower_bound(ClassSchedules.begin(), ClassSchedules.end(), classCode, compareFunc);
 
-    for (const UC& uc : allUCs) {
-        if (uc.getUcCode() == class_.getClassCode() && ucCodesSet.count(uc.getRespectiveClass()) > 0) {
-            studentsSchedules.push_back(uc);
-        }
+    if (it != ClassSchedules.end() && compareFunc(*it, classCode) == 0) {
+        // Found the class
+        ClassPair = *it;
+    } else {
+        // Class not found
+        std::cerr << "Class not found" << std::endl;
     }
 }
