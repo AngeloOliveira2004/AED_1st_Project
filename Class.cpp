@@ -1,11 +1,13 @@
 #include "Class.h"
 
+#include <utility>
+
 // Default constructor
-Class::Class() : ClassCode(""), Students(), UCs(), Class_Schedule(nullptr) {}
+Class::Class() : ClassCode(""), Students(), UCs(){}
 
 // Parameterized constructor
-Class::Class(const std::string& classCode, const std::vector<std::string>& students, const std::vector<std::string>& ucs, Schedule* classSchedule)
-        : ClassCode(classCode), Students(students), UCs(ucs), Class_Schedule(classSchedule) {}
+Class::Class(std::string  classCode, const std::vector<std::string>& students, const std::vector<std::string>& ucs)
+        : ClassCode(std::move(classCode)), Students(students), UCs(ucs){}
 
 // Getters
 const std::string& Class::getClassCode() const {
@@ -20,9 +22,6 @@ const std::vector<std::string>& Class::getUCs() const {
     return UCs;
 }
 
-Schedule* Class::getClassSchedule() const {
-    return Class_Schedule;
-}
 
 // Setters
 void Class::setClassCode(const std::string& classCode) {
@@ -35,10 +34,6 @@ void Class::setStudents(const std::vector<std::string>& students) {
 
 void Class::setUCs(const std::vector<std::string>& ucs) {
     UCs = ucs;
-}
-
-void Class::setClassSchedule(Schedule* classSchedule) {
-    Class_Schedule = classSchedule;
 }
 
 void Class::sort(std::vector<Class> &classes)

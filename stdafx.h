@@ -23,10 +23,9 @@
 #include <cstdlib>
 #include <chrono>
 
-#include "Schedule.h"
+#include "UC.h"
 #include "Student.h"
 #include "Class.h"
-#include "UC.h"
 #include "Date.h"
 
 using namespace std;

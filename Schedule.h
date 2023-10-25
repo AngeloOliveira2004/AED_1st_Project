@@ -5,31 +5,28 @@
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
-class Student;
-class Class;
-#include "UC.h"
-#include "Class.h"
-#include "Student.h"
-#include "vector"
-#include "map"
-#include "unordered_map"
+#include "stdafx.h"
 
 class Schedule {
 private:
 
-    std::vector<UC> studentsSchedules;
+    std::pair<Student , std::vector<UC>> StudentSchedules;
+    std::pair<Class , std::vector<UC>> ClassSchedules;
+
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
-    Schedule(std::vector<UC> ucs);
+    Schedule(std::pair<Student , std::vector<UC>> studentSchedules_);
+    Schedule(std::pair<Class , std::vector<UC>> classSchedules_);
 
     // Add a UC object to the vector
-    void addUC(const UC& uc);
-    void clear();
+    void addUC(const UC& uc , bool student);
+    void clear(bool student
+    );
     // Get a reference to the vector of UC objects
-    vector<UC> getUCs() const;
-
+    [[nodiscard]] std::pair<Student , std::vector<UC>> getStudentSchedules() const;
+    [[nodiscard]] std::pair<Class , std::vector<UC>> getClassSchedules() const;
     // Retrieve a specific UC by index
     UC& getUC(int index);
 
