@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "LoadFIles.h"
 #include "Schedule.h"
+#include "UI.h"
 
 int main() {
     std::vector<Student> students;
@@ -13,6 +14,7 @@ int main() {
     LoadFiles::Load_Classes_Per_Uc(classes);
 
     Class::sort(classes);
+    Student::sort(students);
 
     Schedule schedule;
 
@@ -52,6 +54,17 @@ int main() {
         }
         cout << "\n";
     }
+
+    std::pair<Student, std::vector<UC>> tempClass;
+    schedule.FindStudentInSchedules("Bianca" , tempClass);
+
+    cout << tempClass.first.getName() << " " << tempClass.first.getId() <<"\n";
+
+    for(auto p : tempClass.second)
+    {
+        cout << p.getUcCode() << " " << p.getType() << " " <<p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+    }
+    cout << "\n";
 /*
     for(const auto& class_ : classes)
     {
@@ -64,5 +77,6 @@ int main() {
         cout << "\n";
     }
 */
+    UI::menu_start();
     return 0;
 }

@@ -23,16 +23,13 @@ public:
 
     // Get a reference to the vector of UC objects
     [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
-    [[nodiscard]] std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
+    [[nodiscard]]  std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
 
     void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
     void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
 
-    void populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
-    void populateSchedule(Class& class_, const std::vector<UC> allUCs);
-
-    Student FindStudentInSchedules(const std::string& nameToFind);
-    Class FindClassInSchedules(const std::string& classCode);
+    void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
+    void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
 };
 
 

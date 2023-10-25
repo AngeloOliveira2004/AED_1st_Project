@@ -61,7 +61,7 @@ void Student::sort(std::vector<Student>& students)
 
 bool Student::compareStudentsByID(const Student &student1, const Student &student2)
 {
-    return student1.getId() < student2.getId();
+    return student1.getName() < student2.getName();
 }
 
 std::pair<Student, std::vector<UC>> Student::populateScheduleStudent(Student &student, const std::vector<UC> &allUCs)

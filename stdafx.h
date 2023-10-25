@@ -22,6 +22,7 @@
 #include <deque>
 #include <cstdlib>
 #include <chrono>
+#include <thread>
 
 #include "UC.h"
 #include "Student.h"

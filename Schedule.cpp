@@ -29,25 +29,21 @@ void Schedule::setClassSchedules(std::vector<std::pair<Class, std::vector<UC>>> 
 }
 
 
-Student Schedule::FindStudentInSchedules(const std::string& nameToFind) {
+void Schedule::FindStudentInSchedules(const std::string& nameToFind, std::pair<Student, std::vector<UC>>& StudentPair) {
     auto it = std::lower_bound(StudentSchedules.begin(), StudentSchedules.end(), nameToFind, [](const std::pair<Student, std::vector<UC>>& pair, const std::string& name) {
         return pair.first.getName() < name;
     });
 
     if (it != StudentSchedules.end() && it->first.getName() == nameToFind) {
         // Found the student by name
-        return it->first;
+        StudentPair = *it;
     } else {
         // Student not found
-        // You can return an empty Student object or handle the case as needed
-        return Student();
+        std::cerr << "Student not found" << std::endl;
     }
 }
 
-
-
-Class Schedule::FindClassInSchedules(const std::string& classCode)
-{
+void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Class, std::vector<UC>>& ClassPair) {
     auto compareFunc = [](const std::pair<Class, std::vector<UC>>& pair, const std::string& code) {
         return pair.first.getClassCode() < code;
     };
@@ -56,13 +52,9 @@ Class Schedule::FindClassInSchedules(const std::string& classCode)
 
     if (it != ClassSchedules.end() && compareFunc(*it, classCode) == 0) {
         // Found the class
-        return it->first;
+        ClassPair = *it;
     } else {
         // Class not found
-        // You can return an empty Class object or handle the case as needed
-        return Class();
+        std::cerr << "Class not found" << std::endl;
     }
 }
-
-
-
