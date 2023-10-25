@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "LoadFIles.h"
 #include "Schedule.h"
+#include "UI.h"
 
 int main() {
     std::vector<Student> students;
@@ -32,7 +33,7 @@ int main() {
     schedule.setClassSchedules(ClassSchedules_);
     schedule.setStudentSchedules(StudentSchedules_);
 
-
+/*
     for(auto pair1 : schedule.getStudentSchedules() )
     {
         cout << pair1.first.getName()<< " " << pair1.first.getId() << "\n";
@@ -64,5 +65,6 @@ int main() {
         cout << "\n";
     }
 */
+    UI::menu_start();
     return 0;
 }

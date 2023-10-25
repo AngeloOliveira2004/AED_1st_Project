@@ -22,8 +22,8 @@ public:
              std::vector<std::pair<Class, std::vector<UC>>> classSchedules_);
 
     // Get a reference to the vector of UC objects
-    [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
-    [[nodiscard]] std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
+    std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
+    std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
 
     void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
     void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);

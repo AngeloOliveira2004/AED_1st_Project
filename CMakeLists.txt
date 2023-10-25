@@ -10,4 +10,6 @@ add_executable(
         Class.cpp
         LoadFIles.cpp
         Schedule.cpp
-        UC.cpp)
+        UC.cpp
+        UI.cpp
+        UI.h)

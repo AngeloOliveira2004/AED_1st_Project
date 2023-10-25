@@ -9,7 +9,7 @@ void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
     std::unordered_set<int> visited;
     std::vector<pair<std::string , std::string>> classes_to_ucs_;
 
-    std::ifstream file("/home/jose-costa/Documents/Uni/AED/Projeto/schedule/students_classes.csv");
+    std::ifstream file("/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/schedule/students_classes.csv");
 
     if (!file.is_open()) {
         std::cerr << "Failed to open the CSV file." << std::endl;
@@ -81,7 +81,7 @@ void LoadFiles::Load_Classes_Per_Uc(std::vector<Class> &classes)
 
     std::vector<Class> Result;
 
-    std::ifstream file("/home/jose-costa/Documents/Uni/AED/Projeto/schedule/classes_per_uc.csv");
+    std::ifstream file("/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/schedule/classes_per_uc.csv");
 
     if (!file.is_open())
     {
@@ -134,7 +134,7 @@ void LoadFiles::Load_Uc(std::vector<UC> &ucs)
 {
     bool skip_header = true;
 
-    std::ifstream file("/home/jose-costa/Documents/Uni/AED/Projeto/schedule/classes.csv");
+    std::ifstream file("/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/schedule/classes.csv");
 
     if (!file.is_open()) {
         std::cerr << "Failed to open the CSV file." << std::endl;
