@@ -36,6 +36,32 @@ void Class::setUCs(const std::vector<std::string>& ucs) {
     UCs = ucs;
 }
 
+bool Class::operator<(const Class &other) const
+{
+    return this->ClassCode < other.ClassCode;
+}
+
+bool Class::operator==(const Class &other) const
+{
+    return this->ClassCode == other.ClassCode;
+}
+
+//O(N) complexity where n is the size of allUCs vector
+std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const std::vector<UC>& allUCs)
+{
+    std::pair<Class, std::vector<UC>> Result;
+    Result.first = class_;
+
+    std::unordered_set<std::string> ucCodesSet(class_.getUCs().begin(), class_.getUCs().end());
+
+    for (const UC& uc : allUCs) {
+        if (uc.getUcCode() == class_.getClassCode() && ucCodesSet.count(uc.getRespectiveClass()) > 0) {
+            Result.second.push_back(uc);
+        }
+    }
+    return Result;
+}
+
 void Class::sort(std::vector<Class> &classes)
 {
     // Define a local function

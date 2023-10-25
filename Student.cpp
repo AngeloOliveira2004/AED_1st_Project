@@ -64,30 +64,28 @@ bool Student::compareStudentsByID(const Student &student1, const Student &studen
     return student1.getId() < student2.getId();
 }
 
-/*
-void Student::populateSchedule(const vector<Class> classes)
+std::pair<Student, std::vector<UC>> Student::populateScheduleStudent(Student &student, const std::vector<UC> &allUCs)
 {
-    for (const auto& classToUC : ClassesToUcs) {
-        const std::string& className = classToUC.first;
-        const std::string& ucName = classToUC.second;
+    std::unordered_map<std::string, std::unordered_set<std::string>> ucMap;
 
-        // Binary search for the class name in the sorted vector
-        auto it = std::lower_bound(classes.begin(), classes.end(), className,
-                                   [](const Class& class_, const std::string& name) {
-                                       return class_.getClassCode() < name;
-                                   });
+    std::pair<Student, std::vector<UC>> Result;
+    Result.first = student;
 
-        if (it != classes.end() && it->getClassCode() == className) {
-            // Class found, append UCs from the class's schedule
-            const Schedule* classSchedule = it->getClassSchedule();
-            for(const UC& uc : classSchedule->getUCs())
-            {
-                if(ucName == uc.getRespectiveClass())
-                {
-                    StudentSchedule->addUC(uc);
+    for (const UC& uc : allUCs) {
+        ucMap[uc.getUcCode()].insert(uc.getRespectiveClass());
+    }
+
+    for (const auto& pair1 : student.getClassesToUcs()) {
+        const std::string& ucCode = pair1.first;
+        const std::string& ucClass = pair1.second;
+
+        if (ucMap.count(ucCode) > 0 && ucMap[ucCode].count(ucClass) > 0) {
+            for (const UC& uc : allUCs) {
+                if (uc.getUcCode() == ucCode && uc.getRespectiveClass() == ucClass) {
+                    Result.second.push_back(uc);
                 }
             }
         }
     }
+    return Result;
 }
- */

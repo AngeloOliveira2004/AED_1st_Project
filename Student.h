@@ -40,7 +40,8 @@ public:
     bool operator<(const Student& other) const;
     bool operator ==(const Student& other) const;
 
-    //void populateSchedule(const vector<Class> classes);
+    //O(N) complexity where n is the size of allUCs vector
+    static std::pair<Student, std::vector<UC>> populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
 };
 
 #endif //PROJETO__STUDENT_H

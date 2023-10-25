@@ -29,6 +29,14 @@ public:
     void setUCs(const std::vector<std::string>& ucs);
 
     static void sort(std::vector<Class>& classes);
+
+    bool operator ==(const Class& other) const;
+    bool operator<(const Class& other) const;
+
+
+    //O(N) complexity where n is the size of allUCs vector
+    static std::pair<Class, std::vector<UC>> populateSchedule(Class& class_, const std::vector<UC>& allUCs);
+
 };
 
 #endif //PROJETO_CLASS_H

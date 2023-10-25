@@ -1,85 +1,68 @@
 #include <iostream>
+#include <utility>
 #include "Schedule.h"
 
-// Constructor implementation
-Schedule::Schedule(std::pair<Class, std::vector<UC>> classSchedules_) :
-    ClassSchedules(classSchedules_) {}
+// Constructor implementation O(1)
+Schedule::Schedule() : StudentSchedules({}) , ClassSchedules({}){}
+
+Schedule::Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
+                    std::vector<std::pair<Class, std::vector<UC>>> classSchedules_) :
+
+        ClassSchedules(std::move(classSchedules_)) , StudentSchedules(std::move(studentSchedules_)) {}
 
 
-Schedule::Schedule(std::pair<Student, std::vector<UC>> studentSchedules_) :
-    StudentSchedules(studentSchedules_) {}
+// Get a reference to the vector of UC objects O(1)
+std::vector<std::pair<Student, std::vector<UC>>> Schedule::getStudentSchedules() {
+    return StudentSchedules;
+}
+
+std::vector<std::pair<Class , std::vector<UC>>>  Schedule::getClassSchedules() {
+    return ClassSchedules;
+}
+
+void Schedule::setStudentSchedules(std::vector<std::pair<Student, std::vector<UC>>> StudentSchedules_) {
+    StudentSchedules = std::move(StudentSchedules_);
+}
+
+void Schedule::setClassSchedules(std::vector<std::pair<Class, std::vector<UC>>> ClassSchedules_) {
+    ClassSchedules = std::move(ClassSchedules_);
+}
 
 
+Student Schedule::FindStudentInSchedules(const std::string& nameToFind) {
+    auto it = std::lower_bound(StudentSchedules.begin(), StudentSchedules.end(), nameToFind, [](const std::pair<Student, std::vector<UC>>& pair, const std::string& name) {
+        return pair.first.getName() < name;
+    });
 
-// Add a UC object to the vector
-void Schedule::addUC(const UC& uc , bool student) {
-    if(student)
-    {
-        StudentSchedules.second.push_back(uc);
-    }
-    else
-    {
-        ClassSchedules.second.push_back(uc);
+    if (it != StudentSchedules.end() && it->first.getName() == nameToFind) {
+        // Found the student by name
+        return it->first;
+    } else {
+        // Student not found
+        // You can return an empty Student object or handle the case as needed
+        return Student();
     }
 }
 
-void Schedule::clear(bool student)
+
+
+Class Schedule::FindClassInSchedules(const std::string& classCode)
 {
-    if(student)
-    {
-        StudentSchedules.second.clear();
-    }
-    else
-    {
-        ClassSchedules.second.clear();
-    }
-}
-// Get a reference to the vector of UC objects
-std::pair<Student, std::vector<UC>> Schedule::getStudentSchedules() const {
-    return std::pair<Student, std::vector<UC>>();
-}
+    auto compareFunc = [](const std::pair<Class, std::vector<UC>>& pair, const std::string& code) {
+        return pair.first.getClassCode() < code;
+    };
 
-std::pair<Class, std::vector<UC>> Schedule::getClassSchedules() const {
-    return std::pair<Class, std::vector<UC>>();
-}
+    auto it = std::lower_bound(ClassSchedules.begin(), ClassSchedules.end(), classCode, compareFunc);
 
-//O(N) complexity where n is the size of allUCs vector
-void Schedule::populateScheduleStudent(Student& student, const std::vector<UC>& allUCs) {
-    StudentSchedules.second.clear();
-
-    std::unordered_map<std::string, std::unordered_set<std::string>> ucMap;
-
-    for (const UC& uc : allUCs) {
-        ucMap[uc.getUcCode()].insert(uc.getRespectiveClass());
-    }
-
-    for (const auto& pair1 : student.getClassesToUcs()) {
-        const std::string& ucCode = pair1.first;
-        const std::string& ucClass = pair1.second;
-
-        if (ucMap.count(ucCode) > 0 && ucMap[ucCode].count(ucClass) > 0) {
-            for (const UC& uc : allUCs) {
-                if (uc.getUcCode() == ucCode && uc.getRespectiveClass() == ucClass) {
-                    StudentSchedules.second.push_back(uc);
-                }
-            }
-        }
+    if (it != ClassSchedules.end() && compareFunc(*it, classCode) == 0) {
+        // Found the class
+        return it->first;
+    } else {
+        // Class not found
+        // You can return an empty Class object or handle the case as needed
+        return Class();
     }
 }
-
-//O(N) complexity where n is the size of allUCs vector
-void Schedule::populateSchedule(Class& class_, const std::vector<UC> allUCs) {
-    ClassSchedules.second.clear();
-
-    std::unordered_set<std::string> ucCodesSet(class_.getUCs().begin(), class_.getUCs().end());
-
-    for (const UC& uc : allUCs) {
-        if (uc.getUcCode() == class_.getClassCode() && ucCodesSet.count(uc.getRespectiveClass()) > 0) {
-            ClassSchedules.second.push_back(uc);
-        }
-    }
-}
-
 
 
 

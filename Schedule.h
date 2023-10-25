@@ -10,31 +10,29 @@
 class Schedule {
 private:
 
-    std::pair<Student , std::vector<UC>> StudentSchedules;
-    std::pair<Class , std::vector<UC>> ClassSchedules;
+    std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
+    std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
 
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
-    Schedule(std::pair<Student , std::vector<UC>> studentSchedules_);
-    Schedule(std::pair<Class , std::vector<UC>> classSchedules_);
+    Schedule();
+    Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
+             std::vector<std::pair<Class, std::vector<UC>>> classSchedules_);
 
-    // Add a UC object to the vector
-    void addUC(const UC& uc , bool student);
-    void clear(bool student
-    );
     // Get a reference to the vector of UC objects
-    [[nodiscard]] std::pair<Student , std::vector<UC>> getStudentSchedules() const;
-    [[nodiscard]] std::pair<Class , std::vector<UC>> getClassSchedules() const;
-    // Retrieve a specific UC by index
-    UC& getUC(int index);
+    [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
+    [[nodiscard]] std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
 
-    // Get the number of UCs in the schedule
-    size_t size();
+    void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
+    void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
 
     void populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
     void populateSchedule(Class& class_, const std::vector<UC> allUCs);
+
+    Student FindStudentInSchedules(const std::string& nameToFind);
+    Class FindClassInSchedules(const std::string& classCode);
 };
 
 
