@@ -3,11 +3,16 @@
 1	879	1698271418905239061	CMakeFiles/Projeto.dir/Schedule.cpp.o	62d375ab2eb382ac
 1	952	1698271418977235601	CMakeFiles/Projeto.dir/Student.cpp.o	247d6da2d55dbad3
 0	853	1698271418877240405	CMakeFiles/Projeto.dir/main.cpp.o	789a0c82722ae60c
+<<<<<<< HEAD
 0	21	1698690466945090614	build.ninja	7172c9a5df7b431c
+=======
+0	21	1698319623890632763	build.ninja	7172c9a5df7b431c
+>>>>>>> 0069294 (p)
 1	1079	1698271419101229664	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
 1	858	1698271418885240021	CMakeFiles/Projeto.dir/Class.cpp.o	2a57d11ba2fa33d8
 2	534	1698271448895904920	CMakeFiles/Projeto.dir/UI.cpp.o	664435f1a10659a
 3	204	1697843267234620079	CMakeFiles/Projeto.dir/UC.cpp.o	c7606cd67c3f6e7f
+<<<<<<< HEAD
 0	19	1698690466945090614	build.ninja	7172c9a5df7b431c
 2	236	1698690467185078938	CMakeFiles/Projeto.dir/UC.cpp.o	c7606cd67c3f6e7f
 1	919	1698690467865045869	CMakeFiles/Projeto.dir/main.cpp.o	789a0c82722ae60c
@@ -17,3 +22,14 @@
 1	1376	1698690468321023717	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
 1	1529	1698690468473016335	CMakeFiles/Projeto.dir/Schedule.cpp.o	62d375ab2eb382ac
 1529	1626	1698690468573011479	Projeto	7c3506165d407557
+=======
+1	19	1698319623890632763	build.ninja	7172c9a5df7b431c
+2	233	1698319624130623297	CMakeFiles/Projeto.dir/UC.cpp.o	c7606cd67c3f6e7f
+2	610	1698319624506608469	CMakeFiles/Projeto.dir/UI.cpp.o	664435f1a10659a
+1	895	1698319624790597269	CMakeFiles/Projeto.dir/main.cpp.o	789a0c82722ae60c
+1	902	1698319624798596954	CMakeFiles/Projeto.dir/Class.cpp.o	2a57d11ba2fa33d8
+1	928	1698319624822596007	CMakeFiles/Projeto.dir/Schedule.cpp.o	62d375ab2eb382ac
+0	993	1698319624886593484	CMakeFiles/Projeto.dir/Student.cpp.o	247d6da2d55dbad3
+1	1110	1698319625002588909	CMakeFiles/Projeto.dir/LoadFIles.cpp.o	acace369446a805
+1110	1194	1698319625086585596	Projeto	7c3506165d407557
+>>>>>>> 0069294 (p)
