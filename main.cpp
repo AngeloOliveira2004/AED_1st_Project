@@ -8,8 +8,9 @@ int main() {
     std::vector<Class> classes;
     std::vector<UC> ucs;
     std::vector<Schedule> schedules;
+    std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>> AttendencePair;
 
-    LoadFiles::Load_Student_Classes(students);
+    LoadFiles::Load_Student_Classes(students , AttendencePair);
     LoadFiles::Load_Uc(ucs);
     LoadFiles::Load_Classes_Per_Uc(classes);
 
@@ -21,18 +22,20 @@ int main() {
 
     Schedule schedule;
 
-    schedule.getAttendence(students , ClassAttendence , UcAttendence);
-
-    for(auto class_ : classes)
-    {
-        class_.setStudents(ClassAttendence[class_.getClassCode()]);
+    for (Class& class_ : classes) {
+        auto it = AttendencePair.first.find(class_.getClassCode());
+        if (it != AttendencePair.first.end()) {
+            class_.setStudents(AttendencePair.first[class_.getClassCode()]);
+        }
     }
 
-    for(auto uc : ucs)
-    {
-        uc.setOccupation(UcAttendence[uc.getUcCode()]);
+    for (UC& uc : ucs) {
+        auto it = AttendencePair.second.find(uc.getUcCode());
+        if (it != AttendencePair.second.end()) {
+            int occupation = AttendencePair.second[uc.getUcCode()];
+            uc.setOccupation(occupation);
+        }
     }
-
 
     for(auto p : classes)
     {
@@ -41,7 +44,7 @@ int main() {
         {
             cout << m << " ";
         }
-
+        cout << "\n";
     }
 
     std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_;

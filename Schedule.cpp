@@ -58,27 +58,6 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
         std::cerr << "Class not found" << std::endl;
     }
 }
-void Schedule::getAttendence(const std::vector<Student>& Students, std::unordered_map<std::string, std::unordered_set<std::string>>& ClassAttendence, std::unordered_map<std::string, int>& UcAttendence) {
-    for (Student student : Students) {
-        for (const auto& pair : student.getClassesToUcs()) {
-            // Update ClassAttendence
-            if (ClassAttendence.find(pair.first) != ClassAttendence.end()) {
-                if (ClassAttendence[pair.first].find(student.getName()) == ClassAttendence[pair.first].end()) {
-                    ClassAttendence[pair.first].insert(student.getName());
-                }
-            } else {
-                ClassAttendence[pair.first] = {student.getName()};
-            }
-            // Update UcAttendence
-            if (UcAttendence.find(pair.second) != UcAttendence.end()) {
-                UcAttendence[pair.second] += 1;
-            } else {
-                UcAttendence[pair.second] = 1;
-            }
-        }
-    }
-}
-
 
 void Schedule::SwitchClassesStudent(Student student1, UC uc1, Student student2, UC uc2) {
 

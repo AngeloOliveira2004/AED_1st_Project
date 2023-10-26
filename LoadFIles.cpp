@@ -4,7 +4,7 @@
 
 #include "LoadFIles.h"
 
-void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
+void LoadFiles::Load_Student_Classes(std::vector<Student>& students , std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>>& AttendencePair) {
     bool skip_first = true;
     std::unordered_set<int> visited;
     std::vector<pair<std::string , std::string>> classes_to_ucs_;
@@ -34,6 +34,24 @@ void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
         std::string ucCode = tokens[2];
         std::string classCode = tokens[3];
         NormaliseString(classCode);
+
+        if(AttendencePair.first.find(classCode) != AttendencePair.first.end())
+        {
+            AttendencePair.first[classCode].insert(studentName);
+        }
+        else
+        {
+            AttendencePair.first[classCode] = {studentName};
+        }
+
+        if(AttendencePair.second.find(ucCode) != AttendencePair.second.end())
+        {
+            AttendencePair.second[ucCode] += 1;
+        }
+        else
+        {
+            AttendencePair.second[ucCode] = 0;
+        }
 
         if (skip_first) {
             skip_first = false;
