@@ -91,7 +91,6 @@ void Schedule::getAttendence(std::vector<Student> Students)
     }
 }
 
-
 void Schedule::SwitchClassesStudent(Student student1, UC uc1, Student student2, UC uc2) {
 
     std::pair<Student, std::vector<UC>> studentPair1;
