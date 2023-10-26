@@ -1,7 +1,6 @@
 CMakeFiles/Projeto.dir/UI.cpp.o: \
  /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/UI.cpp \
  /usr/include/stdc-predef.h \
- /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/UI.h \
  /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/stdafx.h \
  /usr/include/c++/12/fstream /usr/include/c++/12/istream \
  /usr/include/c++/12/ios /usr/include/c++/12/iosfwd \
@@ -194,4 +193,7 @@ CMakeFiles/Projeto.dir/UI.cpp.o: \
  /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/UC.h \
  /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/Date.h \
  /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/Student.h \
- /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/Class.h
+ /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/Class.h \
+ /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/LoadFIles.h \
+ /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/Schedule.h \
+ /home/angelo/Downloads/Universidade/Algoritmo\ e\ Estrutura\ de\ Dados/Projeto_AED/UI.h

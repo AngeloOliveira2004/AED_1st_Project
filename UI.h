@@ -5,12 +5,18 @@
 #define PROJETO_UI_H
 
 #include "stdafx.h"
+#include "Schedule.h"
 
 class UI{
 public:
-    static void menu_start();
+    UI();
+    void menu_start();
     static void clear_screen();
-    static void menu_options();
+    void menu_options();
+    void menu_schedule();
+    void loading_stuff(UI& ui);
+private:
+    Schedule mySchedule;
 
 };
 
