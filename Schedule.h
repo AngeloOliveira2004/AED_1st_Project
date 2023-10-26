@@ -30,6 +30,9 @@ public:
 
     void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
     void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
+
+    void getAttendence(std::vector<Student> Student);
+    void SwitchClassesStudent(Student student1 , UC uc1 , Student student2 , UC uc2);
 };
 
 

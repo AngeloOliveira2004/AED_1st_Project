@@ -11,4 +11,5 @@ add_executable(
         LoadFIles.cpp
         Schedule.cpp
         UC.cpp
-        UI.cpp)
+        UI.cpp
+        Requests.h)

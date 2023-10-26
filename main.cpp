@@ -34,7 +34,6 @@ int main() {
     schedule.setClassSchedules(ClassSchedules_);
     schedule.setStudentSchedules(StudentSchedules_);
 
-
     for(auto pair1 : schedule.getStudentSchedules() )
     {
         cout << pair1.first.getName()<< " " << pair1.first.getId() << "\n";

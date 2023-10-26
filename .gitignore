@@ -2,6 +2,7 @@
 *.out
 
 cmake-build-debug/
+LoadFIles.cpp
 build/
 dist/
 node_modules/

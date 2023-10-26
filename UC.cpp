@@ -48,3 +48,8 @@ void UC::setOccupation(int occupation) {
 void UC::setDate(const Date& date) {
     Date_ = date;
 }
+
+bool UC::operator==(const UC other) const
+{
+    return (UcCode == other.UcCode) && (Type == other.Type);
+}

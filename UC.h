@@ -34,6 +34,7 @@ public:
     bool operator<(const std::string& code) const {
         return UcCode < code; // Assuming the UC name is used for comparison
     }
+    bool operator ==(const UC other) const;
 };
 
 #endif // PROJETO_UC_H

@@ -58,3 +58,57 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
         std::cerr << "Class not found" << std::endl;
     }
 }
+
+void Schedule::getAttendence(std::vector<Student> Students)
+{
+    unordered_map<std::string , std::unordered_set<std::string>> ClassAttendence;
+    unordered_map<std::string , int> UcAttendence;
+
+    for(Student student : Students)
+    {
+        for(auto pair : student.getClassesToUcs())
+        {
+            if(ClassAttendence.find(pair.first) != ClassAttendence.end())
+            {
+                if(ClassAttendence[pair.first].find(student.getName()) == ClassAttendence[pair.first].end())
+                {
+                    ClassAttendence[pair.first].insert(student.getName());
+                }
+            }
+            else
+            {
+                ClassAttendence[pair.first] = {student.getName()};
+            }
+            if(UcAttendence.find(pair.second) != UcAttendence.end())
+            {
+                UcAttendence[pair.second] += 1;
+            }
+            else
+            {
+                UcAttendence[student.getName()] = 1;
+            }
+        }
+    }
+}
+
+
+void Schedule::SwitchClassesStudent(Student student1, UC uc1, Student student2, UC uc2) {
+
+    std::pair<Student, std::vector<UC>> studentPair1;
+    std::pair<Student, std::vector<UC>> studentPair2;
+
+    FindStudentInSchedules(student1.getName() , studentPair1);
+    FindStudentInSchedules(student2.getName() , studentPair2);
+
+    auto it1 = std::find(studentPair1.second.begin(), studentPair1.second.end(), uc1);
+    auto it2 = std::find(studentPair2.second.begin(), studentPair2.second.end(), uc2);
+
+    if(it1 == studentPair2.second.end())
+    {
+        std::cout << "First UC not found , try another one";
+    }
+    if(it2 == studentPair2.second.end())
+    {
+        std::cout << "Second UC not found , try another one";
+    }
+}
