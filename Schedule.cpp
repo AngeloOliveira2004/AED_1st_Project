@@ -59,14 +59,11 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
     }
 }
 
-void Schedule::getAttendence(std::vector<Student> Students)
+void Schedule::getAttendence(const std::vector<Student>& Students , unordered_map<std::string , std::unordered_set<std::string>>& ClassAttendence ,unordered_map<std::string , int>& UcAttendence)
 {
-    unordered_map<std::string , std::unordered_set<std::string>> ClassAttendence;
-    unordered_map<std::string , int> UcAttendence;
-
     for(Student student : Students)
     {
-        for(auto pair : student.getClassesToUcs())
+        for(const auto& pair : student.getClassesToUcs())
         {
             if(ClassAttendence.find(pair.first) != ClassAttendence.end())
             {

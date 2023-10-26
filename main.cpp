@@ -16,7 +16,33 @@ int main() {
     Class::sort(classes);
     Student::sort(students);
 
+    unordered_map<std::string , std::unordered_set<std::string>> ClassAttendence ;
+    unordered_map<std::string , int> UcAttendence;
+
     Schedule schedule;
+
+    schedule.getAttendence(students , ClassAttendence , UcAttendence);
+
+    for(auto class_ : classes)
+    {
+        class_.setStudents(ClassAttendence[class_.getClassCode()]);
+    }
+
+    for(auto uc : ucs)
+    {
+        uc.setOccupation(UcAttendence[uc.getUcCode()]);
+    }
+
+
+    for(auto p : classes)
+    {
+        cout << p.getClassCode() << " \n";
+        for(auto m : p.getStudents())
+        {
+            cout << m << " ";
+        }
+
+    }
 
     std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_;
     std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_;
@@ -39,7 +65,7 @@ int main() {
         cout << pair1.first.getName()<< " " << pair1.first.getId() << "\n";
         for(auto p : pair1.second)
         {
-            cout << p.getUcCode() << " " << p.getType() << " " <<p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+            cout << p.getUcCode() << " " << p.getType() << p.getOccupation() << " " <<p.getRespectiveClass() << " " << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
         }
         cout << "\n";
     }
@@ -76,7 +102,6 @@ int main() {
         cout << "\n";
     }
 */
-    UI::clear_screen();
-    UI::menu_start();
+
     return 0;
 }
