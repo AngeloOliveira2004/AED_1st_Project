@@ -55,7 +55,7 @@ std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const s
     std::unordered_set<std::string> ucCodesSet(class_.getUCs().begin(), class_.getUCs().end());
 
     for (const UC& uc : allUCs) {
-        if (uc.getUcCode() == class_.getClassCode() && ucCodesSet.count(uc.getRespectiveClass()) > 0) {
+        if (uc.getRespectiveClass() == class_.getClassCode() && ucCodesSet.count(uc.getUcCode()) > 0) {
             Result.second.push_back(uc);
         }
     }

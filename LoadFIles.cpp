@@ -161,7 +161,7 @@ void LoadFiles::Load_Uc(std::vector<UC> &ucs)
         dateObject.Day = values[2];
         dateObject.Duration.first = std::stod(values[3]);
         dateObject.Duration.second = std::stod(values[4]) + dateObject.Duration.first;
-        UC uc(values[0], temp, values[1] , 0 , dateObject);
+        UC uc(values[1], temp, values[0] , 0 , dateObject);
         ucs.push_back(uc);
     }
 }

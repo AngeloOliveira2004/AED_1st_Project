@@ -76,8 +76,8 @@ std::pair<Student, std::vector<UC>> Student::populateScheduleStudent(Student &st
     }
 
     for (const auto& pair1 : student.getClassesToUcs()) {
-        const std::string& ucCode = pair1.first;
-        const std::string& ucClass = pair1.second;
+        const std::string& ucCode = pair1.second;
+        const std::string& ucClass = pair1.first;
 
         if (ucMap.count(ucCode) > 0 && ucMap[ucCode].count(ucClass) > 0) {
             for (const UC& uc : allUCs) {
