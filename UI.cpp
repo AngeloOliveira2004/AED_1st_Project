@@ -2,6 +2,13 @@
 // Created by angelo on 25-10-2023.
 //
 #include "UI.h"
+void UI::clear_screen() {
+    int i = 0;
+    while(i != 100) {
+        cout << endl;
+        i++;
+    }
+}
 
 void UI::menu_start() {
     char op;
@@ -28,10 +35,9 @@ void UI::menu_start() {
     }
     switch(op){
         case '1':
-            // do something
+                menu_options();
             break;
         case '2':
-            clear_screen();
             cout << "Thanks for using our schedule app!" << endl << "\n"
                  << "Made by: " << endl
                  << "Ângelo Oliveira || 202207798" << endl
@@ -43,10 +49,43 @@ void UI::menu_start() {
     }
 }
 
-void UI::clear_screen() {
-#ifdef _WIN32
-    std::system("cls");
-#else
-    std::system("clear");
-#endif
+void UI::menu_options() {
+    char op;
+    clear_screen();
+    cout << "What option would you like to choose?" << endl << '\n'
+         << "1. Consult schedule" << endl
+         << "2. Consult students" << endl
+         << "3. Consult the number of students registered in at least n UCs" << endl
+         << "4. Consult occupation" << endl
+         << "5. Consult the UCs with the greatest number of students" << endl
+         << "6. Update registrations" << endl
+         << "7. Return to main menu" << endl << endl
+         << "Insert the number: ";
+    cin >> op;
+    cout << "\n";
+    if(cin.fail()){
+        throw invalid_argument("Invalid number, try to use a number between 1 and 7");
+    }
+    while(op < '1' || op > '7'){
+        cout << "Introduce a valid option (1-7): ";
+        cin >> op;
+        cout << '\n';
+    }
+    switch(op){
+        case '1':
+            break;
+        case '2':
+            break;
+        case '3':
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case '6':
+            break;
+        case '7':
+            break;
+    }
+
 }

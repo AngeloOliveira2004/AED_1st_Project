@@ -10,6 +10,7 @@ class UI{
 public:
     static void menu_start();
     static void clear_screen();
+    static void menu_options();
 
 };
 

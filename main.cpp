@@ -56,7 +56,7 @@ int main() {
     }
 
     std::pair<Student, std::vector<UC>> tempClass;
-    schedule.FindStudentInSchedules("Bianca" , tempClass);
+    schedule.FindStudentInSchedules("Jacinta" , tempClass);
 
     cout << tempClass.first.getName() << " " << tempClass.first.getId() <<"\n";
 
@@ -77,6 +77,7 @@ int main() {
         cout << "\n";
     }
 */
+    UI::clear_screen();
     UI::menu_start();
     return 0;
 }
