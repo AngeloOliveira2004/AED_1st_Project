@@ -91,6 +91,12 @@ build CMakeFiles/Projeto.dir/UI.cpp.o: CXX_COMPILER__Projeto_unscanned_Debug /ho
   OBJECT_DIR = CMakeFiles/Projeto.dir
   OBJECT_FILE_DIR = CMakeFiles/Projeto.dir
 
+build CMakeFiles/Projeto.dir/Requests.cpp.o: CXX_COMPILER__Projeto_unscanned_Debug /home/jose-costa/Documents/Uni/AED/Projeto/Requests.cpp || cmake_object_order_depends_target_Projeto
+  DEP_FILE = CMakeFiles/Projeto.dir/Requests.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Projeto.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projeto.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Projeto
@@ -99,7 +105,7 @@ build CMakeFiles/Projeto.dir/UI.cpp.o: CXX_COMPILER__Projeto_unscanned_Debug /ho
 #############################################
 # Link the executable Projeto
 
-build Projeto: CXX_EXECUTABLE_LINKER__Projeto_Debug CMakeFiles/Projeto.dir/main.cpp.o CMakeFiles/Projeto.dir/Student.cpp.o CMakeFiles/Projeto.dir/Class.cpp.o CMakeFiles/Projeto.dir/LoadFIles.cpp.o CMakeFiles/Projeto.dir/Schedule.cpp.o CMakeFiles/Projeto.dir/UC.cpp.o CMakeFiles/Projeto.dir/UI.cpp.o
+build Projeto: CXX_EXECUTABLE_LINKER__Projeto_Debug CMakeFiles/Projeto.dir/main.cpp.o CMakeFiles/Projeto.dir/Student.cpp.o CMakeFiles/Projeto.dir/Class.cpp.o CMakeFiles/Projeto.dir/LoadFIles.cpp.o CMakeFiles/Projeto.dir/Schedule.cpp.o CMakeFiles/Projeto.dir/UC.cpp.o CMakeFiles/Projeto.dir/UI.cpp.o CMakeFiles/Projeto.dir/Requests.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Projeto.dir
   POST_BUILD = :

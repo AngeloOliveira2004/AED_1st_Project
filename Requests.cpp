@@ -4,6 +4,13 @@
 
 #include "Requests.h"
 
+#include <utility>
+
+
+Requests::Requests(std::vector<std::pair<Student, std::vector<UC>>> StudentSchedules_, std::vector<std::pair<Class, std::vector<UC>>> ClassSchedules_) :
+
+        StudentSchedules(std::move(StudentSchedules_)) , ClassSchedules(std::move(ClassSchedules_)) {}
+
 std::vector<std::pair<Student, std::vector<UC>>> Requests::getStudentSchedules() {
     return std::vector<std::pair<Student, std::vector<UC>>>();
 }
@@ -20,7 +27,7 @@ void Requests::setClassSchedules(std::vector<std::pair<Class, std::vector<UC>>> 
 
 }
 
-void Requests::SwitchClass(Student student1, Class new_class, Class ex_class) {
+void Requests::SwitchClass(Student &student1, Class &new_class, Class &ex_class) {
 
 }
 
@@ -43,3 +50,6 @@ void Requests::RemoveClass(Student student1, Class ex_class) {
 void Requests::AddClass(Student student, Class new_class) {
 
 }
+
+
+

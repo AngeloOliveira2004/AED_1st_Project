@@ -59,23 +59,45 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
     }
 }
 
-void Schedule::SwitchClassesStudent(Student student1, UC uc1, Student student2, UC uc2) {
+void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class) {
+    auto it = std::lower_bound(student1.getClassesToUcs().begin(), student1.getClassesToUcs().end(), ex_class.getClassCode(), [](const std::pair<string , string>& pair, const std::string& name) {
+        return pair.first < name;
+    });
 
-    std::pair<Student, std::vector<UC>> studentPair1;
-    std::pair<Student, std::vector<UC>> studentPair2;
-
-    FindStudentInSchedules(student1.getName() , studentPair1);
-    FindStudentInSchedules(student2.getName() , studentPair2);
-
-    auto it1 = std::find(studentPair1.second.begin(), studentPair1.second.end(), uc1);
-    auto it2 = std::find(studentPair2.second.begin(), studentPair2.second.end(), uc2);
-
-    if(it1 == studentPair2.second.end())
+    if(it == student1.getClassesToUcs().end())
     {
-        std::cout << "First UC not found , try another one";
+        std::cout << "Class not found";
+        return;
     }
-    if(it2 == studentPair2.second.end())
+/*
+    for(auto pair : student1.getClassesToUcs())
     {
-        std::cout << "Second UC not found , try another one";
+        if(pair.first == ex_class.getClassCode())
+        {
+            pair.first = Clas
+        }
     }
+*/
 }
+
+void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc) {
+
+}
+
+void Schedule::AddUC(Student student1, UC new_uc) {
+
+}
+
+void Schedule::RemoveUC(Student student1, UC ex_uc) {
+
+}
+
+void Schedule::RemoveClass(Student student1, Class ex_class) {
+
+}
+
+void Schedule::AddClass(Student student, Class new_class) {
+
+}
+
+

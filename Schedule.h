@@ -12,7 +12,8 @@ private:
 
     std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
     std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
-
+    std::vector<Student> StudentsVector;
+    std::vector<Class> ClassesVector;
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
@@ -31,7 +32,14 @@ public:
     void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
     void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
 
-    void SwitchClassesStudent(Student student1 , UC uc1 , Student student2 , UC uc2);
+
+    //All possible requests
+    void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
+    void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
+    void AddUC(Student student1 , UC new_uc);
+    void RemoveUC(Student student1 , UC ex_uc);
+    void RemoveClass(Student student1 , Class ex_class);
+    void AddClass(Student student , Class new_class);
 };
 
 

@@ -12,6 +12,9 @@ private:
     std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules ;
     std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
 public:
+
+    Requests(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_ , std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
+
     std::vector<std::pair<Student , std::vector<UC>>> getStudentSchedules();
     std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules();
 
