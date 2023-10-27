@@ -29,7 +29,6 @@ public:
     void setUCs(const std::vector<std::string>& ucs);
 
     static void sort(std::vector<Class>& classes);
-
     bool operator ==(const Class& other) const;
     bool operator<(const Class& other) const;
 

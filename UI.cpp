@@ -7,10 +7,6 @@
 #include "UI.h"
 
 void UI::loading_stuff(UI &ui) {
-    std::vector<Student> students;
-    std::vector<Class> classes;
-    std::vector<UC> ucs;
-    std::vector<Schedule> schedules;
 
     LoadFiles::Load_Student_Classes(students);
     LoadFiles::Load_Uc(ucs);
@@ -34,18 +30,6 @@ void UI::loading_stuff(UI &ui) {
 
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
-/*
-    for(const auto& class_ : classes)
-    {
-
-        cout << class_.getClassCode() << "\n";
-
-        for (auto& p : class_.getClassSchedule().getUCs()) {
-            cout << p.getUcCode() << " " << p.getType() << " " <<p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-        }
-        cout << "\n";
-    }
-*/
 }
 
 UI::UI() {
@@ -124,6 +108,7 @@ void UI::menu_options() {
             menu_schedule();
             break;
         case '2':
+            menu_students();
             break;
         case '3':
             break;
@@ -189,4 +174,50 @@ void UI::menu_schedule(){
                 break;
             }
         }
+}
+
+void UI::menu_students(){
+    char op;
+    clear_screen();
+    cout << "Which schedule would you like to consult?" <<'\n'
+         << "1. Consult students within a given Class" << endl
+         << "2. Consult students within a given UC" << endl
+         << "3. Consult students within a given Year" << endl << endl << endl << endl << endl << endl << '\n'
+         << "Insert the number: ";
+    cin >> op;
+    cout << "\n";
+    if(cin.fail()){
+        throw invalid_argument("Invalid number, try to use a number between 1 and 3");
+    }
+    while(op < '1' || op > '3'){
+        cout << "Introduce a valid option (1-3): ";
+        cin >> op;
+        cout << '\n';
+    }
+    switch(op){
+        case '1':
+            string class_number;
+            bool classFound = false;
+            Class it;
+            clear_screen();
+            cout << "What's the number of the class you would like to consult the students about: ";
+            cin >> class_number;
+            cout << endl;
+            for (const Class& targetClass : classes) {
+                if (targetClass.getClassCode() == class_number) {
+                    it = targetClass;
+                    classFound = true;
+                    break;
+                }
+            }
+            if(classFound){
+                cout << "Students in class " << it.getClassCode() << ":\n";
+                for (const string& studentInClass : it.getStudents()) {
+                    cout << "Student: " << studentInClass << '\n';
+                }
+            }else{
+                cout << "The Class you entered is invalid." << endl;
+            }
+            break;
+    }
 }

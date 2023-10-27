@@ -15,8 +15,13 @@ public:
     void menu_options();
     void menu_schedule();
     void loading_stuff(UI& ui);
+    void menu_students();
 private:
     Schedule mySchedule;
+    std::vector<Student> students;
+    std::vector<Class> classes;
+    std::vector<UC> ucs;
+    std::vector<Schedule> schedules;
 
 };
 

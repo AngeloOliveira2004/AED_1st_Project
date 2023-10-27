@@ -58,7 +58,7 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
         std::cerr << "Class not found" << std::endl;
     }
 }
-//Era suposto ser só meia template mas só funciona para C++ 20 ; _ ;
+
 void Schedule::sort_by_week_day(std::pair<Student,std::vector<UC>> &a){
     std::sort(a.second.begin(), a.second.end(), compare_day);
 }
