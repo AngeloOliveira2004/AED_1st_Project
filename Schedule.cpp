@@ -58,6 +58,18 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
         std::cerr << "Class not found" << std::endl;
     }
 }
+//O(n)
+int Schedule::FindStudentIndex(const Student &student)
+{
+    for(int i = 0; i < StudentSchedules.size() ; i++)
+    {
+        if(StudentSchedules[i].first == student)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 
 void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class) {
     auto it = std::lower_bound(student1.getClassesToUcs().begin(), student1.getClassesToUcs().end(), ex_class.getClassCode(), [](const std::pair<string , string>& pair, const std::string& name) {
@@ -81,7 +93,26 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class)
 }
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc) {
+    for(auto pair : student1.getClassesToUcs())
+    {
+        if(pair.second == ex_uc.getUcCode())
+        {
+            pair.first = new_uc.getRespectiveClass();
+            pair.second = new_uc.getUcCode();
+        }
+    }
 
+    int index = FindStudentIndex(student1);
+
+    StudentSchedules[index].first = student1;
+
+    for (auto it = StudentSchedules[index].second.begin(); it != StudentSchedules[index].second.end(); ++it) {
+        if (*it == ex_uc) {
+            // Found a matching UC, erase it and insert the new UC
+            it = StudentSchedules[index].second.erase(it);
+            StudentSchedules[index].second.insert(it, new_uc);
+        }
+    }
 }
 
 void Schedule::AddUC(Student student1, UC new_uc) {
