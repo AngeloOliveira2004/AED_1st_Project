@@ -31,7 +31,8 @@ public:
 
     void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
     void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
-    int FindStudentIndex(const Student& student);
+    int FindStudentIndex(const Student& student , const std::string& student_name);
+    int FindClassIndex(const Class& class_ , const std::string& class_name);
     //All possible requests
     void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
