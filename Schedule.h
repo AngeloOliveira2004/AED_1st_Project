@@ -30,6 +30,12 @@ public:
 
     void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
     void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
+
+    template <typename T>
+    void sort_by_week_day(std::pair<T, std::vector<UC>> &a);
+
+    template <typename T>
+    static bool compare_day(const UC &uc1, const UC &uc2);
 };
 
 

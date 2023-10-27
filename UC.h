@@ -30,10 +30,6 @@ public:
     void setRespectiveClass(const std::string& respectiveClass);
     void setOccupation(int occupation);
     void setDate(const Date& date);
-
-    bool operator<(const std::string& code) const {
-        return UcCode < code; // Assuming the UC name is used for comparison
-    }
 };
 
 #endif // PROJETO_UC_H

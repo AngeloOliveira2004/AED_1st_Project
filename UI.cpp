@@ -164,6 +164,7 @@ void UI::menu_schedule(){
                     cout << endl;
                     std::pair<Student, std::vector<UC>> tempClass;
                     mySchedule.FindStudentInSchedules(student_name, tempClass);
+                    mySchedule.sort_by_week_day(tempClass);
                     cout << "Name: " <<  tempClass.first.getName() << " " << "|| UP: " << tempClass.first.getId() <<"\n";
                     for(auto p : tempClass.second) {
                         cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
@@ -179,9 +180,10 @@ void UI::menu_schedule(){
                 cout << endl;
                 std::pair<Class, std::vector<UC>> tempClass;
                 mySchedule.FindClassInSchedules(class_number, tempClass);
+                mySchedule.sort_by_week_day(tempClass);
                 cout << "Class: " <<  tempClass.first.getClassCode() << endl;
                 for(auto p : tempClass.second) {
-                    cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                    cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
                 }
                 cout << "\n";
                 break;

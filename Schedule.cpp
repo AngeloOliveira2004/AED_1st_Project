@@ -58,3 +58,18 @@ void Schedule::FindClassInSchedules(const std::string& classCode, std::pair<Clas
         std::cerr << "Class not found" << std::endl;
     }
 }
+//Era suposto ser só meia template mas só funciona para C++ 20 ; _ ;
+template <typename T>
+void Schedule::sort_by_week_day(std::pair<T,std::vector<UC>> &a){
+    std::sort(a.second.begin(), a.second.end(), compare_day);
+}
+
+template <typename T>
+bool Schedule::compare_day(const UC &uc1, const UC &uc2){
+    std::map<std::string, int> dayMap = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}};
+    if(dayMap[uc1.getDate().Day] != dayMap[uc2.getDate().Day]){
+        return dayMap[uc1.getDate().Day] < dayMap[uc2.getDate().Day];
+    }else{
+        return uc1.getDate().Duration.first < uc2.getDate().Duration.second;
+    }
+}
