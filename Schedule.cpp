@@ -20,6 +20,11 @@ std::vector<std::pair<Class , std::vector<UC>>>  Schedule::getClassSchedules() {
     return ClassSchedules;
 }
 
+int Schedule::getBalance()
+{
+    return Balance;
+}
+
 void Schedule::setStudentSchedules(std::vector<std::pair<Student, std::vector<UC>>> StudentSchedules_) {
     StudentSchedules = std::move(StudentSchedules_);
 }
@@ -28,6 +33,10 @@ void Schedule::setClassSchedules(std::vector<std::pair<Class, std::vector<UC>>> 
     ClassSchedules = std::move(ClassSchedules_);
 }
 
+void Schedule::setBalance(int balance)
+{
+    Balance = balance;
+}
 
 void Schedule::FindStudentInSchedules(const std::string& nameToFind, std::pair<Student, std::vector<UC>>& StudentPair) {
     auto it = std::lower_bound(StudentSchedules.begin(), StudentSchedules.end(), nameToFind, [](const std::pair<Student, std::vector<UC>>& pair, const std::string& name) {
@@ -101,6 +110,25 @@ int Schedule::FindClassIndex(const Class& class_ , const std::string& class_code
     }
 }
 
+void Schedule::CalculateBalance()
+{
+    for(auto class_ : ClassSchedules)
+    {
+        Balance = std::max(static_cast<int>(class_.first.getStudents().size()), Balance);
+    }
+}
+
+void Schedule::StudentsInAtLeastNUcs(std::vector<Student>& students, char n)
+{
+    for(auto student : StudentSchedules)
+    {
+        if(student.first.getClassesToUcs().size() >= n)
+        {
+            students.push_back(student.first);
+        }
+    }
+}
+
 void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class)
 {
     auto it = std::lower_bound(student1.getClassesToUcs().begin(), student1.getClassesToUcs().end(),
@@ -122,7 +150,7 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class)
         }
     }
 */
-    }
+}
 
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
@@ -172,3 +200,5 @@ void Schedule::AddClass(Student student, Class new_class) {
 
 }
 
+//fazer number students registados n ucs
+//calcular balance

@@ -12,8 +12,9 @@ private:
 
     std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
     std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
-    std::vector<Student> StudentsVector;
-    std::vector<Class> ClassesVector;
+    int Balance;
+    int MAX_CAP = 30;
+
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
@@ -25,14 +26,20 @@ public:
     // Get a reference to the vector of UC objects
     [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
     [[nodiscard]]  std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
+    int getBalance();
 
     void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
     void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
+    void setBalance(int balance);
 
     void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
     void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
+    void StudentsInAtLeastNUcs(std::vector<Student>& students , char n);
+    void CalculateBalance();
     int FindStudentIndex(const Student& student , const std::string& student_name);
     int FindClassIndex(const Class& class_ , const std::string& class_name);
+
+
     //All possible requests
     void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
