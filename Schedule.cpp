@@ -176,9 +176,13 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 }
 
 void Schedule::AddUC(Student student1, UC new_uc) {
+    for(auto pair: student1.getClassesToUcs()){
+        if (pair.second == new_uc.getUcCode()){cout << "Student already enrolled in Uc";}
+    }
     if(student1.getClassesToUcs().size() < 7)
     {
         int index = FindStudentIndex(student1 , " ");
+        if(index == -1) {cout << "Student not found";}
         Class temp;
         int classIndex = FindClassIndex(temp , new_uc.getRespectiveClass());
         StudentSchedules[index].second.push_back(new_uc);
@@ -196,6 +200,16 @@ void Schedule::AddUC(Student student1, UC new_uc) {
 }
 
 void Schedule::RemoveUC(Student student1, UC ex_uc) {
+    bool enrolledInUc = false;
+    for(auto pair: student1.getClassesToUcs()){
+        if (pair.second == ex_uc.getUcCode()){
+            enrolledInUc = true;
+        }
+    }
+    if(!enrolledInUc){
+        cout << "Student isn´t enrolled in the Uc";
+        return;
+    }
     int index = FindStudentIndex(student1, " ");
     if(index == -1) {cout << "Student not found";}
     for(auto it = StudentSchedules[index].second.begin(); it != StudentSchedules[index].second.end(); ++it){
