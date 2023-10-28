@@ -146,7 +146,7 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class)
     {
         if(pair.first == ex_class.getClassCode())
         {
-            pair.first = Clas
+            pair.first = new_class.getClassCode()
         }
     }
 */
@@ -189,15 +189,47 @@ void Schedule::AddUC(Student student1, UC new_uc) {
 }
 
 void Schedule::RemoveUC(Student student1, UC ex_uc) {
-
+    // Mensagem de erro caso aluno n exista??
+    for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
+        if (it->first == ex_uc.getUcCode()) {
+            student1.getClassesToUcs().erase(it);
+            break;
+        }
+    }
+    // Mensagem de erro caso o aluno n esteja nessa Uc ??
 }
+
 
 void Schedule::RemoveClass(Student student1, Class ex_class) {
-
+    for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
+        if (it->second == ex_class.getClassCode())  {
+            student1.getClassesToUcs().erase(it);
+        }
+    }
 }
 
-void Schedule::AddClass(Student student, Class new_class) {
-
+void Schedule::AddClass(Student student1, Class new_class) {
+    bool classWithCapacity = false;
+    const std::unordered_set<std::string>& newClassCapacity = new_class.getStudents();
+    std::vector<pair<std::string , std::string>> newClassToUc;
+    for (const std::string& ucCode : new_class.getUCs()) {
+        bool alreadyTakingUc = false;
+        for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
+            if (it->first == ucCode){
+                alreadyTakingUc = true;
+                break;    //ja esta na uc, dar skip
+            }
+            }
+        if(!alreadyTakingUc && newClassCapacity.size() < MAX_CAP){
+            newClassToUc.push_back(std::make_pair(ucCode, new_class.getClassCode()));
+            //nao deixar q o aluno fique com mais de 7 ucs
+        }
+        if(newClassToUc.size() + student1.getClassesToUcs().size() < 7){  //Verificar se nao ha conflito no horario
+            for(pair p : newClassToUc){
+                student1.getClassesToUcs().push_back(p); //Deve haver forma mais efeciente de fzr isto mas n sei
+        }
+        }
+    }
 }
 
 //fazer number students registados n ucs

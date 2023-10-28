@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Projeto.dir/Class.cpp.o.d"
   "CMakeFiles/Projeto.dir/LoadFIles.cpp.o"
   "CMakeFiles/Projeto.dir/LoadFIles.cpp.o.d"
+  "CMakeFiles/Projeto.dir/Requests.cpp.o"
+  "CMakeFiles/Projeto.dir/Requests.cpp.o.d"
   "CMakeFiles/Projeto.dir/Schedule.cpp.o"
   "CMakeFiles/Projeto.dir/Schedule.cpp.o.d"
   "CMakeFiles/Projeto.dir/Student.cpp.o"

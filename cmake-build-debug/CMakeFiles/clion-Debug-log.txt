@@ -1,4 +1,4 @@
-/home/jose-costa/Documents/IDEs/CLion-2023.2.2/clion-2023.2.2/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/jose-costa/Documents/IDEs/CLion-2023.2.2/clion-2023.2.2/bin/ninja/linux/x64/ninja -G Ninja -S /home/jose-costa/Documents/Uni/AED/Projeto -B /home/jose-costa/Documents/Uni/AED/Projeto/cmake-build-debug
--- Configuring done (0.0s)
+/private/var/folders/np/271w924s727ckx1rk9r2bxrc0000gn/T/AppTranslocation/70D49BD3-F188-4DD2-9E79-A4DA23E48749/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/bernardosousa/Desktop/Projeto_AED -B /Users/bernardosousa/Desktop/Projeto_AED/cmake-build-debug
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/jose-costa/Documents/Uni/AED/Projeto/cmake-build-debug
+-- Build files have been written to: /Users/bernardosousa/Desktop/Projeto_AED/cmake-build-debug
