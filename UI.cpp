@@ -21,6 +21,7 @@ void UI::loading_stuff(UI &ui) {
     for(auto class_ : classes)
     {
         ClassSchedules_.push_back(Class::populateSchedule(class_ , ucs));
+
     }
 
     for(auto student : students)
@@ -195,10 +196,11 @@ void UI::menu_students(){
         cout << '\n';
     }
     switch(op){
-        case '1':
+        case '1': {
             string class_number;
             bool classFound = false;
             Class it;
+            set<pair<string,int>> StudentsTemp;
             clear_screen();
             cout << "What's the number of the class you would like to consult the students about: ";
             cin >> class_number;
@@ -211,13 +213,26 @@ void UI::menu_students(){
                 }
             }
             if(classFound){
+                for(Student &studentSet: students){
+                    for(const auto& pair: studentSet.getClassesToUcs()){
+                        if(pair.first == class_number){
+                            StudentsTemp.insert(make_pair(studentSet.getName(),studentSet.getId()));
+                        }
+                    }
+                }
+                it.setStudents(StudentsTemp);
                 cout << "Students in class " << it.getClassCode() << ":\n";
-                for (const string& studentInClass : it.getStudents()) {
-                    cout << "Student: " << studentInClass << '\n';
+                for (const auto& studentInClass : it.getStudents()) {
+                    cout <<"Name: " << studentInClass.first << " || UP: " << studentInClass.second << endl;
                 }
             }else{
                 cout << "The Class you entered is invalid." << endl;
             }
-            break;
+         break;
+        }
+        case '2':{
+
+        }
+
     }
 }

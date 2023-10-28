@@ -6,7 +6,7 @@
 Class::Class() : ClassCode(""), Students(), UCs(){}
 
 // Parameterized constructor
-Class::Class(std::string  classCode, const std::vector<std::string>& students, const std::vector<std::string>& ucs)
+Class::Class(std::string classCode, const std::set<std::pair<std::string, int>> students, const vector<std::string> &ucs)
         : ClassCode(std::move(classCode)), Students(students), UCs(ucs){}
 
 // Getters
@@ -14,7 +14,7 @@ const std::string& Class::getClassCode() const {
     return ClassCode;
 }
 
-const std::vector<std::string>& Class::getStudents() const {
+const set<pair<string, int>>& Class::getStudents() const {
     return Students;
 }
 
@@ -28,7 +28,7 @@ void Class::setClassCode(const std::string& classCode) {
     ClassCode = classCode;
 }
 
-void Class::setStudents(const std::vector<std::string>& students) {
+void Class::setStudents(const set<pair<string,int>>& students) {
     Students = students;
 }
 

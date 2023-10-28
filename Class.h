@@ -10,22 +10,22 @@
 class Class {
 private:
     std::string ClassCode;
-    std::vector<std::string> Students;
+    std::set<std::pair<std::string, int>> Students;
     std::vector<std::string> UCs;
 
 public:
     // Constructors
     Class();
-    Class(std::string  classCode, const std::vector<std::string>& students, const std::vector<std::string>& ucs);
+    Class(std::string  classCode, const std::set<std::pair<std::string, int>> students, const std::vector<std::string>& ucs);
 
     // Getters
     [[nodiscard]] const std::string& getClassCode() const;
-    [[nodiscard]] const std::vector<std::string>& getStudents() const;
+    [[nodiscard]] const set<pair<string,int>>& getStudents() const;
     [[nodiscard]] const std::vector<std::string>& getUCs() const;
 
     // Setters
     void setClassCode(const std::string& classCode);
-    void setStudents(const std::vector<std::string>& students);
+    void setStudents(const set<pair<string,int>>& students);
     void setUCs(const std::vector<std::string>& ucs);
 
     static void sort(std::vector<Class>& classes);
@@ -35,7 +35,6 @@ public:
 
     //O(N) complexity where n is the size of allUCs vector
     static std::pair<Class, std::vector<UC>> populateSchedule(Class& class_, const std::vector<UC>& allUCs);
-
 };
 
 #endif //PROJETO_CLASS_H
