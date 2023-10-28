@@ -10,26 +10,27 @@
 class Schedule {
 private:
 
-    std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
-    std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
+    std::unordered_map<Student, std::vector<UC>> studentClasses_;
+    std::unordered_map<Class, std::vector<UC>> classSchedules_;
 
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
     Schedule();
-    Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
-             std::vector<std::pair<Class, std::vector<UC>>> classSchedules_);
+    Schedule(std::unordered_map<Student, std::vector<UC>> studentClasses_,
+             std::unordered_map<Class, std::vector<UC>> classSchedules_);
+
 
     // Get a reference to the vector of UC objects
-    [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
-    [[nodiscard]]  std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
+    [[nodiscard]] std::unordered_map<Student, std::vector<UC>> getStudentSchedules();
+    [[nodiscard]] std::unordered_map<Class, std::vector<UC>> getClassSchedules();
 
-    void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
-    void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
+    void setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses_);
+    void setClassSchedules(std::unordered_map<Class, std::vector<UC>> classSchedules_);
 
-    void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
-    void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
+    void FindStudentInSchedules(const std::string &nameToFind, std::unordered_map<Student, std::vector<UC>> &StudentPair);
+    void FindClassInSchedules(const std::string& classCode , std::unordered_map<Class, std::vector<UC>>& ClassPair);
 
     static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
     static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
