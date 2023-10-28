@@ -145,7 +145,7 @@ void UI::menu_schedule(){
             case '1': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
                 string student_name;
                 clear_screen();
-                    cout << "What's the name of the student you would like to consult the schedule about: ";
+                    cout << "What's the name of the student you would like to consult the schedule: ";
                     cin >> student_name;
                     cout << endl;
                     std::pair<Student, std::vector<UC>> tempClass;
@@ -161,7 +161,7 @@ void UI::menu_schedule(){
             case '2': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
                 string class_number;
                 clear_screen();
-                cout << "What's the number of the class you would like to consult the schedule about: ";
+                cout << "What's the number of the class you would like to consult the schedule: ";
                 cin >> class_number;
                 cout << endl;
                 std::pair<Class, std::vector<UC>> tempClass;
@@ -202,7 +202,7 @@ void UI::menu_students(){
             Class it;
             set<pair<string,int>> StudentsTemp;
             clear_screen();
-            cout << "What's the number of the class you would like to consult the students about: ";
+            cout << "What's the Class Code of class you would like to consult the students: ";
             cin >> class_number;
             cout << endl;
             for (const Class& targetClass : classes) {
@@ -231,8 +231,51 @@ void UI::menu_students(){
          break;
         }
         case '2':{
-
+            string ucCode;
+            // bool ucFound = false;
+            set<pair<string,int>> StudentsTemp;
+            clear_screen();
+            cout << "What's the UC you would like to consult the students: ";
+            cin >> ucCode;
+            cout << endl;
+            cout << "Students in " << ucCode << ":\n";
+            /* Não está a funcionar por algumo motivo que não entendi porquê ?!?
+            for (const auto& targetUC : ucs) {
+                if (targetUC.getUcCode() == ucCode) {
+                    ucFound = true;
+                    break;
+                }
+            }
+             */
+                for(Student &studentSet: students){
+                    for(const auto& pair: studentSet.getClassesToUcs()){
+                        if(pair.second == ucCode){
+                            cout <<"Name: " << studentSet.getName() << " || UP: " << studentSet.getId() << endl;
+                        }
+                        break;
+                    }
+                }
         }
-
+        case '3':{
+            char year_number;
+            clear_screen();
+            cout << "What's the Year you would like to consult the students: ";
+            cin >> year_number;
+            cout << endl;
+            while(year_number < '1' || year_number > '3'){
+                cout << "Introduce a valid Year (1-3): ";
+                cin >> op;
+                cout << '\n';
+            }
+            cout << "Students in " << year_number << "º year" << ":\n";
+            for(Student &studentSet: students){
+                for(const auto& pair: studentSet.getClassesToUcs()){
+                    if(pair.first[0] == year_number){
+                        cout <<"Name: " << studentSet.getName() << " || UP: " << studentSet.getId() << endl;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
