@@ -36,6 +36,8 @@ public:
     static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
 
     static bool compare_day(const UC &uc1, const UC &uc2);
+
+    void FindClassInSchedules(const string &classCode, pair<Class, std::vector<UC>> &ClassPair);
 };
 
 

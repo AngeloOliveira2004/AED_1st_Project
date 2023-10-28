@@ -25,33 +25,28 @@ void Schedule::setClassSchedules(std::unordered_map<Class, std::vector<UC>> clas
     classSchedules_ = std::move(classSchedules);
 }
 
-
-
-void Schedule::FindStudentInSchedules(const std::string &nameToFind, std::unordered_map<Student, std::vector<UC>> &StudentPair) {
-    for (const auto &entry : studentClasses_) {
-        if (entry.first.getName() == nameToFind) {
-            // Found the student by name
-            StudentPair = entry;
+void Schedule::FindClassInSchedules(const std::string &classCode, std::unordered_map<Class, std::vector<UC>> &ClassPair) {
+    ClassPair.clear();
+    for (const auto &entry : classSchedules_) {
+        if (entry.first.getClassCode() == classCode) {
+            ClassPair.insert(entry);
             return;
         }
     }
-    // Student not found
-    std::cerr << "Student not found" << std::endl;
+    // Class not found
+    std::cerr << "Class not found" << std::endl;
 }
-
-
 
 void Schedule::FindClassInSchedules(const std::string &classCode, std::pair<Class, std::vector<UC>> &ClassPair) {
-    auto it = classSchedules_.find(Class("classname", 0)); // Replace "classname" with the appropriate name of the class constructor.
-
-    if (it != classSchedules_.end()) {
-        // Found the class
-        ClassPair = *it;
-    } else {
-        // Class not found
-        std::cerr << "Class not found" << std::endl;
+    for (const auto &entry : classSchedules_) {
+        if (entry.first.getClassCode() == classCode) {
+            ClassPair = entry;
+            return;
+        }
     }
+    std::cerr << "Class not found" << std::endl;
 }
+
 
 void Schedule::sort_by_week_day(std::pair<Student, std::vector<UC>> &a) {
     std::sort(a.second.begin(), a.second.end(), compare_day);
