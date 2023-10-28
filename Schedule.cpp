@@ -178,58 +178,93 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 void Schedule::AddUC(Student student1, UC new_uc) {
     if(student1.getClassesToUcs().size() < 7)
     {
-        student1.getClassesToUcs().push_back({new_uc.getRespectiveClass() , new_uc.getUcCode()});
         int index = FindStudentIndex(student1 , " ");
-        StudentSchedules[index].first = student1;
         Class temp;
         int classIndex = FindClassIndex(temp , new_uc.getRespectiveClass());
-
-        //fazer alterações nas classes e nas ucs. dá mais trabalho
+        StudentSchedules[index].second.push_back(new_uc);
+        for (auto& classSchedule : ClassSchedules) {
+            for (auto& uc : classSchedule.second) {
+                if (uc.getUcCode() == new_uc.getUcCode() && uc.getRespectiveClass() == new_uc.getRespectiveClass() && uc.getOccupation() < MAX_CAP) {
+                    int newOccupation = uc.getOccupation() + 1;
+                    uc.setOccupation(newOccupation);
+                    break;
+                }
+            }
+        }
+        //fazer alterações nas classes e nas ucs. dá mais trabalho*/
     }
 }
 
 void Schedule::RemoveUC(Student student1, UC ex_uc) {
-    // Mensagem de erro caso aluno n exista??
-    for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
-        if (it->first == ex_uc.getUcCode()) {
-            student1.getClassesToUcs().erase(it);
-            break;
+    int index = FindStudentIndex(student1, " ");
+    if(index == -1) {cout << "Student not found";}
+    for(auto it = StudentSchedules[index].second.begin(); it != StudentSchedules[index].second.end(); ++it){
+        if(it->getUcCode() == ex_uc.getUcCode()){
+            StudentSchedules[index].second.erase(it);
+            for (auto& classSchedule : ClassSchedules) {
+                for (auto& uc : classSchedule.second) {
+                    if (uc.getUcCode() == ex_uc.getUcCode() && uc.getRespectiveClass() == ex_uc.getRespectiveClass()) {
+                        int newOccupation = uc.getOccupation() - 1;
+                        uc.setOccupation(newOccupation);
+                        break;
+                    }
+                }
+            }
         }
     }
-    // Mensagem de erro caso o aluno n esteja nessa Uc ??
 }
 
 
 void Schedule::RemoveClass(Student student1, Class ex_class) {
-    for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
-        if (it->second == ex_class.getClassCode())  {
-            student1.getClassesToUcs().erase(it);
+    int studentIndex = FindStudentIndex(student1, " ");
+    int classIndex = FindClassIndex(ex_class, ex_class.getClassCode());
+    if(studentIndex == -1 || classIndex == -1) {cout << "Enter a valid Student and Class";}
+    for(auto it = ClassSchedules[classIndex].second.begin(); it != ClassSchedules[classIndex].second.end(); ++it){
+        int new_occupation = it->getOccupation();
+        for(auto it2 = student1.getClassesToUcs().begin(); it2 != student1.getClassesToUcs().end(); ++it2){
+            if(it2->second == ex_class.getClassCode()){
+                if(it2->first == it->getUcCode()){
+                    StudentSchedules[studentIndex].second.erase(it);
+                    for (auto& classSchedule : ClassSchedules) {
+                        for (auto& uc : classSchedule.second) {
+                            if (uc.getUcCode() == it->getUcCode() && uc.getRespectiveClass() == ex_class.getClassCode()) {
+                                int newOccupation = uc.getOccupation() - 1;
+                                uc.setOccupation(newOccupation);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 void Schedule::AddClass(Student student1, Class new_class) {
     bool classWithCapacity = false;
+    int studentIndex = FindStudentIndex(student1, " ");
+    int classIndex = FindClassIndex(new_class, new_class.getClassCode());
     const std::unordered_set<std::string>& newClassCapacity = new_class.getStudents();
-    std::vector<pair<std::string , std::string>> newClassToUc;
+    std::vector<UC> ucsToAdd;
     for (const std::string& ucCode : new_class.getUCs()) {
         bool alreadyTakingUc = false;
-        for (auto it = student1.getClassesToUcs().begin(); it != student1.getClassesToUcs().end(); ++it) {
-            if (it->first == ucCode){
+        for(auto it = ClassSchedules[classIndex].second.begin(); it != ClassSchedules[classIndex].second.end(); ++it){
+            if(it->getUcCode() == ucCode){
                 alreadyTakingUc = true;
-                break;    //ja esta na uc, dar skip
+                if(!alreadyTakingUc && newClassCapacity.size() < MAX_CAP){
+                    ucsToAdd.push_back(*it);
+                }
             }
-            }
-        if(!alreadyTakingUc && newClassCapacity.size() < MAX_CAP){
-            newClassToUc.push_back(std::make_pair(ucCode, new_class.getClassCode()));
-            //nao deixar q o aluno fique com mais de 7 ucs
-        }
-        if(newClassToUc.size() + student1.getClassesToUcs().size() < 7){  //Verificar se nao ha conflito no horario
-            for(pair p : newClassToUc){
-                student1.getClassesToUcs().push_back(p); //Deve haver forma mais efeciente de fzr isto mas n sei
-        }
         }
     }
+        if(ucsToAdd.size() + student1.getClassesToUcs().size() < 7){
+            for(UC newUc : ucsToAdd){
+                StudentSchedules[studentIndex].second.push_back(newUc);
+                int newOccupation = newUc.getOccupation() + 1;
+                newUc.setOccupation(newOccupation);
+            }
+        }
+    //Verificar se nao ha conflito no horario
 }
 
 //fazer number students registados n ucs
