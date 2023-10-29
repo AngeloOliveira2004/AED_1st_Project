@@ -19,7 +19,7 @@ char Student::getYear() const {
     return Year;
 }
 
-std::vector<pair<std::string , std::string>>  Student::getClassesToUcs() {
+std::vector<pair<std::string , std::string>>  Student::getClassesToUcs() const {
     return ClassesToUcs;
 }
 

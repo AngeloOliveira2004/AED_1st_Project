@@ -2,7 +2,7 @@
 #include "LoadFIles.h"
 #include "Schedule.h"
 #include "UI.h"
-
+/*
 int main() {
     std::vector<Student> students;
     std::vector<Class> classes;
@@ -104,7 +104,13 @@ int main() {
         }
         cout << "\n";
     }
-*/
 
+    return 0;
+}
+
+ */
+
+int main()
+{
     return 0;
 }

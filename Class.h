@@ -37,4 +37,13 @@ public:
     static std::pair<Class, std::vector<UC>> populateSchedule(Class& class_, const std::vector<UC>& allUCs);
 };
 
+namespace std {
+    template <>
+    struct hash<Class> {
+        size_t operator()(const Class& classObj) const {
+            return std::hash<std::string>{}(classObj.getClassCode());
+        }
+    };
+}
+
 #endif //PROJETO_CLASS_H

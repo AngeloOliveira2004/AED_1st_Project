@@ -7,47 +7,48 @@
 
 #include "stdafx.h"
 
-class Schedule {
+class Schedule
+{
 private:
 
-    std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules;
-    std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules;
+    std::unordered_map<Student, std::vector<UC>> StudentSchedules;
+    std::unordered_map<Class, std::vector<UC>> ClassSchedules;
     int Balance;
     int MAX_CAP = 30;
-
     //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
-    Schedule();
-    Schedule(std::vector<std::pair<Student, std::vector<UC>>> studentSchedules_,
-             std::vector<std::pair<Class, std::vector<UC>>> classSchedules_);
+    Schedule() = default;
+    Schedule(std::unordered_map<Student, std::vector<UC>> studentClasses_,
+             std::unordered_map<Class, std::vector<UC>> classSchedules_);
 
     // Get a reference to the vector of UC objects
-    [[nodiscard]]  std::vector<std::pair<Student, std::vector<UC>>> getStudentSchedules() ;
-    [[nodiscard]]  std::vector<std::pair<Class , std::vector<UC>>> getClassSchedules() ;
-    int getBalance();
+    [[nodiscard]] std::unordered_map<Student, std::vector<UC>> getStudentSchedules();
+    [[nodiscard]] std::unordered_map<Class, std::vector<UC>> getClassSchedules();
+    [[nodiscard]] int getBalance();
 
-    void setStudentSchedules(std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_);
-    void setClassSchedules(std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_);
+    void setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses_);
+    void setClassSchedules(std::unordered_map<Class, std::vector<UC>> classSchedules_);
     void setBalance(int balance);
 
-    void FindStudentInSchedules(const std::string& nameToFind , std::pair<Student , std::vector<UC>>& StudentPair);
-    void FindClassInSchedules(const std::string& classCode , std::pair<Class , std::vector<UC>>& ClassPair);
-    void StudentsInAtLeastNUcs(std::vector<Student>& students , char n);
+    void StudentsInAtLeastNUcs(char n , std::vector<Student> students);
     void CalculateBalance();
-    int FindStudentIndex(const Student& student , const std::string& student_name);
-    int FindClassIndex(const Class& class_ , const std::string& class_name);
+    bool FindStudentinSchedule(std::string student_name);
+    bool FindClassinSchedule(std::string ClassCode);
 
+    static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
+    static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
 
-    //All possible requests
     void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
     void AddUC(Student student1 , UC new_uc);
     void RemoveUC(Student student1 , UC ex_uc);
     void RemoveClass(Student student1 , Class ex_class);
     void AddClass(Student student , Class new_class);
+
 };
+
 
 
 #endif //PROJETO_SCHECULE_H
