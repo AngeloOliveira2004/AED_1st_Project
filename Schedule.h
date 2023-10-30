@@ -1,3 +1,7 @@
+//
+// Created by jose-costa on 10/20/23.
+//
+
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
@@ -9,7 +13,9 @@ private:
 
     std::unordered_map<Student, std::vector<UC>> StudentSchedules;
     std::unordered_map<Class, std::vector<UC>> ClassSchedules;
-    std::unordered_map<std::string , int> ucOcupation;
+    std::unordered_map<std::pair<std::string,std::string> , int, PairHash> UcOcupation;
+    std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance;
+    std::vector<UC> Ucs;
     int Balance;
     int MAX_CAP = 30;
 
@@ -22,6 +28,8 @@ public:
     // Get a reference to the vector of UC objects
     [[nodiscard]] std::unordered_map<Student, std::vector<UC>> getStudentSchedules();
     [[nodiscard]] std::unordered_map<Class, std::vector<UC>> getClassSchedules();
+    [[nodiscard]] std::unordered_map<std::pair<std::string,std::string> , int, PairHash> getUcOcupation();
+    [[nodiscard]] std::unordered_map<std::string , unordered_set<std::string>> getClassAttendance();
     [[nodiscard]] int getBalance();
 
     void setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses_);
@@ -32,6 +40,7 @@ public:
     void CalculateBalance();
     bool FindStudentinSchedule(std::string student_name);
     bool FindClassinSchedule(std::string ClassCode);
+    UC FindUC(const UC &targetUC);
 
     static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
     static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
@@ -46,7 +55,5 @@ public:
     void AddClass(Student student1, UC &uc, Class &new_class);
 
 };
-
-
 
 #endif //PROJETO_SCHECULE_H

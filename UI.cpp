@@ -8,7 +8,8 @@
 
 void UI::loading_stuff(UI &ui) {
 
-    LoadFiles::Load_Student_Classes(students);
+    std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>> AttendancePair;
+    LoadFiles::Load_Student_Classes(students,AttendancePair);
     LoadFiles::Load_Uc(ucs);
     LoadFiles::Load_Classes_Per_Uc(classes);
 
@@ -148,14 +149,16 @@ void UI::menu_schedule(){
                     cout << "What's the name of the student you would like to consult the schedule: ";
                     cin >> student_name;
                     cout << endl;
-                    std::pair<Student, std::vector<UC>> tempClass;
-                    mySchedule.FindStudentInSchedules(student_name, tempClass);
-                    mySchedule.sort_by_week_day(tempClass);
-                    cout << "Name: " <<  tempClass.first.getName() << " " << "|| UP: " << tempClass.first.getId() <<"\n";
-                    for(auto p : tempClass.second) {
-                        cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                    if(mySchedule.FindStudentinSchedule(student_name)){
+                        Student StudentToFind;
+                        StudentToFind.setName(student_name);
+                        auto it = mySchedule.getStudentSchedules().find(StudentToFind);
+                        cout << "Name: " <<  it->first.getName() << " " << "|| UP: " << it->first.getId() <<"\n";
+                        for(auto p : it->second) {
+                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                        }
+                        cout << "\n";
                     }
-                cout << "\n";
                 break;
             }
             case '2': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
@@ -164,12 +167,16 @@ void UI::menu_schedule(){
                 cout << "What's the number of the class you would like to consult the schedule: ";
                 cin >> class_number;
                 cout << endl;
-                mySchedule.FindClassinSchedule(class_number);
-                cout << "Class: " <<  tempClass.first.getClassCode() << endl;
-                for(auto p : tempClass.second) {
-                    cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                }
-                cout << "\n";
+                if(mySchedule.FindClassinSchedule(class_number)){
+                    Class ClassToFind;
+                    ClassToFind.setClassCode(class_number);
+                    auto it = mySchedule.getClassSchedules().find(ClassToFind);
+                    cout << "Class: " <<  it->first.getClassCode() << endl;
+                    for(auto p : it->second) {
+                        cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                    }
+                    cout << "\n";
+                };
                 break;
             }
         }
@@ -218,10 +225,9 @@ void UI::menu_students(){
                         }
                     }
                 }
-                it.setStudents(StudentsTemp);
                 cout << "Students in class " << it.getClassCode() << ":\n";
                 for (const auto& studentInClass : it.getStudents()) {
-                    cout <<"Name: " << studentInClass.first << " || UP: " << studentInClass.second << endl;
+                    cout <<"Name: " << studentInClass << " || UP: " << studentInClass << endl;
                 }
             }else{
                 cout << "The Class you entered is invalid." << endl;
