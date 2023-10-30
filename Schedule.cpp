@@ -15,12 +15,11 @@ std::unordered_map<Student, std::vector<UC>> Schedule::getStudentSchedules() {
     return StudentSchedules;
 }
 
-std::unordered_map<Class, std::vector<UC>>   Schedule::getClassSchedules() {
+std::unordered_map<Class, std::vector<UC>> Schedule::getClassSchedules() {
     return ClassSchedules;
 }
 
-int Schedule::getBalance()
-{
+int Schedule::getBalance() {
     return Balance;
 }
 

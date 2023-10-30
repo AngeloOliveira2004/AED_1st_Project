@@ -8,7 +8,6 @@
 
 void UI::loading_stuff(UI &ui) {
 
-    std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>> AttendancePair;
     LoadFiles::Load_Student_Classes(students,AttendancePair);
     LoadFiles::Load_Uc(ucs);
     LoadFiles::Load_Classes_Per_Uc(classes);
@@ -149,20 +148,25 @@ void UI::menu_schedule(){
                     cout << "What's the name of the student you would like to consult the schedule: ";
                     cin >> student_name;
                     cout << endl;
-                    if(mySchedule.FindStudentinSchedule(student_name)){
-                        cout << "Hi";
+                    if(mySchedule.FindStudentinSchedule(student_name)){ //Esta função retorna sempre False
                         Student StudentToFind;
                         StudentToFind.setName(student_name);
                         auto it = mySchedule.getStudentSchedules().find(StudentToFind);
-                        cout << "Name: " <<  it->first.getName() << " " << "|| UP: " << it->first.getId() <<"\n";
-                        for(auto p : it->second) {
-                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                        if (it != mySchedule.getStudentSchedules().end()) {
+                            cout << "Name: " <<  it->first.getName() << " " << "|| UP: " << it->first.getId() <<"\n";
+                            for(auto p : it->second) {
+                                cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                            }
+                            cout << "\n";
+                        }else{
+                            cout << "1. Student not found in the schedule." << endl;
                         }
-                        cout << "\n";
+                    } else {
+                        cout << "2. Student not found in the schedule." << endl;
                     }
-                break;
+                    break;
             }
-            case '2': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
+            case '2': { //Tá a dar erros ao procurar por exemplo 3LEIC09 , no clue why ?!?
                 string class_number;
                 clear_screen();
                 cout << "What's the number of the class you would like to consult the schedule: ";
@@ -172,12 +176,19 @@ void UI::menu_schedule(){
                     Class ClassToFind;
                     ClassToFind.setClassCode(class_number);
                     auto it = mySchedule.getClassSchedules().find(ClassToFind);
-                    cout << "Class: " <<  it->first.getClassCode() << endl;
-                    for(auto p : it->second) {
-                        cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+
+                    if (it != mySchedule.getClassSchedules().end()) {
+                        cout << "Class: " <<  class_number << endl;
+                        for(auto p : it->second) {
+                            cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                        }
+                        cout << "\n";
+                    } else {
+                        cout << "Class not found in the schedule." << endl;
                     }
-                    cout << "\n";
-                };
+                } else {
+                    cout << "Class not found in the schedule." << endl;
+                }
                 break;
             }
         }

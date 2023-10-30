@@ -22,6 +22,7 @@ private:
     std::vector<Class> classes;
     std::vector<UC> ucs;
     std::vector<Schedule> schedules;
+    std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>> AttendancePair;
 
 };
 
