@@ -30,21 +30,23 @@ public:
     [[nodiscard]] std::unordered_map<Class, std::vector<UC>> getClassSchedules();
     [[nodiscard]] std::unordered_map<std::pair<std::string,std::string> , int, PairHash> getUcOcupation();
     [[nodiscard]] std::unordered_map<std::string , unordered_set<std::string>> getClassAttendance();
-    [[nodiscard]] int getBalance();
+    [[nodiscard]] int getBalance() const;
 
     void setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses_);
     void setClassSchedules(std::unordered_map<Class, std::vector<UC>> classSchedules_);
+    void setUcOcupation(
+            initializer_list<unordered_map<pair<std::basic_string<char>, std::basic_string<char>>, int, PairHash>::value_type> UcOcupation_);
+    void setClassAttendance(std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance_);
     void setBalance(int balance);
 
     void StudentsInAtLeastNUcs(char n , std::vector<Student> students);
     void CalculateBalance();
     bool FindStudentinSchedule(std::string student_name);
     bool FindClassinSchedule(std::string ClassCode);
+    std::unordered_map<Student, std::vector<UC>>::iterator FetchStudent(Student StudentToFind);
+    std::unordered_map<Class, std::vector<UC>>::iterator FetchClass(Class ClassToFind);
     Student FindStudentinSchedulebyID(int ID);
     UC FindUC(const UC &targetUC);
-
-    static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
-    static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
 
     static bool compare_day(const UC &uc1, const UC &uc2);
 

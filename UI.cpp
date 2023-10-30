@@ -115,6 +115,8 @@ void UI::menu_options() {
         case '6':
             break;
         case '7':
+            clear_screen();
+            menu_options();
             break;
     }
 }
@@ -144,22 +146,13 @@ void UI::menu_schedule(){
                             cout << endl;
                             if(mySchedule.FindStudentinSchedule(student_name)){
                                 Student studentForSchedule;
-                                int left = 0;
-                                int right = students.size() - 1;
-                                while(left <= right){
-                                    int middle = left + (right-left) / 2;
-                                    if(students[middle].getName() == student_name){
-                                        studentForSchedule = students[middle];
-                                        left = right + 1;
-                                    }else if(students[middle].getName() < student_name){
-                                        left = middle + 1;
-                                    }else if(students[middle].getName() > student_name){
-                                        right = middle - 1;
-                                    }
-                                }
-                                std::vector<UC> m = mySchedule.getStudentSchedules()[studentForSchedule];
+                                studentForSchedule.setName(student_name);
+
+                                auto it = mySchedule.FetchStudent(studentForSchedule);
+
+                                std::vector<UC> m = it->second;
                                 std::sort(m.begin(),m.end(),Schedule::compare_day);
-                                cout << "Name: " <<  studentForSchedule.getName() << " " << "|| UP: " << studentForSchedule.getId() <<"\n";
+                                cout << "Name: " <<  it->first.getName() << " " << "|| UP: " <<  it->first.getId() <<"\n";
                                 for(auto p : m)
                                 {
                                     cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
@@ -191,7 +184,7 @@ void UI::menu_schedule(){
                     }
              break;
             }
-            case '2': { //Tá a dar erros ao procurar por exemplo 3LEIC09 , no clue why ?!?
+            case '2': {
                 string class_number;
                 clear_screen();
                 cout << "What's the number of the class you would like to consult the schedule: ";
@@ -200,8 +193,13 @@ void UI::menu_schedule(){
                 if(mySchedule.FindClassinSchedule(class_number)){
                     Class ClassToFind;
                     ClassToFind.setClassCode(class_number);
-                    std::vector<UC> m  = mySchedule.getClassSchedules()[ClassToFind];
-                    cout << "Class: " <<  class_number << endl;
+
+                    auto it = mySchedule.FetchClass(ClassToFind);
+
+                    std::vector<UC> m  = it->second;
+                    std::sort(m.begin(),m.end(),Schedule::compare_day);
+
+                    cout << "Class: " <<  it->first.getClassCode() << endl;
                     for(auto p : m) {
                         cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
                     }
@@ -308,4 +306,13 @@ void UI::menu_students(){
         }
     }
 }
+/*
+std::unordered_map<Student, std::vector<UC>> l ;
+l = mySchedule.getStudentSchedules();
 
+int id = l.find(StudentToFind)->first.getId();
+
+std::vector<UC> m = mySchedule.getStudentSchedules()[StudentToFind];
+
+cout << "Name: " <<  StudentToFind.getName() << " " << "|| UP: " << id <<"\n";
+            */

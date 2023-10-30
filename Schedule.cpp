@@ -19,7 +19,15 @@ std::unordered_map<Class, std::vector<UC>> Schedule::getClassSchedules() {
     return ClassSchedules;
 }
 
-int Schedule::getBalance() {
+std::unordered_map<std::pair<std::string, std::string>, int, PairHash> Schedule::getUcOcupation() {
+    return UcOcupation;
+}
+
+std::unordered_map<std::string, unordered_set<std::string>> Schedule::getClassAttendance() {
+    return ClassAttendance;
+}
+
+int Schedule::getBalance() const {
     return Balance;
 }
 
@@ -29,6 +37,16 @@ void Schedule::setStudentSchedules(std::unordered_map<Student, std::vector<UC>> 
 
 void Schedule::setClassSchedules(std::unordered_map<Class, std::vector<UC>>  ClassSchedules_) {
     ClassSchedules = std::move(ClassSchedules_);
+}
+
+void Schedule::setUcOcupation(initializer_list<unordered_map<pair<std::basic_string<char>, std::basic_string<char>>, int, PairHash>::value_type> UcOcupation_)
+{
+    UcOcupation = UcOcupation_;
+}
+
+void Schedule::setClassAttendance(std::unordered_map<std::string, unordered_set<std::string>> ClassAttendance_)
+{
+    ClassAttendance = std::move(ClassAttendance_);
 }
 
 void Schedule::setBalance(int balance)
@@ -45,17 +63,6 @@ void Schedule::CalculateBalance()
     }
 }
 
-void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student> students)
-{
-    for(auto pair : StudentSchedules)
-    {
-        if(pair.first.getClassesToUcs().size() >= n)
-        {
-            students.push_back(pair.first);
-        }
-    }
-}
-
 bool Schedule::FindStudentinSchedule(std::string student_name) {
 
     Student StudentToFind;
@@ -69,6 +76,22 @@ bool Schedule::FindStudentinSchedule(std::string student_name) {
     }
 
     return false;
+}
+
+std::unordered_map<Student, std::vector<UC>>::iterator Schedule::FetchStudent(Student StudentToFind)
+{
+    if(FindStudentinSchedule(StudentToFind.getName()))
+    {
+        return StudentSchedules.find(StudentToFind);
+    }
+}
+
+std::unordered_map<Class, std::vector<UC>>::iterator Schedule::FetchClass(Class ClassToFind)
+{
+    if(FindClassinSchedule(ClassToFind.getClassCode()))
+    {
+        return ClassSchedules.find(ClassToFind);
+    }
 }
 
 Student Schedule::FindStudentinSchedulebyID(int ID) {
@@ -126,6 +149,18 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
         return dayMap[uc1.getDate().Day] < dayMap[uc2.getDate().Day];
     }else{
         return uc1.getDate().Duration.first < uc2.getDate().Duration.first;
+    }
+}
+
+
+void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student> students)
+{
+    for(auto pair : StudentSchedules)
+    {
+        if(pair.first.getClassesToUcs().size() >= n)
+        {
+            students.push_back(pair.first);
+        }
     }
 }
 
@@ -392,3 +427,5 @@ void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
         std::cerr << "Student not found in the schedule" << std::endl;
     }
 }
+
+
