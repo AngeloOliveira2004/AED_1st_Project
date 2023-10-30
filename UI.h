@@ -16,6 +16,8 @@ public:
     void menu_schedule();
     void loading_stuff(UI& ui);
     void menu_students();
+    bool validate_input(char &op, const char lower_bound, const char upper_bound);
+
 private:
     Schedule mySchedule;
     std::vector<Student> students;

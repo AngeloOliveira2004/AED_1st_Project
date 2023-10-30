@@ -32,6 +32,20 @@ void UI::loading_stuff(UI &ui) {
     mySchedule.setStudentSchedules(StudentSchedules_);
 }
 
+bool UI::validate_input(char &op, const char lower_bound, const char upper_bound) {
+    std::cin >> op;
+    std::cout << "\n";
+    if (std::cin.fail()) {
+        throw std::invalid_argument("Invalid input. Please use a valid character.");
+    }
+    while (op < lower_bound || op > upper_bound) {
+        std::cout << "Introduce a valid option (" << lower_bound << "-" << upper_bound << "): ";
+        std::cin.clear();
+        std::cin >> op;
+    }
+    return true;
+}
+
 UI::UI() {}
 
 void UI::clear_screen() {
@@ -55,16 +69,7 @@ void UI::menu_start() {
          << "1. Proceed to the application" << endl
          << "2. Close the application" << endl
          << "Insert the number: " ;
-    cin >> op;
-    cout << "\n";
-    if(cin.fail()){
-        throw invalid_argument("Invalid number, try to use a number between 1 and 2");
-    }
-    while(op < '1' || op > '2'){
-        cout << "Introduce a valid option (1-2): ";
-        cin >> op;
-        cout << '\n';
-    }
+    validate_input(op,'1','2');
     switch(op){
         case '1':
                 menu_options();
@@ -93,16 +98,7 @@ void UI::menu_options() {
          << "6. Update registrations" << endl
          << "7. Return to main menu" << endl << endl
          << "Insert the number: ";
-    cin >> op;
-    cout << "\n";
-    if(cin.fail()){
-        throw invalid_argument("Invalid number, try to use a number between 1 and 7");
-    }
-    while(op < '1' || op > '7'){
-        cout << "Introduce a valid option (1-7): ";
-        cin >> op;
-        cout << '\n';
-    }
+    validate_input(op,'1','7');
     switch(op){
         case '1':
             menu_schedule();
@@ -130,40 +126,70 @@ void UI::menu_schedule(){
          << "1. Consult schedule of a Student" << endl
          << "2. Consult schedule of a Class" << endl << endl << endl << endl << endl << endl << endl << '\n'
          << "Insert the number: ";
-    cin >> op;
-    cout << "\n";
-    if(cin.fail()){
-        throw invalid_argument("Invalid number, try to use a number between 1 and 2");
-    }
-    while(op < '1' || op > '2'){
-        cout << "Introduce a valid option (1-2): ";
-        cin >> op;
-        cout << '\n';
-    }
+    validate_input(op,'1','2');
         switch (op) {
             case '1': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
-                string student_name;
                 clear_screen();
-                    cout << "What's the name of the student you would like to consult the schedule: ";
-                    cin >> student_name;
-                    cout << endl;
-                    if(mySchedule.FindStudentinSchedule(student_name)){ //Esta função retorna sempre False
-                        Student StudentToFind;
-                        StudentToFind.setName(student_name);
-
-                        std::vector<UC> m = mySchedule.getStudentSchedules()[StudentToFind];
-
-                        cout << "Name: " <<  StudentToFind.getName() << " " << "|| UP: " << StudentToFind.getId() <<"\n";
-                        for(auto p : m)
-                        {
-                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-
-                        cout << "\n";
+                char op_sort;
+                cout << "Would you like to search it by Name or by ID" << endl
+                     << "1.Name" << endl
+                     << "2.ID" << endl << endl << endl << endl << endl << endl << endl << '\n'
+                     << "Insert the number: ";
+                validate_input(op_sort,'1','2');
+                    switch(op_sort){
+                        case '1':{
+                            cout << "What's the name of the student you would like to consult the schedule: ";
+                            string student_name;
+                            cin >> student_name;
+                            cout << endl;
+                            if(mySchedule.FindStudentinSchedule(student_name)){
+                                Student studentForSchedule;
+                                int left = 0;
+                                int right = students.size() - 1;
+                                while(left <= right){
+                                    int middle = left + (right-left) / 2;
+                                    if(students[middle].getName() == student_name){
+                                        studentForSchedule = students[middle];
+                                        left = right + 1;
+                                    }else if(students[middle].getName() < student_name){
+                                        left = middle + 1;
+                                    }else if(students[middle].getName() > student_name){
+                                        right = middle - 1;
+                                    }
+                                }
+                                std::vector<UC> m = mySchedule.getStudentSchedules()[studentForSchedule];
+                                std::sort(m.begin(),m.end(),Schedule::compare_day);
+                                cout << "Name: " <<  studentForSchedule.getName() << " " << "|| UP: " << studentForSchedule.getId() <<"\n";
+                                for(auto p : m)
+                                {
+                                    cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                                }
+                            } else {
+                                cout << "Student not found in the schedule." << endl;
+                            }
+                         break;
                         }
-                    } else {
-                        cout << "2. Student not found in the schedule." << endl;
+                        case '2':{
+                            cout << "What's the ID of the student you would like to consult the schedule: ";
+                            int student_ID;
+                            cin >> student_ID;
+                            cout << endl;
+                            Student tempStudent = mySchedule.FindStudentinSchedulebyID(student_ID);
+                            if(tempStudent.getName() != ""){
+                                std::vector<UC> m = mySchedule.getStudentSchedules()[tempStudent];
+                                std::sort(m.begin(),m.end(),Schedule::compare_day);
+                                cout << "Name: " <<  tempStudent.getName() << " " << "|| UP: " << tempStudent.getId() <<"\n";
+                                for(auto p : m)
+                                {
+                                    cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                                }
+                            } else {
+                                cout << "Student not found in the schedule." << endl;
+                            }
+                         break;
+                        }
                     }
-                    break;
+             break;
             }
             case '2': { //Tá a dar erros ao procurar por exemplo 3LEIC09 , no clue why ?!?
                 string class_number;
@@ -175,7 +201,6 @@ void UI::menu_schedule(){
                     Class ClassToFind;
                     ClassToFind.setClassCode(class_number);
                     std::vector<UC> m  = mySchedule.getClassSchedules()[ClassToFind];
-
                     cout << "Class: " <<  class_number << endl;
                     for(auto p : m) {
                         cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
@@ -198,16 +223,7 @@ void UI::menu_students(){
          << "2. Consult students within a given UC" << endl
          << "3. Consult students within a given Year" << endl << endl << endl << endl << endl << endl << '\n'
          << "Insert the number: ";
-    cin >> op;
-    cout << "\n";
-    if(cin.fail()){
-        throw invalid_argument("Invalid number, try to use a number between 1 and 3");
-    }
-    while(op < '1' || op > '3'){
-        cout << "Introduce a valid option (1-3): ";
-        cin >> op;
-        cout << '\n';
-    }
+    validate_input(op,'1','3');
     switch(op){
         case '1': {
             string class_number;
@@ -267,6 +283,7 @@ void UI::menu_students(){
                         break;
                     }
                 }
+            break;
         }
         case '3':{
             char year_number;
@@ -291,3 +308,4 @@ void UI::menu_students(){
         }
     }
 }
+

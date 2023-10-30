@@ -40,6 +40,7 @@ public:
     void CalculateBalance();
     bool FindStudentinSchedule(std::string student_name);
     bool FindClassinSchedule(std::string ClassCode);
+    Student FindStudentinSchedulebyID(int ID);
     UC FindUC(const UC &targetUC);
 
     static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);

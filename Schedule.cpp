@@ -71,6 +71,16 @@ bool Schedule::FindStudentinSchedule(std::string student_name) {
     return false;
 }
 
+Student Schedule::FindStudentinSchedulebyID(int ID) {
+
+    for (const auto& student : StudentSchedules) {
+        if (student.first.getId() == ID) {
+            return student.first;
+        }
+    }
+    return Student();
+}
+
 bool Schedule::FindClassinSchedule(std::string ClassCode)
 {
     Class ClassToFind;
@@ -109,15 +119,6 @@ UC Schedule::FindUC(const UC &targetUC)
 
     return result;// Target UC not found
 }
-
-void Schedule::sort_by_week_day(std::pair<Student,std::vector<UC>> &a){
-    std::sort(a.second.begin(), a.second.end(), compare_day);
-}
-
-void Schedule::sort_by_week_day(std::pair<Class,std::vector<UC>> &a){
-    std::sort(a.second.begin(), a.second.end(), compare_day);
-}
-
 
 bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     std::map<std::string, int> dayMap = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}};
