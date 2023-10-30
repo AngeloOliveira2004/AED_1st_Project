@@ -42,7 +42,7 @@ public:
 
     static bool compare_day(const UC &uc1, const UC &uc2);
 
-    void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
+    void SwitchClass(Student& student1 , Class& new_class, UC& uc);
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
     void AddUC(Student student1 , UC new_uc);
     void RemoveUC(Student student1 , UC ex_uc);

@@ -105,25 +105,12 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     }
 }
 
-void Schedule::SwitchClass(Student &student1, Class &new_class, Class &ex_class)
-{
-    if(FindStudentinSchedule(student1.getName()))
-    {
+//TODO
+void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) {
 
-    }
-
-    auto it = std::lower_bound(student1.getClassesToUcs().begin(), student1.getClassesToUcs().end(),
-                               ex_class.getClassCode(),
-                               [](const std::pair<string, string> &pair, const std::string &name) {
-                                   return pair.first < name;
-                               });
-
-    if (it == student1.getClassesToUcs().end()) {
-        std::cout << "Class not found";
-        return;
-    }
 }
 
+jasldn ajsk<andf alskdf asldkf snldkf aldsjkf asljdf asldjfdnsj
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 {
