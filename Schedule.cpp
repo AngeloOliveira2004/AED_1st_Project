@@ -2,65 +2,298 @@
 #include <utility>
 #include "Schedule.h"
 
-Schedule::Schedule::Schedule() : studentClasses_({}), classSchedules_({}) {};
+// Constructor implementation O(1)
 
-Schedule::Schedule(std::unordered_map<Student, std::vector<UC>> studentClasses,
-                   std::unordered_map<Class, std::vector<UC>> classSchedules)
-        : studentClasses_(std::move(studentClasses)), classSchedules_(std::move(classSchedules)) {}
+Schedule::Schedule(std::unordered_map<Student, std::vector<UC>>  studentSchedules_,
+                   std::unordered_map<Class, std::vector<UC>>  classSchedules_) :
 
-// Get a reference to the unordered map of Student and vector of UC objects O(1)
+        ClassSchedules(std::move(classSchedules_)) , StudentSchedules(std::move(studentSchedules_)) {}
+
+
+// Get a reference to the vector of UC objects O(1)
 std::unordered_map<Student, std::vector<UC>> Schedule::getStudentSchedules() {
-    return studentClasses_;
+    return StudentSchedules;
 }
 
-std::unordered_map<Class, std::vector<UC>> Schedule::getClassSchedules() {
-    return classSchedules_;
+std::unordered_map<Class, std::vector<UC>>   Schedule::getClassSchedules() {
+    return ClassSchedules;
 }
 
-void Schedule::setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses) {
-    studentClasses_ = std::move(studentClasses);
+int Schedule::getBalance()
+{
+    return Balance;
 }
 
-void Schedule::setClassSchedules(std::unordered_map<Class, std::vector<UC>> classSchedules) {
-    classSchedules_ = std::move(classSchedules);
+void Schedule::setStudentSchedules(std::unordered_map<Student, std::vector<UC>>  StudentSchedules_) {
+    StudentSchedules = std::move(StudentSchedules_);
 }
 
-void Schedule::FindClassInSchedules(const std::string &classCode, std::unordered_map<Class, std::vector<UC>> &ClassPair) {
-    ClassPair.clear();
-    for (const auto &entry : classSchedules_) {
-        if (entry.first.getClassCode() == classCode) {
-            ClassPair.insert(entry);
-            return;
+void Schedule::setClassSchedules(std::unordered_map<Class, std::vector<UC>>  ClassSchedules_) {
+    ClassSchedules = std::move(ClassSchedules_);
+}
+
+void Schedule::setBalance(int balance)
+{
+    Balance = balance;
+}
+
+
+void Schedule::CalculateBalance()
+{
+    for(auto class_ : ClassSchedules)
+    {
+        Balance = std::max(static_cast<int>(class_.first.getStudents().size()), Balance);
+    }
+}
+
+void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student> students)
+{
+    for(auto pair : StudentSchedules)
+    {
+        if(pair.first.getClassesToUcs().size() >= n)
+        {
+            students.push_back(pair.first);
         }
     }
-    // Class not found
-    std::cerr << "Class not found" << std::endl;
 }
 
-void Schedule::FindClassInSchedules(const std::string &classCode, std::pair<Class, std::vector<UC>> &ClassPair) {
-    for (const auto &entry : classSchedules_) {
-        if (entry.first.getClassCode() == classCode) {
-            ClassPair = entry;
-            return;
-        }
+bool Schedule::FindStudentinSchedule(std::string student_name) {
+
+    Student StudentToFind;
+    StudentToFind.setName(student_name);
+
+    auto it = StudentSchedules.find(StudentToFind);
+
+    if(it != StudentSchedules.end())
+    {
+        return true;
     }
-    std::cerr << "Class not found" << std::endl;
+
+    return false;
 }
 
+bool Schedule::FindClassinSchedule(std::string ClassCode)
+{
+    Class ClassToFind;
+    ClassToFind.setClassCode(ClassCode);
 
-void Schedule::sort_by_week_day(std::pair<Student, std::vector<UC>> &a) {
+    auto it = ClassSchedules.find(ClassToFind);
+
+    if(it != ClassSchedules.end())
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void Schedule::sort_by_week_day(std::pair<Student,std::vector<UC>> &a){
     std::sort(a.second.begin(), a.second.end(), compare_day);
 }
 
-void Schedule::sort_by_week_day(std::pair<Class, std::vector<UC>> &a) {
+void Schedule::sort_by_week_day(std::pair<Class,std::vector<UC>> &a){
     std::sort(a.second.begin(), a.second.end(), compare_day);
 }
 
-bool Schedule::compare_day(const UC &uc1, const UC &uc2) {
+
+bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     std::map<std::string, int> dayMap = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}};
-    if (dayMap[uc1.getDate().Day] != dayMap[uc2.getDate().Day]) {
+    if(dayMap[uc1.getDate().Day] != dayMap[uc2.getDate().Day]){
         return dayMap[uc1.getDate().Day] < dayMap[uc2.getDate().Day];
-    } else {
+    }else{
         return uc1.getDate().Duration.first < uc2.getDate().Duration.first;
+    }
+}
+
+//TODO
+void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) {
+
+}
+
+void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
+{
+
+    if(FindStudentinSchedule(student1.getName()))
+    {
+        for(auto uc : StudentSchedules[student1])
+        {
+            if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+            {
+                std::cerr << "Schedule not compatible with other classes";
+                return;
+            }
+        }
+        for(auto uc : StudentSchedules[student1])
+        {
+            if(uc.getUcCode() == ex_uc.getUcCode())
+            {
+                uc = new_uc;
+                break;
+            }
+        }
+    }
+
+    if(FindClassinSchedule(ex_uc.getRespectiveClass()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+        std::unordered_set<string> students = tempCLass.getStudents();
+        students.erase(student1.getName());
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+    if(FindClassinSchedule(new_uc.getRespectiveClass()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+        std::unordered_set<string> students = tempCLass.getStudents();
+        students.insert(student1.getName());
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+    ucOcupation[ex_uc.getUcCode()] -= 1;
+    ucOcupation[new_uc.getUcCode()] += 1;
+}
+
+void Schedule::AddUC(Student student1, UC new_uc) {
+    if(FindStudentinSchedule(student1.getName()) && student1.getClassesToUcs().size() < 7)
+    {
+        for(UC uc : StudentSchedules[student1])
+        {
+            if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+            {
+                std::cerr << "Schedule not compatible with other classes";
+                return;
+            }
+        }
+        StudentSchedules[student1].push_back(new_uc);
+    }
+
+    if(FindClassinSchedule(new_uc.getRespectiveClass()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == new_uc.getRespectiveClass())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+
+        std::unordered_set<string> students = tempCLass.getStudents();
+        if(students.size() <= MAX_CAP)
+        {
+            students.insert(student1.getName());
+        }
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+
+    ucOcupation[new_uc.getUcCode()] += 1;
+}
+
+void Schedule::RemoveUC(Student student1, UC ex_uc) {
+
+    if(FindStudentinSchedule(student1.getName()))
+    {
+        auto& ucVector = StudentSchedules[student1];
+        ucVector.erase(std::remove(ucVector.begin(), ucVector.end(), ex_uc), ucVector.end());
+        StudentSchedules[student1] = ucVector;
+    }
+
+    if(FindClassinSchedule(ex_uc.getRespectiveClass()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+
+        std::unordered_set<string> students = tempCLass.getStudents();
+        students.erase(student1.getName());
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+
+    ucOcupation[ex_uc.getUcCode()] -= 1;
+}
+
+void Schedule::RemoveClass(Student student1, UC &uc){
+    if (FindStudentinSchedule(student1.getName())) {
+        auto& studentSchedule = StudentSchedules[student1];
+        for (auto it = studentSchedule.begin(); it != studentSchedule.end(); ++it) {
+            if (*it == uc) {
+                it->setRespectiveClass("EMPTY");
+                it->setOccupation(uc.getOccupation() - 1);
+                break;
+            }
+        }
+    } else {
+        std::cerr << "Student not found in the schedule" << std::endl;
+    }
+}
+
+
+void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
+    if (FindStudentinSchedule(student1.getName())) {
+        auto& studentSchedule = StudentSchedules[student1];
+        bool classFound = false;
+        for (auto& classSchedule : ClassSchedules) {
+            if (classSchedule.first.getClassCode() == new_class.getClassCode()) {
+                classFound = true;
+                for (const auto& ucInClass : classSchedule.second) {
+                    if (ucInClass == uc) {
+                        if(ucInClass.getRespectiveClass() == "EMPTY"){
+                            uc.setRespectiveClass(new_class.getClassCode());
+                            uc.setOccupation(uc.getOccupation() + 1);
+                            break;
+                        }else{
+                            std::cerr << "Student already has a class for this UC" << std::endl;
+                        }
+                    }
+                }
+            }
+        }
+        if (!classFound) {
+            std::cerr << "Class not found in the schedule" << std::endl;
+        }
+
+    } else {
+        std::cerr << "Student not found in the schedule" << std::endl;
     }
 }

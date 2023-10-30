@@ -1,10 +1,7 @@
-//
-// Created by jose-costa on 10/20/23.
-//
 
 #include "LoadFIles.h"
 
-void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
+void LoadFiles::Load_Student_Classes(std::vector<Student>& students , std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>>& AttendencePair) {
     bool skip_first = true;
     std::unordered_set<int> visited;
     std::vector<pair<std::string , std::string>> classes_to_ucs_;
@@ -34,6 +31,24 @@ void LoadFiles::Load_Student_Classes(std::vector<Student>& students) {
         std::string ucCode = tokens[2];
         std::string classCode = tokens[3];
         NormaliseString(classCode);
+
+        if(AttendencePair.first.find(classCode) != AttendencePair.first.end())
+        {
+            AttendencePair.first[classCode].insert(studentName);
+        }
+        else
+        {
+            AttendencePair.first[classCode] = {studentName};
+        }
+
+        if(AttendencePair.second.find(ucCode) != AttendencePair.second.end())
+        {
+            AttendencePair.second[ucCode] += 1;
+        }
+        else
+        {
+            AttendencePair.second[ucCode] = 0;
+        }
 
         if (skip_first) {
             skip_first = false;
@@ -161,14 +176,14 @@ void LoadFiles::Load_Uc(std::vector<UC> &ucs)
         dateObject.Day = values[2];
         dateObject.Duration.first = std::stod(values[3]);
         dateObject.Duration.second = std::stod(values[4]) + dateObject.Duration.first;
-        UC uc(values[0], temp, values[1] , 0 , dateObject);
+        UC uc(values[1], temp, values[0] , 0 , dateObject);
         ucs.push_back(uc);
     }
 }
 
 void LoadFiles::NormaliseString(std::string &str)
 {
-   size_t pos = str.find('\r');
+    size_t pos = str.find('\r');
     // Check if '\r' was found
     if (pos != std::string::npos) {
         // Erase the '\r' and everything after it

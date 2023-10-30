@@ -15,26 +15,26 @@ void UI::loading_stuff(UI &ui) {
     Class::sort(classes);
     Student::sort(students);
 
-    std::vector<std::pair<Student , std::vector<UC>>> StudentSchedules_;
-    std::vector<std::pair<Class , std::vector<UC>>> ClassSchedules_;
+    std::unordered_map<Student, std::vector<UC>> StudentSchedules_;
+    std::unordered_map<Class, std::vector<UC>> ClassSchedules_;
 
     for(auto class_ : classes)
     {
-        ClassSchedules_.push_back(Class::populateSchedule(class_ , ucs));
+        ClassSchedules_.insert(Class::populateSchedule(class_ , ucs));
 
     }
 
     for(auto student : students)
     {
-        StudentSchedules_.push_back((Student::populateScheduleStudent(student , ucs)));
+        StudentSchedules_.insert(Student::populateScheduleStudent(student , ucs));
     }
 
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
 }
 
-UI::UI() {
-}
+UI::UI() {}
+
 void UI::clear_screen() {
     int i = 0;
     while(i != 100) {
@@ -164,9 +164,7 @@ void UI::menu_schedule(){
                 cout << "What's the number of the class you would like to consult the schedule: ";
                 cin >> class_number;
                 cout << endl;
-                std::pair<Class, std::vector<UC>> tempClass;
-                mySchedule.FindClassInSchedules(class_number, tempClass);
-                mySchedule.sort_by_week_day(tempClass);
+                mySchedule.FindClassinSchedule(class_number);
                 cout << "Class: " <<  tempClass.first.getClassCode() << endl;
                 for(auto p : tempClass.second) {
                     cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;

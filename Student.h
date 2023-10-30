@@ -23,7 +23,7 @@ public:
     int getId() const;
     const std::string& getName() const;
     char getYear() const;
-    std::vector<pair<std::string , std::string>> getClassesToUcs();
+    std::vector<pair<std::string , std::string>> getClassesToUcs() const;
 
     // Setter functions
     void setId(int id);
@@ -43,5 +43,16 @@ public:
     //O(N) complexity where n is the size of allUCs vector
     static std::pair<Student, std::vector<UC>> populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
 };
+
+namespace std {
+    template <>
+    struct hash<Student> {
+        size_t operator()(const Student& student) const {
+            size_t idHash = std::hash<int>{}(student.getId());
+            size_t nameHash = std::hash<std::string>{}(student.getName());
+            return idHash ^ nameHash; // Combine the hashes appropriately
+        }
+    };
+}
 
 #endif //PROJETO__STUDENT_H

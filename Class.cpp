@@ -6,7 +6,7 @@
 Class::Class() : ClassCode(""), Students(), UCs(){}
 
 // Parameterized constructor
-Class::Class(std::string classCode, const std::set<std::pair<std::string, int>> students, const vector<std::string> &ucs)
+Class::Class(std::string  classCode, const std::unordered_set<std::string>& students, const std::vector<std::string>& ucs)
         : ClassCode(std::move(classCode)), Students(students), UCs(ucs){}
 
 // Getters
@@ -14,7 +14,7 @@ const std::string& Class::getClassCode() const {
     return ClassCode;
 }
 
-const set<pair<string, int>>& Class::getStudents() const {
+const std::unordered_set<std::string>& Class::getStudents() const {
     return Students;
 }
 
@@ -28,7 +28,7 @@ void Class::setClassCode(const std::string& classCode) {
     ClassCode = classCode;
 }
 
-void Class::setStudents(const set<pair<string,int>>& students) {
+void Class::setStudents(const std::unordered_set<std::string>& students) {
     Students = students;
 }
 
@@ -55,7 +55,7 @@ std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const s
     std::unordered_set<std::string> ucCodesSet(class_.getUCs().begin(), class_.getUCs().end());
 
     for (const UC& uc : allUCs) {
-        if (uc.getUcCode() == class_.getClassCode() && ucCodesSet.count(uc.getRespectiveClass()) > 0) {
+        if (uc.getRespectiveClass() == class_.getClassCode() && ucCodesSet.count(uc.getUcCode()) > 0) {
             Result.second.push_back(uc);
         }
     }
