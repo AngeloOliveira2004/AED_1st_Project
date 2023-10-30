@@ -13,8 +13,7 @@ private:
 
     std::unordered_map<Student, std::vector<UC>> StudentSchedules;
     std::unordered_map<Class, std::vector<UC>> ClassSchedules;
-    std::vector<UC> Ucs;
-    std::unordered_map<std::pair<std::string,std::string> , int, PairHash> ucOcupation;
+    std::unordered_map<std::string , int> ucOcupation;
     int Balance;
     int MAX_CAP = 30;
 
@@ -37,7 +36,6 @@ public:
     void CalculateBalance();
     bool FindStudentinSchedule(std::string student_name);
     bool FindClassinSchedule(std::string ClassCode);
-    UC FindUC(const UC& targetUC);
 
     static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
     static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
@@ -48,10 +46,11 @@ public:
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
     void AddUC(Student student1 , UC new_uc);
     void RemoveUC(Student student1 , UC ex_uc);
-    void RemoveClass(Student student1 , Class ex_class);
-    void AddClass(Student student , Class new_class);
+    void RemoveClass(Student student1, UC &uc);
+    void AddClass(Student student1, UC &uc, Class &new_class);
 
 };
+
 
 
 #endif //PROJETO_SCHECULE_H

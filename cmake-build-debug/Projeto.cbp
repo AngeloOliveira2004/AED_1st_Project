@@ -94,6 +94,12 @@
 		<Unit filename="/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/LoadFIles.h">
 			<Option target="Projeto"/>
 		</Unit>
+		<Unit filename="/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Requests.cpp">
+			<Option target="Projeto"/>
+		</Unit>
+		<Unit filename="/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Requests.h">
+			<Option target="Projeto"/>
+		</Unit>
 		<Unit filename="/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Schedule.cpp">
 			<Option target="Projeto"/>
 		</Unit>

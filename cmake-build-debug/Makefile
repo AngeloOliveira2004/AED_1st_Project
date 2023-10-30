@@ -177,6 +177,30 @@ LoadFIles.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/LoadFIles.cpp.s
 .PHONY : LoadFIles.cpp.s
 
+Requests.o: Requests.cpp.o
+.PHONY : Requests.o
+
+# target to build an object file
+Requests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Requests.cpp.o
+.PHONY : Requests.cpp.o
+
+Requests.i: Requests.cpp.i
+.PHONY : Requests.i
+
+# target to preprocess a source file
+Requests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Requests.cpp.i
+.PHONY : Requests.cpp.i
+
+Requests.s: Requests.cpp.s
+.PHONY : Requests.s
+
+# target to generate assembly for a file
+Requests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Requests.cpp.s
+.PHONY : Requests.cpp.s
+
 Schedule.o: Schedule.cpp.o
 .PHONY : Schedule.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... LoadFIles.o"
 	@echo "... LoadFIles.i"
 	@echo "... LoadFIles.s"
+	@echo "... Requests.o"
+	@echo "... Requests.i"
+	@echo "... Requests.s"
 	@echo "... Schedule.o"
 	@echo "... Schedule.i"
 	@echo "... Schedule.s"
