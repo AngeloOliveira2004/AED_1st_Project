@@ -153,11 +153,11 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
 }
 
 
-void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student> students)
+void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
 {
     for(auto pair : StudentSchedules)
     {
-        if(pair.first.getClassesToUcs().size() >= n)
+        if(pair.second.size() >= n)
         {
             students.push_back(pair.first);
         }

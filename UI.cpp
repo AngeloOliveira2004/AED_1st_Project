@@ -107,6 +107,7 @@ void UI::menu_options() {
             menu_students();
             break;
         case '3':
+            menu_studentsInNucs();
             break;
         case '4':
             break;
@@ -304,6 +305,24 @@ void UI::menu_students(){
                 }
             }
         }
+    }
+}
+
+
+void UI::menu_studentsInNucs()
+{
+    char op;
+    clear_screen();
+    cout << "Which is the minimum amount of UCs that a student should have?" <<'\n'
+         << "Insert the number: ";
+    validate_input(op, 0 ,'a');
+
+    std::vector<Student> studentsInNucs;
+    mySchedule.StudentsInAtLeastNUcs(op , studentsInNucs);
+
+    for(Student student : studentsInNucs)
+    {
+        cout << student.getName() << " " <<student.getId() << "\n";
     }
 }
 /*

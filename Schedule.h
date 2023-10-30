@@ -39,7 +39,7 @@ public:
     void setClassAttendance(std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance_);
     void setBalance(int balance);
 
-    void StudentsInAtLeastNUcs(char n , std::vector<Student> students);
+    void StudentsInAtLeastNUcs(char n , std::vector<Student>& students);
     void CalculateBalance();
     bool FindStudentinSchedule(std::string student_name);
     bool FindClassinSchedule(std::string ClassCode);

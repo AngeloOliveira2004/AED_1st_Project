@@ -16,6 +16,7 @@ public:
     void menu_schedule();
     void loading_stuff(UI& ui);
     void menu_students();
+    void menu_studentsInNucs();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
 
 private:
