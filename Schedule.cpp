@@ -87,6 +87,30 @@ bool Schedule::FindClassinSchedule(std::string ClassCode)
     return false;
 }
 
+UC Schedule::FindUC(const UC &targetUC)
+{
+    int left = 0;
+    int right = Ucs.size() - 1;
+    UC result;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        const UC& currentUC = Ucs[mid];
+
+        if (currentUC.getUcCode() == targetUC.getUcCode()) {
+            result = currentUC;
+            return result; // Found the target UC
+        }
+        if (currentUC.getUcCode() < targetUC.getUcCode()) {
+            left = mid + 1; // Target UC is in the right half
+        } else {
+            right = mid - 1; // Target UC is in the left half
+        }
+    }
+
+    return result;// Target UC not found
+}
+
 void Schedule::sort_by_week_day(std::pair<Student,std::vector<UC>> &a){
     std::sort(a.second.begin(), a.second.end(), compare_day);
 }
@@ -106,11 +130,81 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
 }
 
 //TODO
-void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) {
+void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED na turma 5 pra turma 6
 
+    Class ex_Class;
+
+    for(UC uc_ : Ucs)
+    {
+        if(uc_.getRespectiveClass() == new_class.getClassCode() && uc_.getUcCode() == uc.getUcCode())
+        {
+            ex_Class.setClassCode(uc.getRespectiveClass());
+            uc = uc_;
+        }
+    }
+    if(FindStudentinSchedule(student1.getName()))
+    {
+        for(auto uc : StudentSchedules[student1])
+        {
+            if(Date::Overlaps(uc.getDate() , uc.getDate()))
+            {
+                std::cerr << "Schedule not compatible with other classes";
+                return;
+            }
+        }
+        for(auto uc_ : StudentSchedules[student1])
+        {
+            if(uc.getUcCode() == uc_.getUcCode())
+            {
+                uc_ = uc;
+                break;
+            }
+        }
+    }
+
+    if(FindClassinSchedule(uc.getRespectiveClass()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == uc.getRespectiveClass())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+        std::unordered_set<string> students = tempCLass.getStudents();
+        students.insert(student1.getName());
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+    if(FindClassinSchedule(ex_Class.getClassCode()))
+    {
+        Class tempCLass;
+        std::vector<UC> tempVector;
+        for(auto pair : ClassSchedules)
+        {
+            if(pair.first.getClassCode() == ex_Class.getClassCode())
+            {
+                tempCLass = pair.first;
+                tempVector = pair.second;
+                break;
+            }
+        }
+        std::unordered_set<string> students = tempCLass.getStudents();
+        students.erase(student1.getName());
+
+        tempCLass.setStudents(students);
+        ClassSchedules.erase(tempCLass);
+        ClassSchedules[tempCLass] = tempVector;
+    }
+    ucOcupation[{uc.getUcCode() , ex_Class.getClassCode()}] -= 1;
+    ucOcupation[{uc.getUcCode() , new_class.getClassCode()}] += 1;
 }
-
-jasldn ajsk<andf alskdf asldkf snldkf aldsjkf asljdf asldjfdnsj
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 {
@@ -175,8 +269,8 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
         ClassSchedules.erase(tempCLass);
         ClassSchedules[tempCLass] = tempVector;
     }
-    ucOcupation[ex_uc.getUcCode()] -= 1;
-    ucOcupation[new_uc.getUcCode()] += 1;
+    ucOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
+    ucOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
 }
 
 void Schedule::AddUC(Student student1, UC new_uc) {
@@ -218,7 +312,7 @@ void Schedule::AddUC(Student student1, UC new_uc) {
         ClassSchedules[tempCLass] = tempVector;
     }
 
-    ucOcupation[new_uc.getUcCode()] += 1;
+    ucOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
 }
 
 void Schedule::RemoveUC(Student student1, UC ex_uc) {
@@ -252,7 +346,7 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
         ClassSchedules[tempCLass] = tempVector;
     }
 
-    ucOcupation[ex_uc.getUcCode()] -= 1;
+    ucOcupation[{ex_uc.getUcCode() , ex_uc.getUcCode()}] -= 1;
 }
 
 /*
