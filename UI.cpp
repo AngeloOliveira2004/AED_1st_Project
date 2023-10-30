@@ -150,6 +150,7 @@ void UI::menu_schedule(){
                     cin >> student_name;
                     cout << endl;
                     if(mySchedule.FindStudentinSchedule(student_name)){
+                        cout << "Hi";
                         Student StudentToFind;
                         StudentToFind.setName(student_name);
                         auto it = mySchedule.getStudentSchedules().find(StudentToFind);
