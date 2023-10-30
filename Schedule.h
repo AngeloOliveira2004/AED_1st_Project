@@ -13,9 +13,9 @@ private:
 
     std::unordered_map<Student, std::vector<UC>> StudentSchedules;
     std::unordered_map<Class, std::vector<UC>> ClassSchedules;
+    std::unordered_map<std::string , int> ucOcupation;
     int Balance;
     int MAX_CAP = 30;
-    //cria-se um unico objecto de cada vetor quando for necessário
 
 public:
     // Constructor that takes a vector of UC objects as a pointer
@@ -39,6 +39,8 @@ public:
 
     static void sort_by_week_day(std::pair<Student,std::vector<UC>> &a);
     static void sort_by_week_day(std::pair<Class, std::vector<UC>> &a);
+
+    static bool compare_day(const UC &uc1, const UC &uc2);
 
     void SwitchClass(Student& student1 , Class& new_class , Class& ex_class);
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
