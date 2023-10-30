@@ -21,7 +21,6 @@ void UI::loading_stuff(UI &ui) {
     for(auto class_ : classes)
     {
         ClassSchedules_.insert(Class::populateSchedule(class_ , ucs));
-
     }
 
     for(auto student : students)
@@ -151,15 +150,15 @@ void UI::menu_schedule(){
                     if(mySchedule.FindStudentinSchedule(student_name)){ //Esta função retorna sempre False
                         Student StudentToFind;
                         StudentToFind.setName(student_name);
-                        auto it = mySchedule.getStudentSchedules().find(StudentToFind);
-                        if (it != mySchedule.getStudentSchedules().end()) {
-                            cout << "Name: " <<  it->first.getName() << " " << "|| UP: " << it->first.getId() <<"\n";
-                            for(auto p : it->second) {
-                                cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                            }
-                            cout << "\n";
-                        }else{
-                            cout << "1. Student not found in the schedule." << endl;
+
+                        std::vector<UC> m = mySchedule.getStudentSchedules()[StudentToFind];
+
+                        cout << "Name: " <<  StudentToFind.getName() << " " << "|| UP: " << StudentToFind.getId() <<"\n";
+                        for(auto p : m)
+                        {
+                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+
+                        cout << "\n";
                         }
                     } else {
                         cout << "2. Student not found in the schedule." << endl;
@@ -175,17 +174,14 @@ void UI::menu_schedule(){
                 if(mySchedule.FindClassinSchedule(class_number)){
                     Class ClassToFind;
                     ClassToFind.setClassCode(class_number);
-                    auto it = mySchedule.getClassSchedules().find(ClassToFind);
+                    std::vector<UC> m  = mySchedule.getClassSchedules()[ClassToFind];
 
-                    if (it != mySchedule.getClassSchedules().end()) {
-                        cout << "Class: " <<  class_number << endl;
-                        for(auto p : it->second) {
-                            cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                        }
-                        cout << "\n";
-                    } else {
-                        cout << "Class not found in the schedule." << endl;
+                    cout << "Class: " <<  class_number << endl;
+                    for(auto p : m) {
+                        cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
                     }
+                    cout << "\n";
+
                 } else {
                     cout << "Class not found in the schedule." << endl;
                 }

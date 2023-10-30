@@ -128,7 +128,6 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     }
 }
 
-//TODO
 void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED na turma 5 pra turma 6
 
     Class ex_Class;

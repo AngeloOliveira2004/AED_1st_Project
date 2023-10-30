@@ -51,7 +51,7 @@ bool Student::operator<(const Student& other) const {
 }
 
 bool Student::operator==(const Student& other) const {
-    return Id == other.Id;
+    return Name == other.Name;
 }
 
 void Student::sort(std::vector<Student>& students)

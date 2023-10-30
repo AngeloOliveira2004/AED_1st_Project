@@ -50,7 +50,7 @@ namespace std {
         size_t operator()(const Student& student) const {
             size_t idHash = std::hash<int>{}(student.getId());
             size_t nameHash = std::hash<std::string>{}(student.getName());
-            return idHash ^ nameHash; // Combine the hashes appropriately
+            return nameHash; // Combine the hashes appropriately
         }
     };
 }
