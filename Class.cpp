@@ -62,6 +62,22 @@ std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const s
     return Result;
 }
 
+std::unordered_set<std::string> populateStudents(Class& class_,const std::vector<Student> students){
+    std::unordered_set<std::string> Result;
+    string classcode = class_.getClassCode();
+    for(const Student& student: students){
+        for(auto pair: student.getClassesToUcs()){
+            if(pair.first == classcode){
+                Result.insert(student.getName());
+                break;
+            }
+        }
+    }
+    return Result;
+}
+
+
+
 void Class::sort(std::vector<Class> &classes)
 {
     // Define a local function
