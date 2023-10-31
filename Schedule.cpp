@@ -157,7 +157,15 @@ void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
 {
     for(auto pair : StudentSchedules)
     {
-        if(pair.second.size() >= n)
+        int temp = 0;
+        for(auto uc_ : pair.second)
+        {
+            if(uc_.getType() == "TP")
+            {
+                temp++;
+            }
+        }
+        if(temp >= n - 49)
         {
             students.push_back(pair.first);
         }

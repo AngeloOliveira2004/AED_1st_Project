@@ -315,10 +315,10 @@ void UI::menu_studentsInNucs()
     clear_screen();
     cout << "Which is the minimum amount of UCs that a student should have?" <<'\n'
          << "Insert the number: ";
-    validate_input(op, 0 ,'a');
+        validate_input(op, '1' ,'E');
 
     std::vector<Student> studentsInNucs;
-    mySchedule.StudentsInAtLeastNUcs(op , studentsInNucs);
+    mySchedule.StudentsInAtLeastNUcs(op, studentsInNucs);
 
     for(Student student : studentsInNucs)
     {
