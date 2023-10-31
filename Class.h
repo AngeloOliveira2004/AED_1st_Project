@@ -35,7 +35,7 @@ public:
 
     //O(N) complexity where n is the size of allUCs vector
     static std::pair<Class, std::vector<UC>> populateSchedule(Class& class_, const std::vector<UC>& allUCs);
-    static std::unordered_set<std::string> populateStudents(Class &class_, vector<Student> students);
+    // static std::unordered_set<std::string> populateStudents(Class &class_, vector<Student> students);
 };
 
 namespace std {

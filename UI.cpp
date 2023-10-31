@@ -21,7 +21,6 @@ void UI::loading_stuff(UI &ui) {
     for(auto class_ : classes)
     {
         ClassSchedules_.insert(Class::populateSchedule(class_ , ucs));
-        Class::populateStudents(class_, students);
     }
 
     for(auto student : students)
@@ -241,16 +240,12 @@ void UI::menu_students(){
             cin >> class_number;
             cout << endl;
             if(mySchedule.FindClassinSchedule(class_number)){
-                for(Student &studentSet: students){
-                    for(const auto& pair: studentSet.getClassesToUcs()){
-                        if(pair.first == class_number){
-                            StudentsTemp.insert(make_pair(studentSet.getName(),studentSet.getId()));
-                        }
-                    }
-                }
                 cout << "Students in class " << class_number << ":\n";
-                for (const auto& studentInClass : StudentsTemp) {
-                    cout <<"Name: " << studentInClass.first << " || UP: " << studentInClass.second << endl;
+                for (const auto& studentInClass : AttendancePair.first[class_number]) {
+                    Student studentprint;
+                    studentprint.setName(studentInClass);
+                    auto it = mySchedule.FetchStudent(studentprint);
+                    cout <<"Name: " << it->first.getName() << " || UP: " << it->first.getId() << endl;
                 }
             }else{
                 cout << "The Class you entered is invalid." << endl;

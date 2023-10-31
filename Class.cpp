@@ -61,7 +61,7 @@ std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const s
     }
     return Result;
 }
-
+/*
 std::unordered_set<std::string> populateStudents(Class& class_,const std::vector<Student> students){
     std::unordered_set<std::string> Result;
     string classcode = class_.getClassCode();
@@ -75,6 +75,7 @@ std::unordered_set<std::string> populateStudents(Class& class_,const std::vector
     }
     return Result;
 }
+*/
 
 
 
