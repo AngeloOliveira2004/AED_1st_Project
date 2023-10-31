@@ -377,11 +377,44 @@ void UI::menu_occupation(){
         case '2':{
             char op_sort;
             cout << "Which way would you like to sort it?" <<'\n'
-                 << "1. Sort by UC" << endl
-                 << "2. Sort by ascending order" << endl
-                 << "3. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
+                 << "1. Sort by ascending order" << endl
+                 << "2. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
                  << "Insert the number: ";
-            validate_input(op_sort, '1' ,'3');
+            validate_input(op_sort, '1' ,'2');
+            std::vector<int> YearOccupation = {0,0,0}; // 1º- 2º- 3º;
+            /////////////////////////////////////////////////////////////////////////
+            for(Student student: students){
+                std::vector<bool> YearValidator = {false,false,false}; // 1º- 1 , 2ª- 2 , 3º - 3;
+                for(auto &studentClassestoUcs : student.getClassesToUcs()){
+                    if(studentClassestoUcs.first[0] == '1'){
+                        YearValidator[0] = true;
+                    }else if(studentClassestoUcs.first[0] == '2'){
+                        YearValidator[1] = true;
+                    }else if(studentClassestoUcs.first[0] == '3'){
+                        YearValidator[2] = true;
+                    }
+                }
+                if(YearValidator[0] == true){
+                    YearOccupation[0]++;
+                }
+                if(YearValidator[1] == true){
+                    YearOccupation[1]++;
+                }
+                if(YearValidator[2] == true){
+                    YearOccupation[2]++;
+                }
+            }
+            if(op_sort == '1') {
+                    std::cout << "1st Year Occupation: " << YearOccupation[0] << std::endl;
+                    std::cout << "2nd Year Occupation: " << YearOccupation[1] << std::endl;
+                    std::cout << "3rd Year Occupation: " << YearOccupation[2] << std::endl;
+            }
+            else if (op_sort == '2'){
+                std::cout << "3rd Year Occupation: " << YearOccupation[2] << std::endl;
+                std::cout << "2nd Year Occupation: " << YearOccupation[1] << std::endl;
+                std::cout << "1st Year Occupation: " << YearOccupation[0] << std::endl;
+            }
+            break;
         }
         case '3':{
             char op_sort;
