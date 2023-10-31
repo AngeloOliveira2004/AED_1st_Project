@@ -51,5 +51,5 @@ void UC::setDate(const Date& date) {
 
 bool UC::operator==(const UC other) const
 {
-    return (UcCode == other.UcCode) && (Type == other.Type);
+    return (UcCode == other.UcCode) && (Type == other.Type) && (RespectiveClass == other.RespectiveClass);
 }
