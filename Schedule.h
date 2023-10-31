@@ -54,7 +54,7 @@ public:
     void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
     void AddUC(Student student1 , UC new_uc);
     void RemoveUC(Student student1 , UC ex_uc);
-    void RemoveClass(Student student1, UC &uc);
+    void RemoveClass(Student student1,Class &class_);
     void AddClass(Student student1, UC &uc, Class &new_class);
 
 };

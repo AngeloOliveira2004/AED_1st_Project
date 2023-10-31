@@ -89,3 +89,9 @@ void Class::sort(std::vector<Class> &classes)
     // Use the local function for sorting
     std::sort(classes.begin(), classes.end(), compareClassesByName);
 }
+
+void Class::operator=(const Class &other)  {
+    ClassCode = other.ClassCode;
+    Students = other.Students;
+    UCs = other.UCs;
+}

@@ -31,6 +31,7 @@ public:
     static void sort(std::vector<Class>& classes);
 
     bool operator ==(const Class& other) const;
+    void operator =(const Class& other) ;
     bool operator<(const Class& other) const;
 
     //O(N) complexity where n is the size of allUCs vector

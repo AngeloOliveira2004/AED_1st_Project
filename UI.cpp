@@ -462,6 +462,6 @@ void UI::menu_occupation(){
             }
             break;
         }
-
     }
 }
+

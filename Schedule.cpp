@@ -279,27 +279,44 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
     CalculateBalance();
 }
 
-void Schedule::RemoveClass(Student student1, UC &uc){
+void Schedule::RemoveClass(Student student1, Class &class_){
 
     if (FindStudentinSchedule(student1.getName())) {
-        auto& studentSchedule = StudentSchedules[student1];
-        for (auto it = studentSchedule.begin(); it != studentSchedule.end(); ++it) {
-            if (*it == uc) {
-                it->setRespectiveClass("EMPTY");
-                it->setOccupation(uc.getOccupation() - 1);
 
-                UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
-
+        for(auto classes : StudentSchedules[student1])
+        {
+            std::vector<UC> tempV;
+            if(classes.getRespectiveClass() != class_.getClassCode())
+            {
+                tempV.push_back(classes);
             }
+            else
+            {
+                ClassAttendance[classes.getRespectiveClass()].erase(student1.getName());
+                UcOcupation[{classes.getUcCode() , classes.getRespectiveClass()}] -= 1;
+            }
+            StudentSchedules[student1] = tempV;
         }
     } else {
         std::cerr << "Student not found in the schedule" << std::endl;
     }
-    ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
 }
 
 void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
+
+    auto it = ClassSchedules.find(new_class);
+
+    new_class = it->first;
+
     if (FindStudentinSchedule(student1.getName())) {
+
+        for(auto uc : new_class.getUCs())
+        {
+            //IMmplementar funcao que vai buscar as ucs
+            //
+            if(ClassAttendance[uc.ge])
+            StudentSchedules.
+        }
         auto& studentSchedule = StudentSchedules[student1];
         bool classFound = false;
         for (auto& classSchedule : ClassSchedules) {
