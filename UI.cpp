@@ -335,16 +335,25 @@ void UI::menu_occupation(){
                  << "3. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
                  << "Insert the number: ";
                  validate_input(op_sort, '1' ,'3');
-                 switch(op_sort){
-                     case '1':{
-                         for(auto &pair : AttendancePair.second){
-                             cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" <<  " " << pair.second << endl;
-                         }
-                     }
+                 std::unordered_map<std::pair<std::string,std::string> , int , PairHash> Second = AttendancePair.second;
+                 std::vector<std::pair<std::pair<std::string, std::string>, int>> sortedVector;
+                 for (const auto& element : Second) {
+                     sortedVector.emplace_back(element);
                  }
 
-
-
+                if (op_sort == '1') {
+                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                        return a.first.first < b.first.first;});
+                } else if (op_sort == '2') {
+                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                        return a.first.second < b.first.second;});
+                } else if (op_sort == '3') {
+                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                        return a.first.second > b.first.second;});
+                }
+                for (auto& pair : sortedVector) {
+                    std::cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" << " " << pair.second << std::endl;
+                }
         }
     }
 }
