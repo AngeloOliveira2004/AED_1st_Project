@@ -57,10 +57,14 @@ void Schedule::setBalance(int balance)
 
 void Schedule::CalculateBalance()
 {
-    for(auto class_ : ClassSchedules)
+    int temp1 = INT16_MAX;
+    int temp2 = INT16_MIN;
+    for(auto class_ : ClassAttendance)
     {
-        Balance = std::max(static_cast<int>(class_.first.getStudents().size()), Balance);
+        temp1 = std::min(temp1 , static_cast<int>(class_.second.size()));
+        temp2 = std::max(temp2 , static_cast<int>(class_.second.size()));
     }
+    Balance = temp2 - temp1;
 }
 
 bool Schedule::FindStudentinSchedule(std::string student_name) {
@@ -152,7 +156,6 @@ bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     }
 }
 
-
 void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
 {
     for(auto pair : StudentSchedules)
@@ -203,54 +206,15 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED 
             }
         }
     }
+    ClassAttendance[ex_Class.getClassCode()].erase(student1.getName());
+    ClassAttendance[new_class.getClassCode()].insert(student1.getName());
 
-    if(FindClassinSchedule(uc.getRespectiveClass()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
-        {
-            if(pair.first.getClassCode() == uc.getRespectiveClass())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
-        }
-        std::unordered_set<string> students = tempCLass.getStudents();
-        students.insert(student1.getName());
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
-    }
-    if(FindClassinSchedule(ex_Class.getClassCode()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
-        {
-            if(pair.first.getClassCode() == ex_Class.getClassCode())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
-        }
-        std::unordered_set<string> students = tempCLass.getStudents();
-        students.erase(student1.getName());
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
-    }
     UcOcupation[{uc.getUcCode() , ex_Class.getClassCode()}] -= 1;
     UcOcupation[{uc.getUcCode() , new_class.getClassCode()}] += 1;
 }
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 {
-
     if(FindStudentinSchedule(student1.getName()))
     {
         for(auto uc : StudentSchedules[student1])
@@ -270,47 +234,9 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
             }
         }
     }
+    ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
+    ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
 
-    if(FindClassinSchedule(ex_uc.getRespectiveClass()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
-        {
-            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
-        }
-        std::unordered_set<string> students = tempCLass.getStudents();
-        students.erase(student1.getName());
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
-    }
-    if(FindClassinSchedule(new_uc.getRespectiveClass()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
-        {
-            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
-        }
-        std::unordered_set<string> students = tempCLass.getStudents();
-        students.insert(student1.getName());
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
-    }
     UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
     UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
 }
@@ -326,35 +252,16 @@ void Schedule::AddUC(Student student1, UC new_uc) {
                 return;
             }
         }
-        StudentSchedules[student1].push_back(new_uc);
-    }
-
-    if(FindClassinSchedule(new_uc.getRespectiveClass()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
+        if(ClassAttendance[new_uc.getRespectiveClass()].size() + 1 <= Balance)
         {
-            if(pair.first.getClassCode() == new_uc.getRespectiveClass())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
+            StudentSchedules[student1].push_back(new_uc);
         }
-
-        std::unordered_set<string> students = tempCLass.getStudents();
-        if(students.size() <= MAX_CAP)
-        {
-            students.insert(student1.getName());
-        }
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
     }
+    ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
 
     UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
+
+    CalculateBalance();
 }
 
 void Schedule::RemoveUC(Student student1, UC ex_uc) {
@@ -365,47 +272,31 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
         ucVector.erase(std::remove(ucVector.begin(), ucVector.end(), ex_uc), ucVector.end());
         StudentSchedules[student1] = ucVector;
     }
-
-    if(FindClassinSchedule(ex_uc.getRespectiveClass()))
-    {
-        Class tempCLass;
-        std::vector<UC> tempVector;
-        for(auto pair : ClassSchedules)
-        {
-            if(pair.first.getClassCode() == ex_uc.getRespectiveClass())
-            {
-                tempCLass = pair.first;
-                tempVector = pair.second;
-                break;
-            }
-        }
-
-        std::unordered_set<string> students = tempCLass.getStudents();
-        students.erase(student1.getName());
-
-        tempCLass.setStudents(students);
-        ClassSchedules.erase(tempCLass);
-        ClassSchedules[tempCLass] = tempVector;
-    }
+    ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
 
     UcOcupation[{ex_uc.getUcCode() , ex_uc.getUcCode()}] -= 1;
+
+    CalculateBalance();
 }
 
 void Schedule::RemoveClass(Student student1, UC &uc){
+
     if (FindStudentinSchedule(student1.getName())) {
         auto& studentSchedule = StudentSchedules[student1];
         for (auto it = studentSchedule.begin(); it != studentSchedule.end(); ++it) {
             if (*it == uc) {
                 it->setRespectiveClass("EMPTY");
                 it->setOccupation(uc.getOccupation() - 1);
-                break;
+
+                UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
+
             }
         }
     } else {
         std::cerr << "Student not found in the schedule" << std::endl;
     }
+    ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
 }
-
 
 void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
     if (FindStudentinSchedule(student1.getName())) {

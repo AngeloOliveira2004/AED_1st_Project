@@ -289,13 +289,31 @@ void UI::menu_students(){
                 cout << '\n';
             }
             cout << "Students in " << year_number << "º year" << ":\n";
-            for(Student &studentSet: students){
-                for(const auto& pair: studentSet.getClassesToUcs()){
-                    if(pair.first[0] == year_number){
-                        cout <<"Name: " << studentSet.getName() << " || UP: " << studentSet.getId() << endl;
-                        break;
+
+            set<string> student_set;
+            for(auto pair : mySchedule.getClassAttendance()){
+                if(pair.first[0] == year_number)
+                {
+                    for(auto stu : pair.second)
+                    {
+                        student_set.insert(stu);
                     }
                 }
+            }
+            for(auto pair : mySchedule.getClassAttendance()){
+                if(pair.first[0] != year_number)
+                {
+                    for(auto stu : pair.second)
+                    {
+                        student_set.erase(stu);
+                    }
+                }
+            }
+            for(auto &studentSet: student_set)
+            {
+                Student tempStu;
+                tempStu.setName(studentSet);
+                cout <<"Name: " << mySchedule.FetchStudent(tempStu)->first.getName() << " || UP: " << mySchedule.FetchStudent(tempStu)->first.getId() << endl;
             }
         }
     }
