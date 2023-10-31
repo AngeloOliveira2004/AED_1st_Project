@@ -17,6 +17,7 @@ public:
     void loading_stuff(UI& ui);
     void menu_students();
     void menu_studentsInNucs();
+    void menu_occupation();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
 
 private:
@@ -25,7 +26,7 @@ private:
     std::vector<Class> classes;
     std::vector<UC> ucs;
     std::vector<Schedule> schedules;
-    std::pair<std::unordered_map<std::string , std::unordered_set<std::string>> , std::unordered_map<std::string , int>> AttendancePair;
+    std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>> AttendancePair;
 
 };
 
