@@ -39,7 +39,7 @@ void Schedule::setClassSchedules(std::unordered_map<Class, std::vector<UC>>  Cla
     ClassSchedules = std::move(ClassSchedules_);
 }
 
-void Schedule::setUcOcupation(initializer_list<unordered_map<pair<std::basic_string<char>, std::basic_string<char>>, int, PairHash>::value_type> UcOcupation_)
+void Schedule::setUcOcupation(unordered_map<pair<basic_string<char>, basic_string<char>>, int, PairHash> UcOcupation_)
 {
     UcOcupation = UcOcupation_;
 }
@@ -165,7 +165,7 @@ void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
                 temp++;
             }
         }
-        if(temp >= n - 49)
+        if(temp >= n-49)
         {
             students.push_back(pair.first);
         }

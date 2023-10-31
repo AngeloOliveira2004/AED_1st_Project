@@ -35,7 +35,7 @@ public:
     void setStudentSchedules(std::unordered_map<Student, std::vector<UC>> studentClasses_);
     void setClassSchedules(std::unordered_map<Class, std::vector<UC>> classSchedules_);
     void setUcOcupation(
-            initializer_list<unordered_map<pair<std::basic_string<char>, std::basic_string<char>>, int, PairHash>::value_type> UcOcupation_);
+            unordered_map<pair<basic_string<char>, basic_string<char>>, int, PairHash> UcOcupation_);
     void setClassAttendance(std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance_);
     void setBalance(int balance);
 

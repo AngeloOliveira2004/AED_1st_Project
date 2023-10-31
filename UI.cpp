@@ -26,24 +26,19 @@ void UI::loading_stuff(UI &ui) {
     for(auto student : students)
     {
         StudentSchedules_.insert(Student::populateScheduleStudent(student , ucs));
-
     }
 
+    mySchedule.setClassAttendance(AttendancePair.first);
+    mySchedule.setUcOcupation(AttendancePair.second);
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
 }
 
 bool UI::validate_input(char &op, const char lower_bound, const char upper_bound) {
-    std::string tempValue;
-    while(true){
-        std::cin >> tempValue;
-        std::cout << "\n";
-        op = tempValue[0];
-        if (std::cin.fail() || tempValue.length() != 1 || !isdigit(op)) {
-            std::cout << "Introduce a valid option (" << lower_bound << "-" << upper_bound << "): ";
-        }else{
-            break;
-        }
+    std::cin >> op;
+    std::cout << "\n";
+    if (std::cin.fail()) {
+        throw std::invalid_argument("Invalid input. Please use a valid character.");
     }
     while (op < lower_bound || op > upper_bound) {
         std::cout << "Introduce a valid option (" << lower_bound << "-" << upper_bound << "): ";
@@ -117,7 +112,6 @@ void UI::menu_options() {
             menu_studentsInNucs();
             break;
         case '4':
-            menu_occupation();
             break;
         case '5':
             break;
@@ -234,14 +228,14 @@ void UI::menu_students(){
     switch(op){
         case '1': {
             string class_number;
-            set<pair<string,int>> StudentsTemp;
             clear_screen();
             cout << "What's the Class Code of class you would like to consult the students: ";
             cin >> class_number;
             cout << endl;
+            unordered_set<std::string> temp = mySchedule.getClassAttendance()[class_number];
             if(mySchedule.FindClassinSchedule(class_number)){
                 cout << "Students in class " << class_number << ":\n";
-                for (const auto& studentInClass : AttendancePair.first[class_number]) {
+                for (const auto& studentInClass : temp) {
                     Student studentprint;
                     studentprint.setName(studentInClass);
                     auto it = mySchedule.FetchStudent(studentprint);
@@ -254,19 +248,21 @@ void UI::menu_students(){
         }
         case '2':{
             string ucCode;
-            bool ucFound = false;
+            // bool ucFound = false;
             set<pair<string,int>> StudentsTemp;
             clear_screen();
             cout << "What's the UC you would like to consult the students: ";
             cin >> ucCode;
             cout << endl;
             cout << "Students in " << ucCode << ":\n";
+            /* Não está a funcionar por algumo motivo que não entendi porquê ?!?
             for (const auto& targetUC : ucs) {
                 if (targetUC.getUcCode() == ucCode) {
                     ucFound = true;
                     break;
                 }
             }
+             */
                 for(Student &studentSet: students){
                     for(const auto& pair: studentSet.getClassesToUcs()){
                         if(pair.second == ucCode){
@@ -301,7 +297,6 @@ void UI::menu_students(){
     }
 }
 
-
 void UI::menu_studentsInNucs(){
     char op;
     clear_screen();
@@ -323,5 +318,4 @@ void UI::menu_occupation(){
     cout << "Which is the minimum amount of UCs that a student should have?" <<'\n'
          << "Insert the number: ";
     validate_input(op, '1' ,'7');
-
 }
