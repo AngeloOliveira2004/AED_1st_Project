@@ -352,8 +352,65 @@ void UI::menu_occupation(){
                         return a.first.second > b.first.second;});
                 }
                 for (auto& pair : sortedVector) {
-                    std::cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" << " " << pair.second << std::endl;
+                    std::cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" << " " << pair.second+1 << std::endl;
                 }
+                break;
         }
+        case '2':{
+            char op_sort;
+            cout << "Which way would you like to sort it?" <<'\n'
+                 << "1. Sort by UC" << endl
+                 << "2. Sort by ascending order" << endl
+                 << "3. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
+                 << "Insert the number: ";
+            validate_input(op_sort, '1' ,'3');
+        }
+        case '3':{
+            char op_sort;
+            cout << "Which way would you like to sort it?" <<'\n'
+                 << "1. Sort by ascending order" << endl
+                 << "2. Sort by descending order" << endl << endl << endl << endl << endl << endl << endl << '\n'
+                 << "Insert the number: ";
+            validate_input(op_sort, '1' ,'2');
+            std::unordered_map<std::pair<std::string,std::string> , int , PairHash> Second = AttendancePair.second;
+            std::vector<std::pair<std::pair<std::string, std::string>, int>> sortedVector;
+            std::map<std::string,int> valueOcupationUC;
+            int valueOcUcwielder = 0;
+            int first_time = 1;
+            string actualUC;
+            for (const auto& element : Second) {
+                sortedVector.emplace_back(element);
+            }
+            std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                return a.first.first < b.first.first;});
+            for(auto &pair : sortedVector){
+                if(first_time == 1){
+                    actualUC = pair.first.first;
+                    first_time = 0;
+                }
+                if(actualUC != pair.first.first){
+                    valueOcupationUC.emplace(make_pair(actualUC,valueOcUcwielder));
+                    actualUC = pair.first.first;
+                    valueOcUcwielder = 0;
+                    valueOcUcwielder += pair.second+1;
+                }else{
+                    valueOcUcwielder += pair.second+1;
+                }
+            }
+            valueOcupationUC.emplace(make_pair(actualUC,valueOcUcwielder));
+
+            if(op_sort == '1') {
+                for (auto & it : valueOcupationUC) {
+                    std::cout << "UC:" << it.first << "||" << "Occupation:" << " " << it.second << std::endl;
+                }
+            }
+            else if (op_sort == '2'){
+                for (auto it = valueOcupationUC.rbegin(); it != valueOcupationUC.rend(); ++it) {
+                    std::cout << "UC:" << it->first << "||" << "Occupation:" << " " << it->second << std::endl;
+                }
+            }
+            break;
+        }
+
     }
 }
