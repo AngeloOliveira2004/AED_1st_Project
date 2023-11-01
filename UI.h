@@ -19,6 +19,8 @@ public:
     void menu_studentsInNucs();
     void menu_occupation();
     void menu_requests();
+    void save_global_alterations();
+    void write_down();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
 
 private:

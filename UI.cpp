@@ -82,6 +82,16 @@ void UI::menu_start() {
                 menu_options();
             break;
         case '2':
+            char choice;
+            cout << "Would you like to save your changes?" << endl
+                 << "1.Yes" << endl
+                 << "2.No" << endl
+                 << "Insert the number: " ;
+            validate_input(choice,'1','2');
+            if(choice == 1){
+                write_down();
+                save_global_alterations();
+            }
             cout << "Thanks for using our schedule app!" << endl << "\n"
                  << "Made by: " << endl
                  << "Ângelo Oliveira || 202207798" << endl
@@ -123,7 +133,7 @@ void UI::menu_options() {
             break;
         case '6':
             clear_screen();
-            menu_options();
+            menu_start();
             break;
     }
 }
@@ -218,6 +228,10 @@ void UI::menu_schedule(){
                 break;
             }
         }
+        char trash;
+        cout << endl << "Press any button and enter to return to the menu options: ";
+        cin >> trash;
+        menu_options();
 }
 
 void UI::menu_students(){
@@ -315,6 +329,10 @@ void UI::menu_students(){
             }
         }
     }
+    char trash;
+    cout << endl << "Press any button to return to the menu options: ";
+    cin >> trash;
+    menu_options();
 }
 
 
@@ -331,6 +349,10 @@ void UI::menu_studentsInNucs(){
     for(Student student : studentsInNucs){
         cout <<"Name: " << student.getName() << " || UP: " << student.getId() << endl;
     }
+    char trash;
+    cout << endl << "Press any button and enter to return to the menu options: ";
+    cin >> trash;
+    menu_options();
 }
 
 void UI::menu_occupation(){
@@ -471,6 +493,10 @@ void UI::menu_occupation(){
             break;
         }
     }
+    char trash;
+    cout << endl << "Press any button and enter to return to the menu options: ";
+    cin >> trash;
+    menu_options();
 }
 
 void UI::menu_requests() {
@@ -497,22 +523,11 @@ void UI::menu_requests() {
             cout << endl;
             Student student_func;
             UC uc_func;
+            student_func.setName(student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            student_func = it_student->first;
             int left = 0;
-            int right = students.size() - 1;
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (students[mid].getName() == student_name) {
-                    student_func = students[mid];
-                    break;
-                }
-
-                if (students[mid].getName() < student_name) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
+            int right = ucs.size() - 1;
             while (left <= right) {
                 int mid = left + (right - left) / 2;
 
@@ -528,6 +543,7 @@ void UI::menu_requests() {
                 }
             }
             mySchedule.AddUC(student_func,uc_func);
+            break;
         }
         case '2':{
             string student_name;
@@ -540,22 +556,11 @@ void UI::menu_requests() {
             cout << endl;
             Student student_func;
             UC uc_func;
+            student_func.setName(student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            student_func = it_student->first;
             int left = 0;
-            int right = students.size() - 1;
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (students[mid].getName() == student_name) {
-                    student_func = students[mid];
-                    break;
-                }
-
-                if (students[mid].getName() < student_name) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
+            int right = ucs.size() - 1;
             while (left <= right) {
                 int mid = left + (right - left) / 2;
 
@@ -571,6 +576,7 @@ void UI::menu_requests() {
                 }
             }
             mySchedule.RemoveUC(student_func,uc_func);
+            break;
         }
         case '3':{
             string student_name;
@@ -588,25 +594,12 @@ void UI::menu_requests() {
             Student student_func;
             UC uc_func;
             UC uc_func_new;
+            student_func.setName(student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            student_func = it_student->first;
+
             int left = 0;
-            int right = students.size() - 1;
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (students[mid].getName() == student_name) {
-                    student_func = students[mid];
-                    break;
-                }
-
-                if (students[mid].getName() < student_name) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-
-            }
-            left = 0;
-            right = ucs.size();
+            int right = ucs.size();
             while (left <= right) {
                 int mid = left + (right - left) / 2;
 
@@ -638,6 +631,7 @@ void UI::menu_requests() {
                 }
             }
             mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
+            break;
         }
         case '4':{
             string Student_name;
@@ -649,16 +643,11 @@ void UI::menu_requests() {
             cout << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
-            cout << "Introduce the code of the Class you want to add: ";
-            cin >> Class_code;
-            cout << endl;
             Student student_func;
             UC uc_func;
-            Class class_func;
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
-            class_func.setClassCode(Class_code);
-            auto it_class = mySchedule.FetchClass(class_func);
+            student_func = it_student->first;
             int left = 0;
             int right = ucs.size();
             while (left <= right) {
@@ -675,7 +664,8 @@ void UI::menu_requests() {
                     right = mid - 1;
                 }
             }
-            /// Chamar a função aqui (add)
+            mySchedule.AddClass(student_func,uc_func);
+            break;
         }
         case '5':{
             string Student_name;
@@ -687,16 +677,12 @@ void UI::menu_requests() {
             cout << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
-            cout << "Introduce the code of the Class you want to remove: ";
-            cin >> Class_code;
             cout << endl;
             Student student_func;
             UC uc_func;
-            Class class_func;
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
-            class_func.setClassCode(Class_code);
-            auto it_class = mySchedule.FetchClass(class_func);
+            student_func = it_student->first;
             int left = 0;
             int right = ucs.size();
             while (left <= right) {
@@ -713,7 +699,8 @@ void UI::menu_requests() {
                     right = mid - 1;
                 }
             }
-            mySchedule.AddClass(student_func,uc_func,class_func);
+            mySchedule.AddClass(student_func,uc_func);
+            break;
         }
         case '6': {
             string Student_name;
@@ -735,6 +722,8 @@ void UI::menu_requests() {
             auto it_student = mySchedule.FetchStudent(student_func);
             class_func.setClassCode(Class_code);
             auto it_class = mySchedule.FetchClass(class_func);
+            student_func = it_student->first;
+            class_func = it_class->first;
             int left = 0;
             int right = ucs.size();
             while (left <= right) {
@@ -752,7 +741,59 @@ void UI::menu_requests() {
                 }
             }
             mySchedule.SwitchClass(student_func,class_func,uc_func);
+            break;
         }
     }
+    char trash;
+    cout << endl << "Press any button and enter to return to the menu options: ";
+    cin >> trash;
+    menu_options();
+}
+
+
+void UI::save_global_alterations(){
+    fstream fout;
+
+    fout.open("reportcard.csv", ios::out | ios::app);
+
+    if (!fout.is_open()) {
+        std::cerr << "Error opening file for writing." << std::endl;
+        return;
+    }
+
+    fout << "StudentCode,StudentName,UcCode,ClassCode" << std::endl;
+
+    auto m =  mySchedule.getStudentSchedules();
+    for (const auto& entry : m) {
+        const Student& student = entry.first;
+
+        for (const UC& uc : entry.second) {
+            fout << student.getId() << "," << student.getName() << ","
+                 << uc.getUcCode() << "," << uc.getRespectiveClass() << std::endl;
+        }
+    }
+
+    fout.close();
+}
+
+void UI::write_down(){
+    fstream fout;
+    fstream fin;
+
+    fout.open("reportcard.csv", ios::out | ios::app);
+    fin.open("schedule/students_classes.csv");
+
+    if (!fin.is_open() || !fout.is_open()) {
+        std::cerr << "Error opening input or output file." << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(fout, line)) {
+        fin << line << std::endl;
+    }
+
+    fin.close();
+    fout.close();
 }
 
