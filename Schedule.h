@@ -58,9 +58,8 @@ public:
     void RemoveClass(Student student1 , UC &uc);
     void AddClass(Student student1 , UC &uc);
     void RemoveWholeClass(Student student1,Class &class_);
-    void AddCWholelass(Student student1, UC &uc, Class &new_class);
+    void AddWholeClass(Student student1 , Class &new_class);
 
-    void AddWholeClass(Student student1, Class &new_class);
 };
 
 #endif //PROJETO_SCHECULE_H

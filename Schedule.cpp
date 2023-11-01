@@ -374,4 +374,3 @@ void Schedule::AddWholeClass(Student student1 , Class &new_class){
     }
 }
 
-
