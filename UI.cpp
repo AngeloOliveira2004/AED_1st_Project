@@ -492,3 +492,24 @@ void UI::save_global_alterations()
     fout.close();
 }
 
+void UI::write_down()
+{
+    fstream fout;
+    fstream fin;
+
+    fout.open("reportcard.csv", ios::out | ios::app);
+    fin.open("schedule/students_classes.csv");
+
+    if (!fin.is_open() || !fout.is_open()) {
+        std::cerr << "Error opening input or output file." << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(fout, line)) {
+        fin << line << std::endl;
+    }
+
+    fin.close();
+    fout.close();
+}
