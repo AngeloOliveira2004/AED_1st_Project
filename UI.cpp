@@ -101,11 +101,10 @@ void UI::menu_options() {
          << "2. Consult students" << endl
          << "3. Consult the number of students registered in at least n UCs" << endl
          << "4. Consult occupation" << endl
-         << "5. Consult the UCs with the greatest number of students" << endl
-         << "6. Update registrations" << endl
-         << "7. Return to main menu" << endl << endl
+         << "5. Update registrations" << endl
+         << "6. Return to main menu" << endl << endl << endl
          << "Insert the number: ";
-    validate_input(op,'1','7');
+    validate_input(op,'1','6');
     switch(op){
         case '1':
             menu_schedule();
@@ -120,10 +119,9 @@ void UI::menu_options() {
             menu_occupation();
             break;
         case '5':
+            menu_requests();
             break;
         case '6':
-            break;
-        case '7':
             clear_screen();
             menu_options();
             break;
@@ -378,7 +376,7 @@ void UI::menu_occupation(){
             char op_sort;
             cout << "Which way would you like to sort it?" <<'\n'
                  << "1. Sort by ascending order" << endl
-                 << "2. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
+                 << "2. Sort by descending order" << endl << endl << endl << endl << endl << endl << endl << '\n'
                  << "Insert the number: ";
             validate_input(op_sort, '1' ,'2');
             std::vector<int> YearOccupation = {0,0,0}; // 1º- 2º- 3º;
@@ -420,9 +418,10 @@ void UI::menu_occupation(){
             char op_sort;
             cout << "Which way would you like to sort it?" <<'\n'
                  << "1. Sort by ascending order" << endl
-                 << "2. Sort by descending order" << endl << endl << endl << endl << endl << endl << endl << '\n'
+                 << "2. Sort by descending order" << endl
+                 << "3. Sort by occupation" << endl << endl << endl << endl << endl << endl << '\n'
                  << "Insert the number: ";
-            validate_input(op_sort, '1' ,'2');
+            validate_input(op_sort, '1' ,'3');
             std::unordered_map<std::pair<std::string,std::string> , int , PairHash> Second = AttendancePair.second;
             std::vector<std::pair<std::pair<std::string, std::string>, int>> sortedVector;
             std::map<std::string,int> valueOcupationUC;
@@ -460,7 +459,299 @@ void UI::menu_occupation(){
                     std::cout << "UC:" << it->first << "||" << "Occupation:" << " " << it->second << std::endl;
                 }
             }
+            else if (op_sort == '3'){
+                std::vector<std::pair<std::string, int>> sortedByOccupation(valueOcupationUC.begin(), valueOcupationUC.end());
+                std::sort(sortedByOccupation.begin(), sortedByOccupation.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+                    return a.second > b.second;
+                });
+                for (const auto& it : sortedByOccupation) {
+                    std::cout << "UC:" << it.first << "||" << "Occupation:" << " " << it.second << std::endl;
+                }
+            }
             break;
+        }
+    }
+}
+
+void UI::menu_requests() {
+    char op;
+    clear_screen();
+    cout << "What request would you like to choose?" << endl << '\n'
+         << "1. Add UC to a student" << endl
+         << "2. Remove UC from a student" << endl
+         << "3. Switch UCs from a student" << endl
+         << "4. Add Class to a certain UC of a student" << endl
+         << "5. Remove Class to a certain UC of a student" << endl
+         << "6. Switch Class to a certain UC of a student" << endl << endl << endl
+         << "Insert the number: ";
+    validate_input(op, '1' ,'6');
+    switch(op){
+        case '1':{
+            string student_name;
+            string UC_code;
+            cout << "Introduce the name of the student: ";
+            cin >> student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC you want to add: ";
+            cin >> UC_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            int left = 0;
+            int right = students.size() - 1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (students[mid].getName() == student_name) {
+                    student_func = students[mid];
+                    break;
+                }
+
+                if (students[mid].getName() < student_name) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            mySchedule.AddUC(student_func,uc_func);
+        }
+        case '2':{
+            string student_name;
+            string UC_code;
+            cout << "Introduce the name of the student: ";
+            cin >> student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC you want to remove: ";
+            cin >> UC_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            int left = 0;
+            int right = students.size() - 1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (students[mid].getName() == student_name) {
+                    student_func = students[mid];
+                    break;
+                }
+
+                if (students[mid].getName() < student_name) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            mySchedule.RemoveUC(student_func,uc_func);
+        }
+        case '3':{
+            string student_name;
+            string UC_code;
+            string UC_code_new;
+            cout << "Introduce the name of the student: ";
+            cin >> student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC you want to add: ";
+            cin >> UC_code_new;
+            cout << endl;
+            cout << "Introduce the code of the UC you want to remove: ";
+            cin >> UC_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            UC uc_func_new;
+            int left = 0;
+            int right = students.size() - 1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (students[mid].getName() == student_name) {
+                    student_func = students[mid];
+                    break;
+                }
+
+                if (students[mid].getName() < student_name) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+
+            }
+            left = 0;
+            right = ucs.size();
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            left = 0;
+            right = ucs.size();
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code_new) {
+                    uc_func_new = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code_new) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
+        }
+        case '4':{
+            string Student_name;
+            string UC_code;
+            string Class_code;
+            cout << "Introduce the name of the student: ";
+            cin >> Student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC: ";
+            cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the Class you want to add: ";
+            cin >> Class_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            Class class_func;
+            student_func.setName(Student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            class_func.setClassCode(Class_code);
+            auto it_class = mySchedule.FetchClass(class_func);
+            int left = 0;
+            int right = ucs.size();
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            /// Chamar a função aqui (add)
+        }
+        case '5':{
+            string Student_name;
+            string UC_code;
+            string Class_code;
+            cout << "Introduce the name of the student: ";
+            cin >> Student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC: ";
+            cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the Class you want to remove: ";
+            cin >> Class_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            Class class_func;
+            student_func.setName(Student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            class_func.setClassCode(Class_code);
+            auto it_class = mySchedule.FetchClass(class_func);
+            int left = 0;
+            int right = ucs.size();
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            mySchedule.AddClass(student_func,uc_func,class_func);
+        }
+        case '6': {
+            string Student_name;
+            string UC_code;
+            string Class_code;
+            cout << "Introduce the name of the student: ";
+            cin >> Student_name;
+            cout << endl;
+            cout << "Introduce the code of the UC: ";
+            cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the Class you want to switch to: ";
+            cin >> Class_code;
+            cout << endl;
+            Student student_func;
+            UC uc_func;
+            Class class_func;
+            student_func.setName(Student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            class_func.setClassCode(Class_code);
+            auto it_class = mySchedule.FetchClass(class_func);
+            int left = 0;
+            int right = ucs.size();
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (ucs[mid].getUcCode() == UC_code) {
+                    uc_func = ucs[mid];
+                    break;
+                }
+
+                if (ucs[mid].getUcCode() < UC_code) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            mySchedule.SwitchClass(student_func,class_func,uc_func);
         }
     }
 }
