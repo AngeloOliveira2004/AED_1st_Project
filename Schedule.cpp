@@ -270,8 +270,55 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
     CalculateBalance();
 }
 
-void Schedule::RemoveClass(Student student1, Class &class_){
+void Schedule::RemoveClass(Student student1, UC &uc)
+{
+    if (FindStudentinSchedule(student1.getName()))
+    {
+        auto it = StudentSchedules.find(student1);
+        for(auto ucs : it->second)
+        {
+            std::vector<UC> tempV;
+            if(uc.getRespectiveClass() != ucs.getRespectiveClass() && uc.getUcCode() != ucs.getUcCode())
+            {
+                tempV.push_back(ucs);
+            }
+            else
+            {
+                ClassAttendance[ucs.getRespectiveClass()].erase(student1.getName());
+                UcOcupation[{ucs.getUcCode() , ucs.getRespectiveClass()}] -= 1;
+            }
+            StudentSchedules[student1] = tempV;
+        }
 
+        for(auto pair : it->first.getClassesToUcs())
+        {
+            if(pair.second == uc.getUcCode())
+            {
+                pair.first = "EMPTY";
+            }
+        }
+    }
+}
+
+void Schedule::AddClass(Student student1, UC &uc)
+{
+    if (FindStudentinSchedule(student1.getName()))
+    {
+        auto it = StudentSchedules.find(student1);
+
+        for(auto pair : it->first.getClassesToUcs())
+        {
+            if(pair.first == "EMPTY")
+            {
+                pair.first = uc.getRespectiveClass();
+            }
+        }
+
+        StudentSchedules[student1].push_back(uc);
+    }
+}
+
+void Schedule::RemoveWholeClass(Student student1, Class &class_) {
     if (FindStudentinSchedule(student1.getName())) {
 
         for(auto classes : StudentSchedules[student1])
@@ -293,7 +340,7 @@ void Schedule::RemoveClass(Student student1, Class &class_){
     }
 }
 
-void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
+void Schedule::AddWholeClass(Student student1 , Class &new_class){
 
     auto it = ClassSchedules.find(new_class);
 

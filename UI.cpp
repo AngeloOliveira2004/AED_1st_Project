@@ -122,6 +122,7 @@ void UI::menu_options() {
         case '5':
             break;
         case '6':
+            save_global_alterations();
             break;
         case '7':
             clear_screen();
@@ -463,5 +464,31 @@ void UI::menu_occupation(){
             break;
         }
     }
+}
+
+void UI::save_global_alterations()
+{
+    fstream fout;
+
+    fout.open("reportcard.csv", ios::out | ios::app);
+
+    if (!fout.is_open()) {
+        std::cerr << "Error opening file for writing." << std::endl;
+        return;
+    }
+
+    fout << "StudentCode,StudentName,UcCode,ClassCode" << std::endl;
+
+    auto m =  mySchedule.getStudentSchedules();
+    for (const auto& entry : m) {
+        const Student& student = entry.first;
+
+        for (const UC& uc : entry.second) {
+            fout << student.getId() << "," << student.getName() << ","
+                       << uc.getUcCode() << "," << uc.getRespectiveClass() << std::endl;
+        }
+    }
+
+    fout.close();
 }
 
