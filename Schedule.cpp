@@ -54,6 +54,10 @@ void Schedule::setBalance(int balance)
     Balance = balance;
 }
 
+void Schedule::setUCs(std::vector<UC> ucs_)
+{
+    Ucs = ucs_;
+}
 
 void Schedule::CalculateBalance()
 {
@@ -125,26 +129,13 @@ bool Schedule::FindClassinSchedule(std::string ClassCode)
 
 UC Schedule::FindUC(const UC &targetUC)
 {
-    int left = 0;
-    int right = Ucs.size() - 1;
-    UC result;
-
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        const UC& currentUC = Ucs[mid];
-
-        if (currentUC.getUcCode() == targetUC.getUcCode()) {
-            result = currentUC;
-            return result; // Found the target UC
-        }
-        if (currentUC.getUcCode() < targetUC.getUcCode()) {
-            left = mid + 1; // Target UC is in the right half
-        } else {
-            right = mid - 1; // Target UC is in the left half
+    for(UC uc : Ucs)
+    {
+        if(uc.getUcCode() == targetUC.getUcCode() && uc.getRespectiveClass() == targetUC.getRespectiveClass())
+        {
+            return uc;
         }
     }
-
-    return result;// Target UC not found
 }
 
 bool Schedule::compare_day(const UC &uc1, const UC &uc2){
@@ -312,33 +303,25 @@ void Schedule::AddClass(Student student1, UC &uc, Class &new_class){
 
         for(auto uc : new_class.getUCs())
         {
-            //IMmplementar funcao que vai buscar as ucs
-            //
-            if(ClassAttendance[uc.ge])
-            StudentSchedules.
-        }
-        auto& studentSchedule = StudentSchedules[student1];
-        bool classFound = false;
-        for (auto& classSchedule : ClassSchedules) {
-            if (classSchedule.first.getClassCode() == new_class.getClassCode()) {
-                classFound = true;
-                for (const auto& ucInClass : classSchedule.second) {
-                    if (ucInClass == uc) {
-                        if(ucInClass.getRespectiveClass() == "EMPTY"){
-                            uc.setRespectiveClass(new_class.getClassCode());
-                            uc.setOccupation(uc.getOccupation() + 1);
-                            break;
-                        }else{
-                            std::cerr << "Student already has a class for this UC" << std::endl;
-                        }
-                    }
-                }
-            }
-        }
-        if (!classFound) {
-            std::cerr << "Class not found in the schedule" << std::endl;
-        }
+            UC tempUc;
+            tempUc.setUcCode(uc);
 
+            tempUc = FindUC(tempUc);
+            //IMmplementar funcao que vai buscar as ucs
+            ClassAttendance[new_class.getClassCode()].insert(student1.getName());
+            CalculateBalance();
+            if(Balance <= 4)
+            {
+                UcOcupation[{tempUc.getUcCode() , new_class.getClassCode()}] += 1;
+            }
+            else
+            {
+                ClassAttendance[new_class.getClassCode()].erase(student1.getName());
+                std::cerr << "Balance disrupted";
+            }
+
+            StudentSchedules[student1].push_back(tempUc);
+        }
     } else {
         std::cerr << "Student not found in the schedule" << std::endl;
     }

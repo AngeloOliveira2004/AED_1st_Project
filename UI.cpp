@@ -28,7 +28,7 @@ void UI::loading_stuff(UI &ui) {
         StudentSchedules_.insert(Student::populateScheduleStudent(student , ucs));
 
     }
-
+    mySchedule.setUCs(ucs);
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
 }

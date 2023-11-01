@@ -38,6 +38,7 @@ public:
             unordered_map<pair<basic_string<char>, basic_string<char>>, int, PairHash> UcOcupation_);
     void setClassAttendance(std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance_);
     void setBalance(int balance);
+    void setUCs(std::vector<UC> ucs_);
 
     void StudentsInAtLeastNUcs(char n , std::vector<Student>& students);
     void CalculateBalance();
