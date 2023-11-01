@@ -35,6 +35,14 @@ public:
         return Date_.Day < other.getDate().Day; // Assuming the UC name is used for comparison
     }
     bool operator ==(const UC other) const;
+    bool operator =(const UC other)
+    {
+        UcCode = other.UcCode;
+        Type = other.Type;
+        RespectiveClass = other.RespectiveClass;
+        occupation = other.occupation;
+        Date_ = other.Date_;
+    }
 };
 
 #endif // PROJETO_UC_H
