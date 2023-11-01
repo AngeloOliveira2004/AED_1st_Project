@@ -131,7 +131,7 @@ UC Schedule::FindUC(const UC &targetUC)
 {
     for(UC uc : Ucs)
     {
-        if(uc.getUcCode() == targetUC.getUcCode() && uc.getRespectiveClass() == targetUC.getRespectiveClass())
+        if(uc.getUcCode() == targetUC.getUcCode())
         {
             return uc;
         }
@@ -259,13 +259,20 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
 
     if(FindStudentinSchedule(student1.getName()))
     {
-        auto& ucVector = StudentSchedules[student1];
-        ucVector.erase(std::remove(ucVector.begin(), ucVector.end(), ex_uc), ucVector.end());
+        vector<UC> ucVector;
+        for(auto uc : StudentSchedules[student1])
+        {
+            if(uc.getUcCode() != ex_uc.getUcCode())
+            {
+                ucVector.push_back(uc);
+            }
+        }
+
         StudentSchedules[student1] = ucVector;
     }
-    ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
+    //ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
 
-    UcOcupation[{ex_uc.getUcCode() , ex_uc.getUcCode()}] -= 1;
+    //UcOcupation[{ex_uc.getUcCode() , ex_uc.getUcCode()}] -= 1;
 
     CalculateBalance();
 }

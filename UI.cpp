@@ -132,6 +132,10 @@ void UI::menu_options() {
             menu_requests();
             break;
         case '6':
+            save_global_alterations();
+            break;
+        case '7':
+
             clear_screen();
             menu_start();
             break;
@@ -523,26 +527,13 @@ void UI::menu_requests() {
             cout << endl;
             Student student_func;
             UC uc_func;
+            UC debug;
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
+
             student_func = it_student->first;
-            int left = 0;
-            int right = ucs.size() - 1;
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
-            mySchedule.AddUC(student_func,uc_func);
+            debug = mySchedule.FindUC(uc_func);
+            cout << debug.getUcCode() ;
             break;
         }
         case '2':{
@@ -559,22 +550,7 @@ void UI::menu_requests() {
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-            int left = 0;
-            int right = ucs.size() - 1;
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
+            uc_func.setUcCode(UC_code);
             mySchedule.RemoveUC(student_func,uc_func);
             break;
         }
