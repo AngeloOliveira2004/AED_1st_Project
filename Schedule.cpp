@@ -212,43 +212,33 @@ void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
     }
 }
 
-void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED na turma 5 pra turma 6
+void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) { //AED na turma 5 pra turma 6
 
-    Class ex_Class;
-    //
-    for(UC uc_ : Ucs)
+    vector<UC> tempV;
+
+    for(UC Uc : StudentSchedules[student1])
     {
-        if(uc_.getRespectiveClass() == new_class.getClassCode() && uc_.getUcCode() == uc.getUcCode())
+        if(Uc == old_uc && old_uc.getDate().Day == Uc.getDate().Day && old_uc.getDate().Duration.first == Uc.getDate().Duration.first && old_uc.getDate().Duration.second == Uc.getDate().Duration.second)
         {
-            ex_Class.setClassCode(uc.getRespectiveClass());
-            uc = uc_;
-        }
-    }
-    if(FindStudentinSchedule(student1.getName()))
-    {
-        for(auto uc : StudentSchedules[student1])
-        {
-            if(Date::Overlaps(uc.getDate() , uc.getDate()))
+            if(ClassAttendance[new_uc.getRespectiveClass()].size()+1 < Balance)
             {
-                std::cerr << "Schedule not compatible with other classes";
-                return;
+                tempV.push_back(new_uc);
+                ClassAttendance[old_uc.getRespectiveClass()].erase(student1.getName());
+                ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
+
+                UcOcupation[{old_uc.getUcCode() , old_uc.getRespectiveClass()}] -= 1;
+                UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
+            }
+            else{
+                std::cout << "Balance disrupted";
             }
         }
-
-        for(auto uc_ : StudentSchedules[student1])
+        else
         {
-            if(uc.getUcCode() == uc_.getUcCode())
-            {
-                uc_ = uc;
-                break;
-            }
+            tempV.push_back(Uc);
         }
     }
-    ClassAttendance[ex_Class.getClassCode()].erase(student1.getName());
-    ClassAttendance[new_class.getClassCode()].insert(student1.getName());
-
-    UcOcupation[{uc.getUcCode() , ex_Class.getClassCode()}] -= 1;
-    UcOcupation[{uc.getUcCode() , new_class.getClassCode()}] += 1;
+    StudentSchedules[student1] = tempV;
 }
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)

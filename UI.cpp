@@ -673,42 +673,39 @@ void UI::menu_requests() {
         case '6': {
             string Student_name;
             string UC_code;
-            string Class_code;
+            string class_code_old;
+            string class_code_new;
+            Student student_func;
+            UC new_uc;
+            UC old_uc;
             cout << "Introduce the name of the student: ";
             cin >> Student_name;
             cout << endl;
+            student_func.setName(Student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            student_func = it_student->first;
+
             cout << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
-            cout << "Introduce the code of the Class you want to switch to: ";
-            cin >> Class_code;
+
+            cout << "Introduce the code of the Class you want to switch out: ";
+            cin >> class_code_old;
             cout << endl;
-            Student student_func;
-            UC uc_func;
-            Class class_func;
-            student_func.setName(Student_name);
-            auto it_student = mySchedule.FetchStudent(student_func);
-            class_func.setClassCode(Class_code);
-            auto it_class = mySchedule.FetchClass(class_func);
-            student_func = it_student->first;
-            class_func = it_class->first;
-            int left = 0;
-            int right = ucs.size();
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
 
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
+            old_uc.setUcCode(UC_code);
+            old_uc.setRespectiveClass(class_code_old);
+            mySchedule.FindUCinStudent(student_func , old_uc);
 
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
-            mySchedule.SwitchClass(student_func,class_func,uc_func);
+            cout << "Introduce the code of the Class you want to switch in: ";
+            cin >> class_code_new;
+            cout << endl;
+
+            new_uc.setUcCode(UC_code);
+            new_uc.setRespectiveClass(class_code_new);
+            mySchedule.FindUC(new_uc);
+
+            mySchedule.SwitchClass(student_func,old_uc,new_uc);
             break;
             ChangesMade = true;
         }
