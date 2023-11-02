@@ -533,10 +533,12 @@ void UI::menu_requests() {
         validate_input(op_save,'1','2');
         if(op_save == '2'){
             restore.restore(mySchedule,students,classes,ucs,schedules,AttendancePair);
+            restore_value.pop_back();
             ChangesMade = false;
         }
     }
     Restoring restore_backup(mySchedule,students,classes,ucs,schedules,AttendancePair);
+    restore_value.push_back(restore_backup);
     restore = restore_backup;
     char op;
     clear_screen();
@@ -833,8 +835,11 @@ void UI::menu_requets()
                   << "3. Process last request" << endl
                   << "4. Process all pending requests" << endl
                   << "5. Clear all pending requests" << endl
+                  << "6. Clear the first request" << endl
+                  << "7. Clear the last request" << endl
+                  << "8. Return to main menu"
                   << "Insert the number: ";
-        validate_input(op, '1' ,'5');
+        validate_input(op, '1' ,'8');
         std::vector<std::variant<Student, UC, char>> temp;
         char op_;
         Student student;
@@ -920,6 +925,18 @@ void UI::menu_requets()
             }
             case '5':{
                 requests.clear();
+                break;
+            }
+            case '6':{
+                requests.pop_front();
+                break;
+            }
+            case '7':{
+                requests.pop_back();
+                break;
+            }
+            case '8':{
+                menu_options();
                 break;
             }
         }
@@ -1100,4 +1117,16 @@ void UI::write_down(){
     fin.close();
     fout.close();
 }
+
+void UI::restore_changes(){
+    char op;
+    int p;
+    for(int i = 0;i < restore_value.size();i++){
+        cout << "Change" << i << endl;
+        p++;
+    }
+    cout << "Introduce the number:";
+    validate_input(op,'1',static_cast<char>(p));
+    restore_value[static_cast<int>(op)].restore(mySchedule,students,classes,ucs,schedules,AttendancePair);
+};
 

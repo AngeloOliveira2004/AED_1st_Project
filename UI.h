@@ -23,6 +23,7 @@ public:
     void process_requets(std::vector<std::variant<Student , UC , char>> requests_);
     void menu_requets();
     void save_global_alterations();
+    void restore_changes();
 
     void write_down();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
@@ -43,6 +44,7 @@ private:
     std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>> AttendancePair;
     bool ChangesMade = false;
     Restoring restore;
+    std::vector<Restoring> restore_value;
     std::list<std::vector<std::variant<Student , UC , char>>> requests;
 
 };
