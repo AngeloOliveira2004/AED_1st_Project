@@ -129,12 +129,29 @@ bool Schedule::FindClassinSchedule(std::string ClassCode)
 
 void Schedule::FindUC(UC &targetUC)
 {
+    std::vector<UC> ucs;
     for(UC uc : Ucs)
     {
         if(uc.getUcCode() == targetUC.getUcCode() && uc.getRespectiveClass() == targetUC.getRespectiveClass())
         {
-            targetUC = uc;
+            ucs.push_back(uc);
         }
+    }
+    if(ucs.size() > 1)
+    {
+        string choice;
+        cout << "Which UC do you want to choose? \n";
+        for(int i = 0 ; i < ucs.size() ; i++)
+        {
+            cout << i+1 << " " << ucs[i].getUcCode() << " "  << ucs[i].getRespectiveClass() << " " << ucs[i].getType()<< " " << ucs[i].getDate().Day << " " << ucs[i].getDate().Duration.first << " " << ucs[i].getDate().Duration.second << endl;
+        }
+        std::cout << "Insert your option: ";
+        cin >> choice;
+        targetUC = ucs[stoi(choice)-1];
+    }
+    else
+    {
+        targetUC = ucs[0];
     }
 }
 
@@ -169,7 +186,7 @@ void Schedule::StudentsInAtLeastNUcs(char n , std::vector<Student>& students)
 void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED na turma 5 pra turma 6
 
     Class ex_Class;
-
+    //
     for(UC uc_ : Ucs)
     {
         if(uc_.getRespectiveClass() == new_class.getClassCode() && uc_.getUcCode() == uc.getUcCode())
@@ -220,7 +237,7 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
         }
         for(auto uc : StudentSchedules[student1])
         {
-            if(uc.getUcCode() == ex_uc.getUcCode())
+            if(uc == ex_uc && ex_uc.getDate().Day == uc.getDate().Day && ex_uc.getDate().Duration.first == uc.getDate().Duration.first && ex_uc.getDate().Duration.second == uc.getDate().Duration.second)
             {
                 tempV.push_back(new_uc);
             }
@@ -249,7 +266,6 @@ void Schedule::AddUC(Student student1, UC new_uc) {
                 return;
             }
         }
-        cout << new_uc.getDate().Day;
         if(ClassAttendance[new_uc.getRespectiveClass()].size() + 1 <= Balance)
         {
             StudentSchedules[student1].push_back(new_uc);

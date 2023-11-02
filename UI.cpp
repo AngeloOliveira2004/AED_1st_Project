@@ -533,7 +533,6 @@ void UI::menu_requests() {
             UC uc_func;
             uc_func.setRespectiveClass(class_code);
             uc_func.setUcCode(UC_code);
-            mySchedule.FindUC(uc_func);
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
 
@@ -577,11 +576,11 @@ void UI::menu_requests() {
             cout << "Introduce the code of the UC you want to switch in: ";
             cin >> UC_code_new;
             cout << endl;
-            cout << "Introduce the code of the UC you want to switch out: ";
-            cin >> UC_code;
-            cout << endl;
             cout << "Introduce the code of the class you want to switch in: ";
             cin >> class_code_new;
+            cout << endl;
+            cout << "Introduce the code of the UC you want to switch out: ";
+            cin >> UC_code;
             cout << endl;
             cout << "Introduce the code of the class you want to switch out: ";
             cin >> class_code;
@@ -592,7 +591,7 @@ void UI::menu_requests() {
             UC uc_func_new;
             uc_func_new.setUcCode(UC_code_new);
             uc_func_new.setRespectiveClass(class_code_new);
-            uc_func.setUcCode(class_code);
+            uc_func.setRespectiveClass(class_code);
             uc_func.setUcCode(UC_code);
             student_func.setName(student_name);
 
