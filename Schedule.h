@@ -47,7 +47,7 @@ public:
     std::unordered_map<Student, std::vector<UC>>::iterator FetchStudent(Student StudentToFind);
     std::unordered_map<Class, std::vector<UC>>::iterator FetchClass(Class ClassToFind);
     Student FindStudentinSchedulebyID(int ID);
-    UC FindUC(const UC &targetUC);
+    void FindUC(UC &targetUC);
 
     static bool compare_day(const UC &uc1, const UC &uc2);
 

@@ -127,13 +127,13 @@ bool Schedule::FindClassinSchedule(std::string ClassCode)
     return false;
 }
 
-UC Schedule::FindUC(const UC &targetUC)
+void Schedule::FindUC(UC &targetUC)
 {
     for(UC uc : Ucs)
     {
-        if(uc.getUcCode() == targetUC.getUcCode())
+        if(uc.getUcCode() == targetUC.getUcCode() && uc.getRespectiveClass() == targetUC.getRespectiveClass())
         {
-            return uc;
+            targetUC = uc;
         }
     }
 }
@@ -188,6 +188,7 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED 
                 return;
             }
         }
+
         for(auto uc_ : StudentSchedules[student1])
         {
             if(uc.getUcCode() == uc_.getUcCode())
@@ -206,6 +207,7 @@ void Schedule::SwitchClass(Student &student1, Class &new_class, UC &uc) { //AED 
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 {
+    std::vector<UC> tempV;
     if(FindStudentinSchedule(student1.getName()))
     {
         for(auto uc : StudentSchedules[student1])
@@ -220,11 +222,15 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
         {
             if(uc.getUcCode() == ex_uc.getUcCode())
             {
-                uc = new_uc;
-                break;
+                tempV.push_back(new_uc);
+            }
+            else
+            {
+                tempV.push_back(uc);
             }
         }
     }
+    StudentSchedules[student1] = tempV;
     ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
     ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
 
@@ -243,9 +249,14 @@ void Schedule::AddUC(Student student1, UC new_uc) {
                 return;
             }
         }
+        cout << new_uc.getDate().Day;
         if(ClassAttendance[new_uc.getRespectiveClass()].size() + 1 <= Balance)
         {
             StudentSchedules[student1].push_back(new_uc);
+        }
+        else
+        {
+            std::cout << "Balance Disrupted";
         }
     }
     ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
@@ -279,32 +290,25 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
 
 void Schedule::RemoveClass(Student student1, UC &uc)
 {
+    std::vector<UC> tempV;
     if (FindStudentinSchedule(student1.getName()))
     {
         auto it = StudentSchedules.find(student1);
+
         for(auto ucs : it->second)
         {
-            std::vector<UC> tempV;
-            if(uc.getRespectiveClass() != ucs.getRespectiveClass() && uc.getUcCode() != ucs.getUcCode())
+            if(ucs.getUcCode() == uc.getUcCode())
             {
+                ucs.setRespectiveClass("EMPTY");
                 tempV.push_back(ucs);
             }
             else
             {
-                ClassAttendance[ucs.getRespectiveClass()].erase(student1.getName());
-                UcOcupation[{ucs.getUcCode() , ucs.getRespectiveClass()}] -= 1;
-            }
-            StudentSchedules[student1] = tempV;
-        }
-
-        for(auto pair : it->first.getClassesToUcs())
-        {
-            if(pair.second == uc.getUcCode())
-            {
-                pair.first = "EMPTY";
+                tempV.push_back(ucs);
             }
         }
     }
+    StudentSchedules[student1] = tempV;
 }
 
 void Schedule::AddClass(Student student1, UC &uc)
@@ -360,7 +364,7 @@ void Schedule::AddWholeClass(Student student1 , Class &new_class){
             UC tempUc;
             tempUc.setUcCode(uc);
 
-            tempUc = FindUC(tempUc);
+            FindUC(tempUc);
             //IMmplementar funcao que vai buscar as ucs
             ClassAttendance[new_class.getClassCode()].insert(student1.getName());
             CalculateBalance();

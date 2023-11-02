@@ -519,31 +519,41 @@ void UI::menu_requests() {
         case '1':{
             string student_name;
             string UC_code;
+            string class_code;
             cout << "Introduce the name of the student: ";
             cin >> student_name;
             cout << endl;
             cout << "Introduce the code of the UC you want to add: ";
             cin >> UC_code;
             cout << endl;
+            cout << "Introduce the code of the Class of the UC that you want to add: ";
+            cin >> class_code;
+            cout << endl;
             Student student_func;
             UC uc_func;
-            UC debug;
+            uc_func.setRespectiveClass(class_code);
+            uc_func.setUcCode(UC_code);
+            mySchedule.FindUC(uc_func);
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
 
             student_func = it_student->first;
-            debug = mySchedule.FindUC(uc_func);
-            cout << debug.getUcCode() ;
+            mySchedule.FindUC(uc_func);
+            mySchedule.AddUC(student_func , uc_func);
             break;
         }
         case '2':{
             string student_name;
             string UC_code;
+            string class_code;
             cout << "Introduce the name of the student: ";
             cin >> student_name;
             cout << endl;
             cout << "Introduce the code of the UC you want to remove: ";
             cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the Class of the UC that you want to remove: ";
+            cin >> class_code;
             cout << endl;
             Student student_func;
             UC uc_func;
@@ -551,6 +561,7 @@ void UI::menu_requests() {
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
+            uc_func.setRespectiveClass(class_code);
             mySchedule.RemoveUC(student_func,uc_func);
             break;
         }
@@ -558,54 +569,37 @@ void UI::menu_requests() {
             string student_name;
             string UC_code;
             string UC_code_new;
+            string class_code;
+            string class_code_new;
             cout << "Introduce the name of the student: ";
             cin >> student_name;
             cout << endl;
-            cout << "Introduce the code of the UC you want to add: ";
+            cout << "Introduce the code of the UC you want to switch in: ";
             cin >> UC_code_new;
             cout << endl;
-            cout << "Introduce the code of the UC you want to remove: ";
+            cout << "Introduce the code of the UC you want to switch out: ";
             cin >> UC_code;
             cout << endl;
+            cout << "Introduce the code of the class you want to switch in: ";
+            cin >> class_code_new;
+            cout << endl;
+            cout << "Introduce the code of the class you want to switch out: ";
+            cin >> class_code;
+            cout << endl;
+
             Student student_func;
             UC uc_func;
             UC uc_func_new;
+            uc_func_new.setUcCode(UC_code_new);
+            uc_func_new.setRespectiveClass(class_code_new);
+            uc_func.setUcCode(class_code);
+            uc_func.setUcCode(UC_code);
             student_func.setName(student_name);
+
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-
-            int left = 0;
-            int right = ucs.size();
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
-            left = 0;
-            right = ucs.size();
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (ucs[mid].getUcCode() == UC_code_new) {
-                    uc_func_new = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code_new) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
+            mySchedule.FindUC(uc_func);
+            mySchedule.FindUC(uc_func_new);
             mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
             break;
         }
@@ -646,36 +640,26 @@ void UI::menu_requests() {
         case '5':{
             string Student_name;
             string UC_code;
-            string Class_code;
+            string class_code;
             cout << "Introduce the name of the student: ";
             cin >> Student_name;
             cout << endl;
             cout << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
+            cout << "Introduce the code of the Class of the UC that you want to remove: ";
+            cin >> class_code;
             cout << endl;
             Student student_func;
             UC uc_func;
+            uc_func.setUcCode(UC_code);
+            uc_func.setRespectiveClass(class_code);
+
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-            int left = 0;
-            int right = ucs.size();
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
 
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
-            mySchedule.AddClass(student_func,uc_func);
+            mySchedule.RemoveClass(student_func,uc_func);
             break;
         }
         case '6': {
