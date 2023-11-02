@@ -91,6 +91,8 @@ std::unordered_map<Student, std::vector<UC>>::iterator Schedule::FetchStudent(St
     if(FindStudentinSchedule(StudentToFind.getName()))
     {
         return StudentSchedules.find(StudentToFind);
+    }else{
+        return StudentSchedules.end();
     }
 }
 
@@ -99,6 +101,8 @@ std::unordered_map<Class, std::vector<UC>>::iterator Schedule::FetchClass(Class 
     if(FindClassinSchedule(ClassToFind.getClassCode()))
     {
         return ClassSchedules.find(ClassToFind);
+    }else{
+        return ClassSchedules.end();
     }
 }
 
@@ -250,7 +254,7 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
         {
             if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
             {
-                std::cerr << "Schedule not compatible with other classes";
+                std::cout << "Schedule not compatible with other classes";
                 return;
             }
         }
@@ -281,7 +285,7 @@ void Schedule::AddUC(Student student1, UC new_uc) {
         {
             if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
             {
-                std::cerr << "Schedule not compatible with other classes";
+                std::cout << "Schedule not compatible with other classes";
                 return;
             }
         }
@@ -398,7 +402,7 @@ void Schedule::RemoveWholeClass(Student student1, Class &class_) {
             StudentSchedules[student1] = tempV;
         }
     } else {
-        std::cerr << "Student not found in the schedule" << std::endl;
+        std::cout << "Student not found in the schedule" << std::endl;
     }
 }
 
@@ -426,13 +430,13 @@ void Schedule::AddWholeClass(Student student1 , Class &new_class){
             else
             {
                 ClassAttendance[new_class.getClassCode()].erase(student1.getName());
-                std::cerr << "Balance disrupted";
+                std::cout << "Balance disrupted";
             }
 
             StudentSchedules[student1].push_back(tempUc);
         }
     } else {
-        std::cerr << "Student not found in the schedule" << std::endl;
+        std::cout << "Student not found in the schedule" << std::endl;
     }
 }
 

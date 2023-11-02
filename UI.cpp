@@ -117,7 +117,7 @@ void UI::menu_options() {
          << "4. Consult occupation" << endl
          << "5. Add request" << endl
          << "6. Process requests" << endl
-         << "7. Return to main menu" << endl << endl << endl
+         << "7. Return to main menu" << endl << endl
          << "Insert the number: ";
     validate_input(op,'1','7');
     switch(op){
@@ -174,6 +174,10 @@ void UI::menu_schedule(){
                                 studentForSchedule.setName(student_name);
 
                                 auto it = mySchedule.FetchStudent(studentForSchedule);
+                                if(it == mySchedule.getStudentSchedules().end()){
+                                    std::cout << "Error: Student not found." << std::endl;
+                                    menu_options();
+                                }
 
                                 std::vector<UC> m = it->second;
                                 std::sort(m.begin(),m.end(),Schedule::compare_day);
@@ -220,6 +224,10 @@ void UI::menu_schedule(){
                     ClassToFind.setClassCode(class_number);
 
                     auto it = mySchedule.FetchClass(ClassToFind);
+                    if(it == mySchedule.getClassSchedules().end()){
+                        std::cout << "Error: Class not found." << std::endl;
+                        menu_options();
+                    }
 
                     std::vector<UC> m  = it->second;
                     std::sort(m.begin(),m.end(),Schedule::compare_day);
@@ -267,6 +275,10 @@ void UI::menu_students(){
                     Student studentprint;
                     studentprint.setName(studentInClass);
                     auto it = mySchedule.FetchStudent(studentprint);
+                    if(it == mySchedule.getStudentSchedules().end()){
+                        std::cout << "Error: Student not found." << std::endl;
+                        menu_options();
+                    }
                     cout <<"Name: " << it->first.getName() << " || UP: " << it->first.getId() << endl;
                 }
             }else{
@@ -331,7 +343,12 @@ void UI::menu_students(){
             {
                 Student tempStu;
                 tempStu.setName(studentSet);
-                cout <<"Name: " << mySchedule.FetchStudent(tempStu)->first.getName() << " || UP: " << mySchedule.FetchStudent(tempStu)->first.getId() << endl;
+                auto it = mySchedule.FetchStudent(tempStu);
+                if(it == mySchedule.getStudentSchedules().end()){
+                    std::cout << "Error: Student not found." << std::endl;
+                    menu_options();
+                }
+                cout <<"Name: " << it->first.getName() << " || UP: " << it->first.getId() << endl;
             }
         }
     }
@@ -553,7 +570,10 @@ void UI::menu_requests() {
             uc_func.setUcCode(UC_code);
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
-
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
 
@@ -581,6 +601,10 @@ void UI::menu_requests() {
             UC uc_func;
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
@@ -625,6 +649,10 @@ void UI::menu_requests() {
             student_func.setName(student_name);
 
             auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
             mySchedule.FindUC(uc_func_new);
@@ -658,6 +686,10 @@ void UI::menu_requests() {
 
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
 
             std::vector<std::variant<Student, UC, char>> request;
@@ -688,6 +720,10 @@ void UI::menu_requests() {
 
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
             mySchedule.FindUCinStudent(student_func , uc_func);
 
@@ -711,6 +747,10 @@ void UI::menu_requests() {
             cout << endl;
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
             student_func = it_student->first;
 
             cout << "Introduce the code of the UC: ";
@@ -758,7 +798,7 @@ void UI::save_global_alterations(){
     fout.open("reportcard.csv", ios::out | ios::app);
 
     if (!fout.is_open()) {
-        std::cerr << "Error opening file for writing." << std::endl;
+        std::cout << "Error opening file for writing." << std::endl;
         return;
     }
 
@@ -802,9 +842,7 @@ void UI::menu_requets()
         UC uc_second;
         string string_array[6] = {"Add" , "Remove" , "Switch" , "Add" , "Remove" , "Switch"};
         switch (op) {
-            case '1':
-                //add option to print everything;
-                /*
+            case '1':{
                 for(auto request : requests)
                 {
                     for(auto item : request)
@@ -829,48 +867,48 @@ void UI::menu_requets()
                         }
                     }
                 }
-                if(op_ == '2')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                              << " } for " <<  "{ " << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass() << " }" << endl;
+                switch (op_) {
+                    case '0':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " to " << student.getName();
+                        break;
+                    case '1':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " from " << student.getName();
+                        break;
+                    case '2':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
+                                  << " } for " <<  "{ " << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass() << " }" << std::endl;
+                        break;
+                    case '3':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " from " << student.getName();
+                        break;
+                    case '4':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " to " << student.getName();
+                        break;
+                    case '5':
+                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
+                                  << " } for " << uc_first.getRespectiveClass() << std::endl;
+                        break;
+                    default:
+                        break;
                 }
-                else if(op_ == '5')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                              << " } for " << uc_first.getRespectiveClass() << endl;
-                }
-                else if(op_ == '1')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getUcCode() << " from " << student.getName();
-                }
-                else if(op_ == '0')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getUcCode() << " to " << student.getName();
-                }
-                else if(op_ == '3')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getRespectiveClass() << " from " << student.getName();
-                }
-                else if(op_ == '4')
-                {
-                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getRespectiveClass() << " to " << student.getName();
-                }
-                 */
                 std::cout << requests.size();
                 break;
-            case '2':
+            }
+            case '2':{
                 temp.clear();
                 temp = requests.front();
                 requests.pop_front();
                 process_requets(temp);
                 break;
-            case '3':
+            }
+            case '3':{
                 temp.clear();
                 temp = requests.back();
                 requests.pop_back();
                 process_requets(temp);
                 break;
-            case '4':
+            }
+            case '4':{
                 while (!requests.empty())
                 {
                     temp.clear();
@@ -879,9 +917,11 @@ void UI::menu_requets()
                     process_requets(temp);
                 }
                 break;
-            case '5':
+            }
+            case '5':{
                 requests.clear();
                 break;
+            }
         }
         char trash;
         cout << endl << "Press any button and enter to return to the menu options: ";
@@ -1038,7 +1078,6 @@ void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests
             menu_options();
         }
     }
-    return;
 }
 
 void UI::write_down(){
@@ -1049,7 +1088,7 @@ void UI::write_down(){
     fin.open("schedule/students_classes.csv");
 
     if (!fin.is_open() || !fout.is_open()) {
-        std::cerr << "Error opening input or output file." << std::endl;
+        std::cout << "Error opening input or output file." << std::endl;
         return;
     }
 
