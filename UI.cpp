@@ -6,6 +6,8 @@
 #include "Schedule.h"
 #include "UI.h"
 
+#include <utility>
+
 void UI::loading_stuff(UI &ui) {
 
     LoadFiles::Load_Student_Classes(students,AttendancePair);
@@ -113,10 +115,11 @@ void UI::menu_options() {
          << "2. Consult students" << endl
          << "3. Consult the number of students registered in at least n UCs" << endl
          << "4. Consult occupation" << endl
-         << "5. Update registrations" << endl
-         << "6. Return to main menu" << endl << endl << endl
+         << "5. Add request" << endl
+         << "6. Process requests" << endl
+         << "7. Return to main menu" << endl << endl << endl
          << "Insert the number: ";
-    validate_input(op,'1','6');
+    validate_input(op,'1','7');
     switch(op){
         case '1':
             menu_schedule();
@@ -133,7 +136,10 @@ void UI::menu_options() {
         case '5':
             menu_requests();
             break;
-        case '6':
+        case  '6':
+            menu_requets();
+            break;
+        case '7':
             clear_screen();
             menu_start();
             break;
@@ -277,20 +283,16 @@ void UI::menu_students(){
             cin >> ucCode;
             cout << endl;
             cout << "Students in " << ucCode << ":\n";
-            for (const auto& targetUC : ucs) {
-                if (targetUC.getUcCode() == ucCode) {
-                    ucFound = true;
+
+            std::unordered_map<Student, std::vector<UC>> tempMap = mySchedule.getStudentSchedules();
+            for(auto pair : tempMap){
+                for(const auto uc: pair.second){
+                    if(uc.getUcCode() == ucCode){
+                        cout <<"Name: " << pair.first.getName() << " || UP: " << pair.first.getId() << endl;
+                    }
                     break;
                 }
             }
-                for(Student &studentSet: students){
-                    for(const auto& pair: studentSet.getClassesToUcs()){
-                        if(pair.second == ucCode){
-                            cout <<"Name: " << studentSet.getName() << " || UP: " << studentSet.getId() << endl;
-                        }
-                        break;
-                    }
-                }
             break;
         }
         case '3':{
@@ -554,8 +556,12 @@ void UI::menu_requests() {
 
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
-            mySchedule.AddUC(student_func , uc_func);
-            ChangesMade = true;
+
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(uc_func);
+            requests.push_back(request);
             break;
         }
         case '2':{
@@ -578,8 +584,13 @@ void UI::menu_requests() {
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
-            mySchedule.RemoveUC(student_func,uc_func);
-            ChangesMade = true;
+
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(uc_func);
+            requests.push_back(request);
+
             break;
         }
         case '3':{
@@ -617,8 +628,13 @@ void UI::menu_requests() {
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
             mySchedule.FindUC(uc_func_new);
-            mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
-            ChangesMade = true;
+
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(uc_func);
+            request.push_back(uc_func_new);
+            requests.push_back(request);
             break;
         }
         case '4':{
@@ -643,8 +659,12 @@ void UI::menu_requests() {
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-            mySchedule.AddClass(student_func,uc_func);
-            ChangesMade = true;
+
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(uc_func);
+            requests.push_back(request);
             break;
         }
         case '5':{
@@ -670,8 +690,12 @@ void UI::menu_requests() {
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
             mySchedule.FindUCinStudent(student_func , uc_func);
-            mySchedule.RemoveClass(student_func,uc_func);
-            ChangesMade = true;
+
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(uc_func);
+            requests.push_back(request);
             break;
         }
         case '6': {
@@ -709,9 +733,13 @@ void UI::menu_requests() {
             new_uc.setRespectiveClass(class_code_new);
             mySchedule.FindUC(new_uc);
 
-            mySchedule.SwitchClass(student_func,old_uc,new_uc);
+            std::vector<std::variant<Student, UC, char>> request;
+            request.push_back(op);
+            request.push_back(student_func);
+            request.push_back(old_uc);
+            request.push_back(new_uc);
+            requests.push_back(request);
             break;
-            ChangesMade = true;
         }
         case '7':{
             menu_options();
@@ -747,6 +775,270 @@ void UI::save_global_alterations(){
     }
 
     fout.close();
+}
+
+void UI::menu_requets()
+{
+    if(requests.empty())
+    {
+        std::cout << "Requests are empty" << std::flush;
+        this_thread::sleep_for(chrono::seconds(2));
+        menu_options();
+    }
+    else
+    {
+        char op;
+        std::cout << "1. Print all pending requests" << endl
+                  << "2. Process first pending request" << endl
+                  << "3. Process last request" << endl
+                  << "4. Process all pending requests" << endl
+                  << "5. Clear all pending requests" << endl
+                  << "Insert the number: ";
+        validate_input(op, '1' ,'5');
+        std::vector<std::variant<Student, UC, char>> temp;
+        char op_;
+        Student student;
+        UC uc_first;
+        UC uc_second;
+        string string_array[6] = {"Add" , "Remove" , "Switch" , "Add" , "Remove" , "Switch"};
+        switch (op) {
+            case '1':
+                //add option to print everything;
+                /*
+                for(auto request : requests)
+                {
+                    for(auto item : request)
+                    {
+                        if(std::holds_alternative<Student>(item))
+                        {
+                            student = std::get<Student>(item);
+                        }
+                        else if(std::holds_alternative<char>(item))
+                        {
+                            op_ = std::get<char>(item);
+                        }
+                        else if(std::holds_alternative<UC>(item))
+                        {
+                            if(!uc_first.hasValue())
+                            {
+                                uc_first = std::get<UC>(item);
+                            } else
+                            {
+                                uc_second = std::get<UC>(item);
+                            }
+                        }
+                    }
+                }
+                if(op_ == '2')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
+                              << " } for " <<  "{ " << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass() << " }" << endl;
+                }
+                else if(op_ == '5')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
+                              << " } for " << uc_first.getRespectiveClass() << endl;
+                }
+                else if(op_ == '1')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getUcCode() << " from " << student.getName();
+                }
+                else if(op_ == '0')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getUcCode() << " to " << student.getName();
+                }
+                else if(op_ == '3')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getRespectiveClass() << " from " << student.getName();
+                }
+                else if(op_ == '4')
+                {
+                    std::cout << string_array[static_cast<int>(op_) -1] << " " << uc_first.getRespectiveClass() << " to " << student.getName();
+                }
+                 */
+                std::cout << requests.size();
+                break;
+            case '2':
+                temp.clear();
+                temp = requests.front();
+                requests.pop_front();
+                process_requets(temp);
+                break;
+            case '3':
+                temp.clear();
+                temp = requests.back();
+                requests.pop_back();
+                process_requets(temp);
+                break;
+            case '4':
+                while (!requests.empty())
+                {
+                    temp.clear();
+                    temp = requests.front();
+                    requests.pop_front();
+                    process_requets(temp);
+                }
+                break;
+            case '5':
+                requests.clear();
+                break;
+        }
+        char trash;
+        cout << endl << "Press any button and enter to return to the menu options: ";
+        cin >> trash;
+        menu_options();
+    }
+}
+
+void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests_)
+{
+    auto temp = requests_[0];
+    char operator_;
+
+    if(std::holds_alternative<char>(temp))
+    {
+        operator_ = std::get<char>(temp);;
+    }
+    switch (operator_)
+    {
+        case '1':{
+            Student student_func;
+            UC uc_func;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    uc_func = std::get<UC>(request);
+                }
+            }
+            mySchedule.AddUC(student_func , uc_func);
+            ChangesMade = true;
+            break;
+        }
+        case '2':{
+            Student student_func;
+            UC uc_func;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    uc_func = std::get<UC>(request);
+                }
+            }
+
+            mySchedule.RemoveUC(student_func,uc_func);
+            ChangesMade = true;
+            break;
+        }
+        case '3':{
+            Student student_func;
+            UC uc_func;
+            UC uc_func_new;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    if(!uc_func.hasValue())
+                    {
+                        uc_func = std::get<UC>(request);
+                    } else
+                    {
+                        uc_func_new = std::get<UC>(request);
+                    }
+                }
+            }
+
+            mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
+            ChangesMade = true;
+            break;
+        }
+        case '4':{
+            Student student_func;
+            UC uc_func;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    uc_func = std::get<UC>(request);
+                }
+            }
+
+            mySchedule.AddClass(student_func,uc_func);
+            ChangesMade = true;
+            break;
+        }
+        case '5':{
+            Student student_func;
+            UC uc_func;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    uc_func = std::get<UC>(request);
+                }
+            }
+
+            mySchedule.RemoveClass(student_func,uc_func);
+            ChangesMade = true;
+            break;
+        }
+        case '6': {
+            Student student_func;
+            UC new_uc;
+            UC old_uc;
+
+            for(auto& request: requests_)
+            {
+                if(std::holds_alternative<Student>(request))
+                {
+                    student_func = std::get<Student>(request);
+                }
+                else if(std::holds_alternative<UC>(request))
+                {
+                    if(!old_uc.hasValue())
+                    {
+                        old_uc = std::get<UC>(request);
+                    } else
+                    {
+                        new_uc = std::get<UC>(request);
+                    }
+                }
+            }
+
+            mySchedule.SwitchClass(student_func,old_uc,new_uc);
+            ChangesMade = true;
+            break;
+        }
+        case '7':{
+            menu_options();
+        }
+    }
+    return;
 }
 
 void UI::write_down(){

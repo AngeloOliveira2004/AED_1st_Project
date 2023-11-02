@@ -20,10 +20,19 @@ public:
     void menu_studentsInNucs();
     void menu_occupation();
     void menu_requests();
+    void process_requets(std::vector<std::variant<Student , UC , char>> requests_);
+    void menu_requets();
     void save_global_alterations();
 
     void write_down();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
+
+    void SwitchClass(Student &student1, UC& old_uc, UC &new_uc);
+    void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
+    void AddUC(Student student1 , UC new_uc);
+    void RemoveUC(Student student1 , UC ex_uc);
+    void RemoveClass(Student student1 , UC &uc);
+    void AddClass(Student student1 , UC &uc);
 
 private:
     Schedule mySchedule;
@@ -34,6 +43,7 @@ private:
     std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>> AttendancePair;
     bool ChangesMade = false;
     Restoring restore;
+    std::list<std::vector<std::variant<Student , UC , char>>> requests;
 
 };
 

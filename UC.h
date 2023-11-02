@@ -31,6 +31,10 @@ public:
     void setOccupation(int occupation);
     void setDate(const Date& date);
 
+    bool hasValue()
+    {
+        return UcCode != "";
+    }
     bool operator<(const UC other) const {
         return Date_.Day < other.getDate().Day; // Assuming the UC name is used for comparison
     }
