@@ -31,6 +31,8 @@ void UI::loading_stuff(UI &ui) {
     mySchedule.setUCs(ucs);
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
+    mySchedule.setClassAttendance(AttendancePair.first);
+    mySchedule.setUcOcupation(AttendancePair.second);
 }
 
 bool UI::validate_input(char &op, const char lower_bound, const char upper_bound) {
@@ -253,6 +255,8 @@ void UI::menu_students(){
             cout << endl;
             if(mySchedule.FindClassinSchedule(class_number)){
                 cout << "Students in class " << class_number << ":\n";
+                auto students_ = mySchedule.getClassAttendance();
+                AttendancePair.first[class_number] = students_[class_number];
                 for (const auto& studentInClass : AttendancePair.first[class_number]) {
                     Student studentprint;
                     studentprint.setName(studentInClass);
