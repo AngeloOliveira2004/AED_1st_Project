@@ -605,34 +605,25 @@ void UI::menu_requests() {
         case '4':{
             string Student_name;
             string UC_code;
-            string Class_code;
+            string class_code;
             cout << "Introduce the name of the student: ";
             cin >> Student_name;
             cout << endl;
             cout << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
+            cout << "Introduce the code of the class you want to add: ";
+            cin >> class_code;
+            cout << endl;
             Student student_func;
             UC uc_func;
+            uc_func.setRespectiveClass(class_code);
+            uc_func.setUcCode(UC_code);
+            mySchedule.FindUC(uc_func);
+
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-            int left = 0;
-            int right = ucs.size();
-            while (left <= right) {
-                int mid = left + (right - left) / 2;
-
-                if (ucs[mid].getUcCode() == UC_code) {
-                    uc_func = ucs[mid];
-                    break;
-                }
-
-                if (ucs[mid].getUcCode() < UC_code) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
-                }
-            }
             mySchedule.AddClass(student_func,uc_func);
             break;
         }

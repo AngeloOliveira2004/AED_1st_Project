@@ -297,9 +297,9 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
 
         StudentSchedules[student1] = ucVector;
     }
-    //ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
+    ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
 
-    //UcOcupation[{ex_uc.getUcCode() , ex_uc.getUcCode()}] -= 1;
+    UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
 
     CalculateBalance();
 }
@@ -325,24 +325,40 @@ void Schedule::RemoveClass(Student student1, UC &uc)
         }
     }
     StudentSchedules[student1] = tempV;
+    ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
+    UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] -= 1;
+
 }
 
 void Schedule::AddClass(Student student1, UC &uc)
 {
+    vector<UC> tempV;
     if (FindStudentinSchedule(student1.getName()))
     {
         auto it = StudentSchedules.find(student1);
 
-        for(auto pair : it->first.getClassesToUcs())
+        for(auto ucs : it->second)
         {
-            if(pair.first == "EMPTY")
+            if(uc.getRespectiveClass() == "EMPTY")
             {
-                pair.first = uc.getRespectiveClass();
+                if(ucs.getUcCode() == uc.getUcCode())
+                {
+                    tempV.push_back(uc);
+                    ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
+                    UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
+                }
+                else
+                {
+                    std::cout << "UCs codes do not match \n";
+                }
+            }
+            else
+            {
+                tempV.push_back(ucs);
             }
         }
-
-        StudentSchedules[student1].push_back(uc);
     }
+    StudentSchedules[student1] = tempV;
 }
 
 void Schedule::RemoveWholeClass(Student student1, Class &class_) {
