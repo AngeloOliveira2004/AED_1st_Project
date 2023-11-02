@@ -645,10 +645,11 @@ void UI::menu_requests() {
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
 
+
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
-
+            mySchedule.FindUCinStudent(student_func , uc_func);
             mySchedule.RemoveClass(student_func,uc_func);
             break;
         }

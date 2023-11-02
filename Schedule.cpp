@@ -155,6 +155,35 @@ void Schedule::FindUC(UC &targetUC)
     }
 }
 
+void Schedule::FindUCinStudent(Student student, UC &targetUC)
+{
+    std::vector<UC> ucs;
+    for(UC uc : StudentSchedules[student])
+    {
+        if(uc.getUcCode() == targetUC.getUcCode() && uc.getRespectiveClass() == targetUC.getRespectiveClass())
+        {
+            ucs.push_back(uc);
+        }
+    }
+    if(ucs.size() > 1)
+    {
+        string choice;
+        cout << "Which UC do you want to choose? \n";
+        for(int i = 0 ; i < ucs.size() ; i++)
+        {
+            cout << i+1 << " " << ucs[i].getUcCode() << " "  << ucs[i].getRespectiveClass() << " " << ucs[i].getType()<< " " << ucs[i].getDate().Day << " " << ucs[i].getDate().Duration.first << " " << ucs[i].getDate().Duration.second << endl;
+        }
+        std::cout << "Insert your option: ";
+        cin >> choice;
+        targetUC = ucs[stoi(choice)-1];
+    }
+    else
+    {
+        targetUC = ucs[0];
+    }
+}
+
+
 bool Schedule::compare_day(const UC &uc1, const UC &uc2){
     std::map<std::string, int> dayMap = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}};
     if(dayMap[uc1.getDate().Day] != dayMap[uc2.getDate().Day]){
@@ -313,7 +342,7 @@ void Schedule::RemoveClass(Student student1, UC &uc)
 
         for(auto ucs : it->second)
         {
-            if(ucs.getUcCode() == uc.getUcCode())
+            if(ucs == uc && ucs.getDate().Day == uc.getDate().Day && ucs.getDate().Duration.first == uc.getDate().Duration.first && ucs.getDate().Duration.second == uc.getDate().Duration.second)
             {
                 ucs.setRespectiveClass("EMPTY");
                 tempV.push_back(ucs);
@@ -335,11 +364,11 @@ void Schedule::AddClass(Student student1, UC &uc)
     vector<UC> tempV;
     if (FindStudentinSchedule(student1.getName()))
     {
-        auto it = StudentSchedules.find(student1);
+        auto it = StudentSchedules[student1];
 
-        for(auto ucs : it->second)
+        for(auto ucs : it)
         {
-            if(uc.getRespectiveClass() == "EMPTY")
+            if(ucs.getRespectiveClass() == "EMPTY")
             {
                 if(ucs.getUcCode() == uc.getUcCode())
                 {
