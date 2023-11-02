@@ -132,10 +132,6 @@ void UI::menu_options() {
             menu_requests();
             break;
         case '6':
-            save_global_alterations();
-            break;
-        case '7':
-
             clear_screen();
             menu_start();
             break;
@@ -504,6 +500,21 @@ void UI::menu_occupation(){
 }
 
 void UI::menu_requests() {
+    char op_save;
+    if(ChangesMade){
+        char op_save;
+        cout << "Would you like to keep the last changes you made?" <<'\n'
+             << "1. Yes" << endl
+             << "2. No" << endl << endl << endl << endl << endl << endl << endl << '\n'
+             << "Insert the number: ";
+        validate_input(op_save,'1','2');
+        if(op_save == '2'){
+            restore.restore(mySchedule,students,classes,ucs,schedules,AttendancePair);
+            ChangesMade = false;
+        }
+    }
+    Restoring restore_backup(mySchedule,students,classes,ucs,schedules,AttendancePair);
+    restore = restore_backup;
     char op;
     clear_screen();
     cout << "What request would you like to choose?" << endl << '\n'
@@ -512,9 +523,10 @@ void UI::menu_requests() {
          << "3. Switch UCs from a student" << endl
          << "4. Add Class to a certain UC of a student" << endl
          << "5. Remove Class to a certain UC of a student" << endl
-         << "6. Switch Class to a certain UC of a student" << endl << endl << endl
+         << "6. Switch Class to a certain UC of a student" << endl
+         << "7. Return to menu" << endl << endl
          << "Insert the number: ";
-    validate_input(op, '1' ,'6');
+    validate_input(op, '1' ,'7');
     switch(op){
         case '1':{
             string student_name;
@@ -539,6 +551,7 @@ void UI::menu_requests() {
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
             mySchedule.AddUC(student_func , uc_func);
+            ChangesMade = true;
             break;
         }
         case '2':{
@@ -562,6 +575,7 @@ void UI::menu_requests() {
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
             mySchedule.RemoveUC(student_func,uc_func);
+            ChangesMade = true;
             break;
         }
         case '3':{
@@ -600,6 +614,7 @@ void UI::menu_requests() {
             mySchedule.FindUC(uc_func);
             mySchedule.FindUC(uc_func_new);
             mySchedule.SwitchUc(student_func,uc_func_new,uc_func);
+            ChangesMade = true;
             break;
         }
         case '4':{
@@ -625,6 +640,7 @@ void UI::menu_requests() {
             auto it_student = mySchedule.FetchStudent(student_func);
             student_func = it_student->first;
             mySchedule.AddClass(student_func,uc_func);
+            ChangesMade = true;
             break;
         }
         case '5':{
@@ -651,6 +667,7 @@ void UI::menu_requests() {
             student_func = it_student->first;
             mySchedule.FindUCinStudent(student_func , uc_func);
             mySchedule.RemoveClass(student_func,uc_func);
+            ChangesMade = true;
             break;
         }
         case '6': {
@@ -693,6 +710,10 @@ void UI::menu_requests() {
             }
             mySchedule.SwitchClass(student_func,class_func,uc_func);
             break;
+            ChangesMade = true;
+        }
+        case '7':{
+            menu_options();
         }
     }
     char trash;

@@ -6,6 +6,7 @@
 
 #include "stdafx.h"
 #include "Schedule.h"
+#include "Restoring.h"
 
 class UI{
 public:
@@ -31,6 +32,8 @@ private:
     std::vector<UC> ucs;
     std::vector<Schedule> schedules;
     std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>> AttendancePair;
+    bool ChangesMade = false;
+    Restoring restore;
 
 };
 

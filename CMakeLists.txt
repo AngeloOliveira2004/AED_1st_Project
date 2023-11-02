@@ -11,4 +11,6 @@ add_executable(
         LoadFIles.cpp
         Schedule.cpp
         UC.cpp
-        UI.cpp)
+        UI.cpp
+        Restoring.cpp
+        Restoring.h)
