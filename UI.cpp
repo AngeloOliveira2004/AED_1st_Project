@@ -83,7 +83,7 @@ void UI::menu_start() {
     validate_input(op,'1','2');
     switch(op){
         case '1':
-                menu_options();
+            menu_options();
             break;
         case '2':
             char choice;
@@ -154,100 +154,100 @@ void UI::menu_schedule(){
          << "2. Consult schedule of a Class" << endl << endl << endl << endl << endl << endl << endl << '\n'
          << "Insert the number: ";
     validate_input(op,'1','2');
-        switch (op) {
-            case '1': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
-                clear_screen();
-                char op_sort;
-                cout << "Would you like to search it by Name or by ID" << endl
-                     << "1.Name" << endl
-                     << "2.ID" << endl << endl << endl << endl << endl << endl << endl << '\n'
-                     << "Insert the number: ";
-                validate_input(op_sort,'1','2');
-                    switch(op_sort){
-                        case '1':{
-                            cout << "What's the name of the student you would like to consult the schedule: ";
-                            string student_name;
-                            cin >> student_name;
-                            cout << endl;
-                            if(mySchedule.FindStudentinSchedule(student_name)){
-                                Student studentForSchedule;
-                                studentForSchedule.setName(student_name);
+    switch (op) {
+        case '1': { //Não seria má ideia implementar um algoritmo de sort de acordo com o dia
+            clear_screen();
+            char op_sort;
+            cout << "Would you like to search it by Name or by ID" << endl
+                 << "1.Name" << endl
+                 << "2.ID" << endl << endl << endl << endl << endl << endl << endl << '\n'
+                 << "Insert the number: ";
+            validate_input(op_sort,'1','2');
+            switch(op_sort){
+                case '1':{
+                    cout << "What's the name of the student you would like to consult the schedule: ";
+                    string student_name;
+                    cin >> student_name;
+                    cout << endl;
+                    if(mySchedule.FindStudentinSchedule(student_name)){
+                        Student studentForSchedule;
+                        studentForSchedule.setName(student_name);
 
-                                auto it = mySchedule.FetchStudent(studentForSchedule);
-                                if(it == mySchedule.getStudentSchedules().end()){
-                                    std::cout << "Error: Student not found." << std::endl;
-                                    menu_options();
-                                }
-
-                                std::vector<UC> m = it->second;
-                                std::sort(m.begin(),m.end(),Schedule::compare_day);
-                                cout << "Name: " <<  it->first.getName() << " " << "|| UP: " <<  it->first.getId() <<"\n";
-                                for(auto p : m)
-                                {
-                                    cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                                }
-                            } else {
-                                cout << "Student not found in the schedule." << endl;
-                            }
-                         break;
+                        auto it = mySchedule.FetchStudent(studentForSchedule);
+                        if(it == mySchedule.getStudentSchedules().end()){
+                            std::cout << "Error: Student not found." << std::endl;
+                            menu_options();
                         }
-                        case '2':{
-                            cout << "What's the ID of the student you would like to consult the schedule: ";
-                            int student_ID;
-                            cin >> student_ID;
-                            cout << endl;
-                            Student tempStudent = mySchedule.FindStudentinSchedulebyID(student_ID);
-                            if(tempStudent.getName() != ""){
-                                std::vector<UC> m = mySchedule.getStudentSchedules()[tempStudent];
-                                std::sort(m.begin(),m.end(),Schedule::compare_day);
-                                cout << "Name: " <<  tempStudent.getName() << " " << "|| UP: " << tempStudent.getId() <<"\n";
-                                for(auto p : m)
-                                {
-                                    cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                                }
-                            } else {
-                                cout << "Student not found in the schedule." << endl;
-                            }
-                         break;
+
+                        std::vector<UC> m = it->second;
+                        std::sort(m.begin(),m.end(),Schedule::compare_day);
+                        cout << "Name: " <<  it->first.getName() << " " << "|| UP: " <<  it->first.getId() <<"\n";
+                        for(auto p : m)
+                        {
+                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
                         }
+                    } else {
+                        cout << "Student not found in the schedule." << endl;
                     }
-             break;
-            }
-            case '2': {
-                string class_number;
-                clear_screen();
-                cout << "What's the number of the class you would like to consult the schedule: ";
-                cin >> class_number;
-                cout << endl;
-                if(mySchedule.FindClassinSchedule(class_number)){
-                    Class ClassToFind;
-                    ClassToFind.setClassCode(class_number);
-
-                    auto it = mySchedule.FetchClass(ClassToFind);
-                    if(it == mySchedule.getClassSchedules().end()){
-                        std::cout << "Error: Class not found." << std::endl;
-                        menu_options();
-                    }
-
-                    std::vector<UC> m  = it->second;
-                    std::sort(m.begin(),m.end(),Schedule::compare_day);
-
-                    cout << "Class: " <<  it->first.getClassCode() << endl;
-                    for(auto p : m) {
-                        cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
-                    }
-                    cout << "\n";
-
-                } else {
-                    cout << "Class not found in the schedule." << endl;
+                    break;
                 }
-                break;
+                case '2':{
+                    cout << "What's the ID of the student you would like to consult the schedule: ";
+                    int student_ID;
+                    cin >> student_ID;
+                    cout << endl;
+                    Student tempStudent = mySchedule.FindStudentinSchedulebyID(student_ID);
+                    if(tempStudent.getName() != ""){
+                        std::vector<UC> m = mySchedule.getStudentSchedules()[tempStudent];
+                        std::sort(m.begin(),m.end(),Schedule::compare_day);
+                        cout << "Name: " <<  tempStudent.getName() << " " << "|| UP: " << tempStudent.getId() <<"\n";
+                        for(auto p : m)
+                        {
+                            cout << p.getUcCode() << " " << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                        }
+                    } else {
+                        cout << "Student not found in the schedule." << endl;
+                    }
+                    break;
+                }
             }
+            break;
         }
-        char trash;
-        cout << endl << "Press any button and enter to return to the menu options: ";
-        cin >> trash;
-        menu_options();
+        case '2': {
+            string class_number;
+            clear_screen();
+            cout << "What's the number of the class you would like to consult the schedule: ";
+            cin >> class_number;
+            cout << endl;
+            if(mySchedule.FindClassinSchedule(class_number)){
+                Class ClassToFind;
+                ClassToFind.setClassCode(class_number);
+
+                auto it = mySchedule.FetchClass(ClassToFind);
+                if(it == mySchedule.getClassSchedules().end()){
+                    std::cout << "Error: Class not found." << std::endl;
+                    menu_options();
+                }
+
+                std::vector<UC> m  = it->second;
+                std::sort(m.begin(),m.end(),Schedule::compare_day);
+
+                cout << "Class: " <<  it->first.getClassCode() << endl;
+                for(auto p : m) {
+                    cout << p.getDate().Day << " " << p.getType() << " " << p.getRespectiveClass() << " " << p.getDate().Duration.first << " " << p.getDate().Duration.second << "\n" ;
+                }
+                cout << "\n";
+
+            } else {
+                cout << "Class not found in the schedule." << endl;
+            }
+            break;
+        }
+    }
+    char trash;
+    cout << endl << "Press any button and enter to return to the menu options: ";
+    cin >> trash;
+    menu_options();
 }
 
 void UI::menu_students(){
@@ -284,7 +284,7 @@ void UI::menu_students(){
             }else{
                 cout << "The Class you entered is invalid." << endl;
             }
-         break;
+            break;
         }
         case '2':{
             string ucCode;
@@ -395,27 +395,27 @@ void UI::menu_occupation(){
                  << "2. Sort by ascending order" << endl
                  << "3. Sort by descending order" << endl << endl << endl << endl << endl << endl << '\n'
                  << "Insert the number: ";
-                 validate_input(op_sort, '1' ,'3');
-                 std::unordered_map<std::pair<std::string,std::string> , int , PairHash> Second = AttendancePair.second;
-                 std::vector<std::pair<std::pair<std::string, std::string>, int>> sortedVector;
-                 for (const auto& element : Second) {
-                     sortedVector.emplace_back(element);
-                 }
+            validate_input(op_sort, '1' ,'3');
+            std::unordered_map<std::pair<std::string,std::string> , int , PairHash> Second = AttendancePair.second;
+            std::vector<std::pair<std::pair<std::string, std::string>, int>> sortedVector;
+            for (const auto& element : Second) {
+                sortedVector.emplace_back(element);
+            }
 
-                if (op_sort == '1') {
-                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
-                        return a.first.first < b.first.first;});
-                } else if (op_sort == '2') {
-                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
-                        return a.first.second < b.first.second;});
-                } else if (op_sort == '3') {
-                    std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
-                        return a.first.second > b.first.second;});
-                }
-                for (auto& pair : sortedVector) {
-                    std::cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" << " " << pair.second+1 << std::endl;
-                }
-                break;
+            if (op_sort == '1') {
+                std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                    return a.first.first < b.first.first;});
+            } else if (op_sort == '2') {
+                std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                    return a.first.second < b.first.second;});
+            } else if (op_sort == '3') {
+                std::sort(sortedVector.begin(), sortedVector.end(), [](const std::pair<std::pair<std::string, std::string>, int>& a, const std::pair<std::pair<std::string, std::string>, int>& b) {
+                    return a.first.second > b.first.second;});
+            }
+            for (auto& pair : sortedVector) {
+                std::cout << "UC:" << pair.first.first << " || " << "Class:" << pair.first.second << " || " << "Occupation:" << " " << pair.second+1 << std::endl;
+            }
+            break;
         }
         case '2':{
             char op_sort;
@@ -448,9 +448,9 @@ void UI::menu_occupation(){
                 }
             }
             if(op_sort == '1') {
-                    std::cout << "1st Year Occupation: " << YearOccupation[0] << std::endl;
-                    std::cout << "2nd Year Occupation: " << YearOccupation[1] << std::endl;
-                    std::cout << "3rd Year Occupation: " << YearOccupation[2] << std::endl;
+                std::cout << "1st Year Occupation: " << YearOccupation[0] << std::endl;
+                std::cout << "2nd Year Occupation: " << YearOccupation[1] << std::endl;
+                std::cout << "3rd Year Occupation: " << YearOccupation[2] << std::endl;
             }
             else if (op_sort == '2'){
                 std::cout << "3rd Year Occupation: " << YearOccupation[2] << std::endl;
@@ -830,72 +830,19 @@ void UI::menu_requets()
     else
     {
         char op;
-        std::cout << "1. Print all pending requests" << endl
+        std::cout << "1. Print how many requests are pending" << endl
                   << "2. Process first pending request" << endl
                   << "3. Process last request" << endl
                   << "4. Process all pending requests" << endl
                   << "5. Clear all pending requests" << endl
                   << "6. Clear the first request" << endl
                   << "7. Clear the last request" << endl
-                  << "8. Return to main menu"
+                  << "8. Return to main menu" << endl
                   << "Insert the number: ";
         validate_input(op, '1' ,'8');
         std::vector<std::variant<Student, UC, char>> temp;
-        char op_;
-        Student student;
-        UC uc_first;
-        UC uc_second;
-        string string_array[6] = {"Add" , "Remove" , "Switch" , "Add" , "Remove" , "Switch"};
         switch (op) {
             case '1':{
-                for(auto request : requests)
-                {
-                    for(auto item : request)
-                    {
-                        if(std::holds_alternative<Student>(item))
-                        {
-                            student = std::get<Student>(item);
-                        }
-                        else if(std::holds_alternative<char>(item))
-                        {
-                            op_ = std::get<char>(item);
-                        }
-                        else if(std::holds_alternative<UC>(item))
-                        {
-                            if(!uc_first.hasValue())
-                            {
-                                uc_first = std::get<UC>(item);
-                            } else
-                            {
-                                uc_second = std::get<UC>(item);
-                            }
-                        }
-                    }
-                }
-                switch (op_) {
-                    case '0':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " to " << student.getName();
-                        break;
-                    case '1':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " from " << student.getName();
-                        break;
-                    case '2':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                                  << " } for " <<  "{ " << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass() << " }" << std::endl;
-                        break;
-                    case '3':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " from " << student.getName();
-                        break;
-                    case '4':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " to " << student.getName();
-                        break;
-                    case '5':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                                  << " } for " << uc_first.getRespectiveClass() << std::endl;
-                        break;
-                    default:
-                        break;
-                }
                 std::cout << requests.size();
                 break;
             }
@@ -1129,4 +1076,3 @@ void UI::restore_changes(){
     validate_input(op,'1',static_cast<char>(p));
     restore_value[static_cast<int>(op)].restore(mySchedule,students,classes,ucs,schedules,AttendancePair);
 };
-

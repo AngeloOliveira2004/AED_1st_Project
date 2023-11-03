@@ -9,7 +9,6 @@ private:
     std::string UcCode;
     std::string Type;
     std::string RespectiveClass;
-    int occupation;
     Date Date_;
 
 public:
@@ -21,35 +20,18 @@ public:
     const std::string& getUcCode() const;
     const std::string& getType() const;
     const std::string& getRespectiveClass() const;
-    int getOccupation() const;
     const Date& getDate() const;
 
     // Setters
     void setUcCode(const std::string& ucCode);
     void setType(const std::string& type);
     void setRespectiveClass(const std::string& respectiveClass);
-    void setOccupation(int occupation);
     void setDate(const Date& date);
 
-    bool hasValue()
-    {
-        return UcCode != "";
-    }
-    bool operator<(const UC other) const {
-        return Date_.Day < other.getDate().Day;
-    }
+    bool hasValue();
+    bool operator<(const UC other) const;
     bool operator ==(const UC other) const;
-
-    UC& operator=(const UC& other) {
-        if (this != &other) {
-            UcCode = other.UcCode;
-            Type = other.Type;
-            RespectiveClass = other.RespectiveClass;
-            occupation = other.occupation;
-            Date_ = other.Date_;
-        }
-        return *this;
-    }
+    bool operator =(const UC other);
 };
 
 #endif // PROJETO_UC_H

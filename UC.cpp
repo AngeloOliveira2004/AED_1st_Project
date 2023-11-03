@@ -1,11 +1,11 @@
 #include "UC.h"
 
 // Default constructor
-UC::UC() : UcCode(""), Type(""), RespectiveClass(""), occupation(0), Date_() {}
+UC::UC() : UcCode(""), Type(""), RespectiveClass(""), Date_() {}
 
 // Parameterized constructor
 UC::UC(const std::string& ucCode, const std::string& type, const std::string& respectiveClass, int occupation, const Date& date)
-        : UcCode(ucCode), Type(type), RespectiveClass(respectiveClass), occupation(occupation), Date_(date) {}
+        : UcCode(ucCode), Type(type), RespectiveClass(respectiveClass), Date_(date) {}
 
 // Getters
 const std::string& UC::getUcCode() const {
@@ -18,10 +18,6 @@ const std::string& UC::getType() const {
 
 const std::string& UC::getRespectiveClass() const {
     return RespectiveClass;
-}
-
-int UC::getOccupation() const {
-    return occupation;
 }
 
 const Date& UC::getDate() const {
@@ -41,15 +37,29 @@ void UC::setRespectiveClass(const std::string& respectiveClass) {
     RespectiveClass = respectiveClass;
 }
 
-void UC::setOccupation(int occupation) {
-    occupation = occupation;
-}
-
 void UC::setDate(const Date& date) {
     Date_ = date;
+}
+
+bool UC::hasValue()
+{
+    return UcCode != "";
+}
+
+bool UC::operator<(const UC other) const
+{
+    return Date_.Day < other.getDate().Day; // Assuming the UC name is used for comparison
 }
 
 bool UC::operator==(const UC other) const
 {
     return (UcCode == other.UcCode) && (Type == other.Type) && (RespectiveClass == other.RespectiveClass);
+}
+
+bool UC::operator=(const UC other)
+{
+    UcCode = other.UcCode;
+    Type = other.Type;
+    RespectiveClass = other.RespectiveClass;
+    Date_ = other.Date_;
 }

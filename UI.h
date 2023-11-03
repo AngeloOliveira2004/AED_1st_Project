@@ -28,13 +28,6 @@ public:
     void write_down();
     bool validate_input(char &op, const char lower_bound, const char upper_bound);
 
-    void SwitchClass(Student &student1, UC& old_uc, UC &new_uc);
-    void SwitchUc(Student student1 , UC new_uc , UC ex_uc);
-    void AddUC(Student student1 , UC new_uc);
-    void RemoveUC(Student student1 , UC ex_uc);
-    void RemoveClass(Student student1 , UC &uc);
-    void AddClass(Student student1 , UC &uc);
-
 private:
     Schedule mySchedule;
     std::vector<Student> students;
