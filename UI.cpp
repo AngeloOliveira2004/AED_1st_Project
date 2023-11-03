@@ -117,9 +117,10 @@ void UI::menu_options() {
          << "4. Consult occupation" << endl
          << "5. Add request" << endl
          << "6. Process requests" << endl
-         << "7. Return to main menu" << endl << endl
+         << "7. Return to a change backup (Only if changes have been made)" << endl
+         << "8. Return to main menu" << endl
          << "Insert the number: ";
-    validate_input(op,'1','7');
+    validate_input(op,'1','8');
     switch(op){
         case '1':
             menu_schedule();
@@ -140,6 +141,9 @@ void UI::menu_options() {
             menu_requets();
             break;
         case '7':
+            restore_changes();
+            break;
+        case '8':
             clear_screen();
             menu_start();
             break;
@@ -610,6 +614,15 @@ void UI::menu_requests() {
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
+            cout << "Would you like to remove only one or all instances of that UC?" << endl
+                 << "1. One Instance" << endl
+                 << "2. All Instances" << endl
+                 << "Insert a number:";
+            char op_value_save;
+            validate_input(op_value_save,'1','2');
+            if(op_value_save == 1){
+                mySchedule.FindUC(uc_func);
+            }
 
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
@@ -1066,13 +1079,17 @@ void UI::write_down(){
 }
 
 void UI::restore_changes(){
-    char op;
-    int p;
-    for(int i = 0;i < restore_value.size();i++){
-        cout << "Change" << i << endl;
+    int op;
+    int p = 0;
+    for(int i = 0; i < restore_value.size(); i++){
+        cout << "Change " << i << endl;
         p++;
     }
-    cout << "Introduce the number:";
-    validate_input(op,'1',static_cast<char>(p));
-    restore_value[static_cast<int>(op)].restore(mySchedule,students,classes,ucs,schedules,AttendancePair);
-};
+    cout << "Introduce the number: ";
+    cin >> op;
+    if(op < restore_value.size()) {
+        restore_value[op].restore(mySchedule, students, classes, ucs, schedules, AttendancePair);
+    } else {
+        cout << "Invalid input. No change restored." << endl;
+    }
+}
