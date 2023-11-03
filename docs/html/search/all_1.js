@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['date_0',['Date',['../structDate.html',1,'']]],
-  ['day_1',['Day',['../structDate.html#aa6df3f6e9e846db34e7751fa65868623',1,'Date']]],
-  ['duration_2',['Duration',['../structDate.html#addb62063f340b55d312ad00fef516c2e',1,'Date']]]
+  ['calculatebalance_0',['CalculateBalance',['../classSchedule.html#a34c15951da467a1152af589a0357e6bd',1,'Schedule']]],
+  ['class_1',['Class',['../classClass.html',1,'Class'],['../classClass.html#a5b97d41527df822c6b1211931f79ca15',1,'Class::Class()'],['../classClass.html#ac98bba71f1cbe0c2c8fe20571e7e78ac',1,'Class::Class(std::string classCode, const std::unordered_set&lt; std::string &gt; &amp;students, const std::vector&lt; std::string &gt; &amp;ucs)']]],
+  ['compare_5fday_2',['compare_day',['../classSchedule.html#ad7c96e348d9794b96cfb12440999d63a',1,'Schedule']]]
 ];

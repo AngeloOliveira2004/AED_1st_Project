@@ -11,13 +11,40 @@ class Schedule
 {
 private:
 
+    /**
+     * @brief A map representing the schedules of students, where the key is a Student object and the value is a vector of UC objects.
+     */
     std::unordered_map<Student, std::vector<UC>> StudentSchedules;
+
+    /**
+     * @brief A map representing the schedules of classes, where the key is a Class object and the value is a vector of UC objects.
+     */
     std::unordered_map<Class, std::vector<UC>> ClassSchedules;
-    std::unordered_map<std::pair<std::string,std::string> , int, PairHash> UcOcupation;
-    std::unordered_map<std::string , unordered_set<std::string>> ClassAttendance;
+
+    /**
+     * @brief A map representing the occupation of UCs, where the key is a pair of strings representing the UC code and the respective class, and the value is the occupation count.
+     */
+    std::unordered_map<std::pair<std::string, std::string>, int, PairHash> UcOcupation;
+
+    /**
+     * @brief A map representing the class attendance, where the key is a string representing the class code, and the value is an unordered set of strings representing the students attending the class.
+     */
+    std::unordered_map<std::string, std::unordered_set<std::string>> ClassAttendance;
+
+    /**
+     * @brief A vector representing the UCs.
+     */
     std::vector<UC> Ucs;
+
+    /**
+     * @brief An integer representing the balance.
+     */
     int Balance;
-    int MAX_CAP = 30;
+
+    /**
+     * @brief A constant integer representing the maximum capacity.
+     */
+    const int MAX_CAP = 30;  ///< Maximum capacity constant.
 
 public:
     // Constructor that takes a vector of UC objects as a pointer

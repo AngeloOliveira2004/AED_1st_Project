@@ -32,48 +32,41 @@ void \mbox{\hyperlink{classSchedule_a9ae413395081139f47d3ed5bff48b752}{set\+Bala
 \begin{DoxyCompactList}\small\item\em Set the balance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSchedule_a45b92f85f7b1e9ae650e2e2220145f7f}{set\+UCs}} (std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ ucs\+\_\+)
 \begin{DoxyCompactList}\small\item\em Sets the vector of UCs. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSchedule_ae7c6048dabe149fab997dc17758f2410}\label{classSchedule_ae7c6048dabe149fab997dc17758f2410}} 
-void {\bfseries Students\+In\+At\+Least\+NUcs} (char n, std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students)
-\item 
+void \mbox{\hyperlink{classSchedule_ae7c6048dabe149fab997dc17758f2410}{Students\+In\+At\+Least\+NUcs}} (char n, std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students)
+\begin{DoxyCompactList}\small\item\em Finds students with at least a specified number of UCs of type \char`\"{}\+TP\char`\"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSchedule_a34c15951da467a1152af589a0357e6bd}{Calculate\+Balance}} ()
 \begin{DoxyCompactList}\small\item\em Calculates the balance between the smallest and the biggest class of a given \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSchedule_a2f7fa60e27f2eee89d61064fec24c793}{Find\+Studentin\+Schedule}} (std\+::string student\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Searches for a student in the schedule based on their name. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSchedule_a23fb23cf1e9d0ca57333dc7768d28ad8}{Find\+Classin\+Schedule}} (std\+::string Class\+Code)
-\begin{DoxyCompactList}\small\item\em Find a class in the schedule by its code. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds a class in the schedule by its code. \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator \mbox{\hyperlink{classSchedule_a9d0eef122ef49d31faca08e168f8ea58}{Fetch\+Student}} (\mbox{\hyperlink{classStudent}{Student}} Student\+To\+Find)
 \begin{DoxyCompactList}\small\item\em Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the Name set. \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator \mbox{\hyperlink{classSchedule_a0381830830d4a0ea3e6a3db38e55eaf7}{Fetch\+Class}} (\mbox{\hyperlink{classClass}{Class}} Class\+To\+Find)
-\begin{DoxyCompactList}\small\item\em Fetch the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Fetches the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classStudent}{Student}} \mbox{\hyperlink{classSchedule_a58b1f656bdd43c9388ec2ac9653628fd}{Find\+Studentin\+Scheduleby\+ID}} (int ID)
 \begin{DoxyCompactList}\small\item\em Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the ID set. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSchedule_ab93d4e00f6f3292559496fee02e275e1}{Find\+UC}} (\mbox{\hyperlink{classUC}{UC}} \&target\+UC)
-\begin{DoxyCompactList}\small\item\em Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSchedule_a453b068016bbe6b4932ceef3b52c04e8}{Find\+UCin\+Student}} (\mbox{\hyperlink{classStudent}{Student}} student, \mbox{\hyperlink{classUC}{UC}} \&target\+UC)
-\begin{DoxyCompactList}\small\item\em Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSchedule_a7657b6d69067076d7286af86e346e183}\label{classSchedule_a7657b6d69067076d7286af86e346e183}} 
-void {\bfseries Switch\+Class} (\mbox{\hyperlink{classStudent}{Student}} \&student1, \mbox{\hyperlink{classUC}{UC}} \&old\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} \&new\+\_\+uc)
-\item 
-\mbox{\Hypertarget{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}\label{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}} 
-void {\bfseries Switch\+Uc} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
-\item 
-\mbox{\Hypertarget{classSchedule_affc30a6862d88534734019bf1ff93b0b}\label{classSchedule_affc30a6862d88534734019bf1ff93b0b}} 
-void {\bfseries Add\+UC} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc)
-\item 
-\mbox{\Hypertarget{classSchedule_a2fa54b532595a11a1d142c622ecbe399}\label{classSchedule_a2fa54b532595a11a1d142c622ecbe399}} 
-void {\bfseries Remove\+UC} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
-\item 
-\mbox{\Hypertarget{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}\label{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}} 
-void {\bfseries Remove\+Class} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
-\item 
-\mbox{\Hypertarget{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}\label{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}} 
-void {\bfseries Add\+Class} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Finds a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a7657b6d69067076d7286af86e346e183}{Switch\+Class}} (\mbox{\hyperlink{classStudent}{Student}} \&student1, \mbox{\hyperlink{classUC}{UC}} \&old\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} \&new\+\_\+uc)
+\begin{DoxyCompactList}\small\item\em Switches the class of a student in the same \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}{Switch\+Uc}} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
+\begin{DoxyCompactList}\small\item\em Switches the \mbox{\hyperlink{classUC}{UC}} of a student from an old \mbox{\hyperlink{classUC}{UC}} to a new \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_affc30a6862d88534734019bf1ff93b0b}{Add\+UC}} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc)
+\begin{DoxyCompactList}\small\item\em Adds a new \mbox{\hyperlink{classUC}{UC}} to a student\textquotesingle{}s schedule. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a2fa54b532595a11a1d142c622ecbe399}{Remove\+UC}} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
+\begin{DoxyCompactList}\small\item\em Removes a \mbox{\hyperlink{classUC}{UC}} from a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}{Remove\+Class}} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
+\begin{DoxyCompactList}\small\item\em Removes a class from a student\textquotesingle{}s schedule, setting all remaining UCs class to \char`\"{}\+EMPTY\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}{Add\+Class}} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
+\begin{DoxyCompactList}\small\item\em Adds a class to a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static bool \mbox{\hyperlink{classSchedule_ad7c96e348d9794b96cfb12440999d63a}{compare\+\_\+day}} (const \mbox{\hyperlink{classUC}{UC}} \&uc1, const \mbox{\hyperlink{classUC}{UC}} \&uc2)
-\begin{DoxyCompactList}\small\item\em Compare two UCs based on their day and duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compares two UCs based on their day and duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -102,7 +95,41 @@ Constructor implementation for the \mbox{\hyperlink{classSchedule}{Schedule}} cl
 Time Complexity\+: O(1) 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classSchedule_a34c15951da467a1152af589a0357e6bd}\label{classSchedule_a34c15951da467a1152af589a0357e6bd}} 
+\mbox{\Hypertarget{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}\label{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}} 
+\index{Schedule@{Schedule}!AddClass@{AddClass}}
+\index{AddClass@{AddClass}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{AddClass()}{AddClass()}}
+{\footnotesize\ttfamily void Schedule\+::\+Add\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{uc }\end{DoxyParamCaption})}
+
+
+
+Adds a class to a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student to whom the class is added. \\
+\hline
+{\em uc} & The \mbox{\hyperlink{classUC}{UC}} corresponding to the class to be added.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \mbox{\Hypertarget{classSchedule_affc30a6862d88534734019bf1ff93b0b}\label{classSchedule_affc30a6862d88534734019bf1ff93b0b}} 
+\index{Schedule@{Schedule}!AddUC@{AddUC}}
+\index{AddUC@{AddUC}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{AddUC()}{AddUC()}}
+{\footnotesize\ttfamily void Schedule\+::\+Add\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}}}]{new\+\_\+uc }\end{DoxyParamCaption})}
+
+
+
+Adds a new \mbox{\hyperlink{classUC}{UC}} to a student\textquotesingle{}s schedule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student to whom the \mbox{\hyperlink{classUC}{UC}} is added. \\
+\hline
+{\em new\+\_\+uc} & The new \mbox{\hyperlink{classUC}{UC}} to be added to the student\textquotesingle{}s schedule.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \mbox{\Hypertarget{classSchedule_a34c15951da467a1152af589a0357e6bd}\label{classSchedule_a34c15951da467a1152af589a0357e6bd}} 
 \index{Schedule@{Schedule}!CalculateBalance@{CalculateBalance}}
 \index{CalculateBalance@{CalculateBalance}!Schedule@{Schedule}}
 \doxysubsubsection{\texorpdfstring{CalculateBalance()}{CalculateBalance()}}
@@ -122,7 +149,7 @@ Time Complexity\+: 0(n), where n is the number of classes in Class\+Attendance. 
 
 
 
-Compare two UCs based on their day and duration. 
+Compares two UCs based on their day and duration. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -142,7 +169,7 @@ True if uc1 is earlier than uc2, based on day and duration; false otherwise.
 
 
 
-Fetch the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. 
+Fetches the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -178,7 +205,7 @@ An iterator pointing to the found student in the student schedules map, whose Na
 
 
 
-Find a class in the schedule by its code. 
+Finds a class in the schedule by its code. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -232,7 +259,7 @@ An iterator pointing to the found student in the student schedules map, whose ID
 
 
 
-Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. 
+Finds a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -247,7 +274,7 @@ Time Complexity\+: O(n), where n is the number of UCs. \mbox{\Hypertarget{classS
 
 
 
-Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. 
+Finds a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -321,7 +348,41 @@ Get the occupation of each class of UCs.
 \begin{DoxyReturn}{Returns}
 A map , that maps a Class/\+UC, to a certain occupation.
 \end{DoxyReturn}
-Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a9ae413395081139f47d3ed5bff48b752}\label{classSchedule_a9ae413395081139f47d3ed5bff48b752}} 
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}\label{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}} 
+\index{Schedule@{Schedule}!RemoveClass@{RemoveClass}}
+\index{RemoveClass@{RemoveClass}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{RemoveClass()}{RemoveClass()}}
+{\footnotesize\ttfamily void Schedule\+::\+Remove\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{uc }\end{DoxyParamCaption})}
+
+
+
+Removes a class from a student\textquotesingle{}s schedule, setting all remaining UCs class to \char`\"{}\+EMPTY\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student from whom the class is removed. \\
+\hline
+{\em uc} & The \mbox{\hyperlink{classUC}{UC}} corresponding to the class to be removed.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \mbox{\Hypertarget{classSchedule_a2fa54b532595a11a1d142c622ecbe399}\label{classSchedule_a2fa54b532595a11a1d142c622ecbe399}} 
+\index{Schedule@{Schedule}!RemoveUC@{RemoveUC}}
+\index{RemoveUC@{RemoveUC}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{RemoveUC()}{RemoveUC()}}
+{\footnotesize\ttfamily void Schedule\+::\+Remove\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}}}]{ex\+\_\+uc }\end{DoxyParamCaption})}
+
+
+
+Removes a \mbox{\hyperlink{classUC}{UC}} from a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student from whom the \mbox{\hyperlink{classUC}{UC}} is removed. \\
+\hline
+{\em ex\+\_\+uc} & The \mbox{\hyperlink{classUC}{UC}} to be removed from the student\textquotesingle{}s schedule.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. \mbox{\Hypertarget{classSchedule_a9ae413395081139f47d3ed5bff48b752}\label{classSchedule_a9ae413395081139f47d3ed5bff48b752}} 
 \index{Schedule@{Schedule}!setBalance@{setBalance}}
 \index{setBalance@{setBalance}!Schedule@{Schedule}}
 \doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
@@ -411,7 +472,62 @@ Sets the vector of UCs.
 {\em ucs\+\_\+} & The vector of UCs to set.\\
 \hline
 \end{DoxyParams}
-Time Complexity\+: O(1). 
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_ae7c6048dabe149fab997dc17758f2410}\label{classSchedule_ae7c6048dabe149fab997dc17758f2410}} 
+\index{Schedule@{Schedule}!StudentsInAtLeastNUcs@{StudentsInAtLeastNUcs}}
+\index{StudentsInAtLeastNUcs@{StudentsInAtLeastNUcs}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{StudentsInAtLeastNUcs()}{StudentsInAtLeastNUcs()}}
+{\footnotesize\ttfamily void Schedule\+::\+Students\+In\+At\+Least\+NUcs (\begin{DoxyParamCaption}\item[{char}]{n,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&}]{students }\end{DoxyParamCaption})}
+
+
+
+Finds students with at least a specified number of UCs of type \char`\"{}\+TP\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The minimum number of UCs required, offset by 49, since it is a char. \\
+\hline
+{\em students} & The vector containing all students.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n$\ast$m)=O(n²), where n is the number of Pairs in \mbox{\hyperlink{classStudent}{Student}} Schedules and m is the number of ucs of each pair \mbox{\Hypertarget{classSchedule_a7657b6d69067076d7286af86e346e183}\label{classSchedule_a7657b6d69067076d7286af86e346e183}} 
+\index{Schedule@{Schedule}!SwitchClass@{SwitchClass}}
+\index{SwitchClass@{SwitchClass}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{SwitchClass()}{SwitchClass()}}
+{\footnotesize\ttfamily void Schedule\+::\+Switch\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}} \&}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{old\+\_\+uc,  }\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{new\+\_\+uc }\end{DoxyParamCaption})}
+
+
+
+Switches the class of a student in the same \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student for whom to switch the class. \\
+\hline
+{\em old\+\_\+uc} & The \mbox{\hyperlink{classUC}{UC}} object from which to switch the class. \\
+\hline
+{\em new\+\_\+uc} & The \mbox{\hyperlink{classUC}{UC}} object to which the class is switched.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs on a \mbox{\hyperlink{classSchedule}{Schedule}} of a \mbox{\hyperlink{classStudent}{Student}} \mbox{\Hypertarget{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}\label{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}} 
+\index{Schedule@{Schedule}!SwitchUc@{SwitchUc}}
+\index{SwitchUc@{SwitchUc}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{SwitchUc()}{SwitchUc()}}
+{\footnotesize\ttfamily void Schedule\+::\+Switch\+Uc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student1,  }\item[{\mbox{\hyperlink{classUC}{UC}}}]{new\+\_\+uc,  }\item[{\mbox{\hyperlink{classUC}{UC}}}]{ex\+\_\+uc }\end{DoxyParamCaption})}
+
+
+
+Switches the \mbox{\hyperlink{classUC}{UC}} of a student from an old \mbox{\hyperlink{classUC}{UC}} to a new \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The student for whom to switch the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+{\em new\+\_\+uc} & The new \mbox{\hyperlink{classUC}{UC}} to which the \mbox{\hyperlink{classUC}{UC}} is switched. \\
+\hline
+{\em ex\+\_\+uc} & The old \mbox{\hyperlink{classUC}{UC}} from which to switch the \mbox{\hyperlink{classUC}{UC}}.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a \mbox{\hyperlink{classStudent}{Student}}\textquotesingle{}s \mbox{\hyperlink{classSchedule}{Schedule}}. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

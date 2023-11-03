@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['getbalance_0',['getBalance',['../classSchedule.html#a21bd8d0920eb409e47834cd926243c07',1,'Schedule']]],
-  ['getclassattendance_1',['getClassAttendance',['../classSchedule.html#a9a7fb1b982788fb4318f37c074c73101',1,'Schedule']]],
-  ['getclasscode_2',['getClassCode',['../classClass.html#a5e7aba3cdb22b6162a7808a7cfe91ea1',1,'Class']]],
-  ['getclassschedules_3',['getClassSchedules',['../classSchedule.html#a238161d692ec0716d0c0ce6817ea66ef',1,'Schedule']]],
-  ['getstudentschedules_4',['getStudentSchedules',['../classSchedule.html#a5f373e670893c290136a7ef673ada701',1,'Schedule']]],
-  ['getucocupation_5',['getUcOcupation',['../classSchedule.html#ae3d56f8d510ce934005b08ae33d5d58c',1,'Schedule']]],
-  ['getucs_6',['getUCs',['../classClass.html#ae7bc2ded3dd806a5e94605ec35da2b0e',1,'Class']]]
+  ['fetchclass_0',['FetchClass',['../classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7',1,'Schedule']]],
+  ['fetchstudent_1',['FetchStudent',['../classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58',1,'Schedule']]],
+  ['findclassinschedule_2',['FindClassinSchedule',['../classSchedule.html#a23fb23cf1e9d0ca57333dc7768d28ad8',1,'Schedule']]],
+  ['findstudentinschedule_3',['FindStudentinSchedule',['../classSchedule.html#a2f7fa60e27f2eee89d61064fec24c793',1,'Schedule']]],
+  ['findstudentinschedulebyid_4',['FindStudentinSchedulebyID',['../classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd',1,'Schedule']]],
+  ['finduc_5',['FindUC',['../classSchedule.html#ab93d4e00f6f3292559496fee02e275e1',1,'Schedule']]],
+  ['finducinstudent_6',['FindUCinStudent',['../classSchedule.html#a453b068016bbe6b4932ceef3b52c04e8',1,'Schedule']]]
 ];

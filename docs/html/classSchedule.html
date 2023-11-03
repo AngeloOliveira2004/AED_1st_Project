@@ -111,8 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a45b92f85f7b1e9ae650e2e2220145f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a45b92f85f7b1e9ae650e2e2220145f7f">setUCs</a> (std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; ucs_)</td></tr>
 <tr class="memdesc:a45b92f85f7b1e9ae650e2e2220145f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vector of UCs.  <a href="classSchedule.html#a45b92f85f7b1e9ae650e2e2220145f7f">More...</a><br /></td></tr>
 <tr class="separator:a45b92f85f7b1e9ae650e2e2220145f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c6048dabe149fab997dc17758f2410"><td class="memItemLeft" align="right" valign="top"><a id="ae7c6048dabe149fab997dc17758f2410" name="ae7c6048dabe149fab997dc17758f2410"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>StudentsInAtLeastNUcs</b> (char n, std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students)</td></tr>
+<tr class="memitem:ae7c6048dabe149fab997dc17758f2410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ae7c6048dabe149fab997dc17758f2410">StudentsInAtLeastNUcs</a> (char n, std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students)</td></tr>
+<tr class="memdesc:ae7c6048dabe149fab997dc17758f2410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds students with at least a specified number of UCs of type "TP".  <a href="classSchedule.html#ae7c6048dabe149fab997dc17758f2410">More...</a><br /></td></tr>
 <tr class="separator:ae7c6048dabe149fab997dc17758f2410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34c15951da467a1152af589a0357e6bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a34c15951da467a1152af589a0357e6bd">CalculateBalance</a> ()</td></tr>
 <tr class="memdesc:a34c15951da467a1152af589a0357e6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the balance between the smallest and the biggest class of a given <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#a34c15951da467a1152af589a0357e6bd">More...</a><br /></td></tr>
@@ -121,46 +121,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StudentsInAtLeastNUcs
 <tr class="memdesc:a2f7fa60e27f2eee89d61064fec24c793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for a student in the schedule based on their name.  <a href="classSchedule.html#a2f7fa60e27f2eee89d61064fec24c793">More...</a><br /></td></tr>
 <tr class="separator:a2f7fa60e27f2eee89d61064fec24c793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a23fb23cf1e9d0ca57333dc7768d28ad8">FindClassinSchedule</a> (std::string ClassCode)</td></tr>
-<tr class="memdesc:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a class in the schedule by its code.  <a href="classSchedule.html#a23fb23cf1e9d0ca57333dc7768d28ad8">More...</a><br /></td></tr>
+<tr class="memdesc:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a class in the schedule by its code.  <a href="classSchedule.html#a23fb23cf1e9d0ca57333dc7768d28ad8">More...</a><br /></td></tr>
 <tr class="separator:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d0eef122ef49d31faca08e168f8ea58"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58">FetchStudent</a> (<a class="el" href="classStudent.html">Student</a> StudentToFind)</td></tr>
 <tr class="memdesc:a9d0eef122ef49d31faca08e168f8ea58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html">Student</a> object, used normally with an default <a class="el" href="classStudent.html">Student</a> , just with the Name set.  <a href="classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58">More...</a><br /></td></tr>
 <tr class="separator:a9d0eef122ef49d31faca08e168f8ea58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="classClass.html">Class</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7">FetchClass</a> (<a class="el" href="classClass.html">Class</a> ClassToFind)</td></tr>
-<tr class="memdesc:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch the class corresponding to the given <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> object,used normally with an default <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> , just with the <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> Code set.  <a href="classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7">More...</a><br /></td></tr>
+<tr class="memdesc:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the class corresponding to the given <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> object,used normally with an default <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> , just with the <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> Code set.  <a href="classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7">More...</a><br /></td></tr>
 <tr class="separator:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b1f656bdd43c9388ec2ac9653628fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStudent.html">Student</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd">FindStudentinSchedulebyID</a> (int ID)</td></tr>
 <tr class="memdesc:a58b1f656bdd43c9388ec2ac9653628fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html">Student</a> object, used normally with an default <a class="el" href="classStudent.html">Student</a> , just with the ID set.  <a href="classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd">More...</a><br /></td></tr>
 <tr class="separator:a58b1f656bdd43c9388ec2ac9653628fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab93d4e00f6f3292559496fee02e275e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ab93d4e00f6f3292559496fee02e275e1">FindUC</a> (<a class="el" href="classUC.html">UC</a> &amp;targetUC)</td></tr>
-<tr class="memdesc:ab93d4e00f6f3292559496fee02e275e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#ab93d4e00f6f3292559496fee02e275e1">More...</a><br /></td></tr>
+<tr class="memdesc:ab93d4e00f6f3292559496fee02e275e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#ab93d4e00f6f3292559496fee02e275e1">More...</a><br /></td></tr>
 <tr class="separator:ab93d4e00f6f3292559496fee02e275e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a453b068016bbe6b4932ceef3b52c04e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a453b068016bbe6b4932ceef3b52c04e8">FindUCinStudent</a> (<a class="el" href="classStudent.html">Student</a> student, <a class="el" href="classUC.html">UC</a> &amp;targetUC)</td></tr>
-<tr class="memdesc:a453b068016bbe6b4932ceef3b52c04e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#a453b068016bbe6b4932ceef3b52c04e8">More...</a><br /></td></tr>
+<tr class="memdesc:a453b068016bbe6b4932ceef3b52c04e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#a453b068016bbe6b4932ceef3b52c04e8">More...</a><br /></td></tr>
 <tr class="separator:a453b068016bbe6b4932ceef3b52c04e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7657b6d69067076d7286af86e346e183"><td class="memItemLeft" align="right" valign="top"><a id="a7657b6d69067076d7286af86e346e183" name="a7657b6d69067076d7286af86e346e183"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SwitchClass</b> (<a class="el" href="classStudent.html">Student</a> &amp;student1, <a class="el" href="classUC.html">UC</a> &amp;old_uc, <a class="el" href="classUC.html">UC</a> &amp;new_uc)</td></tr>
+<tr class="memitem:a7657b6d69067076d7286af86e346e183"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a7657b6d69067076d7286af86e346e183">SwitchClass</a> (<a class="el" href="classStudent.html">Student</a> &amp;student1, <a class="el" href="classUC.html">UC</a> &amp;old_uc, <a class="el" href="classUC.html">UC</a> &amp;new_uc)</td></tr>
+<tr class="memdesc:a7657b6d69067076d7286af86e346e183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the class of a student in the same <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#a7657b6d69067076d7286af86e346e183">More...</a><br /></td></tr>
 <tr class="separator:a7657b6d69067076d7286af86e346e183"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4997e60cc9e8e10e7bc555374fae303"><td class="memItemLeft" align="right" valign="top"><a id="aa4997e60cc9e8e10e7bc555374fae303" name="aa4997e60cc9e8e10e7bc555374fae303"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SwitchUc</b> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> new_uc, <a class="el" href="classUC.html">UC</a> ex_uc)</td></tr>
+<tr class="memitem:aa4997e60cc9e8e10e7bc555374fae303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#aa4997e60cc9e8e10e7bc555374fae303">SwitchUc</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> new_uc, <a class="el" href="classUC.html">UC</a> ex_uc)</td></tr>
+<tr class="memdesc:aa4997e60cc9e8e10e7bc555374fae303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the <a class="el" href="classUC.html">UC</a> of a student from an old <a class="el" href="classUC.html">UC</a> to a new <a class="el" href="classUC.html">UC</a>.  <a href="classSchedule.html#aa4997e60cc9e8e10e7bc555374fae303">More...</a><br /></td></tr>
 <tr class="separator:aa4997e60cc9e8e10e7bc555374fae303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affc30a6862d88534734019bf1ff93b0b"><td class="memItemLeft" align="right" valign="top"><a id="affc30a6862d88534734019bf1ff93b0b" name="affc30a6862d88534734019bf1ff93b0b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddUC</b> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> new_uc)</td></tr>
+<tr class="memitem:affc30a6862d88534734019bf1ff93b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#affc30a6862d88534734019bf1ff93b0b">AddUC</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> new_uc)</td></tr>
+<tr class="memdesc:affc30a6862d88534734019bf1ff93b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new <a class="el" href="classUC.html">UC</a> to a student's schedule.  <a href="classSchedule.html#affc30a6862d88534734019bf1ff93b0b">More...</a><br /></td></tr>
 <tr class="separator:affc30a6862d88534734019bf1ff93b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fa54b532595a11a1d142c622ecbe399"><td class="memItemLeft" align="right" valign="top"><a id="a2fa54b532595a11a1d142c622ecbe399" name="a2fa54b532595a11a1d142c622ecbe399"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveUC</b> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> ex_uc)</td></tr>
+<tr class="memitem:a2fa54b532595a11a1d142c622ecbe399"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a2fa54b532595a11a1d142c622ecbe399">RemoveUC</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> ex_uc)</td></tr>
+<tr class="memdesc:a2fa54b532595a11a1d142c622ecbe399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classUC.html">UC</a> from a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>.  <a href="classSchedule.html#a2fa54b532595a11a1d142c622ecbe399">More...</a><br /></td></tr>
 <tr class="separator:a2fa54b532595a11a1d142c622ecbe399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7149daf500bd72a6bebc4d6da42c4b0"><td class="memItemLeft" align="right" valign="top"><a id="af7149daf500bd72a6bebc4d6da42c4b0" name="af7149daf500bd72a6bebc4d6da42c4b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveClass</b> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
+<tr class="memitem:af7149daf500bd72a6bebc4d6da42c4b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0">RemoveClass</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
+<tr class="memdesc:af7149daf500bd72a6bebc4d6da42c4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a class from a student's schedule, setting all remaining UCs class to "EMPTY".  <a href="classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0">More...</a><br /></td></tr>
 <tr class="separator:af7149daf500bd72a6bebc4d6da42c4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07f44dbe20a0aba6f013338805c4c9a6"><td class="memItemLeft" align="right" valign="top"><a id="a07f44dbe20a0aba6f013338805c4c9a6" name="a07f44dbe20a0aba6f013338805c4c9a6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddClass</b> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
+<tr class="memitem:a07f44dbe20a0aba6f013338805c4c9a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a07f44dbe20a0aba6f013338805c4c9a6">AddClass</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
+<tr class="memdesc:a07f44dbe20a0aba6f013338805c4c9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a class to a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>.  <a href="classSchedule.html#a07f44dbe20a0aba6f013338805c4c9a6">More...</a><br /></td></tr>
 <tr class="separator:a07f44dbe20a0aba6f013338805c4c9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7c96e348d9794b96cfb12440999d63a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ad7c96e348d9794b96cfb12440999d63a">compare_day</a> (const <a class="el" href="classUC.html">UC</a> &amp;uc1, const <a class="el" href="classUC.html">UC</a> &amp;uc2)</td></tr>
-<tr class="memdesc:ad7c96e348d9794b96cfb12440999d63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two UCs based on their day and duration.  <a href="classSchedule.html#ad7c96e348d9794b96cfb12440999d63a">More...</a><br /></td></tr>
+<tr class="memdesc:ad7c96e348d9794b96cfb12440999d63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two UCs based on their day and duration.  <a href="classSchedule.html#ad7c96e348d9794b96cfb12440999d63a">More...</a><br /></td></tr>
 <tr class="separator:ad7c96e348d9794b96cfb12440999d63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -206,6 +206,82 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a07f44dbe20a0aba6f013338805c4c9a6" name="a07f44dbe20a0aba6f013338805c4c9a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f44dbe20a0aba6f013338805c4c9a6">&#9670;&nbsp;</a></span>AddClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::AddClass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a>&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a> &amp;&#160;</td>
+          <td class="paramname"><em>uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a class to a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student to whom the class is added. </td></tr>
+    <tr><td class="paramname">uc</td><td>The <a class="el" href="classUC.html">UC</a> corresponding to the class to be added.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+
+</div>
+</div>
+<a id="affc30a6862d88534734019bf1ff93b0b" name="affc30a6862d88534734019bf1ff93b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affc30a6862d88534734019bf1ff93b0b">&#9670;&nbsp;</a></span>AddUC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::AddUC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a>&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a>&#160;</td>
+          <td class="paramname"><em>new_uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new <a class="el" href="classUC.html">UC</a> to a student's schedule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student to whom the <a class="el" href="classUC.html">UC</a> is added. </td></tr>
+    <tr><td class="paramname">new_uc</td><td>The new <a class="el" href="classUC.html">UC</a> to be added to the student's schedule.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+
+</div>
+</div>
 <a id="a34c15951da467a1152af589a0357e6bd" name="a34c15951da467a1152af589a0357e6bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34c15951da467a1152af589a0357e6bd">&#9670;&nbsp;</a></span>CalculateBalance()</h2>
 
@@ -261,7 +337,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Compare two UCs based on their day and duration. </p>
+<p>Compares two UCs based on their day and duration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uc1</td><td>The first <a class="el" href="classUC.html">UC</a> to compare. </td></tr>
@@ -289,7 +365,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fetch the class corresponding to the given <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> object,used normally with an default <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> , just with the <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> Code set. </p>
+<p>Fetches the class corresponding to the given <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> object,used normally with an default <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> , just with the <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> Code set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ClassToFind</td><td>The <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> object to find in the schedule, with only the <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> Code set, the rest is default </td></tr>
@@ -343,7 +419,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find a class in the schedule by its code. </p>
+<p>Finds a class in the schedule by its code. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ClassCode</td><td>The code of the class to find. </td></tr>
@@ -426,7 +502,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given <a class="el" href="classUC.html">UC</a>. </p>
+<p>Finds a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given <a class="el" href="classUC.html">UC</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">targetUC</td><td>The <a class="el" href="classUC.html">UC</a> to find in the schedule.</td></tr>
@@ -463,7 +539,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a <a class="el" href="classUC.html">UC</a>. </p>
+<p>Finds a <a class="el" href="classUC.html">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a <a class="el" href="classUC.html">UC</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student</td><td>The student for whom to find the <a class="el" href="classUC.html">UC</a>. </td></tr>
@@ -577,6 +653,82 @@ Static Public Member Functions</h2></td></tr>
 <p>Get the occupation of each class of UCs. </p>
 <dl class="section return"><dt>Returns</dt><dd>A map , that maps a Class/UC, to a certain occupation.</dd></dl>
 <p>Time Complexity: O(1). </p>
+
+</div>
+</div>
+<a id="af7149daf500bd72a6bebc4d6da42c4b0" name="af7149daf500bd72a6bebc4d6da42c4b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7149daf500bd72a6bebc4d6da42c4b0">&#9670;&nbsp;</a></span>RemoveClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::RemoveClass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a>&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a> &amp;&#160;</td>
+          <td class="paramname"><em>uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a class from a student's schedule, setting all remaining UCs class to "EMPTY". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student from whom the class is removed. </td></tr>
+    <tr><td class="paramname">uc</td><td>The <a class="el" href="classUC.html">UC</a> corresponding to the class to be removed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+
+</div>
+</div>
+<a id="a2fa54b532595a11a1d142c622ecbe399" name="a2fa54b532595a11a1d142c622ecbe399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa54b532595a11a1d142c622ecbe399">&#9670;&nbsp;</a></span>RemoveUC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::RemoveUC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a>&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a>&#160;</td>
+          <td class="paramname"><em>ex_uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a <a class="el" href="classUC.html">UC</a> from a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student from whom the <a class="el" href="classUC.html">UC</a> is removed. </td></tr>
+    <tr><td class="paramname">ex_uc</td><td>The <a class="el" href="classUC.html">UC</a> to be removed from the student's schedule.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
 
 </div>
 </div>
@@ -739,6 +891,134 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p>Time Complexity: O(1). </p>
+
+</div>
+</div>
+<a id="ae7c6048dabe149fab997dc17758f2410" name="ae7c6048dabe149fab997dc17758f2410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7c6048dabe149fab997dc17758f2410">&#9670;&nbsp;</a></span>StudentsInAtLeastNUcs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::StudentsInAtLeastNUcs </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>students</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds students with at least a specified number of UCs of type "TP". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The minimum number of UCs required, offset by 49, since it is a char. </td></tr>
+    <tr><td class="paramname">students</td><td>The vector containing all students.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n*m)=O(n²), where n is the number of Pairs in <a class="el" href="classStudent.html">Student</a> Schedules and m is the number of ucs of each pair </p>
+
+</div>
+</div>
+<a id="a7657b6d69067076d7286af86e346e183" name="a7657b6d69067076d7286af86e346e183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7657b6d69067076d7286af86e346e183">&#9670;&nbsp;</a></span>SwitchClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::SwitchClass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a> &amp;&#160;</td>
+          <td class="paramname"><em>old_uc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Switches the class of a student in the same <a class="el" href="classUC.html">UC</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student for whom to switch the class. </td></tr>
+    <tr><td class="paramname">old_uc</td><td>The <a class="el" href="classUC.html">UC</a> object from which to switch the class. </td></tr>
+    <tr><td class="paramname">new_uc</td><td>The <a class="el" href="classUC.html">UC</a> object to which the class is switched.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs on a <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a> of a <a class="el" href="classStudent.html">Student</a> </p>
+
+</div>
+</div>
+<a id="aa4997e60cc9e8e10e7bc555374fae303" name="aa4997e60cc9e8e10e7bc555374fae303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4997e60cc9e8e10e7bc555374fae303">&#9670;&nbsp;</a></span>SwitchUc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Schedule::SwitchUc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a>&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a>&#160;</td>
+          <td class="paramname"><em>new_uc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUC.html">UC</a>&#160;</td>
+          <td class="paramname"><em>ex_uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Switches the <a class="el" href="classUC.html">UC</a> of a student from an old <a class="el" href="classUC.html">UC</a> to a new <a class="el" href="classUC.html">UC</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The student for whom to switch the <a class="el" href="classUC.html">UC</a>. </td></tr>
+    <tr><td class="paramname">new_uc</td><td>The new <a class="el" href="classUC.html">UC</a> to which the <a class="el" href="classUC.html">UC</a> is switched. </td></tr>
+    <tr><td class="paramname">ex_uc</td><td>The old <a class="el" href="classUC.html">UC</a> from which to switch the <a class="el" href="classUC.html">UC</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html">Student</a>'s <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
 
 </div>
 </div>
