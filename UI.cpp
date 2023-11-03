@@ -93,7 +93,6 @@ void UI::menu_start() {
                  << "Insert the number: " ;
             validate_input(choice,'1','2');
             if(choice == 1){
-                write_down();
                 save_global_alterations();
             }
             cout << "Thanks for using our schedule app!" << endl << "\n"
@@ -809,7 +808,7 @@ void UI::menu_requests() {
 void UI::save_global_alterations(){
     fstream fout;
 
-    fout.open("reportcard.csv", ios::out | ios::app);
+    fout.open("schedule/student_classes.csv", ios::out | ios::app);
 
     if (!fout.is_open()) {
         std::cout << "Error opening file for writing." << std::endl;
@@ -1054,27 +1053,6 @@ void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests
             menu_options();
         }
     }
-}
-
-void UI::write_down(){
-    fstream fout;
-    fstream fin;
-
-    fout.open("reportcard.csv", ios::out | ios::app);
-    fin.open("schedule/students_classes.csv");
-
-    if (!fin.is_open() || !fout.is_open()) {
-        std::cout << "Error opening input or output file." << std::endl;
-        return;
-    }
-
-    std::string line;
-    while (std::getline(fout, line)) {
-        fin << line << std::endl;
-    }
-
-    fin.close();
-    fout.close();
 }
 
 void UI::restore_changes(){
