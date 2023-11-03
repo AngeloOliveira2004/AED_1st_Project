@@ -13,7 +13,6 @@ private:
     int Id;
     std::string Name;
     std::vector<pair<std::string , std::string>> ClassesToUcs;
-    char Year;
 
 public:
 
@@ -22,13 +21,11 @@ public:
 
     int getId() const;
     const std::string& getName() const;
-    char getYear() const;
     std::vector<pair<std::string , std::string>> getClassesToUcs() const;
 
     // Setter functions
     void setId(int id);
     void setName(const std::string& name);
-    void setYear(char year);
     void setClassesToUcs(std::vector<pair<std::string , std::string>> ClassesToUcs_);
 
     //Quality of life functions
@@ -48,7 +45,6 @@ namespace std {
     template <>
     struct hash<Student> {
         size_t operator()(const Student& student) const {
-            size_t idHash = std::hash<int>{}(student.getId());
             size_t nameHash = std::hash<std::string>{}(student.getName());
             return nameHash; // Combine the hashes appropriately
         }

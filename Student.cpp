@@ -1,10 +1,10 @@
 #include "Student.h"
 
 // Default constructor
-Student::Student() : Id(0), Name(""), Year(0){}
+Student::Student() : Id(0), Name("") {}
 
 // Parameterized constructor
-Student::Student(int id, const std::string& name, char year) : Id(id), Name(name), Year(year){}
+Student::Student(int id, const std::string& name, char year) : Id(id), Name(name) {}
 
 // Getter functions
 int Student::getId() const {
@@ -13,10 +13,6 @@ int Student::getId() const {
 
 const std::string& Student::getName() const {
     return Name;
-}
-
-char Student::getYear() const {
-    return Year;
 }
 
 std::vector<pair<std::string , std::string>>  Student::getClassesToUcs() const {
@@ -30,10 +26,6 @@ void Student::setId(int id) {
 
 void Student::setName(const std::string& name) {
     Name = name;
-}
-
-void Student::setYear(char year) {
-    Year = year;
 }
 
 void Student::setClassesToUcs(const std::vector<pair<std::string, std::string>> ClassesToUcs_)

@@ -3,33 +3,24 @@
 #include <utility>
 
 // Default constructor
-Class::Class() : ClassCode(""), Students(), UCs(){}
+Class::Class() : ClassCode(""), UCs(){}
 
 // Parameterized constructor
 Class::Class(std::string  classCode, const std::unordered_set<std::string>& students, const std::vector<std::string>& ucs)
-        : ClassCode(std::move(classCode)), Students(students), UCs(ucs){}
+        : ClassCode(std::move(classCode)), UCs(ucs){}
 
 // Getters
 const std::string& Class::getClassCode() const {
     return ClassCode;
 }
 
-const std::unordered_set<std::string>& Class::getStudents() const {
-    return Students;
-}
-
 const std::vector<std::string>& Class::getUCs() const {
     return UCs;
 }
 
-
 // Setters
 void Class::setClassCode(const std::string& classCode) {
     ClassCode = classCode;
-}
-
-void Class::setStudents(const std::unordered_set<std::string>& students) {
-    Students = students;
 }
 
 void Class::setUCs(const std::vector<std::string>& ucs) {
@@ -61,23 +52,6 @@ std::pair<Class, std::vector<UC>> Class::populateSchedule(Class &class_, const s
     }
     return Result;
 }
-/*
-std::unordered_set<std::string> populateStudents(Class& class_,const std::vector<Student> students){
-    std::unordered_set<std::string> Result;
-    string classcode = class_.getClassCode();
-    for(const Student& student: students){
-        for(auto pair: student.getClassesToUcs()){
-            if(pair.first == classcode){
-                Result.insert(student.getName());
-                break;
-            }
-        }
-    }
-    return Result;
-}
-*/
-
-
 
 void Class::sort(std::vector<Class> &classes)
 {
@@ -92,6 +66,5 @@ void Class::sort(std::vector<Class> &classes)
 
 void Class::operator=(const Class &other)  {
     ClassCode = other.ClassCode;
-    Students = other.Students;
     UCs = other.UCs;
 }

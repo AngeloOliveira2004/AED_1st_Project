@@ -10,7 +10,6 @@
 class Class {
 private:
     std::string ClassCode;
-    std::unordered_set<std::string> Students;
     std::vector<std::string> UCs;
 
 public:
@@ -20,12 +19,10 @@ public:
 
     // Getters
     [[nodiscard]] const std::string& getClassCode() const;
-    [[nodiscard]] const std::unordered_set<std::string>& getStudents() const;
     [[nodiscard]] const std::vector<std::string>& getUCs() const;
 
     // Setters
     void setClassCode(const std::string& classCode);
-    void setStudents(const std::unordered_set<std::string>& students);
     void setUCs(const std::vector<std::string>& ucs);
 
     static void sort(std::vector<Class>& classes);
@@ -36,7 +33,6 @@ public:
 
     //O(N) complexity where n is the size of allUCs vector
     static std::pair<Class, std::vector<UC>> populateSchedule(Class& class_, const std::vector<UC>& allUCs);
-    // static std::unordered_set<std::string> populateStudents(Class &class_, vector<Student> students);
 };
 
 namespace std {
