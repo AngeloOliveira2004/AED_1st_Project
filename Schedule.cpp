@@ -320,6 +320,8 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
             if(uc.getUcCode() != ex_uc.getUcCode())
             {
                 ucVector.push_back(uc);
+            }else if(uc.getDate().Duration.first != ex_uc.getDate().Duration.first || uc.getDate().Day != ex_uc.getDate().Day || uc.getDate().Duration.second != uc.getDate().Duration.second){
+                ucVector.push_back(uc);
             }
         }
 

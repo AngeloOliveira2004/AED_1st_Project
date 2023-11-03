@@ -620,10 +620,9 @@ void UI::menu_requests() {
                  << "Insert a number:";
             char op_value_save;
             validate_input(op_value_save,'1','2');
-            if(op_value_save == 1){
+            if(op_value_save = '1'){
                 mySchedule.FindUC(uc_func);
             }
-
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
             request.push_back(student_func);
