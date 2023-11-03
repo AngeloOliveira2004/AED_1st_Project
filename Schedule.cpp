@@ -216,29 +216,38 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) { //AED na
 
     vector<UC> tempV;
 
-    for(UC Uc : StudentSchedules[student1])
+    ClassAttendance[old_uc.getRespectiveClass()].erase(student1.getName());
+    ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
+
+    UcOcupation[{old_uc.getUcCode() , old_uc.getRespectiveClass()}] -= 1;
+    UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
+    int tempBalance = Balance;
+    CalculateBalance();
+    if(Balance < tempBalance)
     {
-        if(Uc == old_uc && old_uc.getDate().Day == Uc.getDate().Day && old_uc.getDate().Duration.first == Uc.getDate().Duration.first && old_uc.getDate().Duration.second == Uc.getDate().Duration.second)
+        for(UC Uc : StudentSchedules[student1])
         {
-            if(ClassAttendance[new_uc.getRespectiveClass()].size()+1 < Balance)
+            if(Uc == old_uc && old_uc.getDate().Day == Uc.getDate().Day && old_uc.getDate().Duration.first == Uc.getDate().Duration.first && old_uc.getDate().Duration.second == Uc.getDate().Duration.second)
             {
                 tempV.push_back(new_uc);
-                ClassAttendance[old_uc.getRespectiveClass()].erase(student1.getName());
-                ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
-
-                UcOcupation[{old_uc.getUcCode() , old_uc.getRespectiveClass()}] -= 1;
-                UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
             }
-            else{
-                std::cout << "Balance disrupted";
+            else
+            {
+                tempV.push_back(Uc);
             }
         }
-        else
-        {
-            tempV.push_back(Uc);
-        }
+        StudentSchedules[student1] = tempV;
     }
-    StudentSchedules[student1] = tempV;
+    else {
+        ClassAttendance[old_uc.getRespectiveClass()].insert(student1.getName());
+        ClassAttendance[new_uc.getRespectiveClass()].erase(student1.getName());
+
+        UcOcupation[{old_uc.getUcCode() , old_uc.getRespectiveClass()}] += 1;
+        UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] -= 1;
+        std::cout << "Balance Disrupted";
+        return;
+    }
+
 }
 
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
@@ -356,26 +365,40 @@ void Schedule::AddClass(Student student1, UC &uc)
     {
         auto it = StudentSchedules[student1];
 
-        for(auto ucs : it)
+        ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
+        UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
+        int tempBalance = Balance;
+        CalculateBalance();
+        if(Balance < tempBalance)
         {
-            if(ucs.getRespectiveClass() == "EMPTY")
+            for(auto ucs : it)
             {
-                if(ucs.getUcCode() == uc.getUcCode())
+                if(ucs.getRespectiveClass() == "EMPTY")
                 {
-                    tempV.push_back(uc);
-                    ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
-                    UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
+                    if(ucs.getUcCode() == uc.getUcCode())
+                    {
+                        tempV.push_back(uc);
+
+                    }
+                    else
+                    {
+                        std::cout << "UCs codes do not match \n";
+                    }
                 }
                 else
                 {
-                    std::cout << "UCs codes do not match \n";
+                    tempV.push_back(ucs);
                 }
             }
-            else
-            {
-                tempV.push_back(ucs);
-            }
         }
+        else
+        {
+            ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
+            UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] -= 1;
+            std::cout << "Balance Disrupted";
+            return;
+        }
+
     }
     StudentSchedules[student1] = tempV;
 }
