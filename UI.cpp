@@ -830,72 +830,19 @@ void UI::menu_requets()
     else
     {
         char op;
-        std::cout << "1. Print all pending requests" << endl
+        std::cout << "1. Print how many requests are pending" << endl
                   << "2. Process first pending request" << endl
                   << "3. Process last request" << endl
                   << "4. Process all pending requests" << endl
                   << "5. Clear all pending requests" << endl
                   << "6. Clear the first request" << endl
                   << "7. Clear the last request" << endl
-                  << "8. Return to main menu"
+                  << "8. Return to main menu" << endl
                   << "Insert the number: ";
         validate_input(op, '1' ,'8');
         std::vector<std::variant<Student, UC, char>> temp;
-        char op_;
-        Student student;
-        UC uc_first;
-        UC uc_second;
-        string string_array[6] = {"Add" , "Remove" , "Switch" , "Add" , "Remove" , "Switch"};
         switch (op) {
             case '1':{
-                for(auto request : requests)
-                {
-                    for(auto item : request)
-                    {
-                        if(std::holds_alternative<Student>(item))
-                        {
-                            student = std::get<Student>(item);
-                        }
-                        else if(std::holds_alternative<char>(item))
-                        {
-                            op_ = std::get<char>(item);
-                        }
-                        else if(std::holds_alternative<UC>(item))
-                        {
-                            if(!uc_first.hasValue())
-                            {
-                                uc_first = std::get<UC>(item);
-                            } else
-                            {
-                                uc_second = std::get<UC>(item);
-                            }
-                        }
-                    }
-                }
-                switch (op_) {
-                    case '0':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " to " << student.getName();
-                        break;
-                    case '1':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getUcCode() << " from " << student.getName();
-                        break;
-                    case '2':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                                  << " } for " <<  "{ " << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass() << " }" << std::endl;
-                        break;
-                    case '3':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " from " << student.getName();
-                        break;
-                    case '4':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << uc_first.getRespectiveClass() << " to " << student.getName();
-                        break;
-                    case '5':
-                        std::cout << string_array[static_cast<int>(op_) - 1] << " " << student.getName() << " uc " << " {" << uc_first.getUcCode() << "  " << uc_first.getRespectiveClass()
-                                  << " } for " << uc_first.getRespectiveClass() << std::endl;
-                        break;
-                    default:
-                        break;
-                }
                 std::cout << requests.size();
                 break;
             }
