@@ -1,12 +1,12 @@
-//
-// Created by jose-costa on 10/20/23.
-//
-
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
 #include "stdafx.h"
 
+/**
+ * @headerfile Schedule
+ * @brief The header of the schedule of UCs for students and classes.
+ */
 class Schedule
 {
 private:

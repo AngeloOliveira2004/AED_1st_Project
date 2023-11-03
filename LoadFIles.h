@@ -4,6 +4,11 @@
 
 #include "stdafx.h"
 
+/**
+ * @headerfile LoadFiles
+ * @brief A header file used to represent all the loading functions.
+ */
+
 class LoadFiles {
 public:
     static void Load_Student_Classes(std::vector<Student>& students , std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>>& AttendencePair);

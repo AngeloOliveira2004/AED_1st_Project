@@ -1,9 +1,15 @@
-//
-// Created by jose-costa on 10/20/23.
-//
-
 #include "LoadFIles.h"
+/**
+ * @class LoadFiles
+ * @brief A class for loading data from CSV files.
+ */
 
+
+/**
+     * @brief Loads the respective classes for Ucs of a given Student from a CSV file.
+     * @param students The vector of Student objects to be populated.
+     * @param AttendencePair The map for attendance data.
+     */
 void LoadFiles::Load_Student_Classes(std::vector<Student>& students , std::pair<std::unordered_map<std::string, unordered_set<std::string>> , std::unordered_map<std::pair<std::string,std::string> , int , PairHash>>& AttendencePair) {
     bool skip_first = true;
     std::unordered_set<int> visited;
@@ -88,7 +94,10 @@ void LoadFiles::Load_Student_Classes(std::vector<Student>& students , std::pair<
     file.close();
 }
 
-
+/**
+     * @brief Loads all the classes available for each UC.
+     * @param classes The vector of Class objects to be populated.
+     */
 void LoadFiles::Load_Classes_Per_Uc(std::vector<Class> &classes)
 {
     bool skip_header = true;
@@ -148,6 +157,10 @@ void LoadFiles::Load_Classes_Per_Uc(std::vector<Class> &classes)
     classes = Result;
 }
 
+/**
+     * @brief Loads the Date of each class for every UC.
+     * @param ucs The vector of UC objects to be populated.
+     */
 void LoadFiles::Load_Uc(std::vector<UC> &ucs)
 {
     bool skip_header = true;
@@ -184,12 +197,14 @@ void LoadFiles::Load_Uc(std::vector<UC> &ucs)
     }
 }
 
+/**
+     * @brief Normalizes a string by removing the '\r' character, solving issues in the previous loader functions.
+     * @param str The string to be normalized.
+     */
 void LoadFiles::NormaliseString(std::string &str)
 {
     size_t pos = str.find('\r');
-    // Check if '\r' was found
     if (pos != std::string::npos) {
-        // Erase the '\r' and everything after it
         str.erase(pos);
     }
 }

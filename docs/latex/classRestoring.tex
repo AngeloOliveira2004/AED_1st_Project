@@ -1,0 +1,83 @@
+\hypertarget{classRestoring}{}\doxysection{Restoring Class Reference}
+\label{classRestoring}\index{Restoring@{Restoring}}
+
+
+A class for restoring data, it is used when we need to go back to a older version of the runtime schedule version we are working with.  
+
+
+
+
+Collaboration diagram for Restoring\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classRestoring__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestoring_a426e8a6c3303f263dd8b3a36e2a0c4bf}\label{classRestoring_a426e8a6c3303f263dd8b3a36e2a0c4bf}} 
+{\bfseries Restoring} (\mbox{\hyperlink{classSchedule}{Schedule}} \&schedule, vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students, vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&classes, vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&ucs, vector$<$ \mbox{\hyperlink{classSchedule}{Schedule}} $>$ \&schedules, pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ \&attendance\+Pair)
+\item 
+void \mbox{\hyperlink{classRestoring_a1eddb2d1ecf13b901e4b33312f3b0d81}{restore}} (\mbox{\hyperlink{classSchedule}{Schedule}} \&my\+Schedule, vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students, vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&classes, vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&ucs, vector$<$ \mbox{\hyperlink{classSchedule}{Schedule}} $>$ \&schedules, pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ \&Attendance\+Pair)
+\begin{DoxyCompactList}\small\item\em Restores the data backup stored in a \mbox{\hyperlink{classRestoring}{Restoring}} object to the main \mbox{\hyperlink{classSchedule}{Schedule}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRestoring_ad1fe1ddf0ad1deb9ccb3fd839c03789d}\label{classRestoring_ad1fe1ddf0ad1deb9ccb3fd839c03789d}} 
+\mbox{\hyperlink{classSchedule}{Schedule}} {\bfseries my\+Schedule\+\_\+c}
+\item 
+\mbox{\Hypertarget{classRestoring_a301509db3706c878e5b2b1531d3142f3}\label{classRestoring_a301509db3706c878e5b2b1531d3142f3}} 
+std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ {\bfseries students\+\_\+c}
+\item 
+\mbox{\Hypertarget{classRestoring_a46318477dde1d5e47826f1de8d8e54a8}\label{classRestoring_a46318477dde1d5e47826f1de8d8e54a8}} 
+std\+::vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ {\bfseries classes\+\_\+c}
+\item 
+\mbox{\Hypertarget{classRestoring_a866e981df47d2882ec76ed8d0503f400}\label{classRestoring_a866e981df47d2882ec76ed8d0503f400}} 
+std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ {\bfseries ucs\+\_\+c}
+\item 
+\mbox{\Hypertarget{classRestoring_a5e6c382e0cbbf9c02eaaea3162fbde4f}\label{classRestoring_a5e6c382e0cbbf9c02eaaea3162fbde4f}} 
+std\+::vector$<$ \mbox{\hyperlink{classSchedule}{Schedule}} $>$ {\bfseries schedules\+\_\+c}
+\item 
+\mbox{\Hypertarget{classRestoring_ad909b29ef794c49300d1f95d7231700f}\label{classRestoring_ad909b29ef794c49300d1f95d7231700f}} 
+std\+::pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ {\bfseries Attendance\+Pair\+\_\+c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for restoring data, it is used when we need to go back to a older version of the runtime schedule version we are working with. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRestoring_a1eddb2d1ecf13b901e4b33312f3b0d81}\label{classRestoring_a1eddb2d1ecf13b901e4b33312f3b0d81}} 
+\index{Restoring@{Restoring}!restore@{restore}}
+\index{restore@{restore}!Restoring@{Restoring}}
+\doxysubsubsection{\texorpdfstring{restore()}{restore()}}
+{\footnotesize\ttfamily void Restoring\+::restore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSchedule}{Schedule}} \&}]{my\+Schedule,  }\item[{vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&}]{students,  }\item[{vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&}]{classes,  }\item[{vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&}]{ucs,  }\item[{vector$<$ \mbox{\hyperlink{classSchedule}{Schedule}} $>$ \&}]{schedules,  }\item[{pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ \&}]{Attendance\+Pair }\end{DoxyParamCaption})}
+
+
+
+Restores the data backup stored in a \mbox{\hyperlink{classRestoring}{Restoring}} object to the main \mbox{\hyperlink{classSchedule}{Schedule}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Schedule} & The \mbox{\hyperlink{classSchedule}{Schedule}} object to be restored. \\
+\hline
+{\em students} & The vector of \mbox{\hyperlink{classStudent}{Student}} objects to be restored. \\
+\hline
+{\em classes} & The vector of \mbox{\hyperlink{classClass}{Class}} objects to be restored. \\
+\hline
+{\em ucs} & The vector of \mbox{\hyperlink{classUC}{UC}} objects to be restored. \\
+\hline
+{\em schedules} & The vector of \mbox{\hyperlink{classSchedule}{Schedule}} objects to be restored. \\
+\hline
+{\em attendance\+Pair} & The attendance pair to be restored. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Restoring.\+h\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Restoring.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{UC_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+UC.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO\_UC\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO\_UC\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Date.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classUC}{UC}} \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     std::string UcCode;}
+\DoxyCodeLine{10     std::string Type;}
+\DoxyCodeLine{11     std::string RespectiveClass;}
+\DoxyCodeLine{12     \mbox{\hyperlink{structDate}{Date}} Date\_;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{comment}{// Constructors}}
+\DoxyCodeLine{16     \mbox{\hyperlink{classUC}{UC}}();}
+\DoxyCodeLine{17     \mbox{\hyperlink{classUC}{UC}}(\textcolor{keyword}{const} std::string\& ucCode, \textcolor{keyword}{const} std::string\& type, \textcolor{keyword}{const} std::string\& respectiveClass, \textcolor{keywordtype}{int} occupation, \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{comment}{// Getters}}
+\DoxyCodeLine{20     \textcolor{keyword}{const} std::string\& getUcCode() \textcolor{keyword}{const};}
+\DoxyCodeLine{21     \textcolor{keyword}{const} std::string\& getType() \textcolor{keyword}{const};}
+\DoxyCodeLine{22     \textcolor{keyword}{const} std::string\& getRespectiveClass() \textcolor{keyword}{const};}
+\DoxyCodeLine{23     \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& getDate() \textcolor{keyword}{const};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Setters}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} setUcCode(\textcolor{keyword}{const} std::string\& ucCode);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} setType(\textcolor{keyword}{const} std::string\& type);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} setRespectiveClass(\textcolor{keyword}{const} std::string\& respectiveClass);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} setDate(\textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} hasValue();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} operator ==(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} operator =(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other);}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJETO\_UC\_H}}
+
+\end{DoxyCode}

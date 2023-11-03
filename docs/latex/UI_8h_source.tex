@@ -1,0 +1,50 @@
+\hypertarget{UI_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+UI.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by angelo on 25-\/10-\/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef PROJETO\_UI\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define PROJETO\_UI\_H}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}stdafx.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Schedule.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Restoring.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classUI}{UI}}\{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classUI}{UI}}();}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} menu\_start();}
+\DoxyCodeLine{15     \textcolor{keyword}{static} \textcolor{keywordtype}{void} clear\_screen();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} menu\_options();}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} menu\_schedule();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} loading\_stuff(\mbox{\hyperlink{classUI}{UI}}\& ui);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} menu\_students();}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} menu\_studentsInNucs();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} menu\_occupation();}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} menu\_requests();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} process\_requets(std::vector<std::variant<Student , UC , char>> requests\_);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} menu\_requets();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} save\_global\_alterations();}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} restore\_changes();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} write\_down();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} validate\_input(\textcolor{keywordtype}{char} \&op, \textcolor{keyword}{const} \textcolor{keywordtype}{char} lower\_bound, \textcolor{keyword}{const} \textcolor{keywordtype}{char} upper\_bound);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{classSchedule}{Schedule}} mySchedule;}
+\DoxyCodeLine{33     std::vector<Student> students;}
+\DoxyCodeLine{34     std::vector<Class> classes;}
+\DoxyCodeLine{35     std::vector<UC> ucs;}
+\DoxyCodeLine{36     std::vector<Schedule> schedules;}
+\DoxyCodeLine{37     std::pair<std::unordered\_map<std::string, unordered\_set<std::string>> , std::unordered\_map<std::pair<std::string,std::string> , int , \mbox{\hyperlink{structPairHash}{PairHash}}>> AttendancePair;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} ChangesMade = \textcolor{keyword}{false};}
+\DoxyCodeLine{39     \mbox{\hyperlink{classRestoring}{Restoring}} restore;}
+\DoxyCodeLine{40     std::vector<Restoring> restore\_value;}
+\DoxyCodeLine{41     std::list<std::vector<std::variant<Student , UC , char>>> requests;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_UI\_H}}
+
+\end{DoxyCode}

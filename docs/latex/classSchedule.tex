@@ -1,0 +1,419 @@
+\hypertarget{classSchedule}{}\doxysection{Schedule Class Reference}
+\label{classSchedule}\index{Schedule@{Schedule}}
+
+
+The header of the schedule of UCs for students and classes.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSchedule_a58072f740b5aaa83b8dc0146c498a8d3}{Schedule}} (std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ student\+Classes\+\_\+, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ class\+Schedules\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor implementation for the \mbox{\hyperlink{classSchedule}{Schedule}} class. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ \mbox{\hyperlink{classSchedule_a5f373e670893c290136a7ef673ada701}{get\+Student\+Schedules}} ()
+\begin{DoxyCompactList}\small\item\em Get the student schedules map. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ \mbox{\hyperlink{classSchedule_a238161d692ec0716d0c0ce6817ea66ef}{get\+Class\+Schedules}} ()
+\begin{DoxyCompactList}\small\item\em Get the class schedules map. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ \mbox{\hyperlink{classSchedule_ae3d56f8d510ce934005b08ae33d5d58c}{get\+Uc\+Ocupation}} ()
+\begin{DoxyCompactList}\small\item\em Get the occupation of each class of UCs. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classSchedule_a9a7fb1b982788fb4318f37c074c73101}{get\+Class\+Attendance}} ()
+\begin{DoxyCompactList}\small\item\em Get the class attendance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSchedule_a21bd8d0920eb409e47834cd926243c07}{get\+Balance}} () const
+\begin{DoxyCompactList}\small\item\em Get the balance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_ad5ce364e97cd329d481f58c75399eb53}{set\+Student\+Schedules}} (std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ student\+Classes\+\_\+)
+\begin{DoxyCompactList}\small\item\em Sets the map of student schedules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a8e3038d5f49a5d1ea587527ba520c314}{set\+Class\+Schedules}} (std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ class\+Schedules\+\_\+)
+\begin{DoxyCompactList}\small\item\em Sets the map of class schedules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_af6f8dfd8addc95b2cc5040eabc95b1c8}{set\+Uc\+Ocupation}} (unordered\+\_\+map$<$ pair$<$ basic\+\_\+string$<$ char $>$, basic\+\_\+string$<$ char $>$ $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ Uc\+Ocupation\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classUC}{UC}} occupation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_ac408ba7e9dabcc34985e7265e589bc7b}{set\+Class\+Attendance}} (std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$ Class\+Attendance\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the class attendance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a9ae413395081139f47d3ed5bff48b752}{set\+Balance}} (int balance)
+\begin{DoxyCompactList}\small\item\em Set the balance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a45b92f85f7b1e9ae650e2e2220145f7f}{set\+UCs}} (std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ ucs\+\_\+)
+\begin{DoxyCompactList}\small\item\em Sets the vector of UCs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSchedule_ae7c6048dabe149fab997dc17758f2410}\label{classSchedule_ae7c6048dabe149fab997dc17758f2410}} 
+void {\bfseries Students\+In\+At\+Least\+NUcs} (char n, std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students)
+\item 
+void \mbox{\hyperlink{classSchedule_a34c15951da467a1152af589a0357e6bd}{Calculate\+Balance}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the balance between the smallest and the biggest class of a given \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSchedule_a2f7fa60e27f2eee89d61064fec24c793}{Find\+Studentin\+Schedule}} (std\+::string student\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Searches for a student in the schedule based on their name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSchedule_a23fb23cf1e9d0ca57333dc7768d28ad8}{Find\+Classin\+Schedule}} (std\+::string Class\+Code)
+\begin{DoxyCompactList}\small\item\em Find a class in the schedule by its code. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator \mbox{\hyperlink{classSchedule_a9d0eef122ef49d31faca08e168f8ea58}{Fetch\+Student}} (\mbox{\hyperlink{classStudent}{Student}} Student\+To\+Find)
+\begin{DoxyCompactList}\small\item\em Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the Name set. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator \mbox{\hyperlink{classSchedule_a0381830830d4a0ea3e6a3db38e55eaf7}{Fetch\+Class}} (\mbox{\hyperlink{classClass}{Class}} Class\+To\+Find)
+\begin{DoxyCompactList}\small\item\em Fetch the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStudent}{Student}} \mbox{\hyperlink{classSchedule_a58b1f656bdd43c9388ec2ac9653628fd}{Find\+Studentin\+Scheduleby\+ID}} (int ID)
+\begin{DoxyCompactList}\small\item\em Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the ID set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_ab93d4e00f6f3292559496fee02e275e1}{Find\+UC}} (\mbox{\hyperlink{classUC}{UC}} \&target\+UC)
+\begin{DoxyCompactList}\small\item\em Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSchedule_a453b068016bbe6b4932ceef3b52c04e8}{Find\+UCin\+Student}} (\mbox{\hyperlink{classStudent}{Student}} student, \mbox{\hyperlink{classUC}{UC}} \&target\+UC)
+\begin{DoxyCompactList}\small\item\em Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSchedule_a7657b6d69067076d7286af86e346e183}\label{classSchedule_a7657b6d69067076d7286af86e346e183}} 
+void {\bfseries Switch\+Class} (\mbox{\hyperlink{classStudent}{Student}} \&student1, \mbox{\hyperlink{classUC}{UC}} \&old\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} \&new\+\_\+uc)
+\item 
+\mbox{\Hypertarget{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}\label{classSchedule_aa4997e60cc9e8e10e7bc555374fae303}} 
+void {\bfseries Switch\+Uc} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
+\item 
+\mbox{\Hypertarget{classSchedule_affc30a6862d88534734019bf1ff93b0b}\label{classSchedule_affc30a6862d88534734019bf1ff93b0b}} 
+void {\bfseries Add\+UC} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} new\+\_\+uc)
+\item 
+\mbox{\Hypertarget{classSchedule_a2fa54b532595a11a1d142c622ecbe399}\label{classSchedule_a2fa54b532595a11a1d142c622ecbe399}} 
+void {\bfseries Remove\+UC} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} ex\+\_\+uc)
+\item 
+\mbox{\Hypertarget{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}\label{classSchedule_af7149daf500bd72a6bebc4d6da42c4b0}} 
+void {\bfseries Remove\+Class} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
+\item 
+\mbox{\Hypertarget{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}\label{classSchedule_a07f44dbe20a0aba6f013338805c4c9a6}} 
+void {\bfseries Add\+Class} (\mbox{\hyperlink{classStudent}{Student}} student1, \mbox{\hyperlink{classUC}{UC}} \&uc)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classSchedule_ad7c96e348d9794b96cfb12440999d63a}{compare\+\_\+day}} (const \mbox{\hyperlink{classUC}{UC}} \&uc1, const \mbox{\hyperlink{classUC}{UC}} \&uc2)
+\begin{DoxyCompactList}\small\item\em Compare two UCs based on their day and duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The header of the schedule of UCs for students and classes. 
+
+A class that contains the schedules for a \mbox{\hyperlink{classClass}{Class}} or \mbox{\hyperlink{classStudent}{Student}} and their methods. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSchedule_a58072f740b5aaa83b8dc0146c498a8d3}\label{classSchedule_a58072f740b5aaa83b8dc0146c498a8d3}} 
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{Schedule()}{Schedule()}}
+{\footnotesize\ttfamily Schedule\+::\+Schedule (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$}]{student\+Schedules\+\_\+,  }\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$}]{class\+Schedules\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Constructor implementation for the \mbox{\hyperlink{classSchedule}{Schedule}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Schedules\+\_\+} & The map of student schedules. \\
+\hline
+{\em class\+Schedules\+\_\+} & The map of class schedules.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1) 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSchedule_a34c15951da467a1152af589a0357e6bd}\label{classSchedule_a34c15951da467a1152af589a0357e6bd}} 
+\index{Schedule@{Schedule}!CalculateBalance@{CalculateBalance}}
+\index{CalculateBalance@{CalculateBalance}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{CalculateBalance()}{CalculateBalance()}}
+{\footnotesize\ttfamily void Schedule\+::\+Calculate\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the balance between the smallest and the biggest class of a given \mbox{\hyperlink{classUC}{UC}}. 
+
+This function calculates the balance based on class attendance, subtracting the value of the emptiest class to the fullest one in a given \mbox{\hyperlink{classUC}{UC}}.
+
+Time Complexity\+: 0(n), where n is the number of classes in Class\+Attendance. \mbox{\Hypertarget{classSchedule_ad7c96e348d9794b96cfb12440999d63a}\label{classSchedule_ad7c96e348d9794b96cfb12440999d63a}} 
+\index{Schedule@{Schedule}!compare\_day@{compare\_day}}
+\index{compare\_day@{compare\_day}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{compare\_day()}{compare\_day()}}
+{\footnotesize\ttfamily bool Schedule\+::compare\+\_\+day (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUC}{UC}} \&}]{uc1,  }\item[{const \mbox{\hyperlink{classUC}{UC}} \&}]{uc2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Compare two UCs based on their day and duration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc1} & The first \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+{\em uc2} & The second \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if uc1 is earlier than uc2, based on day and duration; false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSchedule_a0381830830d4a0ea3e6a3db38e55eaf7}\label{classSchedule_a0381830830d4a0ea3e6a3db38e55eaf7}} 
+\index{Schedule@{Schedule}!FetchClass@{FetchClass}}
+\index{FetchClass@{FetchClass}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FetchClass()}{FetchClass()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator Schedule\+::\+Fetch\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClass}{Class}}}]{Class\+To\+Find }\end{DoxyParamCaption})}
+
+
+
+Fetch the class corresponding to the given \mbox{\hyperlink{classClass}{Class}} object,used normally with an default \mbox{\hyperlink{classClass}{Class}} , just with the \mbox{\hyperlink{classClass}{Class}} Code set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Class\+To\+Find} & The \mbox{\hyperlink{classClass}{Class}} object to find in the schedule, with only the \mbox{\hyperlink{classClass}{Class}} Code set, the rest is default \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An iterator pointing to the found class in the class schedules map,which \mbox{\hyperlink{classClass}{Class}} Code matches with the one in the parameter. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSchedule_a9d0eef122ef49d31faca08e168f8ea58}\label{classSchedule_a9d0eef122ef49d31faca08e168f8ea58}} 
+\index{Schedule@{Schedule}!FetchStudent@{FetchStudent}}
+\index{FetchStudent@{FetchStudent}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FetchStudent()}{FetchStudent()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$\+::iterator Schedule\+::\+Fetch\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{Student\+To\+Find }\end{DoxyParamCaption})}
+
+
+
+Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the Name set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+To\+Find} & The \mbox{\hyperlink{classStudent}{Student}} object to find in the schedule, with only the Name set, the rest is default. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An iterator pointing to the found student in the student schedules map, whose Name matches with the one in the parameter. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSchedule_a23fb23cf1e9d0ca57333dc7768d28ad8}\label{classSchedule_a23fb23cf1e9d0ca57333dc7768d28ad8}} 
+\index{Schedule@{Schedule}!FindClassinSchedule@{FindClassinSchedule}}
+\index{FindClassinSchedule@{FindClassinSchedule}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FindClassinSchedule()}{FindClassinSchedule()}}
+{\footnotesize\ttfamily bool Schedule\+::\+Find\+Classin\+Schedule (\begin{DoxyParamCaption}\item[{std\+::string}]{Class\+Code }\end{DoxyParamCaption})}
+
+
+
+Find a class in the schedule by its code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Class\+Code} & The code of the class to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the class is found, false otherwise.
+\end{DoxyReturn}
+Time Complexity\+: O(1) to 0(n) in case of hash collision, where n is the number of classes. \mbox{\Hypertarget{classSchedule_a2f7fa60e27f2eee89d61064fec24c793}\label{classSchedule_a2f7fa60e27f2eee89d61064fec24c793}} 
+\index{Schedule@{Schedule}!FindStudentinSchedule@{FindStudentinSchedule}}
+\index{FindStudentinSchedule@{FindStudentinSchedule}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FindStudentinSchedule()}{FindStudentinSchedule()}}
+{\footnotesize\ttfamily bool Schedule\+::\+Find\+Studentin\+Schedule (\begin{DoxyParamCaption}\item[{std\+::string}]{student\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Searches for a student in the schedule based on their name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+\_\+name} & The name of the student to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the student is found, false otherwise.
+\end{DoxyReturn}
+Time Complexity\+: O(1) to 0(n) in case of hash collision, where n is the number of students. \mbox{\Hypertarget{classSchedule_a58b1f656bdd43c9388ec2ac9653628fd}\label{classSchedule_a58b1f656bdd43c9388ec2ac9653628fd}} 
+\index{Schedule@{Schedule}!FindStudentinSchedulebyID@{FindStudentinSchedulebyID}}
+\index{FindStudentinSchedulebyID@{FindStudentinSchedulebyID}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FindStudentinSchedulebyID()}{FindStudentinSchedulebyID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStudent}{Student}} Schedule\+::\+Find\+Studentin\+Scheduleby\+ID (\begin{DoxyParamCaption}\item[{int}]{ID }\end{DoxyParamCaption})}
+
+
+
+Fetches the student corresponding to the given \mbox{\hyperlink{classStudent}{Student}} object, used normally with an default \mbox{\hyperlink{classStudent}{Student}} , just with the ID set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+To\+Find} & The \mbox{\hyperlink{classStudent}{Student}} object to find in the schedule, with only the ID set, the rest is default. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An iterator pointing to the found student in the student schedules map, whose ID matches with the one in the parameter. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSchedule_ab93d4e00f6f3292559496fee02e275e1}\label{classSchedule_ab93d4e00f6f3292559496fee02e275e1}} 
+\index{Schedule@{Schedule}!FindUC@{FindUC}}
+\index{FindUC@{FindUC}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FindUC()}{FindUC()}}
+{\footnotesize\ttfamily void Schedule\+::\+Find\+UC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{target\+UC }\end{DoxyParamCaption})}
+
+
+
+Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+UC} & The \mbox{\hyperlink{classUC}{UC}} to find in the schedule.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs. \mbox{\Hypertarget{classSchedule_a453b068016bbe6b4932ceef3b52c04e8}\label{classSchedule_a453b068016bbe6b4932ceef3b52c04e8}} 
+\index{Schedule@{Schedule}!FindUCinStudent@{FindUCinStudent}}
+\index{FindUCinStudent@{FindUCinStudent}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{FindUCinStudent()}{FindUCinStudent()}}
+{\footnotesize\ttfamily void Schedule\+::\+Find\+UCin\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}}}]{student,  }\item[{\mbox{\hyperlink{classUC}{UC}} \&}]{target\+UC }\end{DoxyParamCaption})}
+
+
+
+Find a \mbox{\hyperlink{classUC}{UC}} in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove students from a \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student for whom to find the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+{\em target\+UC} & The \mbox{\hyperlink{classUC}{UC}} to find in the student\textquotesingle{}s schedule.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(n), where n is the number of UCs in a Student\+Schedule. \mbox{\Hypertarget{classSchedule_a21bd8d0920eb409e47834cd926243c07}\label{classSchedule_a21bd8d0920eb409e47834cd926243c07}} 
+\index{Schedule@{Schedule}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily int Schedule\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the balance. 
+
+\begin{DoxyReturn}{Returns}
+The difference between the fullest class and emptiest class of a \mbox{\hyperlink{classUC}{UC}}.
+\end{DoxyReturn}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a9a7fb1b982788fb4318f37c074c73101}\label{classSchedule_a9a7fb1b982788fb4318f37c074c73101}} 
+\index{Schedule@{Schedule}!getClassAttendance@{getClassAttendance}}
+\index{getClassAttendance@{getClassAttendance}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{getClassAttendance()}{getClassAttendance()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$ Schedule\+::get\+Class\+Attendance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the class attendance. 
+
+\begin{DoxyReturn}{Returns}
+The map that for each \mbox{\hyperlink{classClass}{Class}} Code, has the name of every student attending it.
+\end{DoxyReturn}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a238161d692ec0716d0c0ce6817ea66ef}\label{classSchedule_a238161d692ec0716d0c0ce6817ea66ef}} 
+\index{Schedule@{Schedule}!getClassSchedules@{getClassSchedules}}
+\index{getClassSchedules@{getClassSchedules}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{getClassSchedules()}{getClassSchedules()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ Schedule\+::get\+Class\+Schedules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the class schedules map. 
+
+\begin{DoxyReturn}{Returns}
+The map of student schedules.
+\end{DoxyReturn}
+Time Complexity\+: O(1) \mbox{\Hypertarget{classSchedule_a5f373e670893c290136a7ef673ada701}\label{classSchedule_a5f373e670893c290136a7ef673ada701}} 
+\index{Schedule@{Schedule}!getStudentSchedules@{getStudentSchedules}}
+\index{getStudentSchedules@{getStudentSchedules}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{getStudentSchedules()}{getStudentSchedules()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ Schedule\+::get\+Student\+Schedules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the student schedules map. 
+
+\begin{DoxyReturn}{Returns}
+The map of student schedules.
+\end{DoxyReturn}
+Time Complexity\+: O(1) \mbox{\Hypertarget{classSchedule_ae3d56f8d510ce934005b08ae33d5d58c}\label{classSchedule_ae3d56f8d510ce934005b08ae33d5d58c}} 
+\index{Schedule@{Schedule}!getUcOcupation@{getUcOcupation}}
+\index{getUcOcupation@{getUcOcupation}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{getUcOcupation()}{getUcOcupation()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ Schedule\+::get\+Uc\+Ocupation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the occupation of each class of UCs. 
+
+\begin{DoxyReturn}{Returns}
+A map , that maps a Class/\+UC, to a certain occupation.
+\end{DoxyReturn}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a9ae413395081139f47d3ed5bff48b752}\label{classSchedule_a9ae413395081139f47d3ed5bff48b752}} 
+\index{Schedule@{Schedule}!setBalance@{setBalance}}
+\index{setBalance@{setBalance}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
+{\footnotesize\ttfamily void Schedule\+::set\+Balance (\begin{DoxyParamCaption}\item[{int}]{balance }\end{DoxyParamCaption})}
+
+
+
+Set the balance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balance} & The balance value to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_ac408ba7e9dabcc34985e7265e589bc7b}\label{classSchedule_ac408ba7e9dabcc34985e7265e589bc7b}} 
+\index{Schedule@{Schedule}!setClassAttendance@{setClassAttendance}}
+\index{setClassAttendance@{setClassAttendance}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setClassAttendance()}{setClassAttendance()}}
+{\footnotesize\ttfamily void Schedule\+::set\+Class\+Attendance (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$}]{Class\+Attendance\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the class attendance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Class\+Attendance\+\_\+} & The map of class attendance to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a8e3038d5f49a5d1ea587527ba520c314}\label{classSchedule_a8e3038d5f49a5d1ea587527ba520c314}} 
+\index{Schedule@{Schedule}!setClassSchedules@{setClassSchedules}}
+\index{setClassSchedules@{setClassSchedules}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setClassSchedules()}{setClassSchedules()}}
+{\footnotesize\ttfamily void Schedule\+::set\+Class\+Schedules (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$}]{Class\+Schedules\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Sets the map of class schedules. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Class\+Schedules\+\_\+} & The map of class schedules to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_ad5ce364e97cd329d481f58c75399eb53}\label{classSchedule_ad5ce364e97cd329d481f58c75399eb53}} 
+\index{Schedule@{Schedule}!setStudentSchedules@{setStudentSchedules}}
+\index{setStudentSchedules@{setStudentSchedules}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setStudentSchedules()}{setStudentSchedules()}}
+{\footnotesize\ttfamily void Schedule\+::set\+Student\+Schedules (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$}]{Student\+Schedules\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Sets the map of student schedules. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+Schedules\+\_\+} & The map of student schedules to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_af6f8dfd8addc95b2cc5040eabc95b1c8}\label{classSchedule_af6f8dfd8addc95b2cc5040eabc95b1c8}} 
+\index{Schedule@{Schedule}!setUcOcupation@{setUcOcupation}}
+\index{setUcOcupation@{setUcOcupation}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setUcOcupation()}{setUcOcupation()}}
+{\footnotesize\ttfamily void Schedule\+::set\+Uc\+Ocupation (\begin{DoxyParamCaption}\item[{unordered\+\_\+map$<$ pair$<$ basic\+\_\+string$<$ char $>$, basic\+\_\+string$<$ char $>$ $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$}]{Uc\+Ocupation\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the \mbox{\hyperlink{classUC}{UC}} occupation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uc\+Ocupation\+\_\+} & The map of \mbox{\hyperlink{classUC}{UC}} occupation to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). \mbox{\Hypertarget{classSchedule_a45b92f85f7b1e9ae650e2e2220145f7f}\label{classSchedule_a45b92f85f7b1e9ae650e2e2220145f7f}} 
+\index{Schedule@{Schedule}!setUCs@{setUCs}}
+\index{setUCs@{setUCs}!Schedule@{Schedule}}
+\doxysubsubsection{\texorpdfstring{setUCs()}{setUCs()}}
+{\footnotesize\ttfamily void Schedule\+::set\+UCs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$}]{ucs\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Sets the vector of UCs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ucs\+\_\+} & The vector of UCs to set.\\
+\hline
+\end{DoxyParams}
+Time Complexity\+: O(1). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Schedule.\+h\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Schedule.\+cpp\end{DoxyCompactItemize}

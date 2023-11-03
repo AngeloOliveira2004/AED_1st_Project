@@ -1,0 +1,214 @@
+\hypertarget{classClass}{}\doxysection{Class Class Reference}
+\label{classClass}\index{Class@{Class}}
+
+
+A header file used to represent a class of an \mbox{\hyperlink{classUC}{UC}}.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClass_a5b97d41527df822c6b1211931f79ca15}\label{classClass_a5b97d41527df822c6b1211931f79ca15}} 
+{\bfseries Class} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classClass}{Class}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classClass_ac98bba71f1cbe0c2c8fe20571e7e78ac}{Class}} (std\+::string class\+Code, const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&students, const std\+::vector$<$ std\+::string $>$ \&ucs)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor for \mbox{\hyperlink{classClass}{Class}}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classClass_a5e7aba3cdb22b6162a7808a7cfe91ea1}{get\+Class\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the Class\+Code. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classClass_ae7bc2ded3dd806a5e94605ec35da2b0e}{get\+UCs}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vector of UCs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClass_ab3ae147a85d3879284bfe293a401a2d0}{set\+Class\+Code}} (const std\+::string \&class\+Code)
+\begin{DoxyCompactList}\small\item\em Setter for the Class\+Code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClass_af48aa723262fcfd690fc40d2d38645ba}{set\+UCs}} (const std\+::vector$<$ std\+::string $>$ \&ucs)
+\begin{DoxyCompactList}\small\item\em Setter for the vector of UCs. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classClass_a2b0664a0837357015f1e0209dffa728a}{operator==}} (const \mbox{\hyperlink{classClass}{Class}} \&other) const
+\begin{DoxyCompactList}\small\item\em Overloaded equality operator for comparing two \mbox{\hyperlink{classClass}{Class}} objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClass_af80725c0d7d568cc53bd8b9a052e449b}{operator=}} (const \mbox{\hyperlink{classClass}{Class}} \&other)
+\begin{DoxyCompactList}\small\item\em Overloaded assignment operator for assigning one \mbox{\hyperlink{classClass}{Class}} Class\+Code and Respective UCs from another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classClass_a9783e7432037eedebfa69eac150484b0}{operator$<$}} (const \mbox{\hyperlink{classClass}{Class}} \&other) const
+\begin{DoxyCompactList}\small\item\em Overloaded less than operator for comparing two \mbox{\hyperlink{classClass}{Class}} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classClass_aaf71c821ee843b3a892afc570a9b50e1}{sort}} (std\+::vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&classes)
+\begin{DoxyCompactList}\small\item\em Sorts a vector of \mbox{\hyperlink{classClass}{Class}} objects by Class\+Code. \end{DoxyCompactList}\item 
+static std\+::pair$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ \mbox{\hyperlink{classClass_a249e36dad5d0eeb032323325def3400a}{populate\+Schedule}} (\mbox{\hyperlink{classClass}{Class}} \&class\+\_\+, const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&all\+UCs)
+\begin{DoxyCompactList}\small\item\em Populates the schedule for a class based on all UCs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A header file used to represent a class of an \mbox{\hyperlink{classUC}{UC}}. 
+
+A class of a given \mbox{\hyperlink{classUC}{UC}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClass_ac98bba71f1cbe0c2c8fe20571e7e78ac}\label{classClass_ac98bba71f1cbe0c2c8fe20571e7e78ac}} 
+\index{Class@{Class}!Class@{Class}}
+\index{Class@{Class}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{Class()}{Class()}}
+{\footnotesize\ttfamily Class\+::\+Class (\begin{DoxyParamCaption}\item[{std\+::string}]{class\+Code,  }\item[{const std\+::unordered\+\_\+set$<$ std\+::string $>$ \&}]{students,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{ucs }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor for \mbox{\hyperlink{classClass}{Class}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Code} & The respective code of the class. \\
+\hline
+{\em students} & Set of student names in the class. \\
+\hline
+{\em ucs} & Vector of \mbox{\hyperlink{classUC}{UC}} codes of this class. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClass_a5e7aba3cdb22b6162a7808a7cfe91ea1}\label{classClass_a5e7aba3cdb22b6162a7808a7cfe91ea1}} 
+\index{Class@{Class}!getClassCode@{getClassCode}}
+\index{getClassCode@{getClassCode}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{getClassCode()}{getClassCode()}}
+{\footnotesize\ttfamily const std\+::string \& Class\+::get\+Class\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the Class\+Code. 
+
+\begin{DoxyReturn}{Returns}
+The class code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClass_ae7bc2ded3dd806a5e94605ec35da2b0e}\label{classClass_ae7bc2ded3dd806a5e94605ec35da2b0e}} 
+\index{Class@{Class}!getUCs@{getUCs}}
+\index{getUCs@{getUCs}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{getUCs()}{getUCs()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& Class\+::get\+UCs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the vector of UCs. 
+
+\begin{DoxyReturn}{Returns}
+The vector of \mbox{\hyperlink{classUC}{UC}} codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClass_a9783e7432037eedebfa69eac150484b0}\label{classClass_a9783e7432037eedebfa69eac150484b0}} 
+\index{Class@{Class}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Class\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClass}{Class}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded less than operator for comparing two \mbox{\hyperlink{classClass}{Class}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classClass}{Class}} object used on the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Class\+Code of the original (\char`\"{}this\char`\"{}) object is less than the other\textquotesingle{}s Class\+Code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClass_af80725c0d7d568cc53bd8b9a052e449b}\label{classClass_af80725c0d7d568cc53bd8b9a052e449b}} 
+\index{Class@{Class}!operator=@{operator=}}
+\index{operator=@{operator=}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Class\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClass}{Class}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Overloaded assignment operator for assigning one \mbox{\hyperlink{classClass}{Class}} Class\+Code and Respective UCs from another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classClass}{Class}} object used on the assigning. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClass_a2b0664a0837357015f1e0209dffa728a}\label{classClass_a2b0664a0837357015f1e0209dffa728a}} 
+\index{Class@{Class}!operator==@{operator==}}
+\index{operator==@{operator==}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Class\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClass}{Class}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Overloaded equality operator for comparing two \mbox{\hyperlink{classClass}{Class}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classClass}{Class}} object used on the comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Class\+Code of the original (\char`\"{}this\char`\"{}) object is equal to the other\textquotesingle{}s Class\+Code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClass_a249e36dad5d0eeb032323325def3400a}\label{classClass_a249e36dad5d0eeb032323325def3400a}} 
+\index{Class@{Class}!populateSchedule@{populateSchedule}}
+\index{populateSchedule@{populateSchedule}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{populateSchedule()}{populateSchedule()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classClass}{Class}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ Class\+::populate\+Schedule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClass}{Class}} \&}]{class\+\_\+,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&}]{all\+UCs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Populates the schedule for a class based on all UCs. 
+
+Has O(n) complexity where n is the size of all\+UCs vector 
+\begin{DoxyParams}{Parameters}
+{\em class\+\_\+} & The \mbox{\hyperlink{classClass}{Class}} object for which to populate the schedule. \\
+\hline
+{\em all\+UCs} & The vector of all UCs in the course. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair containing the class and the vector of UCs for that class. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClass_ab3ae147a85d3879284bfe293a401a2d0}\label{classClass_ab3ae147a85d3879284bfe293a401a2d0}} 
+\index{Class@{Class}!setClassCode@{setClassCode}}
+\index{setClassCode@{setClassCode}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{setClassCode()}{setClassCode()}}
+{\footnotesize\ttfamily void Class\+::set\+Class\+Code (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Code }\end{DoxyParamCaption})}
+
+
+
+Setter for the Class\+Code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Code} & The class code to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClass_af48aa723262fcfd690fc40d2d38645ba}\label{classClass_af48aa723262fcfd690fc40d2d38645ba}} 
+\index{Class@{Class}!setUCs@{setUCs}}
+\index{setUCs@{setUCs}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{setUCs()}{setUCs()}}
+{\footnotesize\ttfamily void Class\+::set\+UCs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{ucs }\end{DoxyParamCaption})}
+
+
+
+Setter for the vector of UCs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ucs} & The vector of UCs to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClass_aaf71c821ee843b3a892afc570a9b50e1}\label{classClass_aaf71c821ee843b3a892afc570a9b50e1}} 
+\index{Class@{Class}!sort@{sort}}
+\index{sort@{sort}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily void Class\+::sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&}]{classes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sorts a vector of \mbox{\hyperlink{classClass}{Class}} objects by Class\+Code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em classes} & The vector of \mbox{\hyperlink{classClass}{Class}} objects to be sorted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Class.\+h\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Class.\+cpp\end{DoxyCompactItemize}

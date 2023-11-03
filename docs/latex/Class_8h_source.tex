@@ -1,0 +1,42 @@
+\hypertarget{Class_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+Class.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO\_CLASS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO\_CLASS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}stdafx.h"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classClass}{Class}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     std::string ClassCode; }
+\DoxyCodeLine{13     std::vector<std::string> UCs; }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{classClass_a5b97d41527df822c6b1211931f79ca15}{Class}}();}
+\DoxyCodeLine{17     \mbox{\hyperlink{classClass_a5b97d41527df822c6b1211931f79ca15}{Class}}(std::string  classCode, \textcolor{keyword}{const} std::unordered\_set<std::string>\& students, \textcolor{keyword}{const} std::vector<std::string>\& ucs);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     [[nodiscard]] \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classClass_a5e7aba3cdb22b6162a7808a7cfe91ea1}{getClassCode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{20     [[nodiscard]] \textcolor{keyword}{const} std::vector<std::string>\& \mbox{\hyperlink{classClass_ae7bc2ded3dd806a5e94605ec35da2b0e}{getUCs}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClass_ab3ae147a85d3879284bfe293a401a2d0}{setClassCode}}(\textcolor{keyword}{const} std::string\& classCode);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClass_af48aa723262fcfd690fc40d2d38645ba}{setUCs}}(\textcolor{keyword}{const} std::vector<std::string>\& ucs);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClass_aaf71c821ee843b3a892afc570a9b50e1}{sort}}(std::vector<Class>\& classes);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClass_a2b0664a0837357015f1e0209dffa728a}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClass}{Class}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClass_af80725c0d7d568cc53bd8b9a052e449b}{operator =}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClass}{Class}}\& other) ;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClass_a9783e7432037eedebfa69eac150484b0}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClass}{Class}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{static} std::pair<Class, std::vector<UC>> \mbox{\hyperlink{classClass_a249e36dad5d0eeb032323325def3400a}{populateSchedule}}(\mbox{\hyperlink{classClass}{Class}}\& class\_, \textcolor{keyword}{const} std::vector<UC>\& allUCs);}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestd}{std}} \{}
+\DoxyCodeLine{35     \textcolor{keyword}{template} <>}
+\DoxyCodeLine{36     \textcolor{keyword}{struct }hash<\mbox{\hyperlink{classClass}{Class}}> \{}
+\DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classClass}{Class}}\& classObj)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{38             \textcolor{keywordflow}{return} std::hash<std::string>\{\}(classObj.\mbox{\hyperlink{classClass_a5e7aba3cdb22b6162a7808a7cfe91ea1}{getClassCode}}());}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40     \};}
+\DoxyCodeLine{41 \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_CLASS\_H}}
+
+\end{DoxyCode}

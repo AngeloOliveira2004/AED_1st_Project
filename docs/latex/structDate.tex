@@ -1,0 +1,69 @@
+\hypertarget{structDate}{}\doxysection{Date Struct Reference}
+\label{structDate}\index{Date@{Date}}
+
+
+The struct representing a specific date of a lesson.  
+
+
+
+
+{\ttfamily \#include $<$Date.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{structDate_aea352a5924a3f4bb9aa2e8f55f101c19}{Overlaps}} (const \mbox{\hyperlink{structDate}{Date}} \&date1, const \mbox{\hyperlink{structDate}{Date}} \&date2)
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{structDate}{Date}} of two lessons overlap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{structDate_addb62063f340b55d312ad00fef516c2e}{Duration}}
+\item 
+std\+::string \mbox{\hyperlink{structDate_aa6df3f6e9e846db34e7751fa65868623}{Day}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The struct representing a specific date of a lesson. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structDate_aea352a5924a3f4bb9aa2e8f55f101c19}\label{structDate_aea352a5924a3f4bb9aa2e8f55f101c19}} 
+\index{Date@{Date}!Overlaps@{Overlaps}}
+\index{Overlaps@{Overlaps}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Overlaps()}{Overlaps()}}
+{\footnotesize\ttfamily static bool Date\+::\+Overlaps (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{date1,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{date2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Checks if the \mbox{\hyperlink{structDate}{Date}} of two lessons overlap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date1} & The \mbox{\hyperlink{structDate}{Date}} of the first lesson. \\
+\hline
+{\em date2} & The \mbox{\hyperlink{structDate}{Date}} of the second lesson. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two lessons overlap, otherwise false. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structDate_aa6df3f6e9e846db34e7751fa65868623}\label{structDate_aa6df3f6e9e846db34e7751fa65868623}} 
+\index{Date@{Date}!Day@{Day}}
+\index{Day@{Day}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Day}{Day}}
+{\footnotesize\ttfamily std\+::string Date\+::\+Day}
+
+The day of a given lesson. \mbox{\Hypertarget{structDate_addb62063f340b55d312ad00fef516c2e}\label{structDate_addb62063f340b55d312ad00fef516c2e}} 
+\index{Date@{Date}!Duration@{Duration}}
+\index{Duration@{Duration}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Duration}{Duration}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ Date\+::\+Duration}
+
+The duration represented as a pair of doubles, the first being the starting hour of the lesson and the second being the end hour. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Date.\+h\end{DoxyCompactItemize}

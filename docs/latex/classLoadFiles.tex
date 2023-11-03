@@ -1,0 +1,94 @@
+\hypertarget{classLoadFiles}{}\doxysection{Load\+Files Class Reference}
+\label{classLoadFiles}\index{LoadFiles@{LoadFiles}}
+
+
+A header file used to represent all the loading functions.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLoadFiles_add6a615481a2d8012666fe1d9bc46f3b}{Load\+\_\+\+Student\+\_\+\+Classes}} (std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students, std\+::pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ \&Attendence\+Pair)
+\begin{DoxyCompactList}\small\item\em Loads the respective classes for Ucs of a given \mbox{\hyperlink{classStudent}{Student}} from a CSV file. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLoadFiles_ad1a66022f4fa210c57f4acbd9cafdc4b}{Load\+\_\+\+Classes\+\_\+\+Per\+\_\+\+Uc}} (std\+::vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&classes)
+\begin{DoxyCompactList}\small\item\em Loads all the classes available for each \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLoadFiles_af9e706b38d5aa2fba5231d1d862b44f8}{Load\+\_\+\+Uc}} (std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&ucs)
+\begin{DoxyCompactList}\small\item\em Loads the \mbox{\hyperlink{structDate}{Date}} of each class for every \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLoadFiles_a4a5e17d0671960f28a47e284578ac836}{Normalise\+String}} (std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Normalizes a string by removing the \textquotesingle{}\textbackslash{}r\textquotesingle{} character, solving issues in the previous loader functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A header file used to represent all the loading functions. 
+
+A class for loading data from CSV files. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoadFiles_ad1a66022f4fa210c57f4acbd9cafdc4b}\label{classLoadFiles_ad1a66022f4fa210c57f4acbd9cafdc4b}} 
+\index{LoadFiles@{LoadFiles}!Load\_Classes\_Per\_Uc@{Load\_Classes\_Per\_Uc}}
+\index{Load\_Classes\_Per\_Uc@{Load\_Classes\_Per\_Uc}!LoadFiles@{LoadFiles}}
+\doxysubsubsection{\texorpdfstring{Load\_Classes\_Per\_Uc()}{Load\_Classes\_Per\_Uc()}}
+{\footnotesize\ttfamily void Load\+Files\+::\+Load\+\_\+\+Classes\+\_\+\+Per\+\_\+\+Uc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classClass}{Class}} $>$ \&}]{classes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads all the classes available for each \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em classes} & The vector of \mbox{\hyperlink{classClass}{Class}} objects to be populated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadFiles_add6a615481a2d8012666fe1d9bc46f3b}\label{classLoadFiles_add6a615481a2d8012666fe1d9bc46f3b}} 
+\index{LoadFiles@{LoadFiles}!Load\_Student\_Classes@{Load\_Student\_Classes}}
+\index{Load\_Student\_Classes@{Load\_Student\_Classes}!LoadFiles@{LoadFiles}}
+\doxysubsubsection{\texorpdfstring{Load\_Student\_Classes()}{Load\_Student\_Classes()}}
+{\footnotesize\ttfamily void Load\+Files\+::\+Load\+\_\+\+Student\+\_\+\+Classes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&}]{students,  }\item[{std\+::pair$<$ std\+::unordered\+\_\+map$<$ std\+::string, unordered\+\_\+set$<$ std\+::string $>$ $>$, std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, int, \mbox{\hyperlink{structPairHash}{Pair\+Hash}} $>$ $>$ \&}]{Attendence\+Pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads the respective classes for Ucs of a given \mbox{\hyperlink{classStudent}{Student}} from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em students} & The vector of \mbox{\hyperlink{classStudent}{Student}} objects to be populated. \\
+\hline
+{\em Attendence\+Pair} & The map for attendance data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadFiles_af9e706b38d5aa2fba5231d1d862b44f8}\label{classLoadFiles_af9e706b38d5aa2fba5231d1d862b44f8}} 
+\index{LoadFiles@{LoadFiles}!Load\_Uc@{Load\_Uc}}
+\index{Load\_Uc@{Load\_Uc}!LoadFiles@{LoadFiles}}
+\doxysubsubsection{\texorpdfstring{Load\_Uc()}{Load\_Uc()}}
+{\footnotesize\ttfamily void Load\+Files\+::\+Load\+\_\+\+Uc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&}]{ucs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads the \mbox{\hyperlink{structDate}{Date}} of each class for every \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ucs} & The vector of \mbox{\hyperlink{classUC}{UC}} objects to be populated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadFiles_a4a5e17d0671960f28a47e284578ac836}\label{classLoadFiles_a4a5e17d0671960f28a47e284578ac836}} 
+\index{LoadFiles@{LoadFiles}!NormaliseString@{NormaliseString}}
+\index{NormaliseString@{NormaliseString}!LoadFiles@{LoadFiles}}
+\doxysubsubsection{\texorpdfstring{NormaliseString()}{NormaliseString()}}
+{\footnotesize\ttfamily void Load\+Files\+::\+Normalise\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Normalizes a string by removing the \textquotesingle{}\textbackslash{}r\textquotesingle{} character, solving issues in the previous loader functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be normalized. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Load\+FIles.\+h\item 
+/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Load\+FIles.\+cpp\end{DoxyCompactItemize}

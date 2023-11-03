@@ -1,0 +1,66 @@
+\hypertarget{Schedule_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+Schedule.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO\_SCHECULE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO\_SCHECULE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}stdafx.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classSchedule}{Schedule}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     std::unordered\_map<Student, std::vector<UC>> StudentSchedules;}
+\DoxyCodeLine{15     std::unordered\_map<Class, std::vector<UC>> ClassSchedules;}
+\DoxyCodeLine{16     std::unordered\_map<std::pair<std::string,std::string> , int, \mbox{\hyperlink{structPairHash}{PairHash}}> UcOcupation;}
+\DoxyCodeLine{17     std::unordered\_map<std::string , unordered\_set<std::string>> ClassAttendance;}
+\DoxyCodeLine{18     std::vector<UC> Ucs;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} Balance;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} MAX\_CAP = 30;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \textcolor{comment}{// Constructor that takes a vector of UC objects as a pointer}}
+\DoxyCodeLine{24     \mbox{\hyperlink{classSchedule}{Schedule}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{25     \mbox{\hyperlink{classSchedule}{Schedule}}(std::unordered\_map<\mbox{\hyperlink{classStudent}{Student}}, std::vector<UC>> studentClasses\_,}
+\DoxyCodeLine{26              std::unordered\_map<\mbox{\hyperlink{classClass}{Class}}, std::vector<UC>> classSchedules\_);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Get a reference to the vector of UC objects}}
+\DoxyCodeLine{29     [[nodiscard]] std::unordered\_map<Student, std::vector<UC>> \mbox{\hyperlink{classSchedule_a5f373e670893c290136a7ef673ada701}{getStudentSchedules}}();}
+\DoxyCodeLine{30     [[nodiscard]] std::unordered\_map<Class, std::vector<UC>> \mbox{\hyperlink{classSchedule_a238161d692ec0716d0c0ce6817ea66ef}{getClassSchedules}}();}
+\DoxyCodeLine{31     [[nodiscard]] std::unordered\_map<std::pair<std::string,std::string> , int, \mbox{\hyperlink{structPairHash}{PairHash}}> \mbox{\hyperlink{classSchedule_ae3d56f8d510ce934005b08ae33d5d58c}{getUcOcupation}}();}
+\DoxyCodeLine{32     [[nodiscard]] std::unordered\_map<std::string , unordered\_set<std::string>> \mbox{\hyperlink{classSchedule_a9a7fb1b982788fb4318f37c074c73101}{getClassAttendance}}();}
+\DoxyCodeLine{33     [[nodiscard]] \textcolor{keywordtype}{int} \mbox{\hyperlink{classSchedule_a21bd8d0920eb409e47834cd926243c07}{getBalance}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_ad5ce364e97cd329d481f58c75399eb53}{setStudentSchedules}}(std::unordered\_map<\mbox{\hyperlink{classStudent}{Student}}, std::vector<UC>> studentClasses\_);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a8e3038d5f49a5d1ea587527ba520c314}{setClassSchedules}}(std::unordered\_map<\mbox{\hyperlink{classClass}{Class}}, std::vector<UC>> classSchedules\_);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_af6f8dfd8addc95b2cc5040eabc95b1c8}{setUcOcupation}}(}
+\DoxyCodeLine{38             unordered\_map<pair<basic\_string<char>, basic\_string<char>>, \textcolor{keywordtype}{int}, \mbox{\hyperlink{structPairHash}{PairHash}}> UcOcupation\_);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_ac408ba7e9dabcc34985e7265e589bc7b}{setClassAttendance}}(std::unordered\_map<std::string , unordered\_set<std::string>> ClassAttendance\_);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a9ae413395081139f47d3ed5bff48b752}{setBalance}}(\textcolor{keywordtype}{int} balance);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a45b92f85f7b1e9ae650e2e2220145f7f}{setUCs}}(std::vector<UC> ucs\_);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} StudentsInAtLeastNUcs(\textcolor{keywordtype}{char} n , std::vector<Student>\& students);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a34c15951da467a1152af589a0357e6bd}{CalculateBalance}}();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a2f7fa60e27f2eee89d61064fec24c793}{FindStudentinSchedule}}(std::string student\_name);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a23fb23cf1e9d0ca57333dc7768d28ad8}{FindClassinSchedule}}(std::string ClassCode);}
+\DoxyCodeLine{47     std::unordered\_map<Student, std::vector<UC>>::iterator \mbox{\hyperlink{classSchedule_a9d0eef122ef49d31faca08e168f8ea58}{FetchStudent}}(\mbox{\hyperlink{classStudent}{Student}} StudentToFind);}
+\DoxyCodeLine{48     std::unordered\_map<Class, std::vector<UC>>::iterator \mbox{\hyperlink{classSchedule_a0381830830d4a0ea3e6a3db38e55eaf7}{FetchClass}}(\mbox{\hyperlink{classClass}{Class}} ClassToFind);}
+\DoxyCodeLine{49     \mbox{\hyperlink{classStudent}{Student}} \mbox{\hyperlink{classSchedule_a58b1f656bdd43c9388ec2ac9653628fd}{FindStudentinSchedulebyID}}(\textcolor{keywordtype}{int} ID);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_ab93d4e00f6f3292559496fee02e275e1}{FindUC}}(\mbox{\hyperlink{classUC}{UC}} \&targetUC);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a453b068016bbe6b4932ceef3b52c04e8}{FindUCinStudent}}(\mbox{\hyperlink{classStudent}{Student}} student , \mbox{\hyperlink{classUC}{UC}} \&targetUC);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_ad7c96e348d9794b96cfb12440999d63a}{compare\_day}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} \&uc1, \textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} \&uc2);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} SwitchClass(\mbox{\hyperlink{classStudent}{Student}} \&student1, \mbox{\hyperlink{classUC}{UC}}\& old\_uc, \mbox{\hyperlink{classUC}{UC}} \&new\_uc);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} SwitchUc(\mbox{\hyperlink{classStudent}{Student}} student1 , \mbox{\hyperlink{classUC}{UC}} new\_uc , \mbox{\hyperlink{classUC}{UC}} ex\_uc);}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} AddUC(\mbox{\hyperlink{classStudent}{Student}} student1 , \mbox{\hyperlink{classUC}{UC}} new\_uc);}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} RemoveUC(\mbox{\hyperlink{classStudent}{Student}} student1 , \mbox{\hyperlink{classUC}{UC}} ex\_uc);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} RemoveClass(\mbox{\hyperlink{classStudent}{Student}} student1 , \mbox{\hyperlink{classUC}{UC}} \&uc);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} AddClass(\mbox{\hyperlink{classStudent}{Student}} student1 , \mbox{\hyperlink{classUC}{UC}} \&uc);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_SCHECULE\_H}}
+
+\end{DoxyCode}

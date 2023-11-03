@@ -6,10 +6,17 @@
 #include <unordered_set>
 #include "Schedule.h"
 
+/**
+ * @headerfile Restoring
+ * @brief The header file for the Restoring function.
+ */
 class Student;
 class Class;
 class UC;
 
+/**
+     * @brief Template specialization for the std::hash template for the pair<string, string> type.
+     */
 namespace std {
     template <>
     struct hash<pair<string, string>> {
