@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A class that contains the schedules for a <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> or <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> and their methods.  
+<p>A class that contains the schedules for a <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> or <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> and their methods.  
  <a href="classSchedule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
@@ -126,13 +126,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a class in the schedule by its code.  <a href="classSchedule.html#a23fb23cf1e9d0ca57333dc7768d28ad8">More...</a><br /></td></tr>
 <tr class="separator:a23fb23cf1e9d0ca57333dc7768d28ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d0eef122ef49d31faca08e168f8ea58"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58">FetchStudent</a> (<a class="el" href="classStudent.html">Student</a> StudentToFind)</td></tr>
-<tr class="memdesc:a9d0eef122ef49d31faca08e168f8ea58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> , just with the Name set.  <a href="classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58">More...</a><br /></td></tr>
+<tr class="memdesc:a9d0eef122ef49d31faca08e168f8ea58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> , just with the Name set.  <a href="classSchedule.html#a9d0eef122ef49d31faca08e168f8ea58">More...</a><br /></td></tr>
 <tr class="separator:a9d0eef122ef49d31faca08e168f8ea58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="classClass.html">Class</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7">FetchClass</a> (<a class="el" href="classClass.html">Class</a> ClassToFind)</td></tr>
 <tr class="memdesc:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the class corresponding to the given <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> object,used normally with an default <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> , just with the <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> Code set.  <a href="classSchedule.html#a0381830830d4a0ea3e6a3db38e55eaf7">More...</a><br /></td></tr>
 <tr class="separator:a0381830830d4a0ea3e6a3db38e55eaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b1f656bdd43c9388ec2ac9653628fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStudent.html">Student</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd">FindStudentinSchedulebyID</a> (int ID)</td></tr>
-<tr class="memdesc:a58b1f656bdd43c9388ec2ac9653628fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> , just with the ID set.  <a href="classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd">More...</a><br /></td></tr>
+<tr class="memdesc:a58b1f656bdd43c9388ec2ac9653628fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> , just with the ID set.  <a href="classSchedule.html#a58b1f656bdd43c9388ec2ac9653628fd">More...</a><br /></td></tr>
 <tr class="separator:a58b1f656bdd43c9388ec2ac9653628fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab93d4e00f6f3292559496fee02e275e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ab93d4e00f6f3292559496fee02e275e1">FindUC</a> (<a class="el" href="classUC.html">UC</a> &amp;targetUC)</td></tr>
 <tr class="memdesc:ab93d4e00f6f3292559496fee02e275e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> in the schedule and prompt the user to choose multiple instances of a class (T,TP,P) are found and is used to allocate/remove classes of a Given <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a>.  <a href="classSchedule.html#ab93d4e00f6f3292559496fee02e275e1">More...</a><br /></td></tr>
@@ -150,13 +150,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:affc30a6862d88534734019bf1ff93b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> to a student's schedule.  <a href="classSchedule.html#affc30a6862d88534734019bf1ff93b0b">More...</a><br /></td></tr>
 <tr class="separator:affc30a6862d88534734019bf1ff93b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa54b532595a11a1d142c622ecbe399"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a2fa54b532595a11a1d142c622ecbe399">RemoveUC</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> ex_uc)</td></tr>
-<tr class="memdesc:a2fa54b532595a11a1d142c622ecbe399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> from a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>.  <a href="classSchedule.html#a2fa54b532595a11a1d142c622ecbe399">More...</a><br /></td></tr>
+<tr class="memdesc:a2fa54b532595a11a1d142c622ecbe399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> from a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>.  <a href="classSchedule.html#a2fa54b532595a11a1d142c622ecbe399">More...</a><br /></td></tr>
 <tr class="separator:a2fa54b532595a11a1d142c622ecbe399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7149daf500bd72a6bebc4d6da42c4b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0">RemoveClass</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
 <tr class="memdesc:af7149daf500bd72a6bebc4d6da42c4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a class from a student's schedule, setting all remaining UCs class to "EMPTY".  <a href="classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0">More...</a><br /></td></tr>
 <tr class="separator:af7149daf500bd72a6bebc4d6da42c4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07f44dbe20a0aba6f013338805c4c9a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a07f44dbe20a0aba6f013338805c4c9a6">AddClass</a> (<a class="el" href="classStudent.html">Student</a> student1, <a class="el" href="classUC.html">UC</a> &amp;uc)</td></tr>
-<tr class="memdesc:a07f44dbe20a0aba6f013338805c4c9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a class to a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>.  <a href="classSchedule.html#a07f44dbe20a0aba6f013338805c4c9a6">More...</a><br /></td></tr>
+<tr class="memdesc:a07f44dbe20a0aba6f013338805c4c9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a class to a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>.  <a href="classSchedule.html#a07f44dbe20a0aba6f013338805c4c9a6">More...</a><br /></td></tr>
 <tr class="separator:a07f44dbe20a0aba6f013338805c4c9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -166,7 +166,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ad7c96e348d9794b96cfb12440999d63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A class that contains the schedules for a <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> or <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> and their methods. </p>
+<div class="textblock"><p >A class that contains the schedules for a <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> or <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> and their methods. </p>
 <p >The header of the schedule of UCs for students and classes. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a58072f740b5aaa83b8dc0146c498a8d3" name="a58072f740b5aaa83b8dc0146c498a8d3"></a>
@@ -234,7 +234,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a class to a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Adds a class to a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student1</td><td>The student to whom the class is added. </td></tr>
@@ -242,7 +242,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 
 </div>
 </div>
@@ -394,10 +394,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> , just with the Name set. </p>
+<p>Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> , just with the Name set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">StudentToFind</td><td>The <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object to find in the schedule, with only the Name set, the rest is default. </td></tr>
+    <tr><td class="paramname">StudentToFind</td><td>The <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object to find in the schedule, with only the Name set, the rest is default. </td></tr>
   </table>
   </dd>
 </dl>
@@ -477,10 +477,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> , just with the ID set. </p>
+<p>Fetches the student corresponding to the given <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object, used normally with an default <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> , just with the ID set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">StudentToFind</td><td>The <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> object to find in the schedule, with only the ID set, the rest is default. </td></tr>
+    <tr><td class="paramname">StudentToFind</td><td>The <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> object to find in the schedule, with only the ID set, the rest is default. </td></tr>
   </table>
   </dd>
 </dl>
@@ -692,7 +692,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 
 </div>
 </div>
@@ -722,7 +722,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes a <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> from a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Removes a <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> from a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student1</td><td>The student from whom the <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> is removed. </td></tr>
@@ -730,7 +730,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 
 </div>
 </div>
@@ -930,7 +930,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n*m)=O(n²), where n is the number of Pairs in <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> Schedules and m is the number of ucs of each pair </p>
+<p>Time Complexity: O(n*m)=O(n²), where n is the number of Pairs in <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> Schedules and m is the number of ucs of each pair </p>
 
 </div>
 </div>
@@ -975,7 +975,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs on a <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a> of a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> </p>
+<p>Time Complexity: O(n), where n is the number of UCs on a <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a> of a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> </p>
 
 </div>
 </div>
@@ -1020,7 +1020,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
+<p>Time Complexity: O(n), where n is the number of UCs in a <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a>'s <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 
 </div>
 </div>

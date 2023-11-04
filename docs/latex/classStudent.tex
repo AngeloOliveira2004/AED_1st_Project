@@ -2,7 +2,7 @@
 \label{classStudent}\index{Student@{Student}}
 
 
-Represents a student with an ID, name, and a list of classes to UCs.  
+Represents a student with an ID, name, and a vector of classes to UCs.  
 
 
 
@@ -22,13 +22,13 @@ int \mbox{\hyperlink{classStudent_a10a87a766d0de17564c9a958fa10b7d8}{get\+Id}} (
 const std\+::string \& \mbox{\hyperlink{classStudent_acc849acfcbd423f589b643653dd98630}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Get the student\textquotesingle{}s name. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classStudent_a4812ef0ffcd3dbe54786d14fd919c110}{get\+Classes\+To\+Ucs}} () const
-\begin{DoxyCompactList}\small\item\em Get the list of classes to UCs for the student. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the vector of classes to UCs for the student. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}{set\+Id}} (int id)
 \begin{DoxyCompactList}\small\item\em Set the student\textquotesingle{}s ID. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classStudent_a489c963162c2b5798154a3217815cfc8}{set\+Name}} (const std\+::string \&name)
 \begin{DoxyCompactList}\small\item\em Set the student\textquotesingle{}s name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classStudent_abe12dba1a8e14b9c844e9379660b1fb4}{set\+Classes\+To\+Ucs}} (std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ Classes\+To\+Ucs\+\_\+)
-\begin{DoxyCompactList}\small\item\em Set the list of classes to UCs for the student. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the vector of classes to UCs for the student. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classStudent_a8ed21df54035f4067179661924875aac}{operator$>$}} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
 \begin{DoxyCompactList}\small\item\em Compare students by their ID (greater than). \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classStudent_a44b0dc0efbc95f687706f28363e897db}{operator$<$}} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
@@ -43,11 +43,11 @@ static void \mbox{\hyperlink{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}{sor
 static bool \mbox{\hyperlink{classStudent_a6b6970ce12ac3c5a33f8d4b46c9bf383}{compare\+Students\+By\+ID}} (const \mbox{\hyperlink{classStudent}{Student}} \&student1, const \mbox{\hyperlink{classStudent}{Student}} \&student2)
 \begin{DoxyCompactList}\small\item\em Compare students by their ID. \end{DoxyCompactList}\item 
 static std\+::pair$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ \mbox{\hyperlink{classStudent_a95c6a1e34ab4a97051dd74e8b485fc0d}{populate\+Schedule\+Student}} (\mbox{\hyperlink{classStudent}{Student}} \&student, const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&all\+UCs)
-\begin{DoxyCompactList}\small\item\em Populate the schedule for a student based on a list of UCs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Populate the schedule for a student based on a vector of UCs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents a student with an ID, name, and a list of classes to UCs. 
+Represents a student with an ID, name, and a vector of classes to UCs. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}\label{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}} 
@@ -112,12 +112,12 @@ True if the first student\textquotesingle{}s name is less than the second studen
 
 
 
-Get the list of classes to UCs for the student. 
+Get the vector of classes to UCs for the student. 
 
 \begin{DoxyReturn}{Returns}
-The list of classes to UCs for the student.
+The vector of classes to UCs for the student.
 
-The list of classes to UCs. 
+The vector of classes to UCs. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classStudent_a10a87a766d0de17564c9a958fa10b7d8}\label{classStudent_a10a87a766d0de17564c9a958fa10b7d8}} 
 \index{Student@{Student}!getId@{getId}}
@@ -207,27 +207,27 @@ True if this student\textquotesingle{}s ID is greater than the other student\tex
 
 
 
-Populate the schedule for a student based on a list of UCs. 
+Populate the schedule for a student based on a vector of UCs. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em student} & The student for whom the schedule is to be populated. \\
 \hline
-{\em all\+UCs} & The list of all UCs available. \\
+{\em all\+UCs} & The vector of all UCs available. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pair containing the student\textquotesingle{}s schedule and the list of UCs they are enrolled in.
+A pair containing the student\textquotesingle{}s schedule and the vector of UCs they are enrolled in.
 \end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
 {\em student} & The student for whom the schedule is to be populated. \\
 \hline
-{\em all\+UCs} & The list of all UCs available. \\
+{\em all\+UCs} & The vector of all UCs available. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pair containing the student\textquotesingle{}s schedule and the list of UCs they are enrolled in. 
+A pair containing the student\textquotesingle{}s schedule and the vector of UCs they are enrolled in. 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 The time complexity of this function is O(\+N$\ast$\+M), where N is the size of the {\ttfamily all\+UCs} vector, and M is the size of the {\ttfamily uc\+Map}. 
@@ -240,11 +240,11 @@ The time complexity of this function is O(\+N$\ast$\+M), where N is the size of 
 
 
 
-Set the list of classes to UCs for the student. 
+Set the vector of classes to UCs for the student. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Classes\+To\+Ucs\+\_\+} & The list of classes to UCs. \\
+{\em Classes\+To\+Ucs\+\_\+} & The vector of classes to UCs. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}\label{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}} 

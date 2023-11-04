@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a student with an ID, name, and a list of classes to UCs.  
+<p>Represents a student with an ID, name, and a vector of classes to UCs.  
  <a href="classStudent.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Student_8h_source.html">Student.h</a>&gt;</code></p>
@@ -79,10 +79,10 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memItemLeft" align="right" valign="top"><a id="af9168cedbfa5565cf0b20c1a9d3f5c9d" name="af9168cedbfa5565cf0b20c1a9d3f5c9d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Student</b> ()</td></tr>
-<tr class="memdesc:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class. <br /></td></tr>
+<tr class="memdesc:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> class. <br /></td></tr>
 <tr class="separator:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a4e4dce0b8ac9de272e010d4f1f7f292c">Student</a> (int id, const std::string &amp;name, char year)</td></tr>
-<tr class="memdesc:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class.  <a href="classStudent.html#a4e4dce0b8ac9de272e010d4f1f7f292c">More...</a><br /></td></tr>
+<tr class="memdesc:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> class.  <a href="classStudent.html#a4e4dce0b8ac9de272e010d4f1f7f292c">More...</a><br /></td></tr>
 <tr class="separator:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10a87a766d0de17564c9a958fa10b7d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">getId</a> () const</td></tr>
 <tr class="memdesc:a10a87a766d0de17564c9a958fa10b7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the student's ID.  <a href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">More...</a><br /></td></tr>
@@ -91,7 +91,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acc849acfcbd423f589b643653dd98630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the student's name.  <a href="classStudent.html#acc849acfcbd423f589b643653dd98630">More...</a><br /></td></tr>
 <tr class="separator:acc849acfcbd423f589b643653dd98630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4812ef0ffcd3dbe54786d14fd919c110"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">getClassesToUcs</a> () const</td></tr>
-<tr class="memdesc:a4812ef0ffcd3dbe54786d14fd919c110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of classes to UCs for the student.  <a href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">More...</a><br /></td></tr>
+<tr class="memdesc:a4812ef0ffcd3dbe54786d14fd919c110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vector of classes to UCs for the student.  <a href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">More...</a><br /></td></tr>
 <tr class="separator:a4812ef0ffcd3dbe54786d14fd919c110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">setId</a> (int id)</td></tr>
 <tr class="memdesc:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the student's ID.  <a href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">More...</a><br /></td></tr>
@@ -100,7 +100,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a489c963162c2b5798154a3217815cfc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the student's name.  <a href="classStudent.html#a489c963162c2b5798154a3217815cfc8">More...</a><br /></td></tr>
 <tr class="separator:a489c963162c2b5798154a3217815cfc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe12dba1a8e14b9c844e9379660b1fb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">setClassesToUcs</a> (std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; ClassesToUcs_)</td></tr>
-<tr class="memdesc:abe12dba1a8e14b9c844e9379660b1fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of classes to UCs for the student.  <a href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">More...</a><br /></td></tr>
+<tr class="memdesc:abe12dba1a8e14b9c844e9379660b1fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the vector of classes to UCs for the student.  <a href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">More...</a><br /></td></tr>
 <tr class="separator:abe12dba1a8e14b9c844e9379660b1fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed21df54035f4067179661924875aac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a8ed21df54035f4067179661924875aac">operator&gt;</a> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
 <tr class="memdesc:a8ed21df54035f4067179661924875aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their ID (greater than).  <a href="classStudent.html#a8ed21df54035f4067179661924875aac">More...</a><br /></td></tr>
@@ -121,11 +121,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their ID.  <a href="classStudent.html#a6b6970ce12ac3c5a33f8d4b46c9bf383">More...</a><br /></td></tr>
 <tr class="separator:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="memItemLeft" align="right" valign="top">static std::pair&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">populateScheduleStudent</a> (<a class="el" href="classStudent.html">Student</a> &amp;student, const std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;allUCs)</td></tr>
-<tr class="memdesc:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the schedule for a student based on a list of UCs.  <a href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">More...</a><br /></td></tr>
+<tr class="memdesc:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the schedule for a student based on a vector of UCs.  <a href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">More...</a><br /></td></tr>
 <tr class="separator:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Represents a student with an ID, name, and a list of classes to UCs. </p>
+<div class="textblock"><p >Represents a student with an ID, name, and a vector of classes to UCs. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4e4dce0b8ac9de272e010d4f1f7f292c" name="a4e4dce0b8ac9de272e010d4f1f7f292c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e4dce0b8ac9de272e010d4f1f7f292c">&#9670;&nbsp;</a></span>Student()</h2>
@@ -159,7 +159,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class. </p>
+<p>Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a vector of classes to UCs.">Student</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>The student's ID. </td></tr>
@@ -242,10 +242,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the list of classes to UCs for the student. </p>
-<dl class="section return"><dt>Returns</dt><dd>The list of classes to UCs for the student.</dd>
+<p>Get the vector of classes to UCs for the student. </p>
+<dl class="section return"><dt>Returns</dt><dd>The vector of classes to UCs for the student.</dd>
 <dd>
-The list of classes to UCs. </dd></dl>
+The vector of classes to UCs. </dd></dl>
 
 </div>
 </div>
@@ -404,23 +404,23 @@ The list of classes to UCs. </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Populate the schedule for a student based on a list of UCs. </p>
+<p>Populate the schedule for a student based on a vector of UCs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student</td><td>The student for whom the schedule is to be populated. </td></tr>
-    <tr><td class="paramname">allUCs</td><td>The list of all UCs available. </td></tr>
+    <tr><td class="paramname">allUCs</td><td>The vector of all UCs available. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the list of UCs they are enrolled in.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the vector of UCs they are enrolled in.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student</td><td>The student for whom the schedule is to be populated. </td></tr>
-    <tr><td class="paramname">allUCs</td><td>The list of all UCs available. </td></tr>
+    <tr><td class="paramname">allUCs</td><td>The vector of all UCs available. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the list of UCs they are enrolled in. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the vector of UCs they are enrolled in. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The time complexity of this function is O(N*M), where N is the size of the <code>allUCs</code> vector, and M is the size of the <code>ucMap</code>. </dd></dl>
 
 </div>
@@ -441,10 +441,10 @@ The list of classes to UCs. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Set the list of classes to UCs for the student. </p>
+<p>Set the vector of classes to UCs for the student. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ClassesToUcs_</td><td>The list of classes to UCs. </td></tr>
+    <tr><td class="paramname">ClassesToUcs_</td><td>The vector of classes to UCs. </td></tr>
   </table>
   </dd>
 </dl>
