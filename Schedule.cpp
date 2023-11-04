@@ -349,8 +349,20 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
     UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
     int tempBalance = Balance;
     CalculateBalance();
-    if(Balance < tempBalance)
+
+    if(Balance < tempBalance && UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
     {
+        for(UC uc : StudentSchedules[student1])
+        {
+            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
+            {
+                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                {
+                    std::cout << "Schedule not compatible with other classes";
+                    return;
+                }
+            }
+        }
         for(UC Uc : StudentSchedules[student1])
         {
             if(Uc == old_uc && old_uc.getDate().Day == Uc.getDate().Day && old_uc.getDate().Duration.first == Uc.getDate().Duration.first && old_uc.getDate().Duration.second == Uc.getDate().Duration.second)
@@ -390,30 +402,49 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
     {
         for(auto uc : StudentSchedules[student1])
         {
-            if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
             {
-                std::cerr << "Schedule not compatible with other classes";
-                return;
+                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                {
+                    std::cout << "Schedule not compatible with other classes";
+                    return;
+                }
             }
         }
-        for(auto uc : StudentSchedules[student1])
+        int tempBalance = Balance;
+        ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
+        ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
+
+        UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
+        UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
+        CalculateBalance();
+
+        if(Balance <= tempBalance && UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
         {
-            if(uc == ex_uc && ex_uc.getDate().Day == uc.getDate().Day && ex_uc.getDate().Duration.first == uc.getDate().Duration.first && ex_uc.getDate().Duration.second == uc.getDate().Duration.second)
+            for(auto uc : StudentSchedules[student1])
             {
-                tempV.push_back(new_uc);
+                if(uc == ex_uc && ex_uc.getDate().Day == uc.getDate().Day && ex_uc.getDate().Duration.first == uc.getDate().Duration.first && ex_uc.getDate().Duration.second == uc.getDate().Duration.second)
+                {
+                    tempV.push_back(new_uc);
+                }
+                else
+                {
+                    tempV.push_back(uc);
+                }
             }
-            else
-            {
-                tempV.push_back(uc);
-            }
+        }else
+        {
+            ClassAttendance[ex_uc.getRespectiveClass()].insert(student1.getName());
+            ClassAttendance[new_uc.getRespectiveClass()].erase(student1.getName());
+
+            UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] += 1;
+            UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] -= 1;
+            CalculateBalance();
+            std::cout << "Balance Disrupted";
         }
     }
     StudentSchedules[student1] = tempV;
-    ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
-    ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
 
-    UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
-    UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
 }
 
 /**
@@ -427,26 +458,32 @@ void Schedule::AddUC(Student student1, UC new_uc) {
     {
         for(UC uc : StudentSchedules[student1])
         {
-            if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
             {
-                std::cerr << "Schedule not compatible with other classes";
-                return;
+                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                {
+                    std::cout << "Schedule not compatible with other classes";
+                    return;
+                }
             }
         }
-        if(ClassAttendance[new_uc.getRespectiveClass()].size() + 1 <= Balance)
+
+        ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
+        UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
+        CalculateBalance();
+        if(UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
         {
             StudentSchedules[student1].push_back(new_uc);
         }
         else
         {
+            ClassAttendance[new_uc.getRespectiveClass()].erase(student1.getName());
+            UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] -= 1;
+            CalculateBalance();
             std::cout << "Balance Disrupted";
+            return;
         }
     }
-    ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
-
-    UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
-
-    CalculateBalance();
 }
 
 /**
@@ -465,14 +502,21 @@ void Schedule::RemoveUC(Student student1, UC ex_uc) {
             if(uc.getUcCode() != ex_uc.getUcCode())
             {
                 ucVector.push_back(uc);
-            }else if(uc.getDate().Duration.first != ex_uc.getDate().Duration.first || uc.getDate().Day != ex_uc.getDate().Day || uc.getDate().Duration.second != uc.getDate().Duration.second){
-                ucVector.push_back(uc);
             }
         }
 
         StudentSchedules[student1] = ucVector;
     }
+
     ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
+
+    for(auto uc : StudentSchedules[student1])
+    {
+        if(uc.getRespectiveClass() == ex_uc.getRespectiveClass())
+        {
+            ClassAttendance[ex_uc.getRespectiveClass()].insert(student1.getName());
+        }
+    }
 
     UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
 
@@ -506,9 +550,18 @@ void Schedule::RemoveClass(Student student1, UC &uc)
         }
     }
     StudentSchedules[student1] = tempV;
-    ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
-    UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] -= 1;
 
+    ClassAttendance[uc.getRespectiveClass()].erase(student1.getName());
+
+    for(auto uc : StudentSchedules[student1])
+    {
+        if(uc.getRespectiveClass() == uc.getRespectiveClass())
+        {
+            ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
+        }
+    }
+
+    UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] -= 1;
 }
 
 /**
@@ -520,15 +573,14 @@ void Schedule::RemoveClass(Student student1, UC &uc)
 void Schedule::AddClass(Student student1, UC &uc)
 {
     vector<UC> tempV;
+    auto it = StudentSchedules[student1];
     if (FindStudentinSchedule(student1.getName()))
     {
-        auto it = StudentSchedules[student1];
 
         ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
         UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
-        int tempBalance = Balance;
         CalculateBalance();
-        if(Balance < tempBalance)
+        if(UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] <= MAX_CAP)
         {
             for(auto ucs : it)
             {
@@ -538,10 +590,6 @@ void Schedule::AddClass(Student student1, UC &uc)
                     {
                         tempV.push_back(uc);
 
-                    }
-                    else
-                    {
-                        std::cout << "UCs codes do not match \n";
                     }
                 }
                 else
@@ -560,5 +608,21 @@ void Schedule::AddClass(Student student1, UC &uc)
 
     }
     StudentSchedules[student1] = tempV;
+
+    for(auto uc : StudentSchedules[student1])
+    {
+        for(auto uc_ : StudentSchedules[student1])
+        {
+            if((uc.getType() == uc_.getType() || (uc_.getType() == "TP" && uc.getType() == "PL") || (uc_.getType() == "PL" && uc.getType() == "TP")) && (uc.getUcCode() != uc_.getUcCode() && uc_.getRespectiveClass() != uc.getRespectiveClass()))
+            {
+                if(Date::Overlaps(uc.getDate() , uc_.getDate()))
+                {
+                    std::cout << "Schedule not compatible with other classes";
+                    StudentSchedules[student1] = it;
+                    return;
+                }
+            }
+        }
+    }
 }
 

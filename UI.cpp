@@ -193,7 +193,7 @@ void UI::menu_schedule(){
             char op_sort;
             cout << "Would you like to search it by Name or by ID" << endl
                  << "1.Name" << endl
-                 << "2.ID" << endl << endl << endl << endl << endl << endl << endl << '\n'
+                 << "2.ID" << endl << '\n'
                  << "Insert the number: ";
             validate_input(op_sort,'1','2');
             switch(op_sort){
@@ -658,15 +658,7 @@ void UI::menu_requests() {
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
-            cout << "Would you like to remove only one or all instances of that UC?" << endl
-                 << "1. One Instance" << endl
-                 << "2. All Instances" << endl
-                 << "Insert a number:";
-            char op_value_save;
-            validate_input(op_value_save,'1','2');
-            if(op_value_save = '1'){
-                mySchedule.FindUC(uc_func);
-            }
+
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
             request.push_back(student_func);
@@ -921,14 +913,14 @@ void UI::requests_()
                 temp.clear();
                 temp = requests.front();
                 requests.pop_front();
-                process_requets(temp);
+                process_requests(temp);
                 break;
             }
             case '3':{
                 temp.clear();
                 temp = requests.back();
                 requests.pop_back();
-                process_requets(temp);
+                process_requests(temp);
                 break;
             }
             case '4':{
@@ -937,7 +929,7 @@ void UI::requests_()
                     temp.clear();
                     temp = requests.front();
                     requests.pop_front();
-                    process_requets(temp);
+                    process_requests(temp);
                 }
                 break;
             }
@@ -972,8 +964,7 @@ void UI::requests_()
    * After processing requests, it may set the ChangesMade flag to indicate that changes were made.
    * @param requests_ A list of requests to be processed.
    */
-void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests_)
-{
+void UI::process_requests(std::vector<std::variant<Student, UC, char>> requests_) {
     auto temp = requests_[0];
     char operator_;
 
