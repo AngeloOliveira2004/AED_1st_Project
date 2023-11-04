@@ -1,4 +1,4 @@
 <map id="Restoring" name="Restoring">
 <area shape="rect" id="node1" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche..." alt="" coords="5,95,89,121"/>
-<area shape="rect" id="node2" href="$classSchedule.html" title="The header of the schedule of UCs for students and classes." alt="" coords="7,5,88,32"/>
+<area shape="rect" id="node2" href="$classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods." alt="" coords="7,5,88,32"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['my_20project_20documentation_0',['My Project Documentation',['../index.html',1,'']]]
+  ['text_2dbased_20terminal_20schedule_20manager_0',['Text-Based Terminal Schedule Manager',['../index.html',1,'']]]
 ];

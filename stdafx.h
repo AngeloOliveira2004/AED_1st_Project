@@ -1,6 +1,6 @@
 /**
- * @file
- *
+ * @file stdafx.h
+ * @brief This file contains the declarations of almost all libraries used in the project.
  */
 
 #pragma once

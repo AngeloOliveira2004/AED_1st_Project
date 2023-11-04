@@ -1,5 +1,5 @@
 /**
- * @file LoadFiles.h
+ * @file LoadFIles.h
  * @brief A header file used to represent all the loading functions.
  */
 
