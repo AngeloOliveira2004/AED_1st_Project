@@ -1,10 +1,15 @@
+/**
+ * @file Schedule.h
+ * @brief Header file for the Schedule class, along with related utility functions and operators.
+ */
+
 #ifndef PROJETO_SCHECULE_H
 #define PROJETO_SCHECULE_H
 
 #include "stdafx.h"
 
 /**
- * @headerfile Schedule
+ * @class Schedule
  * @brief The header of the schedule of UCs for students and classes.
  */
 class Schedule

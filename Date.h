@@ -1,3 +1,8 @@
+/**
+ * @file Date.h
+ * @brief A header file used to represent a struct of date, along with related utility functions.
+ */
+
 #ifndef PROJETO_DATE_H
 #define PROJETO_DATE_H
 

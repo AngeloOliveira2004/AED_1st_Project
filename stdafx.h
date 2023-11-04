@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief This file was created by jose-costa on 10/11/23.
+ *
  */
 
 #pragma once

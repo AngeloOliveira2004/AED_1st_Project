@@ -1,9 +1,15 @@
+/**
+ * @file Class.h
+ * @brief A header file used to represent a class of an UC, along with related utility functions and operators.
+ */
+
 #ifndef PROJETO_CLASS_H
 #define PROJETO_CLASS_H
 
 #include "stdafx.h"
+
 /**
- * @headerfile Class
+ * @class Class
  * @brief A header file used to represent a class of an UC.
  */
 

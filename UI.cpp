@@ -1,6 +1,3 @@
-//
-// Created by angelo on 25-10-2023.
-//
 #include "stdafx.h"
 #include "LoadFIles.h"
 #include "Schedule.h"

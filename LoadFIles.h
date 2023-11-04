@@ -1,3 +1,7 @@
+/**
+ * @file LoadFiles.h
+ * @brief A header file used to represent all the loading functions.
+ */
 
 #ifndef PROJETO_LOADFILES_H
 #define PROJETO_LOADFILES_H
@@ -5,7 +9,7 @@
 #include "stdafx.h"
 
 /**
- * @headerfile LoadFiles
+ * @class LoadFiles
  * @brief A header file used to represent all the loading functions.
  */
 

@@ -1,3 +1,8 @@
+/**
+ * @file UC.h
+ * @brief Header file for the UC class, along with related utility functions and operators.
+ */
+
 #ifndef PROJETO_UC_H
 #define PROJETO_UC_H
 

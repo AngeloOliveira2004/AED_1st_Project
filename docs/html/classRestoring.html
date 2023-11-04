@@ -72,6 +72,8 @@ $(function() {
 
 <p>A class for restoring data, it is used when we need to go back to a older version of the runtime schedule version we are working with.  
  <a href="classRestoring.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Restoring_8h_source.html">Restoring.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Restoring:</div>
 <div class="dyncontent">
@@ -88,7 +90,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Restoring</b> (<a class="el" href="classSchedule.html">Schedule</a> &amp;schedule, vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students, vector&lt; <a class="el" href="classClass.html">Class</a> &gt; &amp;classes, vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;ucs, vector&lt; <a class="el" href="classSchedule.html">Schedule</a> &gt; &amp;schedules, pair&lt; std::unordered_map&lt; std::string, unordered_set&lt; std::string &gt; &gt;, std::unordered_map&lt; std::pair&lt; std::string, std::string &gt;, int, <a class="el" href="structPairHash.html">PairHash</a> &gt; &gt; &amp;attendancePair)</td></tr>
 <tr class="separator:a426e8a6c3303f263dd8b3a36e2a0c4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eddb2d1ecf13b901e4b33312f3b0d81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRestoring.html#a1eddb2d1ecf13b901e4b33312f3b0d81">restore</a> (<a class="el" href="classSchedule.html">Schedule</a> &amp;mySchedule, vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students, vector&lt; <a class="el" href="classClass.html">Class</a> &gt; &amp;classes, vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;ucs, vector&lt; <a class="el" href="classSchedule.html">Schedule</a> &gt; &amp;schedules, pair&lt; std::unordered_map&lt; std::string, unordered_set&lt; std::string &gt; &gt;, std::unordered_map&lt; std::pair&lt; std::string, std::string &gt;, int, <a class="el" href="structPairHash.html">PairHash</a> &gt; &gt; &amp;AttendancePair)</td></tr>
-<tr class="memdesc:a1eddb2d1ecf13b901e4b33312f3b0d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the data backup stored in a <a class="el" href="classRestoring.html" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche...">Restoring</a> object to the main <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>.  <a href="classRestoring.html#a1eddb2d1ecf13b901e4b33312f3b0d81">More...</a><br /></td></tr>
+<tr class="memdesc:a1eddb2d1ecf13b901e4b33312f3b0d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the data backup stored in a <a class="el" href="classRestoring.html" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche...">Restoring</a> object to the main <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>.  <a href="classRestoring.html#a1eddb2d1ecf13b901e4b33312f3b0d81">More...</a><br /></td></tr>
 <tr class="separator:a1eddb2d1ecf13b901e4b33312f3b0d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -114,6 +116,7 @@ std::pair&lt; std::unordered_map&lt; std::string, unordered_set&lt; std::string 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for restoring data, it is used when we need to go back to a older version of the runtime schedule version we are working with. </p>
+<p >The header file for the <a class="el" href="classRestoring.html" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche...">Restoring</a> function. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1eddb2d1ecf13b901e4b33312f3b0d81" name="a1eddb2d1ecf13b901e4b33312f3b0d81"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1eddb2d1ecf13b901e4b33312f3b0d81">&#9670;&nbsp;</a></span>restore()</h2>
@@ -165,14 +168,14 @@ std::pair&lt; std::unordered_map&lt; std::string, unordered_set&lt; std::string 
       </table>
 </div><div class="memdoc">
 
-<p>Restores the data backup stored in a <a class="el" href="classRestoring.html" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche...">Restoring</a> object to the main <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a>. </p>
+<p>Restores the data backup stored in a <a class="el" href="classRestoring.html" title="A class for restoring data, it is used when we need to go back to a older version of the runtime sche...">Restoring</a> object to the main <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mySchedule</td><td>The <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a> object to be restored. </td></tr>
+    <tr><td class="paramname">mySchedule</td><td>The <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a> object to be restored. </td></tr>
     <tr><td class="paramname">students</td><td>The vector of <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> objects to be restored. </td></tr>
-    <tr><td class="paramname">classes</td><td>The vector of <a class="el" href="classClass.html" title="A header file used to represent a class of an UC.">Class</a> objects to be restored. </td></tr>
+    <tr><td class="paramname">classes</td><td>The vector of <a class="el" href="classClass.html" title="A class of a given UC.">Class</a> objects to be restored. </td></tr>
     <tr><td class="paramname">ucs</td><td>The vector of <a class="el" href="classUC.html" title="Represents a University Course (UC) with its code, type, respective class, and date information.">UC</a> objects to be restored. </td></tr>
-    <tr><td class="paramname">schedules</td><td>The vector of <a class="el" href="classSchedule.html" title="The header of the schedule of UCs for students and classes.">Schedule</a> objects to be restored. </td></tr>
+    <tr><td class="paramname">schedules</td><td>The vector of <a class="el" href="classSchedule.html" title="A class that contains the schedules for a Class or Student and their methods.">Schedule</a> objects to be restored. </td></tr>
     <tr><td class="paramname">attendancePair</td><td>The attendance pair to be restored. </td></tr>
   </table>
   </dd>

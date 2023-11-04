@@ -1,0 +1,12 @@
+/*! \mainpage My Project Documentation
+  *
+  * \tableofcontents
+  *
+  * \section intro_sec Introduction
+  * This program implements a simple Schedule maker/changer written in C++ with a terminal interface, develop by .José Costa , Ângelo OLiveira , Bernardo Sousa
+  * This program was developed as a project for the class AED
+  *
+  *
+  * \section install_sec Installation
+  * To use the program you can simply download it in this github link: https://github.com/JoseCostaUni/Projeto_AED
+  */

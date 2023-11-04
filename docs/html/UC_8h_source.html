@@ -65,59 +65,61 @@ $(function() {
   <div class="headertitle"><div class="title">/home/jose-costa/Documents/Uni/AED/Projeto/UC.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETO_UC_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETO_UC_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Date.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classUC.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classUC.html">UC</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::string UcCode; </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string Type; </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string RespectiveClass; </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_struct" href="structDate.html">Date</a> Date_; </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Constructors</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="classUC.html#a8a5e0317c98de9e04ad84157af5684a1">UC</a>();</div>
+<a href="UC_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef PROJETO_UC_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define PROJETO_UC_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Date_8h.html">Date.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classUC.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classUC.html">UC</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::string UcCode; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::string Type; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::string RespectiveClass; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_struct" href="structDate.html">Date</a> Date_; </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// Constructors</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="classUC.html#a8a5e0317c98de9e04ad84157af5684a1">UC</a>(<span class="keyword">const</span> std::string&amp; ucCode, <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; respectiveClass, <span class="keywordtype">int</span> occupation, <span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; date);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a418e02baf5d6ff78d95e20b3bf6c9ee3">getUcCode</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a2c2d9d6865f35fe30f2169af3400649b">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a763553e1d3b429549a9a3b11ae7340ff">getRespectiveClass</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; <a class="code hl_function" href="classUC.html#ac30bc3b3a9d39481975db066df8978c6">getDate</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Setters</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#aef1c24abe1e42290e8055922c7f5a622">setUcCode</a>(<span class="keyword">const</span> std::string&amp; ucCode);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#a998029229f1ab097fd2fa0dd03fc7303">setType</a>(<span class="keyword">const</span> std::string&amp; type);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#ace438f946d66f3830c99f60e81fe5406">setRespectiveClass</a>(<span class="keyword">const</span> std::string&amp; respectiveClass);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#aaefe338215e1f324c7b2a3da53296aa1">setDate</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; date);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// Other Methods</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#aa5530464ab587ef1128dbb19e8e755d6">hasValue</a>();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#aa3ec50784b4a5ccca8fe0155989bfd73">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#a496792dafadf1d92321214d6016e4d24">operator ==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#a3815e144a927dfb64f310a992423f7c6">operator =</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif </span><span class="comment">// PROJETO_UC_H</span></div>
-<div class="ttc" id="aclassUC_html"><div class="ttname"><a href="classUC.html">UC</a></div><div class="ttdoc">Represents a University Course (UC) with its code, type, respective class, and date information.</div><div class="ttdef"><b>Definition:</b> UC.h:11</div></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_function" href="classUC.html#a8a5e0317c98de9e04ad84157af5684a1">UC</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="classUC.html#a8a5e0317c98de9e04ad84157af5684a1">UC</a>(<span class="keyword">const</span> std::string&amp; ucCode, <span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; respectiveClass, <span class="keywordtype">int</span> occupation, <span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; date);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a418e02baf5d6ff78d95e20b3bf6c9ee3">getUcCode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a2c2d9d6865f35fe30f2169af3400649b">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classUC.html#a763553e1d3b429549a9a3b11ae7340ff">getRespectiveClass</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; <a class="code hl_function" href="classUC.html#ac30bc3b3a9d39481975db066df8978c6">getDate</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#aef1c24abe1e42290e8055922c7f5a622">setUcCode</a>(<span class="keyword">const</span> std::string&amp; ucCode);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#a998029229f1ab097fd2fa0dd03fc7303">setType</a>(<span class="keyword">const</span> std::string&amp; type);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#ace438f946d66f3830c99f60e81fe5406">setRespectiveClass</a>(<span class="keyword">const</span> std::string&amp; respectiveClass);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUC.html#aaefe338215e1f324c7b2a3da53296aa1">setDate</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structDate.html">Date</a>&amp; date);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// Other Methods</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#aa5530464ab587ef1128dbb19e8e755d6">hasValue</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#aa3ec50784b4a5ccca8fe0155989bfd73">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#a496792dafadf1d92321214d6016e4d24">operator ==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUC.html#a3815e144a927dfb64f310a992423f7c6">operator =</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUC.html">UC</a> other);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#endif </span><span class="comment">// PROJETO_UC_H</span></div>
+<div class="ttc" id="aDate_8h_html"><div class="ttname"><a href="Date_8h.html">Date.h</a></div><div class="ttdoc">A header file used to represent a struct of date, along with related utility functions.</div></div>
+<div class="ttc" id="aclassUC_html"><div class="ttname"><a href="classUC.html">UC</a></div><div class="ttdoc">Represents a University Course (UC) with its code, type, respective class, and date information.</div><div class="ttdef"><b>Definition:</b> UC.h:16</div></div>
 <div class="ttc" id="aclassUC_html_a2c2d9d6865f35fe30f2169af3400649b"><div class="ttname"><a href="classUC.html#a2c2d9d6865f35fe30f2169af3400649b">UC::getType</a></div><div class="ttdeci">const std::string &amp; getType() const</div><div class="ttdoc">Get the type of the UC.</div><div class="ttdef"><b>Definition:</b> UC.cpp:31</div></div>
 <div class="ttc" id="aclassUC_html_a3815e144a927dfb64f310a992423f7c6"><div class="ttname"><a href="classUC.html#a3815e144a927dfb64f310a992423f7c6">UC::operator=</a></div><div class="ttdeci">bool operator=(const UC other)</div><div class="ttdoc">Assignment operator for UC objects.</div><div class="ttdef"><b>Definition:</b> UC.cpp:116</div></div>
 <div class="ttc" id="aclassUC_html_a418e02baf5d6ff78d95e20b3bf6c9ee3"><div class="ttname"><a href="classUC.html#a418e02baf5d6ff78d95e20b3bf6c9ee3">UC::getUcCode</a></div><div class="ttdeci">const std::string &amp; getUcCode() const</div><div class="ttdoc">Get the code of the UC.</div><div class="ttdef"><b>Definition:</b> UC.cpp:23</div></div>
@@ -131,7 +133,7 @@ $(function() {
 <div class="ttc" id="aclassUC_html_ac30bc3b3a9d39481975db066df8978c6"><div class="ttname"><a href="classUC.html#ac30bc3b3a9d39481975db066df8978c6">UC::getDate</a></div><div class="ttdeci">const Date &amp; getDate() const</div><div class="ttdoc">Get the date associated with the UC.</div><div class="ttdef"><b>Definition:</b> UC.cpp:47</div></div>
 <div class="ttc" id="aclassUC_html_ace438f946d66f3830c99f60e81fe5406"><div class="ttname"><a href="classUC.html#ace438f946d66f3830c99f60e81fe5406">UC::setRespectiveClass</a></div><div class="ttdeci">void setRespectiveClass(const std::string &amp;respectiveClass)</div><div class="ttdoc">Set the respective class of the UC.</div><div class="ttdef"><b>Definition:</b> UC.cpp:71</div></div>
 <div class="ttc" id="aclassUC_html_aef1c24abe1e42290e8055922c7f5a622"><div class="ttname"><a href="classUC.html#aef1c24abe1e42290e8055922c7f5a622">UC::setUcCode</a></div><div class="ttdeci">void setUcCode(const std::string &amp;ucCode)</div><div class="ttdoc">Set the code of the UC.</div><div class="ttdef"><b>Definition:</b> UC.cpp:55</div></div>
-<div class="ttc" id="astructDate_html"><div class="ttname"><a href="structDate.html">Date</a></div><div class="ttdoc">The struct representing a specific date of a lesson.</div><div class="ttdef"><b>Definition:</b> Date.h:11</div></div>
+<div class="ttc" id="astructDate_html"><div class="ttname"><a href="structDate.html">Date</a></div><div class="ttdoc">The struct representing a specific date of a lesson.</div><div class="ttdef"><b>Definition:</b> Date.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

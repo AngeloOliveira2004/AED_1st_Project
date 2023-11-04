@@ -1,3 +1,8 @@
+/**
+ * @file Restoring
+ * @brief The header file for the Restoring function.
+ */
+
 #ifndef RESTORING_H
 #define RESTORING_H
 
@@ -7,7 +12,7 @@
 #include "Schedule.h"
 
 /**
- * @headerfile Restoring
+ * @class Restoring
  * @brief The header file for the Restoring function.
  */
 class Student;

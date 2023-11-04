@@ -1,57 +1,58 @@
 \hypertarget{UC_8h_source}{}\doxysection{/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\+UC.h}
-
+\mbox{\hyperlink{UC_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO\_UC\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO\_UC\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Date.h"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classUC}{UC}} \{}
-\DoxyCodeLine{12 \textcolor{keyword}{private}:}
-\DoxyCodeLine{13     std::string UcCode; }
-\DoxyCodeLine{14     std::string Type; }
-\DoxyCodeLine{15     std::string RespectiveClass; }
-\DoxyCodeLine{16     \mbox{\hyperlink{structDate}{Date}} Date\_; }
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{keyword}{public}:}
-\DoxyCodeLine{19     \textcolor{comment}{// Constructors}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{24     \mbox{\hyperlink{classUC_a8a5e0317c98de9e04ad84157af5684a1}{UC}}();}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef PROJETO\_UC\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define PROJETO\_UC\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Date_8h}{Date.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classUC}{UC}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     std::string UcCode; }
+\DoxyCodeLine{19     std::string Type; }
+\DoxyCodeLine{20     std::string RespectiveClass; }
+\DoxyCodeLine{21     \mbox{\hyperlink{structDate}{Date}} Date\_; }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \textcolor{comment}{// Constructors}}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{33     \mbox{\hyperlink{classUC_a8a5e0317c98de9e04ad84157af5684a1}{UC}}(\textcolor{keyword}{const} std::string\& ucCode, \textcolor{keyword}{const} std::string\& type, \textcolor{keyword}{const} std::string\& respectiveClass, \textcolor{keywordtype}{int} occupation, \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{comment}{// Getters}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{41     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}{getUcCode}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{47     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a2c2d9d6865f35fe30f2169af3400649b}{getType}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{53     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a763553e1d3b429549a9a3b11ae7340ff}{getRespectiveClass}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{59     \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& \mbox{\hyperlink{classUC_ac30bc3b3a9d39481975db066df8978c6}{getDate}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{comment}{// Setters}}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_aef1c24abe1e42290e8055922c7f5a622}{setUcCode}}(\textcolor{keyword}{const} std::string\& ucCode);}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_a998029229f1ab097fd2fa0dd03fc7303}{setType}}(\textcolor{keyword}{const} std::string\& type);}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_ace438f946d66f3830c99f60e81fe5406}{setRespectiveClass}}(\textcolor{keyword}{const} std::string\& respectiveClass);}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_aaefe338215e1f324c7b2a3da53296aa1}{setDate}}(\textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87     \textcolor{comment}{// Other Methods}}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{93     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_aa5530464ab587ef1128dbb19e8e755d6}{hasValue}}();}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{100     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_aa3ec50784b4a5ccca8fe0155989bfd73}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{107     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_a496792dafadf1d92321214d6016e4d24}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{114     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_a3815e144a927dfb64f310a992423f7c6}{operator =}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other);}
-\DoxyCodeLine{115 \};}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJETO\_UC\_H}}
+\DoxyCodeLine{29     \mbox{\hyperlink{classUC_a8a5e0317c98de9e04ad84157af5684a1}{UC}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{38     \mbox{\hyperlink{classUC_a8a5e0317c98de9e04ad84157af5684a1}{UC}}(\textcolor{keyword}{const} std::string\& ucCode, \textcolor{keyword}{const} std::string\& type, \textcolor{keyword}{const} std::string\& respectiveClass, \textcolor{keywordtype}{int} occupation, \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Getters}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}{getUcCode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a2c2d9d6865f35fe30f2169af3400649b}{getType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classUC_a763553e1d3b429549a9a3b11ae7340ff}{getRespectiveClass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64     \textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& \mbox{\hyperlink{classUC_ac30bc3b3a9d39481975db066df8978c6}{getDate}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{// Setters}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_aef1c24abe1e42290e8055922c7f5a622}{setUcCode}}(\textcolor{keyword}{const} std::string\& ucCode);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_a998029229f1ab097fd2fa0dd03fc7303}{setType}}(\textcolor{keyword}{const} std::string\& type);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_ace438f946d66f3830c99f60e81fe5406}{setRespectiveClass}}(\textcolor{keyword}{const} std::string\& respectiveClass);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUC_aaefe338215e1f324c7b2a3da53296aa1}{setDate}}(\textcolor{keyword}{const} \mbox{\hyperlink{structDate}{Date}}\& date);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// Other Methods}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_aa5530464ab587ef1128dbb19e8e755d6}{hasValue}}();}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_aa3ec50784b4a5ccca8fe0155989bfd73}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_a496792dafadf1d92321214d6016e4d24}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other) \textcolor{keyword}{const};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUC_a3815e144a927dfb64f310a992423f7c6}{operator =}}(\textcolor{keyword}{const} \mbox{\hyperlink{classUC}{UC}} other);}
+\DoxyCodeLine{120 \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJETO\_UC\_H}}
 
 \end{DoxyCode}
