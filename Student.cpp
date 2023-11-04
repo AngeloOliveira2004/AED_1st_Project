@@ -30,8 +30,8 @@ const std::string& Student::getName() const {
 }
 
 /**
- * @brief Get the list of classes to UCs for the student.
- * @return The list of classes to UCs.
+ * @brief Get the vector of classes to UCs for the student.
+ * @return The vector of classes to UCs.
  */
 std::vector<std::pair<std::string, std::string>> Student::getClassesToUcs() const {
     return ClassesToUcs;
@@ -54,8 +54,8 @@ void Student::setName(const std::string& name) {
 }
 
 /**
- * @brief Set the list of classes to UCs for the student.
- * @param ClassesToUcs_ The list of classes to UCs.
+ * @brief Set the vector of classes to UCs for the student.
+ * @param ClassesToUcs_ The vector of classes to UCs.
  */
 void Student::setClassesToUcs(const std::vector<std::pair<std::string, std::string>> ClassesToUcs_) {
     ClassesToUcs = ClassesToUcs_;
@@ -108,10 +108,10 @@ bool Student::compareStudentsByID(const Student &student1, const Student &studen
 }
 
 /**
- * @brief Populate the schedule for a student based on a list of UCs.
+ * @brief Populate the schedule for a student based on a vector of UCs.
  * @param student The student for whom the schedule is to be populated.
- * @param allUCs The list of all UCs available.
- * @return A pair containing the student's schedule and the list of UCs they are enrolled in.
+ * @param allUCs The vector of all UCs available.
+ * @return A pair containing the student's schedule and the vector of UCs they are enrolled in.
  * @note The time complexity of this function is O(N*M), where N is the size of the `allUCs` vector, and M is the size of the `ucMap`.
  */
 std::pair<Student, std::vector<UC>> Student::populateScheduleStudent(Student &student, const std::vector<UC> &allUCs) {

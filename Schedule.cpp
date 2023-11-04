@@ -354,12 +354,15 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
     {
         for(UC uc : StudentSchedules[student1])
         {
-            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
+            if(!(new_uc.getType() == "T" || uc.getType() == "T"))
             {
-                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
                 {
-                    std::cout << "Schedule not compatible with other classes";
-                    return;
+                    if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                    {
+                        std::cout << "Schedule not compatible with other classes";
+                        return;
+                    }
                 }
             }
         }
@@ -402,12 +405,15 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
     {
         for(auto uc : StudentSchedules[student1])
         {
-            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
+            if(!(new_uc.getType() == "T" || uc.getType() == "T"))
             {
-                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
                 {
-                    std::cout << "Schedule not compatible with other classes";
-                    return;
+                    if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                    {
+                        std::cout << "Schedule not compatible with other classes";
+                        return;
+                    }
                 }
             }
         }
@@ -458,12 +464,15 @@ void Schedule::AddUC(Student student1, UC new_uc) {
     {
         for(UC uc : StudentSchedules[student1])
         {
-            if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
+            if(!(new_uc.getType() == "T" || uc.getType() == "T"))
             {
-                if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
                 {
-                    std::cout << "Schedule not compatible with other classes";
-                    return;
+                    if(Date::Overlaps(uc.getDate() , new_uc.getDate()))
+                    {
+                        std::cout << "Schedule not compatible with other classes";
+                        return;
+                    }
                 }
             }
         }
@@ -613,13 +622,15 @@ void Schedule::AddClass(Student student1, UC &uc)
     {
         for(auto uc_ : StudentSchedules[student1])
         {
-            if((uc.getType() == uc_.getType() || (uc_.getType() == "TP" && uc.getType() == "PL") || (uc_.getType() == "PL" && uc.getType() == "TP")) && (uc.getUcCode() != uc_.getUcCode() && uc_.getRespectiveClass() != uc.getRespectiveClass()))
+            if(!(uc_.getType() == "T" || uc.getType() == "T"))
             {
-                if(Date::Overlaps(uc.getDate() , uc_.getDate()))
+                if(uc_.getType() == uc.getType() || (uc_.getType() == "TP" && uc.getType() == "PL") || (uc_.getType() == "PL" && uc.getType() == "TP"))
                 {
-                    std::cout << "Schedule not compatible with other classes";
-                    StudentSchedules[student1] = it;
-                    return;
+                    if(Date::Overlaps(uc.getDate() , uc_.getDate()))
+                    {
+                        std::cout << "Schedule not compatible with other classes";
+                        return;
+                    }
                 }
             }
         }

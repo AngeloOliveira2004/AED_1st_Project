@@ -10,13 +10,13 @@
 
 /**
  * @class Student
- * @brief Represents a student with an ID, name, and a list of classes to UCs.
+ * @brief Represents a student with an ID, name, and a vector of classes to UCs.
  */
 class Student {
 private:
     int Id; ///< The student's ID.
     std::string Name; ///< The student's name.
-    std::vector<std::pair<std::string, std::string>> ClassesToUcs; ///< List of classes to UCs.
+    std::vector<std::pair<std::string, std::string>> ClassesToUcs; ///< vector of classes to UCs.
 
 public:
     /**
@@ -43,7 +43,7 @@ public:
     const std::string& getName() const;
 
     /**
-     * @return The list of classes to UCs for the student.
+     * @return The vector of classes to UCs for the student.
      */
     std::vector<std::pair<std::string, std::string>> getClassesToUcs() const;
 
@@ -61,8 +61,8 @@ public:
     void setName(const std::string& name);
 
     /**
-     * @brief Set the list of classes to UCs for the student.
-     * @param ClassesToUcs_ The list of classes to UCs.
+     * @brief Set the vector of classes to UCs for the student.
+     * @param ClassesToUcs_ The vector of classes to UCs.
      */
     void setClassesToUcs(std::vector<std::pair<std::string, std::string>> ClassesToUcs_);
 
@@ -87,10 +87,10 @@ public:
     bool operator ==(const Student& other) const;
 
     /**
-     * @brief Populate the schedule for a student based on a list of UCs.
+     * @brief Populate the schedule for a student based on a vector of UCs.
      * @param student The student for whom the schedule is to be populated.
-     * @param allUCs The list of all UCs available.
-     * @return A pair containing the student's schedule and the list of UCs they are enrolled in.
+     * @param allUCs The vector of all UCs available.
+     * @return A pair containing the student's schedule and the vector of UCs they are enrolled in.
      */
     static std::pair<Student, std::vector<UC>> populateScheduleStudent(Student& student, const std::vector<UC>& allUCs);
 };

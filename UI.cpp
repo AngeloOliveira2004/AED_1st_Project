@@ -955,11 +955,11 @@ void UI::requests_()
 }
 
 /**
-   * @brief Process a list of requests.
-   * This method processes a list of requests, where each request is a combination of a student, UC, and an operation.
+   * @brief Process a vector of requests.
+   * This method processes a vector of requests, where each request is a combination of a student, UC, and an operation.
    * The method identifies the operation and performs the corresponding action, such as adding a UC to a student or removing a class from a UC.
    * After processing requests, it may set the ChangesMade flag to indicate that changes were made.
-   * @param requests_ A list of requests to be processed.
+   * @param requests_ A vector of requests to be processed.
    */
 void UI::process_requests(std::vector<std::variant<Student, UC, char>> requests_) {
     auto temp = requests_[0];
