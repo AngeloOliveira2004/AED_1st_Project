@@ -1,11 +1,13 @@
-//
-// Created by jose-costa on 10/11/23.
-//
+/**
+ * @file
+ * @brief This file was created by jose-costa on 10/11/23.
+ */
+
 #pragma once
 
-//common c++ libraries
+// Standard C++ libraries
 #include <fstream>
-#include "algorithm"
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <utility>
@@ -14,11 +16,10 @@
 #include <unordered_set>
 #include <algorithm>
 #include <unordered_map>
-#include "map"
-#include "set"
+#include <map>
+#include <set>
 #include <list>
 #include <queue>
-#include <utility>
 #include <deque>
 #include <cstdlib>
 #include <chrono>
@@ -26,12 +27,25 @@
 #include <variant>
 #include <any>
 
+// Include custom header files
 #include "UC.h"
 #include "Student.h"
 #include "Class.h"
 #include "Date.h"
 
+/**
+ * @brief A hash function for std::pair objects.
+ *
+ * This struct defines a hash function for std::pair objects, allowing them to be
+ * used as keys in unordered containers like std::unordered_map.
+ */
 struct PairHash {
+    /**
+     * @param T1 The first type of the pair.
+     * @param T2 The second type of the pair.
+     * @param p The pair to be hashed.
+     * @return The hash value for the pair.
+     */
     template <class T1, class T2>
     std::size_t operator() (const std::pair<T1, T2>& p) const {
         auto h1 = std::hash<T1>{}(p.first);

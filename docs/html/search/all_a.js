@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['removeclass_0',['RemoveClass',['../classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0',1,'Schedule']]],
-  ['removeuc_1',['RemoveUC',['../classSchedule.html#a2fa54b532595a11a1d142c622ecbe399',1,'Schedule']]],
-  ['restore_2',['restore',['../classRestoring.html#a1eddb2d1ecf13b901e4b33312f3b0d81',1,'Restoring']]],
-  ['restoring_3',['Restoring',['../classRestoring.html',1,'']]]
+  ['pairhash_0',['PairHash',['../structPairHash.html',1,'']]],
+  ['populateschedule_1',['populateSchedule',['../classClass.html#a249e36dad5d0eeb032323325def3400a',1,'Class']]],
+  ['populateschedulestudent_2',['populateScheduleStudent',['../classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d',1,'Student']]],
+  ['process_5frequests_3',['process_requests',['../classUI.html#a300a62d05332e65796669665890b3a75',1,'UI']]]
 ];

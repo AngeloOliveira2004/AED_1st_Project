@@ -68,16 +68,61 @@ $(function() {
   <div class="headertitle"><div class="title">PairHash Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A hash function for std::pair objects.  
+ <a href="structPairHash.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="stdafx_8h_source.html">stdafx.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2618ba52eaa354825871256e7de3f53"><td class="memTemplParams" colspan="2"><a id="ab2618ba52eaa354825871256e7de3f53" name="ab2618ba52eaa354825871256e7de3f53"></a>
-template&lt;class T1 , class T2 &gt; </td></tr>
-<tr class="memitem:ab2618ba52eaa354825871256e7de3f53"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (const std::pair&lt; T1, T2 &gt; &amp;p) const</td></tr>
+<tr class="memitem:ab2618ba52eaa354825871256e7de3f53"><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 &gt; </td></tr>
+<tr class="memitem:ab2618ba52eaa354825871256e7de3f53"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structPairHash.html#ab2618ba52eaa354825871256e7de3f53">operator()</a> (const std::pair&lt; T1, T2 &gt; &amp;p) const</td></tr>
 <tr class="separator:ab2618ba52eaa354825871256e7de3f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A hash function for std::pair objects. </p>
+<p >This struct defines a hash function for std::pair objects, allowing them to be used as keys in unordered containers like std::unordered_map. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab2618ba52eaa354825871256e7de3f53" name="ab2618ba52eaa354825871256e7de3f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2618ba52eaa354825871256e7de3f53">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t PairHash::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const std::pair&lt; T1, T2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T1</td><td>The first type of the pair. </td></tr>
+    <tr><td class="paramname">T2</td><td>The second type of the pair. </td></tr>
+    <tr><td class="paramname">p</td><td>The pair to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The hash value for the pair. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/<a class="el" href="stdafx_8h_source.html">stdafx.h</a></li>
+<li>/home/jose-costa/Documents/Uni/AED/Projeto/<a class="el" href="stdafx_8h_source.html">stdafx.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,59 +1,59 @@
-\hypertarget{Student_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+Student.h}
-
+\hypertarget{Student_8h_source}{}\doxysection{/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\+Student.h}
+\mbox{\hyperlink{Student_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{//}}
-\DoxyCodeLine{2 \textcolor{comment}{// Created by jose-\/costa on 10/11/23.}}
-\DoxyCodeLine{3 \textcolor{comment}{//}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef PROJETO\_\_STUDENT\_H}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PROJETO\_\_STUDENT\_H}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}stdafx.h"{}}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classStudent}{Student}} \{}
-\DoxyCodeLine{11 \textcolor{keyword}{private}:}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13     \textcolor{keywordtype}{int} Id;}
-\DoxyCodeLine{14     std::string Name;}
-\DoxyCodeLine{15     std::vector<pair<std::string , std::string>> ClassesToUcs;}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{public}:}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{classStudent}{Student}}();}
-\DoxyCodeLine{20     \mbox{\hyperlink{classStudent}{Student}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{char} year);}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22     \textcolor{keywordtype}{int} getId() \textcolor{keyword}{const};}
-\DoxyCodeLine{23     \textcolor{keyword}{const} std::string\& getName() \textcolor{keyword}{const};}
-\DoxyCodeLine{24     std::vector<pair<std::string , std::string>> getClassesToUcs() \textcolor{keyword}{const};}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{comment}{// Setter functions}}
-\DoxyCodeLine{27     \textcolor{keywordtype}{void} setId(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{28     \textcolor{keywordtype}{void} setName(\textcolor{keyword}{const} std::string\& name);}
-\DoxyCodeLine{29     \textcolor{keywordtype}{void} setClassesToUcs(std::vector<pair<std::string , std::string>> ClassesToUcs\_);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31     \textcolor{comment}{//Quality of life functions}}
-\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keywordtype}{void} sort(std::vector<Student>\& students);}
-\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareStudentsByID(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student1, \textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student2);}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef PROJETO\_\_STUDENT\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define PROJETO\_\_STUDENT\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stdafx_8h}{stdafx.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classStudent}{Student}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} Id; }
+\DoxyCodeLine{18     std::string Name; }
+\DoxyCodeLine{19     std::vector<std::pair<std::string, std::string>> ClassesToUcs; }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classStudent_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classStudent_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{char} year);}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{comment}{//operators overload}}
-\DoxyCodeLine{36     \textcolor{keywordtype}{bool} operator >(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
-\DoxyCodeLine{37     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
-\DoxyCodeLine{38     \textcolor{keywordtype}{bool} operator ==(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{classStudent_a10a87a766d0de17564c9a958fa10b7d8}{getId}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{39 }
-\DoxyCodeLine{40     \textcolor{comment}{//O(N) complexity where n is the size of allUCs vector}}
-\DoxyCodeLine{41     \textcolor{keyword}{static} std::pair<Student, std::vector<UC>> populateScheduleStudent(\mbox{\hyperlink{classStudent}{Student}}\& student, \textcolor{keyword}{const} std::vector<UC>\& allUCs);}
-\DoxyCodeLine{42 \};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestd}{std}} \{}
-\DoxyCodeLine{45     \textcolor{keyword}{template} <>}
-\DoxyCodeLine{46     \textcolor{keyword}{struct }hash<\mbox{\hyperlink{classStudent}{Student}}> \{}
-\DoxyCodeLine{47         \textcolor{keywordtype}{size\_t} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{48             \textcolor{keywordtype}{size\_t} nameHash = std::hash<std::string>\{\}(student.getName());}
-\DoxyCodeLine{49             \textcolor{keywordflow}{return} nameHash; \textcolor{comment}{// Combine the hashes appropriately}}
-\DoxyCodeLine{50         \}}
-\DoxyCodeLine{51     \};}
-\DoxyCodeLine{52 \}}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_\_STUDENT\_H}}
+\DoxyCodeLine{43     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classStudent_acc849acfcbd423f589b643653dd98630}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     std::vector<std::pair<std::string, std::string>> \mbox{\hyperlink{classStudent_a4812ef0ffcd3dbe54786d14fd919c110}{getClassesToUcs}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// Setter functions}}
+\DoxyCodeLine{55 \textcolor{comment}{}    \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudent_a489c963162c2b5798154a3217815cfc8}{setName}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudent_abe12dba1a8e14b9c844e9379660b1fb4}{setClassesToUcs}}(std::vector<std::pair<std::string, std::string>> ClassesToUcs\_);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{comment}{// Quality of life functions}}
+\DoxyCodeLine{74 \textcolor{comment}{}    \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}{sort}}(std::vector<Student>\& students);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{82     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a6b6970ce12ac3c5a33f8d4b46c9bf383}{compareStudentsByID}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student1, \textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student2);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{comment}{// Operators overload}}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a8ed21df54035f4067179661924875aac}{operator >}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a44b0dc0efbc95f687706f28363e897db}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a8f7c31ed0e331481ac58f12b2e822047}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{95     \textcolor{keyword}{static} std::pair<Student, std::vector<UC>> \mbox{\hyperlink{classStudent_a95c6a1e34ab4a97051dd74e8b485fc0d}{populateScheduleStudent}}(\mbox{\hyperlink{classStudent}{Student}}\& student, \textcolor{keyword}{const} std::vector<UC>\& allUCs);}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestd}{std}} \{}
+\DoxyCodeLine{102     \textcolor{keyword}{template} <>}
+\DoxyCodeLine{103     \textcolor{keyword}{struct }hash<\mbox{\hyperlink{classStudent}{Student}}> \{}
+\DoxyCodeLine{108         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structstd_1_1hash_3_01Student_01_4_a65a8636216209067ebb7a24b0a4b7ae1}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}\& student)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{109             \textcolor{keywordtype}{size\_t} nameHash = std::hash<std::string>\{\}(student.\mbox{\hyperlink{classStudent_acc849acfcbd423f589b643653dd98630}{getName}}());}
+\DoxyCodeLine{110             \textcolor{keywordflow}{return} nameHash; \textcolor{comment}{// Combine the hashes appropriately}}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112     \};}
+\DoxyCodeLine{113 \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_\_STUDENT\_H}}
 
 \end{DoxyCode}

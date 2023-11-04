@@ -69,55 +69,480 @@ $(function() {
   <div class="headertitle"><div class="title">Student Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a student with an ID, name, and a list of classes to UCs.  
+ <a href="classStudent.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Student_8h_source.html">Student.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="memItemLeft" align="right" valign="top"><a id="a4e4dce0b8ac9de272e010d4f1f7f292c" name="a4e4dce0b8ac9de272e010d4f1f7f292c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Student</b> (int id, const std::string &amp;name, char year)</td></tr>
+<tr class="memitem:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memItemLeft" align="right" valign="top"><a id="af9168cedbfa5565cf0b20c1a9d3f5c9d" name="af9168cedbfa5565cf0b20c1a9d3f5c9d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Student</b> ()</td></tr>
+<tr class="memdesc:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class. <br /></td></tr>
+<tr class="separator:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a4e4dce0b8ac9de272e010d4f1f7f292c">Student</a> (int id, const std::string &amp;name, char year)</td></tr>
+<tr class="memdesc:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class.  <a href="classStudent.html#a4e4dce0b8ac9de272e010d4f1f7f292c">More...</a><br /></td></tr>
 <tr class="separator:a4e4dce0b8ac9de272e010d4f1f7f292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10a87a766d0de17564c9a958fa10b7d8"><td class="memItemLeft" align="right" valign="top"><a id="a10a87a766d0de17564c9a958fa10b7d8" name="a10a87a766d0de17564c9a958fa10b7d8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const</td></tr>
+<tr class="memitem:a10a87a766d0de17564c9a958fa10b7d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">getId</a> () const</td></tr>
+<tr class="memdesc:a10a87a766d0de17564c9a958fa10b7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the student's ID.  <a href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">More...</a><br /></td></tr>
 <tr class="separator:a10a87a766d0de17564c9a958fa10b7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc849acfcbd423f589b643653dd98630"><td class="memItemLeft" align="right" valign="top"><a id="acc849acfcbd423f589b643653dd98630" name="acc849acfcbd423f589b643653dd98630"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+<tr class="memitem:acc849acfcbd423f589b643653dd98630"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#acc849acfcbd423f589b643653dd98630">getName</a> () const</td></tr>
+<tr class="memdesc:acc849acfcbd423f589b643653dd98630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the student's name.  <a href="classStudent.html#acc849acfcbd423f589b643653dd98630">More...</a><br /></td></tr>
 <tr class="separator:acc849acfcbd423f589b643653dd98630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab109994b13d51421188089d04bd92daa"><td class="memItemLeft" align="right" valign="top"><a id="ab109994b13d51421188089d04bd92daa" name="ab109994b13d51421188089d04bd92daa"></a>
-std::vector&lt; pair&lt; std::string, std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getClassesToUcs</b> () const</td></tr>
-<tr class="separator:ab109994b13d51421188089d04bd92daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="memItemLeft" align="right" valign="top"><a id="abba5d240dcfdcdaf3a030e3e1c4ad1f6" name="abba5d240dcfdcdaf3a030e3e1c4ad1f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (int id)</td></tr>
+<tr class="memitem:a4812ef0ffcd3dbe54786d14fd919c110"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">getClassesToUcs</a> () const</td></tr>
+<tr class="memdesc:a4812ef0ffcd3dbe54786d14fd919c110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of classes to UCs for the student.  <a href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">More...</a><br /></td></tr>
+<tr class="separator:a4812ef0ffcd3dbe54786d14fd919c110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">setId</a> (int id)</td></tr>
+<tr class="memdesc:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the student's ID.  <a href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">More...</a><br /></td></tr>
 <tr class="separator:abba5d240dcfdcdaf3a030e3e1c4ad1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a489c963162c2b5798154a3217815cfc8"><td class="memItemLeft" align="right" valign="top"><a id="a489c963162c2b5798154a3217815cfc8" name="a489c963162c2b5798154a3217815cfc8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a489c963162c2b5798154a3217815cfc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a489c963162c2b5798154a3217815cfc8">setName</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a489c963162c2b5798154a3217815cfc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the student's name.  <a href="classStudent.html#a489c963162c2b5798154a3217815cfc8">More...</a><br /></td></tr>
 <tr class="separator:a489c963162c2b5798154a3217815cfc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71fca7ef4605693623a3703b241a407"><td class="memItemLeft" align="right" valign="top"><a id="ae71fca7ef4605693623a3703b241a407" name="ae71fca7ef4605693623a3703b241a407"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setClassesToUcs</b> (std::vector&lt; pair&lt; std::string, std::string &gt; &gt; ClassesToUcs_)</td></tr>
-<tr class="separator:ae71fca7ef4605693623a3703b241a407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ed21df54035f4067179661924875aac"><td class="memItemLeft" align="right" valign="top"><a id="a8ed21df54035f4067179661924875aac" name="a8ed21df54035f4067179661924875aac"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memitem:abe12dba1a8e14b9c844e9379660b1fb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">setClassesToUcs</a> (std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; ClassesToUcs_)</td></tr>
+<tr class="memdesc:abe12dba1a8e14b9c844e9379660b1fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of classes to UCs for the student.  <a href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">More...</a><br /></td></tr>
+<tr class="separator:abe12dba1a8e14b9c844e9379660b1fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed21df54035f4067179661924875aac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a8ed21df54035f4067179661924875aac">operator&gt;</a> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memdesc:a8ed21df54035f4067179661924875aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their ID (greater than).  <a href="classStudent.html#a8ed21df54035f4067179661924875aac">More...</a><br /></td></tr>
 <tr class="separator:a8ed21df54035f4067179661924875aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44b0dc0efbc95f687706f28363e897db"><td class="memItemLeft" align="right" valign="top"><a id="a44b0dc0efbc95f687706f28363e897db" name="a44b0dc0efbc95f687706f28363e897db"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memitem:a44b0dc0efbc95f687706f28363e897db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a44b0dc0efbc95f687706f28363e897db">operator&lt;</a> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memdesc:a44b0dc0efbc95f687706f28363e897db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their ID (less than).  <a href="classStudent.html#a44b0dc0efbc95f687706f28363e897db">More...</a><br /></td></tr>
 <tr class="separator:a44b0dc0efbc95f687706f28363e897db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f7c31ed0e331481ac58f12b2e822047"><td class="memItemLeft" align="right" valign="top"><a id="a8f7c31ed0e331481ac58f12b2e822047" name="a8f7c31ed0e331481ac58f12b2e822047"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memitem:a8f7c31ed0e331481ac58f12b2e822047"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a8f7c31ed0e331481ac58f12b2e822047">operator==</a> (const <a class="el" href="classStudent.html">Student</a> &amp;other) const</td></tr>
+<tr class="memdesc:a8f7c31ed0e331481ac58f12b2e822047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their name for equality.  <a href="classStudent.html#a8f7c31ed0e331481ac58f12b2e822047">More...</a><br /></td></tr>
 <tr class="separator:a8f7c31ed0e331481ac58f12b2e822047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a107a186e7c91bdf1e4d48e15301d6b17"><td class="memItemLeft" align="right" valign="top"><a id="a107a186e7c91bdf1e4d48e15301d6b17" name="a107a186e7c91bdf1e4d48e15301d6b17"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>sort</b> (std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students)</td></tr>
+<tr class="memitem:a107a186e7c91bdf1e4d48e15301d6b17"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a107a186e7c91bdf1e4d48e15301d6b17">sort</a> (std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;students)</td></tr>
+<tr class="memdesc:a107a186e7c91bdf1e4d48e15301d6b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort a vector of students.  <a href="classStudent.html#a107a186e7c91bdf1e4d48e15301d6b17">More...</a><br /></td></tr>
 <tr class="separator:a107a186e7c91bdf1e4d48e15301d6b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="memItemLeft" align="right" valign="top"><a id="a6b6970ce12ac3c5a33f8d4b46c9bf383" name="a6b6970ce12ac3c5a33f8d4b46c9bf383"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>compareStudentsByID</b> (const <a class="el" href="classStudent.html">Student</a> &amp;student1, const <a class="el" href="classStudent.html">Student</a> &amp;student2)</td></tr>
+<tr class="memitem:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a6b6970ce12ac3c5a33f8d4b46c9bf383">compareStudentsByID</a> (const <a class="el" href="classStudent.html">Student</a> &amp;student1, const <a class="el" href="classStudent.html">Student</a> &amp;student2)</td></tr>
+<tr class="memdesc:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare students by their ID.  <a href="classStudent.html#a6b6970ce12ac3c5a33f8d4b46c9bf383">More...</a><br /></td></tr>
 <tr class="separator:a6b6970ce12ac3c5a33f8d4b46c9bf383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="memItemLeft" align="right" valign="top"><a id="a95c6a1e34ab4a97051dd74e8b485fc0d" name="a95c6a1e34ab4a97051dd74e8b485fc0d"></a>
-static std::pair&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>populateScheduleStudent</b> (<a class="el" href="classStudent.html">Student</a> &amp;student, const std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;allUCs)</td></tr>
+<tr class="memitem:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="memItemLeft" align="right" valign="top">static std::pair&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">populateScheduleStudent</a> (<a class="el" href="classStudent.html">Student</a> &amp;student, const std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;allUCs)</td></tr>
+<tr class="memdesc:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the schedule for a student based on a list of UCs.  <a href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">More...</a><br /></td></tr>
 <tr class="separator:a95c6a1e34ab4a97051dd74e8b485fc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents a student with an ID, name, and a list of classes to UCs. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4e4dce0b8ac9de272e010d4f1f7f292c" name="a4e4dce0b8ac9de272e010d4f1f7f292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e4dce0b8ac9de272e010d4f1f7f292c">&#9670;&nbsp;</a></span>Student()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Student::Student </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>year</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parameterized constructor for the <a class="el" href="classStudent.html" title="Represents a student with an ID, name, and a list of classes to UCs.">Student</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The student's ID. </td></tr>
+    <tr><td class="paramname">name</td><td>The student's name. </td></tr>
+    <tr><td class="paramname">year</td><td>The student's year. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6b6970ce12ac3c5a33f8d4b46c9bf383" name="a6b6970ce12ac3c5a33f8d4b46c9bf383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6970ce12ac3c5a33f8d4b46c9bf383">&#9670;&nbsp;</a></span>compareStudentsByID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Student::compareStudentsByID </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>student1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>student2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compare students by their ID. </p>
+<p >Compare students by their name for sorting purposes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The first student. </td></tr>
+    <tr><td class="paramname">student2</td><td>The second student. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the first student's ID is less than the second student's ID, otherwise false.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student1</td><td>The first student to compare. </td></tr>
+    <tr><td class="paramname">student2</td><td>The second student to compare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the first student's name is less than the second student's name, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a4812ef0ffcd3dbe54786d14fd919c110" name="a4812ef0ffcd3dbe54786d14fd919c110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4812ef0ffcd3dbe54786d14fd919c110">&#9670;&nbsp;</a></span>getClassesToUcs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; Student::getClassesToUcs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the list of classes to UCs for the student. </p>
+<dl class="section return"><dt>Returns</dt><dd>The list of classes to UCs for the student.</dd>
+<dd>
+The list of classes to UCs. </dd></dl>
+
+</div>
+</div>
+<a id="a10a87a766d0de17564c9a958fa10b7d8" name="a10a87a766d0de17564c9a958fa10b7d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a87a766d0de17564c9a958fa10b7d8">&#9670;&nbsp;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Student::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the student's ID. </p>
+<dl class="section return"><dt>Returns</dt><dd>The student's ID. </dd></dl>
+
+</div>
+</div>
+<a id="acc849acfcbd423f589b643653dd98630" name="acc849acfcbd423f589b643653dd98630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc849acfcbd423f589b643653dd98630">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Student::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the student's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The student's name. </dd></dl>
+
+</div>
+</div>
+<a id="a44b0dc0efbc95f687706f28363e897db" name="a44b0dc0efbc95f687706f28363e897db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b0dc0efbc95f687706f28363e897db">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Student::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare students by their ID (less than). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other student to compare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if this student's ID is less than the other student's ID, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a8f7c31ed0e331481ac58f12b2e822047" name="a8f7c31ed0e331481ac58f12b2e822047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7c31ed0e331481ac58f12b2e822047">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Student::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare students by their name for equality. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other student to compare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if this student's name is equal to the other student's name, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a8ed21df54035f4067179661924875aac" name="a8ed21df54035f4067179661924875aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed21df54035f4067179661924875aac">&#9670;&nbsp;</a></span>operator&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Student::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare students by their ID (greater than). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other student to compare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if this student's ID is greater than the other student's ID, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a95c6a1e34ab4a97051dd74e8b485fc0d" name="a95c6a1e34ab4a97051dd74e8b485fc0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c6a1e34ab4a97051dd74e8b485fc0d">&#9670;&nbsp;</a></span>populateScheduleStudent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; <a class="el" href="classStudent.html">Student</a>, std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &gt; Student::populateScheduleStudent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStudent.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>student</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classUC.html">UC</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>allUCs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Populate the schedule for a student based on a list of UCs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student</td><td>The student for whom the schedule is to be populated. </td></tr>
+    <tr><td class="paramname">allUCs</td><td>The list of all UCs available. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the list of UCs they are enrolled in.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student</td><td>The student for whom the schedule is to be populated. </td></tr>
+    <tr><td class="paramname">allUCs</td><td>The list of all UCs available. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair containing the student's schedule and the list of UCs they are enrolled in. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The time complexity of this function is O(N*M), where N is the size of the <code>allUCs</code> vector, and M is the size of the <code>ucMap</code>. </dd></dl>
+
+</div>
+</div>
+<a id="abe12dba1a8e14b9c844e9379660b1fb4" name="abe12dba1a8e14b9c844e9379660b1fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe12dba1a8e14b9c844e9379660b1fb4">&#9670;&nbsp;</a></span>setClassesToUcs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Student::setClassesToUcs </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;&#160;</td>
+          <td class="paramname"><em>ClassesToUcs_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the list of classes to UCs for the student. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ClassesToUcs_</td><td>The list of classes to UCs. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abba5d240dcfdcdaf3a030e3e1c4ad1f6" name="abba5d240dcfdcdaf3a030e3e1c4ad1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba5d240dcfdcdaf3a030e3e1c4ad1f6">&#9670;&nbsp;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Student::setId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the student's ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The student's ID. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a489c963162c2b5798154a3217815cfc8" name="a489c963162c2b5798154a3217815cfc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a489c963162c2b5798154a3217815cfc8">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Student::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the student's name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The student's name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a107a186e7c91bdf1e4d48e15301d6b17" name="a107a186e7c91bdf1e4d48e15301d6b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a107a186e7c91bdf1e4d48e15301d6b17">&#9670;&nbsp;</a></span>sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Student::sort </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>students</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sort a vector of students. </p>
+<p >Sort a vector of students based on their IDs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">students</td><td>The vector of students to be sorted.</td></tr>
+    <tr><td class="paramname">students</td><td>The vector of students to be sorted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The time complexity depends on the sorting algorithm used, which is O(n log n) for typical sorting algorithms. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/<a class="el" href="Student_8h_source.html">Student.h</a></li>
-<li>/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Student.cpp</li>
+<li>/home/jose-costa/Documents/Uni/AED/Projeto/<a class="el" href="Student_8h_source.html">Student.h</a></li>
+<li>/home/jose-costa/Documents/Uni/AED/Projeto/Student.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

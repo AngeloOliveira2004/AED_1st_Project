@@ -1,50 +1,61 @@
-\hypertarget{UI_8h_source}{}\doxysection{/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/\+UI.h}
-
+\hypertarget{UI_8h_source}{}\doxysection{/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\+UI.h}
+\mbox{\hyperlink{UI_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{//}}
-\DoxyCodeLine{2 \textcolor{comment}{// Created by angelo on 25-\/10-\/2023.}}
-\DoxyCodeLine{3 \textcolor{comment}{//}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef PROJETO\_UI\_H}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#define PROJETO\_UI\_H}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}stdafx.h"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Schedule.h"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Restoring.h"{}}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classUI}{UI}}\{}
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13     \mbox{\hyperlink{classUI}{UI}}();}
-\DoxyCodeLine{14     \textcolor{keywordtype}{void} menu\_start();}
-\DoxyCodeLine{15     \textcolor{keyword}{static} \textcolor{keywordtype}{void} clear\_screen();}
-\DoxyCodeLine{16     \textcolor{keywordtype}{void} menu\_options();}
-\DoxyCodeLine{17     \textcolor{keywordtype}{void} menu\_schedule();}
-\DoxyCodeLine{18     \textcolor{keywordtype}{void} loading\_stuff(\mbox{\hyperlink{classUI}{UI}}\& ui);}
-\DoxyCodeLine{19     \textcolor{keywordtype}{void} menu\_students();}
-\DoxyCodeLine{20     \textcolor{keywordtype}{void} menu\_studentsInNucs();}
-\DoxyCodeLine{21     \textcolor{keywordtype}{void} menu\_occupation();}
-\DoxyCodeLine{22     \textcolor{keywordtype}{void} menu\_requests();}
-\DoxyCodeLine{23     \textcolor{keywordtype}{void} process\_requets(std::vector<std::variant<Student , UC , char>> requests\_);}
-\DoxyCodeLine{24     \textcolor{keywordtype}{void} menu\_requets();}
-\DoxyCodeLine{25     \textcolor{keywordtype}{void} save\_global\_alterations();}
-\DoxyCodeLine{26     \textcolor{keywordtype}{void} restore\_changes();}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keywordtype}{void} write\_down();}
-\DoxyCodeLine{29     \textcolor{keywordtype}{bool} validate\_input(\textcolor{keywordtype}{char} \&op, \textcolor{keyword}{const} \textcolor{keywordtype}{char} lower\_bound, \textcolor{keyword}{const} \textcolor{keywordtype}{char} upper\_bound);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{private}:}
-\DoxyCodeLine{32     \mbox{\hyperlink{classSchedule}{Schedule}} mySchedule;}
-\DoxyCodeLine{33     std::vector<Student> students;}
-\DoxyCodeLine{34     std::vector<Class> classes;}
-\DoxyCodeLine{35     std::vector<UC> ucs;}
-\DoxyCodeLine{36     std::vector<Schedule> schedules;}
-\DoxyCodeLine{37     std::pair<std::unordered\_map<std::string, unordered\_set<std::string>> , std::unordered\_map<std::pair<std::string,std::string> , int , \mbox{\hyperlink{structPairHash}{PairHash}}>> AttendancePair;}
-\DoxyCodeLine{38     \textcolor{keywordtype}{bool} ChangesMade = \textcolor{keyword}{false};}
-\DoxyCodeLine{39     \mbox{\hyperlink{classRestoring}{Restoring}} restore;}
-\DoxyCodeLine{40     std::vector<Restoring> restore\_value;}
-\DoxyCodeLine{41     std::list<std::vector<std::variant<Student , UC , char>>> requests;}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_UI\_H}}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef PROJETO\_UI\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define PROJETO\_UI\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stdafx_8h}{stdafx.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Schedule.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Restoring.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classUI}{UI}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{classUI_a675985a56b5e87ebdc8e5884b9f2ee09}{UI}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_aa4f5f0000b864a5019c797b8a7da8891}{menu\_start}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a298d81ef3106436a00bed98330d4c5a8}{clear\_screen}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a714a37099eb62189e2b5b188812ea528}{menu\_options}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a02e787aab160b39beb05a3d5e2ebb978}{menu\_schedule}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a19639c490c34c5b0c66684c2670b7076}{loading\_stuff}}(\mbox{\hyperlink{classUI}{UI}}\& ui);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_afda26096b6e8aad1900f1f615062bf41}{menu\_students}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_ac65689299b91ef5c57fa34f296f320b6}{menu\_studentsInNucs}}();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a13496ec3952c662e2c66daa4b569b334}{menu\_occupation}}();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a98034249100c10d805fd3b2e2046a17d}{menu\_requests}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a300a62d05332e65796669665890b3a75}{process\_requests}}(std::vector<std::variant<Student, UC, char>> \mbox{\hyperlink{classUI_a877cefd1bd3bbf720569a6cfb625d352}{requests\_}});}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a877cefd1bd3bbf720569a6cfb625d352}{requests\_}}();}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}{save\_global\_alterations}}();}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUI_a48f213a828a36ae8ffd66170237d26d5}{restore\_changes}}();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUI_a83fba9739cde5eda8391c2020ab3dcff}{validate\_input}}(\textcolor{keywordtype}{char} \&op, \textcolor{keyword}{const} \textcolor{keywordtype}{char} lower\_bound, \textcolor{keyword}{const} \textcolor{keywordtype}{char} upper\_bound);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{private}:}
+\DoxyCodeLine{101     \textcolor{comment}{// Private Data Members}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \mbox{\hyperlink{classSchedule}{Schedule}} mySchedule;  }
+\DoxyCodeLine{104     std::vector<Student> students; }
+\DoxyCodeLine{105     std::vector<Class> classes; }
+\DoxyCodeLine{106     std::vector<UC> ucs; }
+\DoxyCodeLine{107     std::vector<Schedule> schedules; }
+\DoxyCodeLine{108     std::pair<std::unordered\_map<std::string, unordered\_set<std::string>>, std::unordered\_map<std::pair<std::string, std::string>, int, \mbox{\hyperlink{structPairHash}{PairHash}}>> AttendancePair; }
+\DoxyCodeLine{109     \textcolor{keywordtype}{bool} ChangesMade = \textcolor{keyword}{false}; }
+\DoxyCodeLine{110     \mbox{\hyperlink{classRestoring}{Restoring}} restore; }
+\DoxyCodeLine{111     std::vector<Restoring> restore\_value; }
+\DoxyCodeLine{112     std::list<std::vector<std::variant<Student, UC, char>>> requests; }
+\DoxyCodeLine{113 \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJETO\_UI\_H}}
 
 \end{DoxyCode}

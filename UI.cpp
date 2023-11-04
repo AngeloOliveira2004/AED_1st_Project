@@ -6,30 +6,43 @@
 #include "Schedule.h"
 #include "UI.h"
 
-#include <utility>
+/**
+     * @brief Default constructor for the UI class.
+     */
+UI::UI() {}
 
+/**
+     * @brief Load necessary data and initialize schedules.
+     */
 void UI::loading_stuff(UI &ui) {
+    // Load student classes and attendance information.
+    LoadFiles::Load_Student_Classes(students, AttendancePair);
 
-    LoadFiles::Load_Student_Classes(students,AttendancePair);
+    // Load UCs.
     LoadFiles::Load_Uc(ucs);
+
+    // Load classes per UC.
     LoadFiles::Load_Classes_Per_Uc(classes);
 
+    // Sort the classes and students.
     Class::sort(classes);
     Student::sort(students);
 
+    // Initialize maps to store schedules.
     std::unordered_map<Student, std::vector<UC>> StudentSchedules_;
     std::unordered_map<Class, std::vector<UC>> ClassSchedules_;
 
-    for(auto class_ : classes)
-    {
-        ClassSchedules_.insert(Class::populateSchedule(class_ , ucs));
+    // Populate schedules for each class.
+    for (auto class_ : classes) {
+        ClassSchedules_.insert(Class::populateSchedule(class_, ucs));
     }
 
-    for(auto student : students)
-    {
-        StudentSchedules_.insert(Student::populateScheduleStudent(student , ucs));
-
+    // Populate schedules for each student.
+    for (auto student : students) {
+        StudentSchedules_.insert(Student::populateScheduleStudent(student, ucs));
     }
+
+    // Set the schedules and attendance information for the UI's schedule.
     mySchedule.setUCs(ucs);
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
@@ -37,6 +50,13 @@ void UI::loading_stuff(UI &ui) {
     mySchedule.setUcOcupation(AttendancePair.second);
 }
 
+/**
+     * @brief Validate and get user input within a specified range.
+     * @param op Reference to the input character.
+     * @param lower_bound The lower bound for valid options.
+     * @param upper_bound The upper bound for valid options.
+     * @return True if input is valid, otherwise false.
+     */
 bool UI::validate_input(char &op, const char lower_bound, const char upper_bound) {
     std::string tempValue;
     while(true){
@@ -57,8 +77,9 @@ bool UI::validate_input(char &op, const char lower_bound, const char upper_bound
     return true;
 }
 
-UI::UI() {}
-
+/**
+     * @brief Clear the screen by printing multiple newline characters.
+     */
 void UI::clear_screen() {
     int i = 0;
     while(i != 100) {
@@ -67,6 +88,9 @@ void UI::clear_screen() {
     }
 }
 
+/**
+     * @brief Display the initial menu when starting the application.
+     */
 void UI::menu_start() {
     char op;
     cout << "#################################################" << endl
@@ -106,6 +130,9 @@ void UI::menu_start() {
     }
 }
 
+/**
+     * @brief Display the menu for various application options.
+     */
 void UI::menu_options() {
     char op;
     clear_screen();
@@ -137,7 +164,7 @@ void UI::menu_options() {
             menu_requests();
             break;
         case  '6':
-            menu_requets();
+            requests_();
             break;
         case '7':
             restore_changes();
@@ -149,6 +176,9 @@ void UI::menu_options() {
     }
 }
 
+/**
+     * @brief Display the schedule menu and handle schedule consultations.
+     */
 void UI::menu_schedule(){
     char op;
     clear_screen();
@@ -253,6 +283,9 @@ void UI::menu_schedule(){
     menu_options();
 }
 
+/**
+     * @brief Display the students menu and handle student-related queries.
+     */
 void UI::menu_students(){
     char op;
     clear_screen();
@@ -361,7 +394,9 @@ void UI::menu_students(){
     menu_options();
 }
 
-
+/**
+     * @brief Display the menu to query students with a minimum number of registered UCs.
+     */
 void UI::menu_studentsInNucs(){
     char op;
     clear_screen();
@@ -381,6 +416,9 @@ void UI::menu_studentsInNucs(){
     menu_options();
 }
 
+/**
+     * @brief Display the occupation menu and handle occupation-related queries.
+     */
 void UI::menu_occupation(){
     char op;
     clear_screen();
@@ -525,8 +563,12 @@ void UI::menu_occupation(){
     menu_options();
 }
 
+/**
+     * @brief Display the requests menu and handle user requests for making changes.
+     */
 void UI::menu_requests() {
-    char op_save;
+
+    // Prompt user to keep or discard changes if any changes were made.
     if(ChangesMade){
         char op_save;
         cout << "Would you like to keep the last changes you made?" <<'\n'
@@ -556,7 +598,9 @@ void UI::menu_requests() {
          << "Insert the number: ";
     validate_input(op, '1' ,'7');
     switch(op){
+
         case '1':{
+            // Handle the request to add a UC to a student.
             string student_name;
             string UC_code;
             string class_code;
@@ -590,6 +634,7 @@ void UI::menu_requests() {
             break;
         }
         case '2':{
+            // Handle the request to remove a UC from a student.
             string student_name;
             string UC_code;
             string class_code;
@@ -631,6 +676,7 @@ void UI::menu_requests() {
             break;
         }
         case '3':{
+            // Handle the request to switch UCs for a student.
             string student_name;
             string UC_code;
             string UC_code_new;
@@ -679,6 +725,7 @@ void UI::menu_requests() {
             break;
         }
         case '4':{
+            // Handle the request to add a class to a certain UC of a student.
             string Student_name;
             string UC_code;
             string class_code;
@@ -713,6 +760,7 @@ void UI::menu_requests() {
             break;
         }
         case '5':{
+            // Handle the request to remove a class from a certain UC of a student.
             string Student_name;
             string UC_code;
             string class_code;
@@ -748,6 +796,7 @@ void UI::menu_requests() {
             break;
         }
         case '6': {
+            // Handle the request to switch a class for a certain UC of a student.
             string Student_name;
             string UC_code;
             string class_code_old;
@@ -795,6 +844,7 @@ void UI::menu_requests() {
             break;
         }
         case '7':{
+            // Return to the main menu.
             menu_options();
         }
     }
@@ -804,7 +854,11 @@ void UI::menu_requests() {
     menu_options();
 }
 
-
+/**
+     * @brief Save global alterations to a CSV file.
+     * The CSV file includes student information along with UCs and classes they are assigned to.
+     * The file format is "StudentCode, StudentName, UcCode, ClassCode".
+     */
 void UI::save_global_alterations(){
     fstream fout;
 
@@ -830,7 +884,13 @@ void UI::save_global_alterations(){
     fout.close();
 }
 
-void UI::menu_requets()
+/**
+     * @brief Display a menu for managing pending requests.
+     * The menu provides options to view the number of pending requests, process individual requests,
+     * process all pending requests, clear requests, and return to the main menu.
+     * Users can select from these options by inputting a number.
+     */
+void UI::requests_()
 {
     if(requests.empty())
     {
@@ -905,6 +965,13 @@ void UI::menu_requets()
     }
 }
 
+/**
+   * @brief Process a list of requests.
+   * This method processes a list of requests, where each request is a combination of a student, UC, and an operation.
+   * The method identifies the operation and performs the corresponding action, such as adding a UC to a student or removing a class from a UC.
+   * After processing requests, it may set the ChangesMade flag to indicate that changes were made.
+   * @param requests_ A list of requests to be processed.
+   */
 void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests_)
 {
     auto temp = requests_[0];
@@ -1055,6 +1122,10 @@ void UI::process_requets(std::vector<std::variant<Student , UC , char>> requests
     }
 }
 
+/**
+     * @brief Restore changes from the list of stored backups.
+     * The user selects a change to restore from the list of stored backups.
+     */
 void UI::restore_changes(){
     int op;
     int p = 0;

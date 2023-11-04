@@ -1,13 +1,48 @@
 \hypertarget{structPairHash}{}\doxysection{Pair\+Hash Struct Reference}
 \label{structPairHash}\index{PairHash@{PairHash}}
+
+
+A hash function for std\+::pair objects.  
+
+
+
+
+{\ttfamily \#include $<$stdafx.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structPairHash_ab2618ba52eaa354825871256e7de3f53}\label{structPairHash_ab2618ba52eaa354825871256e7de3f53}} 
-{\footnotesize template$<$class T1 , class T2 $>$ }\\std\+::size\+\_\+t {\bfseries operator()} (const std\+::pair$<$ T1, T2 $>$ \&p) const
+{\footnotesize template$<$class T1 , class T2 $>$ }\\std\+::size\+\_\+t \mbox{\hyperlink{structPairHash_ab2618ba52eaa354825871256e7de3f53}{operator()}} (const std\+::pair$<$ T1, T2 $>$ \&p) const
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A hash function for std\+::pair objects. 
+
+This struct defines a hash function for std\+::pair objects, allowing them to be used as keys in unordered containers like std\+::unordered\+\_\+map. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structPairHash_ab2618ba52eaa354825871256e7de3f53}\label{structPairHash_ab2618ba52eaa354825871256e7de3f53}} 
+\index{PairHash@{PairHash}!operator()@{operator()}}
+\index{operator()@{operator()}!PairHash@{PairHash}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$class T1 , class T2 $>$ \\
+std\+::size\+\_\+t Pair\+Hash\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ T1, T2 $>$ \&}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T1} & The first type of the pair. \\
+\hline
+{\em T2} & The second type of the pair. \\
+\hline
+{\em p} & The pair to be hashed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hash value for the pair. 
+\end{DoxyReturn}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/stdafx.\+h\end{DoxyCompactItemize}
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\mbox{\hyperlink{stdafx_8h}{stdafx.\+h}}\end{DoxyCompactItemize}

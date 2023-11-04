@@ -1,53 +1,307 @@
 \hypertarget{classStudent}{}\doxysection{Student Class Reference}
 \label{classStudent}\index{Student@{Student}}
+
+
+Represents a student with an ID, name, and a list of classes to UCs.  
+
+
+
+
+{\ttfamily \#include $<$Student.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}\label{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}} 
-{\bfseries Student} (int id, const std\+::string \&name, char year)
-\item 
-\mbox{\Hypertarget{classStudent_a10a87a766d0de17564c9a958fa10b7d8}\label{classStudent_a10a87a766d0de17564c9a958fa10b7d8}} 
-int {\bfseries get\+Id} () const
-\item 
-\mbox{\Hypertarget{classStudent_acc849acfcbd423f589b643653dd98630}\label{classStudent_acc849acfcbd423f589b643653dd98630}} 
-const std\+::string \& {\bfseries get\+Name} () const
-\item 
-\mbox{\Hypertarget{classStudent_ab109994b13d51421188089d04bd92daa}\label{classStudent_ab109994b13d51421188089d04bd92daa}} 
-std\+::vector$<$ pair$<$ std\+::string, std\+::string $>$ $>$ {\bfseries get\+Classes\+To\+Ucs} () const
-\item 
-\mbox{\Hypertarget{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}\label{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}} 
-void {\bfseries set\+Id} (int id)
-\item 
-\mbox{\Hypertarget{classStudent_a489c963162c2b5798154a3217815cfc8}\label{classStudent_a489c963162c2b5798154a3217815cfc8}} 
-void {\bfseries set\+Name} (const std\+::string \&name)
-\item 
-\mbox{\Hypertarget{classStudent_ae71fca7ef4605693623a3703b241a407}\label{classStudent_ae71fca7ef4605693623a3703b241a407}} 
-void {\bfseries set\+Classes\+To\+Ucs} (std\+::vector$<$ pair$<$ std\+::string, std\+::string $>$ $>$ Classes\+To\+Ucs\+\_\+)
-\item 
-\mbox{\Hypertarget{classStudent_a8ed21df54035f4067179661924875aac}\label{classStudent_a8ed21df54035f4067179661924875aac}} 
-bool {\bfseries operator$>$} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
-\item 
-\mbox{\Hypertarget{classStudent_a44b0dc0efbc95f687706f28363e897db}\label{classStudent_a44b0dc0efbc95f687706f28363e897db}} 
-bool {\bfseries operator$<$} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
-\item 
-\mbox{\Hypertarget{classStudent_a8f7c31ed0e331481ac58f12b2e822047}\label{classStudent_a8f7c31ed0e331481ac58f12b2e822047}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classStudent_af9168cedbfa5565cf0b20c1a9d3f5c9d}\label{classStudent_af9168cedbfa5565cf0b20c1a9d3f5c9d}} 
+{\bfseries Student} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{classStudent}{Student}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}{Student}} (int id, const std\+::string \&name, char year)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor for the \mbox{\hyperlink{classStudent}{Student}} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStudent_a10a87a766d0de17564c9a958fa10b7d8}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the student\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classStudent_acc849acfcbd423f589b643653dd98630}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the student\textquotesingle{}s name. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classStudent_a4812ef0ffcd3dbe54786d14fd919c110}{get\+Classes\+To\+Ucs}} () const
+\begin{DoxyCompactList}\small\item\em Get the list of classes to UCs for the student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}{set\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Set the student\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStudent_a489c963162c2b5798154a3217815cfc8}{set\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Set the student\textquotesingle{}s name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStudent_abe12dba1a8e14b9c844e9379660b1fb4}{set\+Classes\+To\+Ucs}} (std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ Classes\+To\+Ucs\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the list of classes to UCs for the student. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStudent_a8ed21df54035f4067179661924875aac}{operator$>$}} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare students by their ID (greater than). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStudent_a44b0dc0efbc95f687706f28363e897db}{operator$<$}} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare students by their ID (less than). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStudent_a8f7c31ed0e331481ac58f12b2e822047}{operator==}} (const \mbox{\hyperlink{classStudent}{Student}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare students by their name for equality. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}\label{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}} 
-static void {\bfseries sort} (std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students)
-\item 
+static void \mbox{\hyperlink{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}{sort}} (std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&students)
+\begin{DoxyCompactList}\small\item\em Sort a vector of students. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classStudent_a6b6970ce12ac3c5a33f8d4b46c9bf383}{compare\+Students\+By\+ID}} (const \mbox{\hyperlink{classStudent}{Student}} \&student1, const \mbox{\hyperlink{classStudent}{Student}} \&student2)
+\begin{DoxyCompactList}\small\item\em Compare students by their ID. \end{DoxyCompactList}\item 
+static std\+::pair$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ \mbox{\hyperlink{classStudent_a95c6a1e34ab4a97051dd74e8b485fc0d}{populate\+Schedule\+Student}} (\mbox{\hyperlink{classStudent}{Student}} \&student, const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&all\+UCs)
+\begin{DoxyCompactList}\small\item\em Populate the schedule for a student based on a list of UCs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a student with an ID, name, and a list of classes to UCs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}\label{classStudent_a4e4dce0b8ac9de272e010d4f1f7f292c}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{const std\+::string \&}]{name,  }\item[{char}]{year }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor for the \mbox{\hyperlink{classStudent}{Student}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The student\textquotesingle{}s ID. \\
+\hline
+{\em name} & The student\textquotesingle{}s name. \\
+\hline
+{\em year} & The student\textquotesingle{}s year. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classStudent_a6b6970ce12ac3c5a33f8d4b46c9bf383}\label{classStudent_a6b6970ce12ac3c5a33f8d4b46c9bf383}} 
-static bool {\bfseries compare\+Students\+By\+ID} (const \mbox{\hyperlink{classStudent}{Student}} \&student1, const \mbox{\hyperlink{classStudent}{Student}} \&student2)
-\item 
+\index{Student@{Student}!compareStudentsByID@{compareStudentsByID}}
+\index{compareStudentsByID@{compareStudentsByID}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{compareStudentsByID()}{compareStudentsByID()}}
+{\footnotesize\ttfamily bool Student\+::compare\+Students\+By\+ID (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{student1,  }\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{student2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Compare students by their ID. 
+
+Compare students by their name for sorting purposes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The first student. \\
+\hline
+{\em student2} & The second student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the first student\textquotesingle{}s ID is less than the second student\textquotesingle{}s ID, otherwise false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em student1} & The first student to compare. \\
+\hline
+{\em student2} & The second student to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the first student\textquotesingle{}s name is less than the second student\textquotesingle{}s name, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_a4812ef0ffcd3dbe54786d14fd919c110}\label{classStudent_a4812ef0ffcd3dbe54786d14fd919c110}} 
+\index{Student@{Student}!getClassesToUcs@{getClassesToUcs}}
+\index{getClassesToUcs@{getClassesToUcs}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getClassesToUcs()}{getClassesToUcs()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ Student\+::get\+Classes\+To\+Ucs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the list of classes to UCs for the student. 
+
+\begin{DoxyReturn}{Returns}
+The list of classes to UCs for the student.
+
+The list of classes to UCs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_a10a87a766d0de17564c9a958fa10b7d8}\label{classStudent_a10a87a766d0de17564c9a958fa10b7d8}} 
+\index{Student@{Student}!getId@{getId}}
+\index{getId@{getId}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Student\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the student\textquotesingle{}s ID. 
+
+\begin{DoxyReturn}{Returns}
+The student\textquotesingle{}s ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_acc849acfcbd423f589b643653dd98630}\label{classStudent_acc849acfcbd423f589b643653dd98630}} 
+\index{Student@{Student}!getName@{getName}}
+\index{getName@{getName}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Student\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the student\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+The student\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_a44b0dc0efbc95f687706f28363e897db}\label{classStudent_a44b0dc0efbc95f687706f28363e897db}} 
+\index{Student@{Student}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Student\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare students by their ID (less than). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other student to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this student\textquotesingle{}s ID is less than the other student\textquotesingle{}s ID, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_a8f7c31ed0e331481ac58f12b2e822047}\label{classStudent_a8f7c31ed0e331481ac58f12b2e822047}} 
+\index{Student@{Student}!operator==@{operator==}}
+\index{operator==@{operator==}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Student\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare students by their name for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other student to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this student\textquotesingle{}s name is equal to the other student\textquotesingle{}s name, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStudent_a8ed21df54035f4067179661924875aac}\label{classStudent_a8ed21df54035f4067179661924875aac}} 
+\index{Student@{Student}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Student\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare students by their ID (greater than). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other student to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this student\textquotesingle{}s ID is greater than the other student\textquotesingle{}s ID, otherwise false. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classStudent_a95c6a1e34ab4a97051dd74e8b485fc0d}\label{classStudent_a95c6a1e34ab4a97051dd74e8b485fc0d}} 
-static std\+::pair$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ {\bfseries populate\+Schedule\+Student} (\mbox{\hyperlink{classStudent}{Student}} \&student, const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&all\+UCs)
-\end{DoxyCompactItemize}
+\index{Student@{Student}!populateScheduleStudent@{populateScheduleStudent}}
+\index{populateScheduleStudent@{populateScheduleStudent}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{populateScheduleStudent()}{populateScheduleStudent()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classStudent}{Student}}, std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ $>$ Student\+::populate\+Schedule\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}} \&}]{student,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classUC}{UC}} $>$ \&}]{all\+UCs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Populate the schedule for a student based on a list of UCs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student for whom the schedule is to be populated. \\
+\hline
+{\em all\+UCs} & The list of all UCs available. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair containing the student\textquotesingle{}s schedule and the list of UCs they are enrolled in.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student for whom the schedule is to be populated. \\
+\hline
+{\em all\+UCs} & The list of all UCs available. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair containing the student\textquotesingle{}s schedule and the list of UCs they are enrolled in. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The time complexity of this function is O(\+N$\ast$\+M), where N is the size of the {\ttfamily all\+UCs} vector, and M is the size of the {\ttfamily uc\+Map}. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classStudent_abe12dba1a8e14b9c844e9379660b1fb4}\label{classStudent_abe12dba1a8e14b9c844e9379660b1fb4}} 
+\index{Student@{Student}!setClassesToUcs@{setClassesToUcs}}
+\index{setClassesToUcs@{setClassesToUcs}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{setClassesToUcs()}{setClassesToUcs()}}
+{\footnotesize\ttfamily void Student\+::set\+Classes\+To\+Ucs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$}]{Classes\+To\+Ucs\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the list of classes to UCs for the student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Classes\+To\+Ucs\+\_\+} & The list of classes to UCs. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}\label{classStudent_abba5d240dcfdcdaf3a030e3e1c4ad1f6}} 
+\index{Student@{Student}!setId@{setId}}
+\index{setId@{setId}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Student\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Set the student\textquotesingle{}s ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The student\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStudent_a489c963162c2b5798154a3217815cfc8}\label{classStudent_a489c963162c2b5798154a3217815cfc8}} 
+\index{Student@{Student}!setName@{setName}}
+\index{setName@{setName}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Student\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Set the student\textquotesingle{}s name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The student\textquotesingle{}s name. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}\label{classStudent_a107a186e7c91bdf1e4d48e15301d6b17}} 
+\index{Student@{Student}!sort@{sort}}
+\index{sort@{sort}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily void Student\+::sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \&}]{students }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sort a vector of students. 
+
+Sort a vector of students based on their IDs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em students} & The vector of students to be sorted.\\
+\hline
+{\em students} & The vector of students to be sorted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The time complexity depends on the sorting algorithm used, which is O(n log n) for typical sorting algorithms. 
+\end{DoxyNote}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Student.\+h\item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/Student.\+cpp\end{DoxyCompactItemize}
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\mbox{\hyperlink{Student_8h}{Student.\+h}}\item 
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/Student.\+cpp\end{DoxyCompactItemize}

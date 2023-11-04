@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SCHEDULE Project: /home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Student.h Source File</title>
+<title>SCHEDULE Project: /home/jose-costa/Documents/Uni/AED/Projeto/Student.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,65 +62,80 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Student.h</div></div>
+  <div class="headertitle"><div class="title">/home/jose-costa/Documents/Uni/AED/Projeto/Student.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by jose-costa on 10/11/23.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef PROJETO__STUDENT_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define PROJETO__STUDENT_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;stdafx.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classStudent.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classStudent.html">Student</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">int</span> Id;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string Name;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::vector&lt;pair&lt;std::string , std::string&gt;&gt; ClassesToUcs;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="classStudent.html">Student</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="classStudent.html">Student</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">char</span> year);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">int</span> getId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> std::string&amp; getName() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;pair&lt;std::string , std::string&gt;&gt; getClassesToUcs() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Setter functions</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> setId(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> setName(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> setClassesToUcs(std::vector&lt;pair&lt;std::string , std::string&gt;&gt; ClassesToUcs_);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">//Quality of life functions</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> sort(std::vector&lt;Student&gt;&amp; students);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> compareStudentsByID(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student1, <span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student2);</div>
+<a href="Student_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef PROJETO__STUDENT_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define PROJETO__STUDENT_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">stdafx.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classStudent.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classStudent.html">Student</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> Id; </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::string Name; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; ClassesToUcs; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="classStudent.html#af9168cedbfa5565cf0b20c1a9d3f5c9d">Student</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="classStudent.html#af9168cedbfa5565cf0b20c1a9d3f5c9d">Student</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">char</span> year);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//operators overload</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> operator &gt;(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">getId</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//O(N) complexity where n is the size of allUCs vector</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">static</span> std::pair&lt;Student, std::vector&lt;UC&gt;&gt; populateScheduleStudent(<a class="code hl_class" href="classStudent.html">Student</a>&amp; student, <span class="keyword">const</span> std::vector&lt;UC&gt;&amp; allUCs);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a> {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01Student_01_4.html">   46</a></span>    <span class="keyword">struct </span>hash&lt;<a class="code hl_class" href="classStudent.html">Student</a>&gt; {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordtype">size_t</span> nameHash = std::hash&lt;std::string&gt;{}(student.getName());</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span> nameHash; <span class="comment">// Combine the hashes appropriately</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif </span><span class="comment">//PROJETO__STUDENT_H</span></div>
-<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:10</div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classStudent.html#acc849acfcbd423f589b643653dd98630">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; <a class="code hl_function" href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">getClassesToUcs</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// Setter functions</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">setId</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classStudent.html#a489c963162c2b5798154a3217815cfc8">setName</a>(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">setClassesToUcs</a>(std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; ClassesToUcs_);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Quality of life functions</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classStudent.html#a107a186e7c91bdf1e4d48e15301d6b17">sort</a>(std::vector&lt;Student&gt;&amp; students);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classStudent.html#a6b6970ce12ac3c5a33f8d4b46c9bf383">compareStudentsByID</a>(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student1, <span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student2);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// Operators overload</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classStudent.html#a8ed21df54035f4067179661924875aac">operator &gt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classStudent.html#a44b0dc0efbc95f687706f28363e897db">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classStudent.html#a8f7c31ed0e331481ac58f12b2e822047">operator ==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">static</span> std::pair&lt;Student, std::vector&lt;UC&gt;&gt; <a class="code hl_function" href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">populateScheduleStudent</a>(<a class="code hl_class" href="classStudent.html">Student</a>&amp; student, <span class="keyword">const</span> std::vector&lt;UC&gt;&amp; allUCs);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a> {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01Student_01_4.html">  103</a></span>    <span class="keyword">struct </span>hash&lt;<a class="code hl_class" href="classStudent.html">Student</a>&gt; {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01Student_01_4.html#a65a8636216209067ebb7a24b0a4b7ae1">  108</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="structstd_1_1hash_3_01Student_01_4.html#a65a8636216209067ebb7a24b0a4b7ae1">operator()</a>(<span class="keyword">const</span> <a class="code hl_class" href="classStudent.html">Student</a>&amp; student)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordtype">size_t</span> nameHash = std::hash&lt;std::string&gt;{}(student.<a class="code hl_function" href="classStudent.html#acc849acfcbd423f589b643653dd98630">getName</a>());</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">return</span> nameHash; <span class="comment">// Combine the hashes appropriately</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    };</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif </span><span class="comment">//PROJETO__STUDENT_H</span></div>
+<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdoc">Represents a student with an ID, name, and a list of classes to UCs.</div><div class="ttdef"><b>Definition:</b> Student.h:15</div></div>
+<div class="ttc" id="aclassStudent_html_a107a186e7c91bdf1e4d48e15301d6b17"><div class="ttname"><a href="classStudent.html#a107a186e7c91bdf1e4d48e15301d6b17">Student::sort</a></div><div class="ttdeci">static void sort(std::vector&lt; Student &gt; &amp;students)</div><div class="ttdoc">Sort a vector of students.</div><div class="ttdef"><b>Definition:</b> Student.cpp:96</div></div>
+<div class="ttc" id="aclassStudent_html_a10a87a766d0de17564c9a958fa10b7d8"><div class="ttname"><a href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">Student::getId</a></div><div class="ttdeci">int getId() const</div><div class="ttdoc">Get the student's ID.</div><div class="ttdef"><b>Definition:</b> Student.cpp:20</div></div>
+<div class="ttc" id="aclassStudent_html_a44b0dc0efbc95f687706f28363e897db"><div class="ttname"><a href="classStudent.html#a44b0dc0efbc95f687706f28363e897db">Student::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Student &amp;other) const</div><div class="ttdoc">Compare students by their ID (less than).</div><div class="ttdef"><b>Definition:</b> Student.cpp:78</div></div>
+<div class="ttc" id="aclassStudent_html_a4812ef0ffcd3dbe54786d14fd919c110"><div class="ttname"><a href="classStudent.html#a4812ef0ffcd3dbe54786d14fd919c110">Student::getClassesToUcs</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; getClassesToUcs() const</div><div class="ttdoc">Get the list of classes to UCs for the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:36</div></div>
+<div class="ttc" id="aclassStudent_html_a489c963162c2b5798154a3217815cfc8"><div class="ttname"><a href="classStudent.html#a489c963162c2b5798154a3217815cfc8">Student::setName</a></div><div class="ttdeci">void setName(const std::string &amp;name)</div><div class="ttdoc">Set the student's name.</div><div class="ttdef"><b>Definition:</b> Student.cpp:52</div></div>
+<div class="ttc" id="aclassStudent_html_a6b6970ce12ac3c5a33f8d4b46c9bf383"><div class="ttname"><a href="classStudent.html#a6b6970ce12ac3c5a33f8d4b46c9bf383">Student::compareStudentsByID</a></div><div class="ttdeci">static bool compareStudentsByID(const Student &amp;student1, const Student &amp;student2)</div><div class="ttdoc">Compare students by their ID.</div><div class="ttdef"><b>Definition:</b> Student.cpp:106</div></div>
+<div class="ttc" id="aclassStudent_html_a8ed21df54035f4067179661924875aac"><div class="ttname"><a href="classStudent.html#a8ed21df54035f4067179661924875aac">Student::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const Student &amp;other) const</div><div class="ttdoc">Compare students by their ID (greater than).</div><div class="ttdef"><b>Definition:</b> Student.cpp:69</div></div>
+<div class="ttc" id="aclassStudent_html_a8f7c31ed0e331481ac58f12b2e822047"><div class="ttname"><a href="classStudent.html#a8f7c31ed0e331481ac58f12b2e822047">Student::operator==</a></div><div class="ttdeci">bool operator==(const Student &amp;other) const</div><div class="ttdoc">Compare students by their name for equality.</div><div class="ttdef"><b>Definition:</b> Student.cpp:87</div></div>
+<div class="ttc" id="aclassStudent_html_a95c6a1e34ab4a97051dd74e8b485fc0d"><div class="ttname"><a href="classStudent.html#a95c6a1e34ab4a97051dd74e8b485fc0d">Student::populateScheduleStudent</a></div><div class="ttdeci">static std::pair&lt; Student, std::vector&lt; UC &gt; &gt; populateScheduleStudent(Student &amp;student, const std::vector&lt; UC &gt; &amp;allUCs)</div><div class="ttdoc">Populate the schedule for a student based on a list of UCs.</div><div class="ttdef"><b>Definition:</b> Student.cpp:117</div></div>
+<div class="ttc" id="aclassStudent_html_abba5d240dcfdcdaf3a030e3e1c4ad1f6"><div class="ttname"><a href="classStudent.html#abba5d240dcfdcdaf3a030e3e1c4ad1f6">Student::setId</a></div><div class="ttdeci">void setId(int id)</div><div class="ttdoc">Set the student's ID.</div><div class="ttdef"><b>Definition:</b> Student.cpp:44</div></div>
+<div class="ttc" id="aclassStudent_html_abe12dba1a8e14b9c844e9379660b1fb4"><div class="ttname"><a href="classStudent.html#abe12dba1a8e14b9c844e9379660b1fb4">Student::setClassesToUcs</a></div><div class="ttdeci">void setClassesToUcs(std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; ClassesToUcs_)</div><div class="ttdoc">Set the list of classes to UCs for the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:60</div></div>
+<div class="ttc" id="aclassStudent_html_acc849acfcbd423f589b643653dd98630"><div class="ttname"><a href="classStudent.html#acc849acfcbd423f589b643653dd98630">Student::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Get the student's name.</div><div class="ttdef"><b>Definition:</b> Student.cpp:28</div></div>
+<div class="ttc" id="aclassStudent_html_af9168cedbfa5565cf0b20c1a9d3f5c9d"><div class="ttname"><a href="classStudent.html#af9168cedbfa5565cf0b20c1a9d3f5c9d">Student::Student</a></div><div class="ttdeci">Student()</div><div class="ttdoc">Default constructor for the Student class.</div><div class="ttdef"><b>Definition:</b> Student.cpp:6</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Template specialization for the std::hash template for the pair&lt;string, string&gt; type.</div><div class="ttdef"><b>Definition:</b> Class.h:34</div></div>
+<div class="ttc" id="astdafx_8h_html"><div class="ttname"><a href="stdafx_8h.html">stdafx.h</a></div><div class="ttdoc">This file was created by jose-costa on 10/11/23.</div></div>
+<div class="ttc" id="astructstd_1_1hash_3_01Student_01_4_html_a65a8636216209067ebb7a24b0a4b7ae1"><div class="ttname"><a href="structstd_1_1hash_3_01Student_01_4.html#a65a8636216209067ebb7a24b0a4b7ae1">std::hash&lt; Student &gt;::operator()</a></div><div class="ttdeci">size_t operator()(const Student &amp;student) const</div><div class="ttdef"><b>Definition:</b> Student.h:108</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

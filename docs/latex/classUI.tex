@@ -1,59 +1,238 @@
 \hypertarget{classUI}{}\doxysection{UI Class Reference}
 \label{classUI}\index{UI@{UI}}
+
+
+Represents the user interface for a scheduling application.  
+
+
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classUI_aa4f5f0000b864a5019c797b8a7da8891}\label{classUI_aa4f5f0000b864a5019c797b8a7da8891}} 
-void {\bfseries menu\+\_\+start} ()
-\item 
-\mbox{\Hypertarget{classUI_a714a37099eb62189e2b5b188812ea528}\label{classUI_a714a37099eb62189e2b5b188812ea528}} 
-void {\bfseries menu\+\_\+options} ()
-\item 
-\mbox{\Hypertarget{classUI_a02e787aab160b39beb05a3d5e2ebb978}\label{classUI_a02e787aab160b39beb05a3d5e2ebb978}} 
-void {\bfseries menu\+\_\+schedule} ()
-\item 
-\mbox{\Hypertarget{classUI_a19639c490c34c5b0c66684c2670b7076}\label{classUI_a19639c490c34c5b0c66684c2670b7076}} 
-void {\bfseries loading\+\_\+stuff} (\mbox{\hyperlink{classUI}{UI}} \&ui)
-\item 
-\mbox{\Hypertarget{classUI_afda26096b6e8aad1900f1f615062bf41}\label{classUI_afda26096b6e8aad1900f1f615062bf41}} 
-void {\bfseries menu\+\_\+students} ()
-\item 
-\mbox{\Hypertarget{classUI_ac65689299b91ef5c57fa34f296f320b6}\label{classUI_ac65689299b91ef5c57fa34f296f320b6}} 
-void {\bfseries menu\+\_\+students\+In\+Nucs} ()
-\item 
-\mbox{\Hypertarget{classUI_a13496ec3952c662e2c66daa4b569b334}\label{classUI_a13496ec3952c662e2c66daa4b569b334}} 
-void {\bfseries menu\+\_\+occupation} ()
-\item 
-\mbox{\Hypertarget{classUI_a98034249100c10d805fd3b2e2046a17d}\label{classUI_a98034249100c10d805fd3b2e2046a17d}} 
-void {\bfseries menu\+\_\+requests} ()
-\item 
-\mbox{\Hypertarget{classUI_a04ff601f203ef93e9c7e8bc6fc336383}\label{classUI_a04ff601f203ef93e9c7e8bc6fc336383}} 
-void {\bfseries process\+\_\+requets} (std\+::vector$<$ std\+::variant$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{classUC}{UC}}, char $>$ $>$ requests\+\_\+)
-\item 
-\mbox{\Hypertarget{classUI_a613135755e724e1816cb79236f19dcfc}\label{classUI_a613135755e724e1816cb79236f19dcfc}} 
-void {\bfseries menu\+\_\+requets} ()
-\item 
-\mbox{\Hypertarget{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}\label{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}} 
-void {\bfseries save\+\_\+global\+\_\+alterations} ()
-\item 
-\mbox{\Hypertarget{classUI_a48f213a828a36ae8ffd66170237d26d5}\label{classUI_a48f213a828a36ae8ffd66170237d26d5}} 
-void {\bfseries restore\+\_\+changes} ()
-\item 
-\mbox{\Hypertarget{classUI_ae19989dbb7be6511fb9ecf58e70b7125}\label{classUI_ae19989dbb7be6511fb9ecf58e70b7125}} 
-void {\bfseries write\+\_\+down} ()
-\item 
-\mbox{\Hypertarget{classUI_a83fba9739cde5eda8391c2020ab3dcff}\label{classUI_a83fba9739cde5eda8391c2020ab3dcff}} 
-bool {\bfseries validate\+\_\+input} (char \&op, const char lower\+\_\+bound, const char upper\+\_\+bound)
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classUI_a675985a56b5e87ebdc8e5884b9f2ee09}\label{classUI_a675985a56b5e87ebdc8e5884b9f2ee09}} 
+{\bfseries UI} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{classUI}{UI}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_aa4f5f0000b864a5019c797b8a7da8891}{menu\+\_\+start}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu and handles user interactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a714a37099eb62189e2b5b188812ea528}{menu\+\_\+options}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main options menu for the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a02e787aab160b39beb05a3d5e2ebb978}{menu\+\_\+schedule}} ()
+\begin{DoxyCompactList}\small\item\em Displays the schedule-\/related menu and allows users to interact with schedules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a19639c490c34c5b0c66684c2670b7076}{loading\+\_\+stuff}} (\mbox{\hyperlink{classUI}{UI}} \&ui)
+\begin{DoxyCompactList}\small\item\em Performs loading operations for \mbox{\hyperlink{classUI}{UI}} and related components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_afda26096b6e8aad1900f1f615062bf41}{menu\+\_\+students}} ()
+\begin{DoxyCompactList}\small\item\em Displays the menu for managing students. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_ac65689299b91ef5c57fa34f296f320b6}{menu\+\_\+students\+In\+Nucs}} ()
+\begin{DoxyCompactList}\small\item\em Displays the menu for managing students in specific UCs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a13496ec3952c662e2c66daa4b569b334}{menu\+\_\+occupation}} ()
+\begin{DoxyCompactList}\small\item\em Displays the menu for managing occupation-\/related data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a98034249100c10d805fd3b2e2046a17d}{menu\+\_\+requests}} ()
+\begin{DoxyCompactList}\small\item\em Displays and manages user requests for changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a300a62d05332e65796669665890b3a75}{process\+\_\+requests}} (std\+::vector$<$ std\+::variant$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{classUC}{UC}}, char $>$ $>$ \mbox{\hyperlink{classUI_a877cefd1bd3bbf720569a6cfb625d352}{requests\+\_\+}})
+\begin{DoxyCompactList}\small\item\em Processes user requests for changes based on a given list of requests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a877cefd1bd3bbf720569a6cfb625d352}{requests\+\_\+}} ()
+\begin{DoxyCompactList}\small\item\em Placeholder for a method named requests\+\_\+ (Note\+: The method name contains a trailing underscore). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}{save\+\_\+global\+\_\+alterations}} ()
+\begin{DoxyCompactList}\small\item\em Saves global alterations made to the scheduling application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUI_a48f213a828a36ae8ffd66170237d26d5}{restore\+\_\+changes}} ()
+\begin{DoxyCompactList}\small\item\em Restores previous changes made to the scheduling application. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUI_a83fba9739cde5eda8391c2020ab3dcff}{validate\+\_\+input}} (char \&op, const char lower\+\_\+bound, const char upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Validates user input within a specified range. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static void \mbox{\hyperlink{classUI_a298d81ef3106436a00bed98330d4c5a8}{clear\+\_\+screen}} ()
+\begin{DoxyCompactList}\small\item\em Static function for clearing the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the user interface for a scheduling application. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classUI_a298d81ef3106436a00bed98330d4c5a8}\label{classUI_a298d81ef3106436a00bed98330d4c5a8}} 
-static void {\bfseries clear\+\_\+screen} ()
-\end{DoxyCompactItemize}
+\index{UI@{UI}!clear\_screen@{clear\_screen}}
+\index{clear\_screen@{clear\_screen}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{clear\_screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void UI\+::clear\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static function for clearing the screen. 
+
+Clear the screen by printing multiple newline characters. \mbox{\Hypertarget{classUI_a19639c490c34c5b0c66684c2670b7076}\label{classUI_a19639c490c34c5b0c66684c2670b7076}} 
+\index{UI@{UI}!loading\_stuff@{loading\_stuff}}
+\index{loading\_stuff@{loading\_stuff}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{loading\_stuff()}{loading\_stuff()}}
+{\footnotesize\ttfamily void UI\+::loading\+\_\+stuff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUI}{UI}} \&}]{ui }\end{DoxyParamCaption})}
+
+
+
+Performs loading operations for \mbox{\hyperlink{classUI}{UI}} and related components. 
+
+Load necessary data and initialize schedules.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & A reference to the \mbox{\hyperlink{classUI}{UI}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUI_a13496ec3952c662e2c66daa4b569b334}\label{classUI_a13496ec3952c662e2c66daa4b569b334}} 
+\index{UI@{UI}!menu\_occupation@{menu\_occupation}}
+\index{menu\_occupation@{menu\_occupation}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_occupation()}{menu\_occupation()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+occupation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the menu for managing occupation-\/related data. 
+
+Display the occupation menu and handle occupation-\/related queries. \mbox{\Hypertarget{classUI_a714a37099eb62189e2b5b188812ea528}\label{classUI_a714a37099eb62189e2b5b188812ea528}} 
+\index{UI@{UI}!menu\_options@{menu\_options}}
+\index{menu\_options@{menu\_options}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_options()}{menu\_options()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main options menu for the application. 
+
+Display the menu for various application options. \mbox{\Hypertarget{classUI_a98034249100c10d805fd3b2e2046a17d}\label{classUI_a98034249100c10d805fd3b2e2046a17d}} 
+\index{UI@{UI}!menu\_requests@{menu\_requests}}
+\index{menu\_requests@{menu\_requests}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_requests()}{menu\_requests()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+requests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays and manages user requests for changes. 
+
+Display the requests menu and handle user requests for making changes. \mbox{\Hypertarget{classUI_a02e787aab160b39beb05a3d5e2ebb978}\label{classUI_a02e787aab160b39beb05a3d5e2ebb978}} 
+\index{UI@{UI}!menu\_schedule@{menu\_schedule}}
+\index{menu\_schedule@{menu\_schedule}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_schedule()}{menu\_schedule()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the schedule-\/related menu and allows users to interact with schedules. 
+
+Display the schedule menu and handle schedule consultations. \mbox{\Hypertarget{classUI_aa4f5f0000b864a5019c797b8a7da8891}\label{classUI_aa4f5f0000b864a5019c797b8a7da8891}} 
+\index{UI@{UI}!menu\_start@{menu\_start}}
+\index{menu\_start@{menu\_start}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_start()}{menu\_start()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and handles user interactions. 
+
+Display the initial menu when starting the application. \mbox{\Hypertarget{classUI_afda26096b6e8aad1900f1f615062bf41}\label{classUI_afda26096b6e8aad1900f1f615062bf41}} 
+\index{UI@{UI}!menu\_students@{menu\_students}}
+\index{menu\_students@{menu\_students}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_students()}{menu\_students()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the menu for managing students. 
+
+Display the students menu and handle student-\/related queries. \mbox{\Hypertarget{classUI_ac65689299b91ef5c57fa34f296f320b6}\label{classUI_ac65689299b91ef5c57fa34f296f320b6}} 
+\index{UI@{UI}!menu\_studentsInNucs@{menu\_studentsInNucs}}
+\index{menu\_studentsInNucs@{menu\_studentsInNucs}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{menu\_studentsInNucs()}{menu\_studentsInNucs()}}
+{\footnotesize\ttfamily void UI\+::menu\+\_\+students\+In\+Nucs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the menu for managing students in specific UCs. 
+
+Display the menu to query students with a minimum number of registered UCs. \mbox{\Hypertarget{classUI_a300a62d05332e65796669665890b3a75}\label{classUI_a300a62d05332e65796669665890b3a75}} 
+\index{UI@{UI}!process\_requests@{process\_requests}}
+\index{process\_requests@{process\_requests}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{process\_requests()}{process\_requests()}}
+{\footnotesize\ttfamily void UI\+::process\+\_\+requests (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::variant$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{classUC}{UC}}, char $>$ $>$}]{requests\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Processes user requests for changes based on a given list of requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em requests\+\_\+} & A list of variant objects representing requests. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUI_a877cefd1bd3bbf720569a6cfb625d352}\label{classUI_a877cefd1bd3bbf720569a6cfb625d352}} 
+\index{UI@{UI}!requests\_@{requests\_}}
+\index{requests\_@{requests\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{requests\_()}{requests\_()}}
+{\footnotesize\ttfamily void UI\+::requests\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Placeholder for a method named requests\+\_\+ (Note\+: The method name contains a trailing underscore). 
+
+Display a menu for managing pending requests. The menu provides options to view the number of pending requests, process individual requests, process all pending requests, clear requests, and return to the main menu. Users can select from these options by inputting a number. \mbox{\Hypertarget{classUI_a48f213a828a36ae8ffd66170237d26d5}\label{classUI_a48f213a828a36ae8ffd66170237d26d5}} 
+\index{UI@{UI}!restore\_changes@{restore\_changes}}
+\index{restore\_changes@{restore\_changes}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{restore\_changes()}{restore\_changes()}}
+{\footnotesize\ttfamily void UI\+::restore\+\_\+changes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restores previous changes made to the scheduling application. 
+
+Restore changes from the list of stored backups. The user selects a change to restore from the list of stored backups. \mbox{\Hypertarget{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}\label{classUI_a9d8d309d4b8902a40d28a2e4b18215b5}} 
+\index{UI@{UI}!save\_global\_alterations@{save\_global\_alterations}}
+\index{save\_global\_alterations@{save\_global\_alterations}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{save\_global\_alterations()}{save\_global\_alterations()}}
+{\footnotesize\ttfamily void UI\+::save\+\_\+global\+\_\+alterations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saves global alterations made to the scheduling application. 
+
+Save global alterations to a CSV file. The CSV file includes student information along with UCs and classes they are assigned to. The file format is \char`\"{}\+Student\+Code, Student\+Name, Uc\+Code, Class\+Code\char`\"{}. \mbox{\Hypertarget{classUI_a83fba9739cde5eda8391c2020ab3dcff}\label{classUI_a83fba9739cde5eda8391c2020ab3dcff}} 
+\index{UI@{UI}!validate\_input@{validate\_input}}
+\index{validate\_input@{validate\_input}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{validate\_input()}{validate\_input()}}
+{\footnotesize\ttfamily bool UI\+::validate\+\_\+input (\begin{DoxyParamCaption}\item[{char \&}]{op,  }\item[{const char}]{lower\+\_\+bound,  }\item[{const char}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Validates user input within a specified range. 
+
+Validate and get user input within a specified range.
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & A character variable to validate. \\
+\hline
+{\em lower\+\_\+bound} & The lower bound of the valid range. \\
+\hline
+{\em upper\+\_\+bound} & The upper bound of the valid range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the input is valid, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em op} & Reference to the input character. \\
+\hline
+{\em lower\+\_\+bound} & The lower bound for valid options. \\
+\hline
+{\em upper\+\_\+bound} & The upper bound for valid options. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if input is valid, otherwise false. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/UI.\+h\item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/UI.\+cpp\end{DoxyCompactItemize}
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/\mbox{\hyperlink{UI_8h}{UI.\+h}}\item 
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/UI.\+cpp\end{DoxyCompactItemize}

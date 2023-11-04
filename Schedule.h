@@ -44,7 +44,7 @@ private:
     /**
      * @brief A constant integer representing the maximum capacity.
      */
-    const int MAX_CAP = 30;  ///< Maximum capacity constant.
+    int MAX_CAP = 30;  ///< Maximum capacity.
 
 public:
     // Constructor that takes a vector of UC objects as a pointer

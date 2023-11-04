@@ -1,50 +1,301 @@
 \hypertarget{classUC}{}\doxysection{UC Class Reference}
 \label{classUC}\index{UC@{UC}}
+
+
+Represents a University Course (\mbox{\hyperlink{classUC}{UC}}) with its code, type, respective class, and date information.  
+
+
+
+
+{\ttfamily \#include $<$UC.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classUC_a0e63a9571a9c38dbe323d108f7665c3a}\label{classUC_a0e63a9571a9c38dbe323d108f7665c3a}} 
-{\bfseries UC} (const std\+::string \&uc\+Code, const std\+::string \&type, const std\+::string \&respective\+Class, int occupation, const \mbox{\hyperlink{structDate}{Date}} \&date)
-\item 
-\mbox{\Hypertarget{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}\label{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}} 
-const std\+::string \& {\bfseries get\+Uc\+Code} () const
-\item 
-\mbox{\Hypertarget{classUC_a2c2d9d6865f35fe30f2169af3400649b}\label{classUC_a2c2d9d6865f35fe30f2169af3400649b}} 
-const std\+::string \& {\bfseries get\+Type} () const
-\item 
-\mbox{\Hypertarget{classUC_a763553e1d3b429549a9a3b11ae7340ff}\label{classUC_a763553e1d3b429549a9a3b11ae7340ff}} 
-const std\+::string \& {\bfseries get\+Respective\+Class} () const
-\item 
+\mbox{\hyperlink{classUC_a8a5e0317c98de9e04ad84157af5684a1}{UC}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{classUC}{UC}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUC_a0e63a9571a9c38dbe323d108f7665c3a}{UC}} (const std\+::string \&uc\+Code, const std\+::string \&type, const std\+::string \&respective\+Class, int occupation, const \mbox{\hyperlink{structDate}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor for the \mbox{\hyperlink{classUC}{UC}} class. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}{get\+Uc\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Get the code of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classUC_a2c2d9d6865f35fe30f2169af3400649b}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the type of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classUC_a763553e1d3b429549a9a3b11ae7340ff}{get\+Respective\+Class}} () const
+\begin{DoxyCompactList}\small\item\em Get the respective class of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structDate}{Date}} \& \mbox{\hyperlink{classUC_ac30bc3b3a9d39481975db066df8978c6}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Get the date associated with the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUC_aef1c24abe1e42290e8055922c7f5a622}{set\+Uc\+Code}} (const std\+::string \&uc\+Code)
+\begin{DoxyCompactList}\small\item\em Set the code of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUC_a998029229f1ab097fd2fa0dd03fc7303}{set\+Type}} (const std\+::string \&type)
+\begin{DoxyCompactList}\small\item\em Set the type of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUC_ace438f946d66f3830c99f60e81fe5406}{set\+Respective\+Class}} (const std\+::string \&respective\+Class)
+\begin{DoxyCompactList}\small\item\em Set the respective class of the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUC_aaefe338215e1f324c7b2a3da53296aa1}{set\+Date}} (const \mbox{\hyperlink{structDate}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em Set the date associated with the \mbox{\hyperlink{classUC}{UC}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUC_aa5530464ab587ef1128dbb19e8e755d6}{has\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classUC}{UC}} has a value (non-\/empty fields). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUC_aa3ec50784b4a5ccca8fe0155989bfd73}{operator$<$}} (const \mbox{\hyperlink{classUC}{UC}} other) const
+\begin{DoxyCompactList}\small\item\em Compare this \mbox{\hyperlink{classUC}{UC}} with another \mbox{\hyperlink{classUC}{UC}} (less than). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUC_a496792dafadf1d92321214d6016e4d24}{operator==}} (const \mbox{\hyperlink{classUC}{UC}} other) const
+\begin{DoxyCompactList}\small\item\em Compare this \mbox{\hyperlink{classUC}{UC}} with another \mbox{\hyperlink{classUC}{UC}} for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUC_a3815e144a927dfb64f310a992423f7c6}{operator=}} (const \mbox{\hyperlink{classUC}{UC}} other)
+\begin{DoxyCompactList}\small\item\em Assignment operator for \mbox{\hyperlink{classUC}{UC}} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a University Course (\mbox{\hyperlink{classUC}{UC}}) with its code, type, respective class, and date information. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUC_a8a5e0317c98de9e04ad84157af5684a1}\label{classUC_a8a5e0317c98de9e04ad84157af5684a1}} 
+\index{UC@{UC}!UC@{UC}}
+\index{UC@{UC}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{UC()}{UC()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily UC\+::\+UC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \mbox{\hyperlink{classUC}{UC}} class. 
+
+Default constructor for the \mbox{\hyperlink{classUC}{UC}} class. Initializes all fields to empty values. \mbox{\Hypertarget{classUC_a0e63a9571a9c38dbe323d108f7665c3a}\label{classUC_a0e63a9571a9c38dbe323d108f7665c3a}} 
+\index{UC@{UC}!UC@{UC}}
+\index{UC@{UC}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{UC()}{UC()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily UC\+::\+UC (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Code,  }\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{respective\+Class,  }\item[{int}]{occupation,  }\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor for the \mbox{\hyperlink{classUC}{UC}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code} & The code of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+{\em type} & The type of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+{\em respective\+Class} & The respective class of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+{\em date} & The date associated with the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classUC_ac30bc3b3a9d39481975db066df8978c6}\label{classUC_ac30bc3b3a9d39481975db066df8978c6}} 
-const \mbox{\hyperlink{structDate}{Date}} \& {\bfseries get\+Date} () const
-\item 
-\mbox{\Hypertarget{classUC_aef1c24abe1e42290e8055922c7f5a622}\label{classUC_aef1c24abe1e42290e8055922c7f5a622}} 
-void {\bfseries set\+Uc\+Code} (const std\+::string \&uc\+Code)
-\item 
-\mbox{\Hypertarget{classUC_a998029229f1ab097fd2fa0dd03fc7303}\label{classUC_a998029229f1ab097fd2fa0dd03fc7303}} 
-void {\bfseries set\+Type} (const std\+::string \&type)
-\item 
-\mbox{\Hypertarget{classUC_ace438f946d66f3830c99f60e81fe5406}\label{classUC_ace438f946d66f3830c99f60e81fe5406}} 
-void {\bfseries set\+Respective\+Class} (const std\+::string \&respective\+Class)
-\item 
-\mbox{\Hypertarget{classUC_aaefe338215e1f324c7b2a3da53296aa1}\label{classUC_aaefe338215e1f324c7b2a3da53296aa1}} 
-void {\bfseries set\+Date} (const \mbox{\hyperlink{structDate}{Date}} \&date)
-\item 
+\index{UC@{UC}!getDate@{getDate}}
+\index{getDate@{getDate}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structDate}{Date}} \& UC\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the date associated with the \mbox{\hyperlink{classUC}{UC}}. 
+
+\begin{DoxyReturn}{Returns}
+The date associated with the \mbox{\hyperlink{classUC}{UC}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUC_a763553e1d3b429549a9a3b11ae7340ff}\label{classUC_a763553e1d3b429549a9a3b11ae7340ff}} 
+\index{UC@{UC}!getRespectiveClass@{getRespectiveClass}}
+\index{getRespectiveClass@{getRespectiveClass}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{getRespectiveClass()}{getRespectiveClass()}}
+{\footnotesize\ttfamily const std\+::string \& UC\+::get\+Respective\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the respective class of the \mbox{\hyperlink{classUC}{UC}}. 
+
+\begin{DoxyReturn}{Returns}
+The respective class of the \mbox{\hyperlink{classUC}{UC}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUC_a2c2d9d6865f35fe30f2169af3400649b}\label{classUC_a2c2d9d6865f35fe30f2169af3400649b}} 
+\index{UC@{UC}!getType@{getType}}
+\index{getType@{getType}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily const std\+::string \& UC\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the type of the \mbox{\hyperlink{classUC}{UC}}. 
+
+\begin{DoxyReturn}{Returns}
+The type of the \mbox{\hyperlink{classUC}{UC}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}\label{classUC_a418e02baf5d6ff78d95e20b3bf6c9ee3}} 
+\index{UC@{UC}!getUcCode@{getUcCode}}
+\index{getUcCode@{getUcCode}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{getUcCode()}{getUcCode()}}
+{\footnotesize\ttfamily const std\+::string \& UC\+::get\+Uc\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the code of the \mbox{\hyperlink{classUC}{UC}}. 
+
+\begin{DoxyReturn}{Returns}
+The code of the \mbox{\hyperlink{classUC}{UC}}. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUC_aa5530464ab587ef1128dbb19e8e755d6}\label{classUC_aa5530464ab587ef1128dbb19e8e755d6}} 
-bool {\bfseries has\+Value} ()
-\item 
+\index{UC@{UC}!hasValue@{hasValue}}
+\index{hasValue@{hasValue}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{hasValue()}{hasValue()}}
+{\footnotesize\ttfamily bool UC\+::has\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the \mbox{\hyperlink{classUC}{UC}} has a value (non-\/empty fields). 
+
+Check if the \mbox{\hyperlink{classUC}{UC}} has a value (non-\/empty code).
+
+\begin{DoxyReturn}{Returns}
+True if the \mbox{\hyperlink{classUC}{UC}} has a value, otherwise false. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUC_aa3ec50784b4a5ccca8fe0155989bfd73}\label{classUC_aa3ec50784b4a5ccca8fe0155989bfd73}} 
-bool {\bfseries operator$<$} (const \mbox{\hyperlink{classUC}{UC}} other) const
-\item 
-\mbox{\Hypertarget{classUC_a496792dafadf1d92321214d6016e4d24}\label{classUC_a496792dafadf1d92321214d6016e4d24}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classUC}{UC}} other) const
-\item 
+\index{UC@{UC}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool UC\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUC}{UC}}}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare this \mbox{\hyperlink{classUC}{UC}} with another \mbox{\hyperlink{classUC}{UC}} (less than). 
+
+Compare this \mbox{\hyperlink{classUC}{UC}} with another \mbox{\hyperlink{classUC}{UC}} (less than) based on their Date\+\_\+ field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{classUC}{UC}} is less than the other \mbox{\hyperlink{classUC}{UC}}, otherwise false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{classUC}{UC}}\textquotesingle{}s Date\+\_\+ is less than the other \mbox{\hyperlink{classUC}{UC}}\textquotesingle{}s Date\+\_\+, otherwise false. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The time complexity for this comparison is O(1). 
+\end{DoxyNote}
 \mbox{\Hypertarget{classUC_a3815e144a927dfb64f310a992423f7c6}\label{classUC_a3815e144a927dfb64f310a992423f7c6}} 
-bool {\bfseries operator=} (const \mbox{\hyperlink{classUC}{UC}} other)
-\end{DoxyCompactItemize}
+\index{UC@{UC}!operator=@{operator=}}
+\index{operator=@{operator=}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily bool UC\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUC}{UC}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Assignment operator for \mbox{\hyperlink{classUC}{UC}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \mbox{\hyperlink{classUC}{UC}} after assignment.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The time complexity for this assignment is O(1). 
+\end{DoxyNote}
+\mbox{\Hypertarget{classUC_a496792dafadf1d92321214d6016e4d24}\label{classUC_a496792dafadf1d92321214d6016e4d24}} 
+\index{UC@{UC}!operator==@{operator==}}
+\index{operator==@{operator==}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool UC\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUC}{UC}}}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare this \mbox{\hyperlink{classUC}{UC}} with another \mbox{\hyperlink{classUC}{UC}} for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{classUC}{UC}} is equal to the other \mbox{\hyperlink{classUC}{UC}}, otherwise false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classUC}{UC}} to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{classUC}{UC}}\textquotesingle{}s code, type, and respective class are equal to the other \mbox{\hyperlink{classUC}{UC}}\textquotesingle{}s, otherwise false. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The time complexity for this comparison is O(1). 
+\end{DoxyNote}
+\mbox{\Hypertarget{classUC_aaefe338215e1f324c7b2a3da53296aa1}\label{classUC_aaefe338215e1f324c7b2a3da53296aa1}} 
+\index{UC@{UC}!setDate@{setDate}}
+\index{setDate@{setDate}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void UC\+::set\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
+
+
+
+Set the date associated with the \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date associated with the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUC_ace438f946d66f3830c99f60e81fe5406}\label{classUC_ace438f946d66f3830c99f60e81fe5406}} 
+\index{UC@{UC}!setRespectiveClass@{setRespectiveClass}}
+\index{setRespectiveClass@{setRespectiveClass}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{setRespectiveClass()}{setRespectiveClass()}}
+{\footnotesize\ttfamily void UC\+::set\+Respective\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{respective\+Class }\end{DoxyParamCaption})}
+
+
+
+Set the respective class of the \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em respective\+Class} & The respective class of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUC_a998029229f1ab097fd2fa0dd03fc7303}\label{classUC_a998029229f1ab097fd2fa0dd03fc7303}} 
+\index{UC@{UC}!setType@{setType}}
+\index{setType@{setType}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void UC\+::set\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type }\end{DoxyParamCaption})}
+
+
+
+Set the type of the \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUC_aef1c24abe1e42290e8055922c7f5a622}\label{classUC_aef1c24abe1e42290e8055922c7f5a622}} 
+\index{UC@{UC}!setUcCode@{setUcCode}}
+\index{setUcCode@{setUcCode}!UC@{UC}}
+\doxysubsubsection{\texorpdfstring{setUcCode()}{setUcCode()}}
+{\footnotesize\ttfamily void UC\+::set\+Uc\+Code (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Code }\end{DoxyParamCaption})}
+
+
+
+Set the code of the \mbox{\hyperlink{classUC}{UC}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code} & The code of the \mbox{\hyperlink{classUC}{UC}}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/UC.\+h\item 
-/home/angelo/\+Downloads/\+Universidade/\+Algoritmo e Estrutura de Dados/\+Projeto\+\_\+\+AED/UC.\+cpp\end{DoxyCompactItemize}
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/UC.\+h\item 
+/home/jose-\/costa/\+Documents/\+Uni/\+AED/\+Projeto/UC.\+cpp\end{DoxyCompactItemize}

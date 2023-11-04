@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SCHEDULE Project: /home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Schedule.h Source File</title>
+<title>SCHEDULE Project: /home/jose-costa/Documents/Uni/AED/Projeto/Schedule.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,13 +62,13 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">/home/angelo/Downloads/Universidade/Algoritmo e Estrutura de Dados/Projeto_AED/Schedule.h</div></div>
+  <div class="headertitle"><div class="title">/home/jose-costa/Documents/Uni/AED/Projeto/Schedule.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETO_SCHECULE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETO_SCHECULE_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;stdafx.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">stdafx.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classSchedule.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classSchedule.html">Schedule</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
@@ -86,7 +86,7 @@ $(function() {
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">int</span> Balance;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_CAP = 30;  </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> MAX_CAP = 30;  </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// Constructor that takes a vector of UC objects as a pointer</span></div>
@@ -161,9 +161,10 @@ $(function() {
 <div class="ttc" id="aclassSchedule_html_af6f8dfd8addc95b2cc5040eabc95b1c8"><div class="ttname"><a href="classSchedule.html#af6f8dfd8addc95b2cc5040eabc95b1c8">Schedule::setUcOcupation</a></div><div class="ttdeci">void setUcOcupation(unordered_map&lt; pair&lt; basic_string&lt; char &gt;, basic_string&lt; char &gt; &gt;, int, PairHash &gt; UcOcupation_)</div><div class="ttdoc">Set the UC occupation.</div><div class="ttdef"><b>Definition:</b> Schedule.cpp:90</div></div>
 <div class="ttc" id="aclassSchedule_html_af7149daf500bd72a6bebc4d6da42c4b0"><div class="ttname"><a href="classSchedule.html#af7149daf500bd72a6bebc4d6da42c4b0">Schedule::RemoveClass</a></div><div class="ttdeci">void RemoveClass(Student student1, UC &amp;uc)</div><div class="ttdoc">Removes a class from a student's schedule, setting all remaining UCs class to &quot;EMPTY&quot;.</div><div class="ttdef"><b>Definition:</b> Schedule.cpp:488</div></div>
 <div class="ttc" id="aclassSchedule_html_affc30a6862d88534734019bf1ff93b0b"><div class="ttname"><a href="classSchedule.html#affc30a6862d88534734019bf1ff93b0b">Schedule::AddUC</a></div><div class="ttdeci">void AddUC(Student student1, UC new_uc)</div><div class="ttdoc">Adds a new UC to a student's schedule.</div><div class="ttdef"><b>Definition:</b> Schedule.cpp:425</div></div>
-<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:10</div></div>
-<div class="ttc" id="aclassUC_html"><div class="ttname"><a href="classUC.html">UC</a></div><div class="ttdef"><b>Definition:</b> UC.h:7</div></div>
-<div class="ttc" id="astructPairHash_html"><div class="ttname"><a href="structPairHash.html">PairHash</a></div><div class="ttdef"><b>Definition:</b> stdafx.h:34</div></div>
+<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdoc">Represents a student with an ID, name, and a list of classes to UCs.</div><div class="ttdef"><b>Definition:</b> Student.h:15</div></div>
+<div class="ttc" id="aclassUC_html"><div class="ttname"><a href="classUC.html">UC</a></div><div class="ttdoc">Represents a University Course (UC) with its code, type, respective class, and date information.</div><div class="ttdef"><b>Definition:</b> UC.h:11</div></div>
+<div class="ttc" id="astdafx_8h_html"><div class="ttname"><a href="stdafx_8h.html">stdafx.h</a></div><div class="ttdoc">This file was created by jose-costa on 10/11/23.</div></div>
+<div class="ttc" id="astructPairHash_html"><div class="ttname"><a href="structPairHash.html">PairHash</a></div><div class="ttdoc">A hash function for std::pair objects.</div><div class="ttdef"><b>Definition:</b> stdafx.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

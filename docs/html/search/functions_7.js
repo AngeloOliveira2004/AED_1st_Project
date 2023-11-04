@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['populateschedule_0',['populateSchedule',['../classClass.html#a249e36dad5d0eeb032323325def3400a',1,'Class']]]
+  ['normalisestring_0',['NormaliseString',['../classLoadFiles.html#a4a5e17d0671960f28a47e284578ac836',1,'LoadFiles']]]
 ];
