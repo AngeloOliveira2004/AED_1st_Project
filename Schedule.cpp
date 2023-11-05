@@ -399,7 +399,13 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
         std::cout << "Balance Disrupted";
         return;
     }
-
+    for(auto uc : StudentSchedules[student1])
+    {
+        if(uc.getRespectiveClass() == old_uc.getRespectiveClass())
+        {
+            ClassAttendance[old_uc.getRespectiveClass()].insert(student1.getName());
+        }
+    }
 }
 
 /**
@@ -474,7 +480,13 @@ void Schedule::SwitchUc(Student student1, UC ex_uc, UC new_uc)
         }
     }
     StudentSchedules[student1] = tempV;
-
+    for(auto uc : StudentSchedules[student1])
+    {
+        if(uc.getRespectiveClass() == ex_uc.getRespectiveClass())
+        {
+            ClassAttendance[ex_uc.getRespectiveClass()].insert(student1.getName());
+        }
+    }
 }
 
 /**
