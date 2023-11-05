@@ -8,7 +8,7 @@ add_executable(
         stdafx.h
         Student.cpp
         Class.cpp
-        LoadFIles.cpp
+        LoadFiles.cpp
         Schedule.cpp
         UC.cpp
         UI.cpp
