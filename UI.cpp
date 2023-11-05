@@ -707,6 +707,12 @@ void UI::menu_requests() {
             cin >> class_code_new;
             cout << endl;
 
+            UC uc_func_new;
+            uc_func_new.setUcCode(UC_code_new);
+            uc_func_new.setRespectiveClass(class_code_new);
+
+            mySchedule.FindUC(uc_func_new);
+
             Student student_func;
             student_func.setName(student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
@@ -714,7 +720,7 @@ void UI::menu_requests() {
                 std::cout << "Error: Student not found." << std::endl;
                 menu_options();
             }
-            cout << "These are the available UCs: \n" ;
+            cout << endl << "These are the available UCs: \n" ;
 
             for(auto uc : it_student -> second)
             {
@@ -732,13 +738,7 @@ void UI::menu_requests() {
             uc_func.setRespectiveClass(class_code);
             uc_func.setUcCode(UC_code);
 
-            UC uc_func_new;
-            uc_func_new.setUcCode(UC_code_new);
-            uc_func_new.setRespectiveClass(class_code_new);
-
-
             student_func = it_student->first;
-            mySchedule.FindUC(uc_func_new);
 
             if(!uc_func.hasValue() || !uc_func_new.hasValue())
             {
@@ -750,8 +750,8 @@ void UI::menu_requests() {
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
             request.push_back(student_func);
-            request.push_back(uc_func);
             request.push_back(uc_func_new);
+            request.push_back(uc_func);
             requests.push_back(request);
             break;
         }

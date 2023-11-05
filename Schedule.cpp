@@ -409,10 +409,15 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
  * @param ex_uc The old UC from which to switch the UC.
  * @details Time Complexity: O(n), where n is the number of UCs in a Student's Schedule.
  */
-void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
+void Schedule::SwitchUc(Student student1, UC ex_uc, UC new_uc)
 {
     std::vector<UC> tempV;
     auto ucs_ = StudentSchedules[student1];
+    string debug1 = new_uc.getRespectiveClass();
+    string debug2 = new_uc.getUcCode();
+    string debug3 = ex_uc.getRespectiveClass();
+    string debug4 = ex_uc.getUcCode();
+
     if(FindStudentinSchedule(student1.getName()))
     {
         for(auto uc : StudentSchedules[student1])
