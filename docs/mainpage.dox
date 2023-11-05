@@ -1,12 +1,47 @@
-/*! \mainpage My Project Documentation
+/*! \mainpage Text-Based Terminal Schedule Manager
   *
-  * \tableofcontents
+  * This project is a simple terminal-based application used for managing schedules of LEIC students from FEUP.
   *
-  * \section intro_sec Introduction
-  * This program implements a simple Schedule maker/changer written in C++ with a terminal interface, develop by .José Costa , Ângelo OLiveira , Bernardo Sousa
-  * This program was developed as a project for the class AED
+  * ## Features
   *
+  * - Read and parse data from csv files and load it into optimized data structures
+  * - View student's/class' schedules.
+  * - Consult the student within a given class, course, or year.
+  * - Examine class/year/UC occupation (sorted in different ways).
+  * - Change student's Class/UC options.
+  * - Review processed requests.
+  * - Save alterations made to a schedule of a student.
   *
-  * \section install_sec Installation
-  * To use the program you can simply download it in this github link: https://github.com/JoseCostaUni/Projeto_AED
+  * ## Installation Guide:
+  *
+  * 1. Clone the repository to your local machine: git clone https://github.com/JoseCostaUni/Projeto_AED.git
+  * 2. Open it on your IDE application (Made using Clion)
+  * 3. Create cmake and compile project.
+  * 4. Enjoy your program
+  *
+  * ## Contributing
+  *
+  * “I like criticism. It makes you strong.” LeBron James
+  *
+  * Constructive critics are always welcome, but if you wish to be more proactive and make your own changes to the program:
+  *
+  * 1. Fork the repository
+  * 2. Create your feature branch, preferably with your Github username.
+  * 3. Commit your changes
+  * 4. Push to the branch
+  * 5. Submit a pull request so we can review your changes.
+  *
+  * ## Creators
+  *
+  * Created by:
+  *
+  * - José Costa
+  * - Ângelo Oliveira
+  * - Bernardo Sousa
+  *
+  * For "Algoritmo e Estrutura de Dados" class
+  *
+  * ## Contact
+  *
+  * If you have any questions or suggestions about this project, please feel free to reach out to the project creators by any means possible to you.
   */
