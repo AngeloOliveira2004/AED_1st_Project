@@ -239,6 +239,12 @@ void Schedule::FindUC(UC &targetUC)
             ucs.push_back(uc);
         }
     }
+    if(ucs.empty())
+    {
+        targetUC = UC();
+        return;
+    }
+
     if(ucs.size() > 1)
     {
         string choice;
@@ -272,6 +278,11 @@ void Schedule::FindUCinStudent(Student student, UC &targetUC)
         {
             ucs.push_back(uc);
         }
+    }
+    if(ucs.empty())
+    {
+        targetUC = UC();
+        return;
     }
     if(ucs.size() > 1)
     {

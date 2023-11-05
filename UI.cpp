@@ -623,6 +623,13 @@ void UI::menu_requests() {
             student_func = it_student->first;
             mySchedule.FindUC(uc_func);
 
+            if(!uc_func.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
+
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
             request.push_back(student_func);
@@ -666,6 +673,13 @@ void UI::menu_requests() {
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
+
+            if(!uc_func.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
 
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
@@ -726,6 +740,13 @@ void UI::menu_requests() {
             student_func = it_student->first;
             mySchedule.FindUC(uc_func_new);
 
+            if(!uc_func.hasValue() || !uc_func_new.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
+
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
             request.push_back(student_func);
@@ -761,6 +782,13 @@ void UI::menu_requests() {
                 menu_options();
             }
             student_func = it_student->first;
+
+            if(!uc_func.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
 
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
@@ -807,7 +835,15 @@ void UI::menu_requests() {
                 menu_options();
             }
             student_func = it_student->first;
+
             mySchedule.FindUCinStudent(student_func , uc_func);
+            if(!uc_func.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
+
 
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
@@ -862,6 +898,13 @@ void UI::menu_requests() {
             new_uc.setUcCode(UC_code);
             new_uc.setRespectiveClass(class_code_new);
             mySchedule.FindUC(new_uc);
+
+            if(!new_uc.hasValue() || !old_uc.hasValue())
+            {
+                std::cout << "UC not found" << std::flush;
+                this_thread::sleep_for(chrono::seconds(1));
+                menu_options();
+            }
 
             std::vector<std::variant<Student, UC, char>> request;
             request.push_back(op);
