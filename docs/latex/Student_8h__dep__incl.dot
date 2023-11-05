@@ -10,11 +10,11 @@ digraph "/home/jose-costa/Documents/Uni/AED/Projeto/Student.h"
   Node3 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/Class.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Class_8h.html",tooltip="A header file used to represent a class of an UC, along with related utility functions and operators."];
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node4 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/LoadFIles.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$LoadFIles_8h_source.html",tooltip=" "];
+  Node4 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/LoadFiles.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$LoadFiles_8h.html",tooltip="A header file used to represent all the loading functions."];
   Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node5 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/Schedule.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Schedule_8h.html",tooltip="Header file for the Schedule class, along with related utility functions and operators."];
   Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node6 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/Restoring.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Restoring_8h_source.html",tooltip=" "];
+  Node6 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/Restoring.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Restoring_8h.html",tooltip="The header file for the Restoring function."];
   Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node7 [label="/home/jose-costa/Documents\l/Uni/AED/Projeto/UI.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$UI_8h.html",tooltip="Header file for the UI class, the user interface of a scheduling application."];
   Node5 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];

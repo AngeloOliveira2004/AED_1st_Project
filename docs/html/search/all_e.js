@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['validate_5finput_0',['validate_input',['../classUI.html#a83fba9739cde5eda8391c2020ab3dcff',1,'UI']]]
+  ['uc_0',['UC',['../classUC.html',1,'UC'],['../classUC.html#a8a5e0317c98de9e04ad84157af5684a1',1,'UC::UC()'],['../classUC.html#a0e63a9571a9c38dbe323d108f7665c3a',1,'UC::UC(const std::string &amp;ucCode, const std::string &amp;type, const std::string &amp;respectiveClass, int occupation, const Date &amp;date)']]],
+  ['uc_2eh_1',['UC.h',['../UC_8h.html',1,'']]],
+  ['ui_2',['UI',['../classUI.html',1,'UI'],['../classUI.html#a675985a56b5e87ebdc8e5884b9f2ee09',1,'UI::UI()']]],
+  ['ui_2eh_3',['UI.h',['../UI_8h.html',1,'']]]
 ];

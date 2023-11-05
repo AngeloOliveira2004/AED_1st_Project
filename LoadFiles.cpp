@@ -1,4 +1,4 @@
-#include "LoadFIles.h"
+#include "LoadFiles.h"
 /**
  * @class LoadFiles
  * @brief A class for loading data from CSV files.

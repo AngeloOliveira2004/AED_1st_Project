@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readme_0',['README',['../md__home_jose_costa_Documents_Uni_AED_Projeto_README.html',1,'']]]
+  ['text_2dbased_20terminal_20schedule_20manager_0',['Text-Based Terminal Schedule Manager',['../index.html',1,'']]]
 ];

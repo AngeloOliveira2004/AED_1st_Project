@@ -6,5 +6,6 @@ var searchData=
   ['requests_5f_3',['requests_',['../classUI.html#a877cefd1bd3bbf720569a6cfb625d352',1,'UI']]],
   ['restore_4',['restore',['../classRestoring.html#a1eddb2d1ecf13b901e4b33312f3b0d81',1,'Restoring']]],
   ['restore_5fchanges_5',['restore_changes',['../classUI.html#a48f213a828a36ae8ffd66170237d26d5',1,'UI']]],
-  ['restoring_6',['Restoring',['../classRestoring.html',1,'']]]
+  ['restoring_6',['Restoring',['../classRestoring.html',1,'']]],
+  ['restoring_2eh_7',['Restoring.h',['../Restoring_8h.html',1,'']]]
 ];
