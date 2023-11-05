@@ -405,7 +405,7 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
     {
         for(auto uc : StudentSchedules[student1])
         {
-            if(!(new_uc.getType() == "T" || uc.getType() == "T"))
+            if(!(new_uc.getType() == "T" || uc.getType() == "T") && uc.getRespectiveClass() != "EMPTY")
             {
                 if(new_uc.getType() == uc.getType() || (new_uc.getType() == "TP" && uc.getType() == "PL") || (new_uc.getType() == "PL" && uc.getType() == "TP"))
                 {
@@ -447,6 +447,7 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
             UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] -= 1;
             CalculateBalance();
             std::cout << "Balance Disrupted";
+            return ;
         }
     }
     StudentSchedules[student1] = tempV;

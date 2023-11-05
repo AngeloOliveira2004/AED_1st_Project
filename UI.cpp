@@ -638,20 +638,31 @@ void UI::menu_requests() {
             cout << "Introduce the name of the student: ";
             cin >> student_name;
             cout << endl;
-            cout << "Introduce the code of the UC you want to remove: ";
-            cin >> UC_code;
-            cout << endl;
-            cout << "Introduce the code of the Class of the UC that you want to remove: ";
-            cin >> class_code;
-            cout << endl;
+
             Student student_func;
             UC uc_func;
             student_func.setName(student_name);
+
             auto it_student = mySchedule.FetchStudent(student_func);
             if(it_student == mySchedule.getStudentSchedules().end()){
                 std::cout << "Error: Student not found." << std::endl;
                 menu_options();
             }
+
+            cout << "These are the available UCs: \n";
+
+            for(auto uc : it_student -> second)
+            {
+                cout << uc.getUcCode() << " " << uc.getRespectiveClass() << " " <<uc.getType() << "\n";
+            }
+
+            cout << endl << endl << "Introduce the code of the UC you want to remove: ";
+            cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the Class of the UC that you want to remove: ";
+            cin >> class_code;
+            cout << endl;
+
             student_func = it_student->first;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
@@ -674,12 +685,29 @@ void UI::menu_requests() {
             cout << "Introduce the name of the student: ";
             cin >> student_name;
             cout << endl;
-            cout << "Introduce the code of the UC you want to switch in: ";
+
+            cout << endl << "Introduce the code of the UC you want to switch in: ";
             cin >> UC_code_new;
             cout << endl;
             cout << "Introduce the code of the class you want to switch in: ";
             cin >> class_code_new;
             cout << endl;
+
+            Student student_func;
+            student_func.setName(student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
+            cout << "These are the available UCs: \n" ;
+
+            for(auto uc : it_student -> second)
+            {
+                cout << uc.getUcCode() << " " << uc.getRespectiveClass() << " " <<uc.getType() << "\n";
+            }
+            UC uc_func;
+
             cout << "Introduce the code of the UC you want to switch out: ";
             cin >> UC_code;
             cout << endl;
@@ -687,22 +715,15 @@ void UI::menu_requests() {
             cin >> class_code;
             cout << endl;
 
-            Student student_func;
-            UC uc_func;
+            uc_func.setRespectiveClass(class_code);
+            uc_func.setUcCode(UC_code);
+
             UC uc_func_new;
             uc_func_new.setUcCode(UC_code_new);
             uc_func_new.setRespectiveClass(class_code_new);
-            uc_func.setRespectiveClass(class_code);
-            uc_func.setUcCode(UC_code);
-            student_func.setName(student_name);
 
-            auto it_student = mySchedule.FetchStudent(student_func);
-            if(it_student == mySchedule.getStudentSchedules().end()){
-                std::cout << "Error: Student not found." << std::endl;
-                menu_options();
-            }
+
             student_func = it_student->first;
-            mySchedule.FindUC(uc_func);
             mySchedule.FindUC(uc_func_new);
 
             std::vector<std::variant<Student, UC, char>> request;
@@ -750,26 +771,37 @@ void UI::menu_requests() {
         }
         case '5':{
             // Handle the request to remove a class from a certain UC of a student.
-            string Student_name;
+            string student_name;
             string UC_code;
             string class_code;
             cout << "Introduce the name of the student: ";
-            cin >> Student_name;
+            cin >> student_name;
             cout << endl;
-            cout << "Introduce the code of the UC: ";
+
+            Student student_func;
+            student_func.setName(student_name);
+            auto it_student = mySchedule.FetchStudent(student_func);
+            if(it_student == mySchedule.getStudentSchedules().end()){
+                std::cout << "Error: Student not found." << std::endl;
+                menu_options();
+            }
+            cout << "These are the available UCs:\n" ;
+
+            for(auto uc : it_student -> second)
+            {
+                cout << uc.getUcCode() << " " << uc.getRespectiveClass() << " " <<uc.getType() << "\n";
+            }
+            UC uc_func;
+
+            cout << endl << endl << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
             cout << "Introduce the code of the Class of the UC that you want to remove: ";
             cin >> class_code;
             cout << endl;
-            Student student_func;
-            UC uc_func;
             uc_func.setUcCode(UC_code);
             uc_func.setRespectiveClass(class_code);
 
-
-            student_func.setName(Student_name);
-            auto it_student = mySchedule.FetchStudent(student_func);
             if(it_student == mySchedule.getStudentSchedules().end()){
                 std::cout << "Error: Student not found." << std::endl;
                 menu_options();
@@ -804,7 +836,14 @@ void UI::menu_requests() {
             }
             student_func = it_student->first;
 
-            cout << "Introduce the code of the UC: ";
+            cout << "These are the available UCs: \n" ;
+
+            for(auto uc : it_student -> second)
+            {
+                cout << uc.getUcCode() << " " << uc.getRespectiveClass() << " " <<uc.getType() << "\n";
+            }
+
+            cout << endl << endl << "Introduce the code of the UC: ";
             cin >> UC_code;
             cout << endl;
 
