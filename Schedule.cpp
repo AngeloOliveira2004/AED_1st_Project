@@ -401,6 +401,7 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
 void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
 {
     std::vector<UC> tempV;
+    auto ucs_ = StudentSchedules[student1];
     if(FindStudentinSchedule(student1.getName()))
     {
         for(auto uc : StudentSchedules[student1])
@@ -446,6 +447,7 @@ void Schedule::SwitchUc(Student student1, UC new_uc, UC ex_uc)
             UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] += 1;
             UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] -= 1;
             CalculateBalance();
+            StudentSchedules[student1] = ucs_;
             std::cout << "Balance Disrupted";
             return ;
         }
