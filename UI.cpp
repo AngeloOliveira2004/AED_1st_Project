@@ -40,11 +40,13 @@ void UI::loading_stuff(UI &ui) {
     }
 
     // Set the schedules and attendance information for the UI's schedule.
+
     mySchedule.setUCs(ucs);
     mySchedule.setClassSchedules(ClassSchedules_);
     mySchedule.setStudentSchedules(StudentSchedules_);
     mySchedule.setClassAttendance(AttendancePair.first);
     mySchedule.setUcOcupation(AttendancePair.second);
+    mySchedule.CalculateBalance();
 }
 
 /**
@@ -738,6 +740,7 @@ void UI::menu_requests() {
             uc_func.setRespectiveClass(class_code);
             uc_func.setUcCode(UC_code);
 
+            mySchedule.FindUC(uc_func);
             student_func = it_student->first;
 
             if(!uc_func.hasValue() || !uc_func_new.hasValue())
@@ -757,23 +760,13 @@ void UI::menu_requests() {
         }
         case '4':{
             // Handle the request to add a class to a certain UC of a student.
+            Student student_func;
             string Student_name;
             string UC_code;
             string class_code;
             cout << "Introduce the name of the student: ";
             cin >> Student_name;
             cout << endl;
-            cout << "Introduce the code of the UC: ";
-            cin >> UC_code;
-            cout << endl;
-            cout << "Introduce the code of the class you want to add: ";
-            cin >> class_code;
-            cout << endl;
-            Student student_func;
-            UC uc_func;
-            uc_func.setRespectiveClass(class_code);
-            uc_func.setUcCode(UC_code);
-            mySchedule.FindUC(uc_func);
 
             student_func.setName(Student_name);
             auto it_student = mySchedule.FetchStudent(student_func);
@@ -782,6 +775,24 @@ void UI::menu_requests() {
                 menu_options();
             }
             student_func = it_student->first;
+
+            cout << endl << "These are the available UCs: \n" ;
+
+            for(auto uc : it_student -> second)
+            {
+                cout << uc.getUcCode() << " " << uc.getRespectiveClass() << " " <<uc.getType() << "\n";
+            }
+
+            cout << "Introduce the code of the UC: ";
+            cin >> UC_code;
+            cout << endl;
+            cout << "Introduce the code of the class you want to add: ";
+            cin >> class_code;
+            cout << endl;
+            UC uc_func;
+            uc_func.setRespectiveClass(class_code);
+            uc_func.setUcCode(UC_code);
+            mySchedule.FindUC(uc_func);
 
             if(!uc_func.hasValue())
             {

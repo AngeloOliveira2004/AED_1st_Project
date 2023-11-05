@@ -361,7 +361,7 @@ void Schedule::SwitchClass(Student &student1, UC& old_uc, UC &new_uc) {
     int tempBalance = Balance;
     CalculateBalance();
 
-    if(Balance < tempBalance && UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
+    if(Balance <= tempBalance && UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
     {
         for(UC uc : StudentSchedules[student1])
         {
@@ -413,8 +413,6 @@ void Schedule::SwitchUc(Student student1, UC ex_uc, UC new_uc)
 {
     std::vector<UC> tempV;
     auto ucs_ = StudentSchedules[student1];
-    string debug1 = new_uc.getRespectiveClass();
-    string debug2 = new_uc.getUcCode();
     string debug3 = ex_uc.getRespectiveClass();
     string debug4 = ex_uc.getUcCode();
 
@@ -434,6 +432,7 @@ void Schedule::SwitchUc(Student student1, UC ex_uc, UC new_uc)
                 }
             }
         }
+
         int tempBalance = Balance;
         ClassAttendance[ex_uc.getRespectiveClass()].erase(student1.getName());
         ClassAttendance[new_uc.getRespectiveClass()].insert(student1.getName());
@@ -441,12 +440,18 @@ void Schedule::SwitchUc(Student student1, UC ex_uc, UC new_uc)
         UcOcupation[{ex_uc.getUcCode() , ex_uc.getRespectiveClass()}] -= 1;
         UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] += 1;
         CalculateBalance();
-
+        int debugBalance = Balance;
         if(Balance <= tempBalance && UcOcupation[{new_uc.getUcCode() , new_uc.getRespectiveClass()}] <= MAX_CAP)
         {
             for(auto uc : StudentSchedules[student1])
             {
-                if(uc == ex_uc && ex_uc.getDate().Day == uc.getDate().Day && ex_uc.getDate().Duration.first == uc.getDate().Duration.first && ex_uc.getDate().Duration.second == uc.getDate().Duration.second)
+                string debug5 = uc.getUcCode();
+                string debug6 = uc.getRespectiveClass();
+                string debug7 = uc.getType();
+                string debug1 = ex_uc.getRespectiveClass();
+                string debug2 = ex_uc.getUcCode();
+                string debug10 = ex_uc.getType();
+                if(uc == ex_uc)
                 {
                     tempV.push_back(new_uc);
                 }
@@ -602,8 +607,26 @@ void Schedule::AddClass(Student student1, UC &uc)
 {
     vector<UC> tempV;
     auto it = StudentSchedules[student1];
+
     if (FindStudentinSchedule(student1.getName()))
     {
+        for(auto uc : StudentSchedules[student1])
+        {
+            for(auto uc_ : StudentSchedules[student1])
+            {
+                if(!(uc_.getType() == "T" || uc.getType() == "T") && uc_.getRespectiveClass() != "EMPTY")
+                {
+                    if(uc_.getType() == uc.getType() || (uc_.getType() == "TP" && uc.getType() == "PL") || (uc_.getType() == "PL" && uc.getType() == "TP"))
+                    {
+                        if(Date::Overlaps(uc.getDate() , uc_.getDate()))
+                        {
+                            std::cout << "Schedule not compatible with other classes";
+                            return;
+                        }
+                    }
+                }
+            }
+        }
 
         ClassAttendance[uc.getRespectiveClass()].insert(student1.getName());
         UcOcupation[{uc.getUcCode() , uc.getRespectiveClass()}] += 1;
@@ -637,22 +660,6 @@ void Schedule::AddClass(Student student1, UC &uc)
     }
     StudentSchedules[student1] = tempV;
 
-    for(auto uc : StudentSchedules[student1])
-    {
-        for(auto uc_ : StudentSchedules[student1])
-        {
-            if(!(uc_.getType() == "T" || uc.getType() == "T"))
-            {
-                if(uc_.getType() == uc.getType() || (uc_.getType() == "TP" && uc.getType() == "PL") || (uc_.getType() == "PL" && uc.getType() == "TP"))
-                {
-                    if(Date::Overlaps(uc.getDate() , uc_.getDate()))
-                    {
-                        std::cout << "Schedule not compatible with other classes";
-                        return;
-                    }
-                }
-            }
-        }
-    }
+
 }
 
